@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import collaborationPhoto from '../assets/images/collaboration.png';
 ---
 
 <section id="identification">
@@ -16,7 +18,10 @@ import '../styles/global.css';
       <p>Résultat ? Du temps retrouvé, une vision claire et <strong>une croissance qui ne t'use plus</strong>.</p>
       <a href="" class="button cta">Je veux passer ce cap</a>
     </article>
-    <div class="placeholder"></div>
+    <div class="shape-wrapper">
+      <img src={collaborationPhoto.src} alt="" height={400} class="image"/>
+      <div class="shape"></div>
+    </div>
   </div>
 </section>
 
@@ -33,11 +38,28 @@ import '../styles/global.css';
     max-width: 60ch;
   }
 
-  .placeholder {
+  .shape-wrapper {
     flex: 1;
-    max-width: 35rem;
-    min-height: 550px;
+    position: relative;
+    clip-path: inset(8% 3% 2% 3% round 20% 20% 20% 20%);
+    border: 1px solid red;
+    padding-top: 3rem;
+  }
+
+  .image {
+    object-fit: cover;
+    width: 100%;
     height: 100%;
-    border: 1px solid black;
+  }
+
+  .shape {
+    width: 100%;
+    height: 550px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #cee397;
+    z-index: -1;
+    clip-path: ellipse(63% 38% at 49% 65%);
   }
 </style>

@@ -16,13 +16,15 @@ import BusinessIcon from '../assets/employees.svg';
     <div class="cards">
       <div class="card">
         <header>
-          <OSIcon />
-          <h3 class="card-title">The Plannerist OS</h3>
+          <div class="header-icon">
+            <OSIcon />
+            <h3 class="card-title">The Plannerist OS</h3>
+          </div>
           <div class="card-tagline">3 mois pour remettre de l'ordre dans ton activité.</div>
           <div class="card-price">{price}</div>
           <a href="" class="button cta">Mettre en place mon OS</a>
         </header>
-        <p>On fait un état des lieux complet. On simplifie, on ajuste et on crée une feuille de route claire pour fluidifier ton opérationnel.</p>
+        <!-- <p>On fait un état des lieux complet. On simplifie, on ajuste et on crée une feuille de route claire pour fluidifier ton opérationnel.</p> -->
         <h4>Structuration de votre organisation</h4>
         <ul class="fa-ul">
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Workspace Asana organisé par pôles (Finance, Marketing, Produit, etc.)</li>
@@ -39,13 +41,15 @@ import BusinessIcon from '../assets/employees.svg';
 
       <div class="card">
         <header>
-          <BusinessIcon />
-          <h3 class="card-title">Le Co-pilotage</h3>
+          <div class="header-icon">
+            <BusinessIcon />
+            <h3 class="card-title">Le Co-pilotage</h3>
+          </div>
           <div class="card-tagline">+6 mois pour gagner des points de marge.</div>
           <div class="card-price">{price_2}<span>/mois</span></div>
           <a href="" class="button cta">Me faire piloter</a>
         </header>
-        <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p>
+        <!-- <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p> -->
         <h4>Direction opérationnelle &amp; décisions</h4>
         <ul class="fa-ul">
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Revue hebdomadaire des affaires en binôme</li>
@@ -81,10 +85,11 @@ import BusinessIcon from '../assets/employees.svg';
     line-height: 1.25;
     max-width: 30ch;
     text-wrap: balance;
-    margin-top: 0;
+    margin-top: -.75rem;
   }
 
   .title-header {
+    font-family: "AH Ernie", script;
     color: #214E34;
     position: relative;
   }
@@ -119,32 +124,39 @@ import BusinessIcon from '../assets/employees.svg';
     border-radius: 12px;
     box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
     border: 1px solid #dadadd;
-    max-width: 35ch;
+    max-width: 30ch;
     font-size: var(--step-0);
+  }
+
+  .card ul {
+    margin-left: var(--space-m);
   }
 
   .card header {
     border-bottom: 1px solid #dadadd;
-    padding-bottom: var(--space-m);
-    margin-bottom: var(--space-m);
+    padding-bottom: var(--space-s);
+    margin-bottom: var(--space-s);
     position: relative;
+  }
+
+  .card .header-icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: .5rem;
   }
 
   .card svg {
-    --length: 2.4rem;
+    --length: 2rem;
     width: var(--length);
     height: var(--length);
     color: var(--bg-color-dark);
-  }
-
-  .card svg:last-of-type {
-    position: relative;
-    bottom: -2px;
+    margin-bottom: .5rem;
   }
 
   .card-title {
     margin-top: 0;
-    margin-bottom: var(--space-xs);
+    margin-bottom: 0;
     line-height: 1;
     font-family: "Outfit", sans-serif;
     font-weight: 400;
@@ -153,20 +165,22 @@ import BusinessIcon from '../assets/employees.svg';
   }
 
   .card-tagline {
+    font-size: var(--step--1);
     font-weight: 200;
+    line-height: 1.15;
   }
 
   .card-price {
-    font-size: var(--step-3);
+    font-size: var(--step-2);
     font-weight: 600;
-    margin-block: var(--space-m);
+    margin-block: var(--space-s);
   }
 
   .card-price span {
-    font-size: var(--step-1);
+    font-size: var(--step-0);
     color: #909090;
     font-weight: 300;
-    margin-left: 5px;
+    margin-left: .25rem;;
   }
 
   .card .button {
