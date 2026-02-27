@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import { links } from './links.js'
+import logo from '../assets/logos/logo-dark.png';
+import { Image } from 'astro:assets';
+---
+
+<footer>
+  <div class="container footer">
+    <div class="menu">
+      <Image src={logo} alt="" height={90} />
+      <p>Accompagnement en stratégie et pilotage d'entreprise pour solopreneurs et petites entreprises : optimisation, transformation et croissance. Clarifie tes priorités, optimise tes process, développe ton activité sereinement.
+    </div>
+    <div class="menu">
+      <div class="menu-heading">Infos</div>
+      <div class="infos submenu">
+        <div class="menu-subheading">Office hours</div>
+        <div>10H00 &ndash; 18H00 Lundi à Vendredi</div>
+        <div style="font-style:italic">En visio et sur Paris, Boulogne-Billancourt &amp; 92</div>
+      </div>
+      <div class="contact submenu">
+        <div class="menu-subheading">Contact</div>
+        <a href="">Prendre rendez-vous</a>
+        <div class="socials">
+          <a href="">Instagram</a>
+          <div class="separator"></div>
+          <a href="">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="menu-heading">Menu</div>
+      {links.map(link => <a href={link.url}>{link.name}</a>)}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-xl);
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+  }
+
+  .menu:first-of-type {
+    margin-right: auto;
+  }
+
+  .menu a {
+    color: var(--bg-color-dark);
+  }
+
+  .menu a + a {
+    margin-top: var(--space-2xs);
+  }
+
+  .menu-heading {
+    text-transform: uppercase;
+    margin-bottom: var(--space-m);
+    font-weight: 700;
+  }
+
+  .menu-subheading::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-color-light);
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .menu-subheading {
+    position: relative;
+    text-transform: uppercase;
+    width: fit-content;
+    font-weight: 300;
+    z-index: 1;
+    margin-bottom: var(--space-2xs);
+  }
+
+  .submenu {
+    margin-bottom: var(--space-m);
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    height: 1.75rem;
+  }
+  
+  .separator {
+    width: 1px;
+    height: 100%;
+    background-color: white;
+  }
+</style>
