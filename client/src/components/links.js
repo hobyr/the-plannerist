@@ -5,7 +5,7 @@ export const links = [
   },
   {
   name: "À propos",
-  url: "",
+  url: "/about",
   },
   {
     name: "La Bibliothèque",
@@ -24,4 +24,3 @@ export const links = [
   url: "",
   },
 ]
-
