@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <!-- <div class="bg-blob blob-1"></div> -->
+  <!-- <div class="bg-blob blob-2"></div> -->
+  <!-- <div class="bg-blob blob-3"></div> -->
+  <!-- <div class="bg-blob blob-4"></div> -->
+  <!-- <div class="bg-blob blob-5"></div> -->
+  <section id="welcome-about">
+    <div class="container">
+      <div class="title-header">Faisons connaissance</div>
+      <h1 class="page-title">Hello! Moi c'est Seheno Ratefimandimby, <span>ta COO pour PME et solopreneurs</span></h1>
+      <article>
+        <p>Ce qui m'anime depuis toujours, c'est la curiosité : comprendre comment les choses fonctionnent, pourquoi elles coincent parfois, et comment les faire évoluer.</p>
+        <p>C'est cette logique qui m'a menée, au fil des expériences, à devenir COO (Chief Operating Officer) pour PME et entrepreneurs : un rôle où je peux allier recul stratégique et mise en ordre concrète.</p>
+        <p>Structuration, organisation, pilotage &ndash; je mets mon expérience de bras droit stratégique au service de ton développement.</p>
+        <a href="" class="button cta">Ton approche m'inspire</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="container">
+      <div class="title-header">La curiosité comme fil conducteur</div>
+      <h2 class="section-title">Mon parcours de COO pour PME et solopreneurs</h2>
+      <article>
+        <p>Après une classe préparatoire et une école de commerce, j'ai fait mes premières armes dans l'univers du prêt-à-porter et du luxe. Des secteurs exigeants, où j'ai appris à concilier vision stratégique, rigueur opérationnelle et attention au détail.</p>
+        <p>C'est en lançant ma première entreprise, Embrace Planner, que tout s'est aligné. J'ai pris conscience de l'importance d'un système bien pensé pour faire tourner une activité sans s'y épuiser. J'ai structuré, testé, itéré. Résultat ? La rentabilité atteinte en un peu plus d'un an, et une activité capable de tourner en solo.</p>
+        <p>Forte de cette expérience, j'ai commencé à accompagner d'autres entrepreneurs : des fondateurs ambitieux, souvent très engagés dans leur activité, mais sans cadre clair pour la faire évoluer sereinement.</p>
+        <p>Aujourd'hui, en tant que COO externalisée, j'intervies auprès de PME et d'entrepreneurs pour leur apporter ce cadre et cette expérience terrain.</p>
+        <a href="" class="button cta">Je veux collaborer avec toi</a>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  :root {
+    --blob-col-1: #F4E04D;
+    --blob-col-2: #95BF74;
+    --blob-col-3: #DDA77B;
+    /* --blob-col-3: #669BBC; */
+  }
+
+  .bg-blob {
+    position: absolute;
+    --length: 600px;
+    width: var(--length);
+    height: var(--length);
+    z-index: -1;
+    filter: blur(500px);
+  }
+
+  .blob-1 {
+    top: 0;
+    right: 0;
+    background-color: var(--blob-col-1);
+  }
+
+  .blob-2 {
+    left: 0;
+    top: 800px;
+    background-color: var(--blob-col-2);
+  }
+
+  .blob-3 {
+    top: 1400px;
+    right: 0;
+    background-color: var(--blob-col-3);
+  }
+
+  .blob-4 {
+    top: 2400px;
+    left: 0;
+    background-color: var(--blob-col-1);
+  }
+
+  .blob-5 {
+    top: 3800px;
+    right: 0px;
+    background-color: var(--bg-color-dark);
+  }
+</style>
+
