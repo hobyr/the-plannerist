@@ -202,6 +202,33 @@ a {
 }
 
 .cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+  width: fit-content;
+}
+
+.cta i {
+  background-color: var(--primary-xtra-light);
+  width: 2rem;
+  aspect-ratio: 1/1;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition-property: background-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in;
+}
+
+.cta:hover i {
+  background-color: #647F24;
+}
+
+.cta {
   background-color: var(--primary-light);
   color: var(--primary);
 
@@ -237,6 +264,7 @@ li {
   text-align: center;
   line-height: 1.15;
   text-wrap: balance;
+  margin-top: 0;
 }
 
 .section-title {

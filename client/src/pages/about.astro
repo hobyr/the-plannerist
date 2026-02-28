@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Introduction from '../components/about/Introduction.astro';
 ---
 
 <Layout>
@@ -11,19 +9,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- <div class="bg-blob blob-3"></div> -->
   <!-- <div class="bg-blob blob-4"></div> -->
   <!-- <div class="bg-blob blob-5"></div> -->
-  <section id="welcome-about">
-    <div class="container">
-      <div class="title-header">Faisons connaissance</div>
-      <h1 class="page-title">Hello! Moi c'est Seheno Ratefimandimby, <span>ta COO pour PME et solopreneurs</span></h1>
-      <article>
-        <p>Ce qui m'anime depuis toujours, c'est la curiosité : comprendre comment les choses fonctionnent, pourquoi elles coincent parfois, et comment les faire évoluer.</p>
-        <p>C'est cette logique qui m'a menée, au fil des expériences, à devenir COO (Chief Operating Officer) pour PME et entrepreneurs : un rôle où je peux allier recul stratégique et mise en ordre concrète.</p>
-        <p>Structuration, organisation, pilotage &ndash; je mets mon expérience de bras droit stratégique au service de ton développement.</p>
-        <a href="" class="button cta">Ton approche m'inspire</a>
-      </article>
-    </div>
-  </section>
-
+  <Introduction />
   <section id="journey">
     <div class="container">
       <div class="title-header">La curiosité comme fil conducteur</div>
