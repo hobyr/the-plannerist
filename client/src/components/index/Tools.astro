@@ -1,6 +1,9 @@
 ---
 import '../../styles/global.css';
 import { Image } from 'astro:assets';
+const knowMore = "/bibliotheque";
+const workbookDL = "";
+const autoAuditDL = "";
 ---
 
 <section id="tools">
@@ -12,7 +15,10 @@ import { Image } from 'astro:assets';
       <div class="card">
         <!-- <Image src="" alt="" /> -->
         <h3>The Plannerist Workbook</h3>
-        <a href="" class="button cta">Télecharger le workbook <span><i class="fa-solid fa-file-arrow-down"></i></span></a>
+        <div class="links">
+          <a href={workbookDL} class="button cta">Télecharger le workbook <span><i class="fa-solid fa-file-arrow-down"></i></span></a>
+          <a href={knowMore} class="card-link">En savoir plus</a>
+        </div>
         <p>Un questionnaire stratégique pour passer ton activité B2C au crible. En 7 thématiques, tu analyses :</p>
         <ol>
           <li>ta proposition de valeur</li>
@@ -28,7 +34,10 @@ import { Image } from 'astro:assets';
       <div class="card">
         <!-- <Image src="" alt="" /> -->
         <h3>The Plannerist Auto-Audit</h3>
-        <a href="" class="button cta">Télecharger l'auto-audit<span><i class="fa-solid fa-file-arrow-down"></i></span></a>
+        <div class="links">
+          <a href={autoAuditDL} class="button cta">Télecharger l'auto-audit<span><i class="fa-solid fa-file-arrow-down"></i></span></a>
+          <a href={knowMore} class="card-link">En savoir plus</a>
+        </div>
         <p>Un questionnaire stratégique pour passer ton activité B2C au crible. En 7 thématiques, tu analyses :</p>
         <ol>
           <li>ta proposition de valeur</li>
@@ -100,5 +109,19 @@ import { Image } from 'astro:assets';
 
   .cta {
     padding-right: .75rem;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  .card-link {
+    color: var(--text);
+  }
+
+  .card-link:hover {
+    color: var(--secondary);
   }
 </style>

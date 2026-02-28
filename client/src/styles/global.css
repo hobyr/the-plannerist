@@ -186,7 +186,9 @@ section {
 }
 
 a {
-  color: white;
+  transition-property: color, background-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
 }
 
 .button {
