@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
 import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
+import Layout from '../../layouts/Layout.astro';
 export async function getStaticPaths() {
 const response = await fetch("https://graceful-splendor-ed9c514534.strapiapp.com/api/blogs")
 const data = await response.json();

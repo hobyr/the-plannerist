@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@sensinum/astro-strapi-blocks": "^1.2.7",
     "astro": "^5.17.1"
   }
 }
