@@ -25,7 +25,8 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     },
     "featured": {
       "type": "boolean"
