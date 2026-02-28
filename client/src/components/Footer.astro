@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { links } from './links.js'
 import logo from '../assets/logos/logo-dark.png';
 import { Image } from 'astro:assets';
+const calendlyLink = 'https://calendly.com/seheno-theplannerist/appel-decouverte/';
 ---
 
 <footer>
@@ -21,11 +22,11 @@ import { Image } from 'astro:assets';
         </div>
         <div class="contact submenu">
           <div class="menu-subheading">Contact</div>
-          <a href="">Prendre rendez-vous</a>
+          <a href={calendlyLink}>Prendre rendez-vous</a>
           <div class="socials">
-            <a href="">Instagram</a>
+            <a href="https://www.instagram.com/theplannerist/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <div class="separator"></div>
-            <a href="">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/seheno-ratefimandimby/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -66,6 +67,7 @@ import { Image } from 'astro:assets';
   .menu {
     display: flex;
     flex-direction: column;
+    gap: var(--space-xs);
     max-width: 20rem;
   }
 
@@ -73,12 +75,12 @@ import { Image } from 'astro:assets';
     margin-right: auto;
   }
 
-  .menu a {
+  .footer a {
     color: var(--bg-color-dark);
   }
 
-  .menu a + a {
-    margin-top: var(--space-2xs);
+   .footer a:hover {
+    color: #f57200;
   }
 
   .logo {
@@ -88,7 +90,6 @@ import { Image } from 'astro:assets';
 
   .menu-heading {
     text-transform: uppercase;
-    margin-bottom: var(--space-s);
     font-weight: 700;
     z-index: 1;
   }
@@ -121,14 +122,17 @@ import { Image } from 'astro:assets';
   .socials {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: var(--space-xs);
-    height: 1.75rem;
+    height: fit-content;
+    margin-top: var(--space-s);
+    position: relative;
   }
-  
+
   .separator {
     width: 1px;
-    height: 100%;
-    background-color: white;
+    height: 1rem;
+    background-color: var(--text);
   }
 
   .copyright {
