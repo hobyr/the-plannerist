@@ -11,7 +11,8 @@ import { Image } from 'astro:assets';
     <div class="cards">
       <div class="card">
         <!-- <Image src="" alt="" /> -->
-        <h3>The Plannerist Auto-Audit</h3>
+        <h3>The Plannerist Workbook</h3>
+        <a href="" class="button cta">Télecharger le workbook <span><i class="fa-solid fa-file-arrow-down"></i></span></a>
         <p>Un questionnaire stratégique pour passer ton activité B2C au crible. En 7 thématiques, tu analyses :</p>
         <ol>
           <li>ta proposition de valeur</li>
@@ -26,7 +27,8 @@ import { Image } from 'astro:assets';
       </div>
       <div class="card">
         <!-- <Image src="" alt="" /> -->
-        <h3>The Plannerist Workbook</h3>
+        <h3>The Plannerist Auto-Audit</h3>
+        <a href="" class="button cta">Télecharger l'auto-audit<span><i class="fa-solid fa-file-arrow-down"></i></span></a>
         <p>Un questionnaire stratégique pour passer ton activité B2C au crible. En 7 thématiques, tu analyses :</p>
         <ol>
           <li>ta proposition de valeur</li>
@@ -94,5 +96,33 @@ import { Image } from 'astro:assets';
     bottom: 0;
     z-index: -1;
     background-color: var(--primary-light);
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-s);
+    width: fit-content;
+    padding-right: .75rem;
+  }
+
+  .cta i {
+    background-color: var(--primary-xtra-light);
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
+  }
+
+  .cta:hover i {
+    background-color: #647F24;
   }
 </style>
