@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+---
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Besoin d'en parler pour être sûr.e que c'est ce qu'il te faut ?</h2>
+    <p>Réserve ton appel découverte et <strong>voyons comment clarifier, organiser et développer ton activité</strong> pour qu'elle soutienne tes ambitions.</p>
+    <a href="" class="button cta">Prendre un café virtuel et en discuter <span><i class="fa-solid fa-mug-hot"></i></span></a>
+  </div>
+</section>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-l);
+  }
+
+  h2 span {
+    font-style: italic;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-s);
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-s);
+    width: fit-content;
+    padding-right: .75rem;
+  }
+
+  .cta i {
+    background-color: var(--primary-xtra-light);
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
+  }
+
+  .cta:hover i {
+    background-color: #647F24;
+  }
+</style>
+
+
