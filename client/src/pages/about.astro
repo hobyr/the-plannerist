@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Introduction from '../components/about/Introduction.astro';
+import Journey from '../components/about/Journey.astro';
+import Solution from '../components/about/Solution.astro';
+import Workflow from '../components/about/Workflow.astro';
 ---
 
 <Layout>
@@ -10,19 +13,9 @@ import Introduction from '../components/about/Introduction.astro';
   <!-- <div class="bg-blob blob-4"></div> -->
   <!-- <div class="bg-blob blob-5"></div> -->
   <Introduction />
-  <section id="journey">
-    <div class="container">
-      <div class="title-header">La curiosité comme fil conducteur</div>
-      <h2 class="section-title">Mon parcours de COO pour PME et solopreneurs</h2>
-      <article>
-        <p>Après une classe préparatoire et une école de commerce, j'ai fait mes premières armes dans l'univers du prêt-à-porter et du luxe. Des secteurs exigeants, où j'ai appris à concilier vision stratégique, rigueur opérationnelle et attention au détail.</p>
-        <p>C'est en lançant ma première entreprise, Embrace Planner, que tout s'est aligné. J'ai pris conscience de l'importance d'un système bien pensé pour faire tourner une activité sans s'y épuiser. J'ai structuré, testé, itéré. Résultat ? La rentabilité atteinte en un peu plus d'un an, et une activité capable de tourner en solo.</p>
-        <p>Forte de cette expérience, j'ai commencé à accompagner d'autres entrepreneurs : des fondateurs ambitieux, souvent très engagés dans leur activité, mais sans cadre clair pour la faire évoluer sereinement.</p>
-        <p>Aujourd'hui, en tant que COO externalisée, j'intervies auprès de PME et d'entrepreneurs pour leur apporter ce cadre et cette expérience terrain.</p>
-        <a href="" class="button cta">Je veux collaborer avec toi</a>
-      </article>
-    </div>
-  </section>
+  <Journey />
+  <Solution />
+  <Workflow />
 </Layout>
 
 <style>
