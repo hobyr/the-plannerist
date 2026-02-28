@@ -1,16 +1,98 @@
 ---
 import '../styles/global.css';
+import { Image } from 'astro:assets';
 ---
 
 <section id="tools">
   <div class="container">
-    <div class="title-header"></div>
     <h2 class="section-title">Tes outils <span>gratuits</span> pour booster ton activité</h2>
+    <p class="header-text">Dans la bibliothèque, retrouve des ressources offertes, créées à partir de mon expérience terrain auprès de solopreneurs, entrepreneurs et PME que j'ai accompagnés.</p>
+    <p class="header-text">Des outils simples, concrets et directement utilisables pour faire progresser ton business dès aujourd'hui.</p>
+    <div class="cards">
+      <div class="card">
+        <!-- <Image src="" alt="" /> -->
+        <h3>The Plannerist Auto-Audit</h3>
+        <p>Un questionnaire stratégique pour passer ton activité B2C au crible. En 7 thématiques, tu analyses :</p>
+        <ol>
+          <li>ta proposition de valeur</li>
+          <li>ta visibilité</li>
+          <li>ton persona</li>
+          <li>tes offres</li>
+          <li>ta rentabilité</li>
+          <li>tes process</li>
+          <li>ta vision</li>
+        </ol>
+        <p>Résultat ? Un plan clair pour ajuster tes actions et accélérer ta croissance.</p>
+      </div>
+      <div class="card">
+        <!-- <Image src="" alt="" /> -->
+        <h3>The Plannerist Workbook</h3>
+        <p>Un questionnaire stratégique pour passer ton activité B2C au crible. En 7 thématiques, tu analyses :</p>
+        <ol>
+          <li>ta proposition de valeur</li>
+          <li>ta visibilité</li>
+          <li>ton persona</li>
+          <li>tes offres</li>
+          <li>ta rentabilité</li>
+          <li>tes process</li>
+          <li>ta vision</li>
+        </ol>
+        <p>Résultat ? Un plan clair pour ajuster tes actions et accélérer ta croissance.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   h2 span {
     font-style: italic;
+  }
+
+  .header-text {
+    margin-top: 0;
+    max-width: 65ch;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-m);
+  }
+
+  .card {
+    flex: 1;
+    background-color: white;
+    padding: var(--space-m);
+    border-radius: 12px;
+    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    border: 1px solid #dadadd;
+    max-width: 45ch;
+    font-size: var(--step-0);
+  }
+
+  .card h3 {
+    margin-top: 0;
+    position: relative;
+    z-index: 0;
+    width: fit-content;
+  }
+
+  .card h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 20%;
+    top: 75%;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--primary-light);
   }
 </style>
