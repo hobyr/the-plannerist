@@ -119,6 +119,20 @@
   --bg-color-light: #8EB6DC;
   --bg-color: #1470AF;
   --bg-color-dark: #044776;
+
+  /****************************************************************/
+  /*********************** COLORS *********************************/
+  /****************************************************************/
+  --neutral: #FCFCFF;
+  --text: #0E106C;
+  --primary: #214E34;
+  --primary-light: #CEE397;
+  --secondary: ;
+  --accent: #FF7F11;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .container {
@@ -132,8 +146,8 @@ body {
   font-weight: 300;
   font-size: var(--step-0);
   letter-spacing: -0.2px;
-  background-color: white;
-  color: var(--bg-color-dark);
+  background-color: var(--neutral);
+  color: var(--text);
 }
 
 strong {
@@ -159,6 +173,10 @@ h3 {
   font-size: var(--step-2);
 }
 
+p {
+  line-height: 1.35;
+}
+
 footer,
 section {
   padding: 4rem 0;
@@ -171,14 +189,26 @@ a {
 .button {
   display: inline-block;
   text-decoration: none;
-  border: 1px solid white;
-  background-color: var(--bg-color);
   padding: 1rem 1.5rem;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: var(--step--1);
   font-weight: 500;
   /* letter-spacing: 1px; */
   text-transform: uppercase;
+}
+
+.cta {
+  background-color: var(--primary-light);
+  color: var(--primary);
+
+  transition-property: color, background-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+.cta:hover {
+  background-color: var(--primary);
+  color: var(--neutral);
 }
 
 .button.bright {
@@ -191,8 +221,8 @@ li {
 }
 
 .title-header {
-  font-family: "Outfit", sans-serif;
-  font-weight: 500;
+  font-family: "AH Ernie", sans-serif;
   font-size: var(--step-1);
-  /* text-transform: uppercase; */
+  color: var(--primary);
+  text-transform: unset;
 }
