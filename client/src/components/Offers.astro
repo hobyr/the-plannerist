@@ -22,7 +22,7 @@ import BusinessIcon from '../assets/employees.svg';
           </div>
           <div class="card-tagline">3 mois pour remettre de l'ordre dans ton activité.</div>
           <div class="card-price">{price}</div>
-          <a href="" class="button cta">Mettre en place mon OS</a>
+          <a href="" class="button cta">Mettre en place mon OS <span><i class="fa-solid fa-arrow-right"></i></span></a>
         </header>
         <!-- <p>On fait un état des lieux complet. On simplifie, on ajuste et on crée une feuille de route claire pour fluidifier ton opérationnel.</p> -->
         <h4>Structuration de votre organisation</h4>
@@ -47,7 +47,7 @@ import BusinessIcon from '../assets/employees.svg';
           </div>
           <div class="card-tagline">+6 mois pour gagner des points de marge.</div>
           <div class="card-price">{price_2}<span>/mois</span></div>
-          <a href="" class="button cta">Me faire piloter</a>
+          <a href="" class="button cta">Prendre un co-pilote <span><i class="fa-solid fa-arrow-right"></i></span></a>
         </header>
         <!-- <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p> -->
         <h4>Direction opérationnelle &amp; décisions</h4>
@@ -175,6 +175,35 @@ import BusinessIcon from '../assets/employees.svg';
   }
 
   .card .button {
-    background-color: #214E34;
+    width: 100%;
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-s);
+    width: fit-content;
+    padding-right: .75rem;
+  }
+
+  .cta i {
+    background-color: var(--primary-xtra-light);
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-45deg);
+
+    transition-property: background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
+  }
+
+  .cta:hover i {
+    background-color: #647F24;
   }
 </style>
