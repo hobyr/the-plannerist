@@ -3,13 +3,14 @@ import '../styles/global.css';
 import { links } from './links.js'
 import { Image } from 'astro:assets';
 import logo from '../assets/logos/logo-dark.png';
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="top-navbar-wrapper">
   <div class="container top-navbar">
     <Image src={logo} height={40} alt="" />
     <nav>
-      {links.map(link => <a href={link.url} class="nav-link">{link.name}</a>)}
+      {links.map(link => <a href={link.url} class={`nav-link ${currentPath === link.url ? 'active' : ''}`}>{link.name}</a>)}
       <a href="" class="button cta"><span><i class="fa-solid fa-gift"></i></span> +30 process à mettre en place</a>
     </nav>
   </div>
@@ -67,6 +68,25 @@ import logo from '../assets/logos/logo-dark.png';
     text-transform: uppercase;
     font-weight: 400;
     font-size: var(--step--1);
+    position: relative;
+    width: fit-content;
+    z-index: 1;
+  }
+
+  .nav-link.active::after {
+    position: absolute;
+    content: "";
+    background-color: var(--secondary);
+    bottom: -8px;
+    height: 6px;
+    left: 13%;
+    right: 13%;
+    z-index: -1;
+    border-radius: 99px;
+  }
+
+  .nav-link:hover {
+    color: #f57200;
   }
 
   .cta {
