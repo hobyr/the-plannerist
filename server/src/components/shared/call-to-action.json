@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_call_to_actions",
+  "info": {
+    "displayName": "call-to-action",
+    "icon": "paperPlane"
+  },
+  "options": {},
+  "attributes": {
+    "cta_label": {
+      "type": "string"
+    },
+    "cta_url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

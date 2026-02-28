@@ -11,14 +11,50 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
       "type": "string"
     },
-    "PostingDate": {
+    "slug": {
+      "type": "uid"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "text"
+    },
+    "posted_at": {
       "type": "date"
     },
-    "Content": {
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "blogs"
+    },
+    "content": {
       "type": "blocks"
+    },
+    "call_to_action": {
+      "type": "component",
+      "component": "shared.call-to-action",
+      "repeatable": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "blogs"
     }
   }
 }
