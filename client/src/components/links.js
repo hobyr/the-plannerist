@@ -21,6 +21,6 @@ export const links = [
   },
   {
   name: "Blog",
-  url: "",
+  url: "/blog",
   },
 ]
