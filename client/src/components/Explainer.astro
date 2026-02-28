@@ -4,7 +4,7 @@ import '../styles/global.css';
 
 <section id="explainer">
   <div class="container">
-    <h2>Pourquoi faire appel à un COO externalisé quand on est une PME ?</h2>
+    <h2 class="section-title">Pourquoi faire appel à un COO externalisé quand on est une PME ?</h2>
     <div class="cards">
       <div class="card">
         <h3>Tu veux plus qu'un boost de mindset ou des conseils business génériques</h3>
@@ -19,19 +19,11 @@ import '../styles/global.css';
         <p>Je t'aide à <strong>créer un système qui amplifie ce que tu as déjà construit</strong>, pour que tu n'aies plus à choisir entre servir tes clients et développer ton activité. Un <strong>équilibre entre ta passion et la réalité du business</strong>.</p>
       </div>
     </div>
-    <a href="" class="button cta">Évaluer si un COO externalisé correspond à tes besoins</a>
+    <a href="" class="button cta">Évaluer si un COO externalisé correspond à tes besoins <span><i class="fa-solid fa-user-check"></i></span></a>
   </div>
 </section>
 
 <style>
-  h2 {
-    font-size: var(--step-4);
-    text-align: center;
-    line-height: 1.25;
-    max-width: 30ch;
-    text-wrap: balance;
-  }
-
   .title-header {
     font-family: "AH Ernie", sans-serif;
     font-size: 1.5rem;
@@ -63,6 +55,34 @@ import '../styles/global.css';
   .card h3 {
     margin-top: 0;
     line-height: 1;
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-s);
+    width: fit-content;
+    padding-right: .75rem;
+  }
+
+  .cta i {
+    background-color: var(--primary-xtra-light);
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
+  }
+
+  .cta:hover i {
+    background-color: #647F24;
   }
 
 </style>

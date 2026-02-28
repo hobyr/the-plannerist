@@ -5,25 +5,60 @@ import '../styles/global.css';
 <section id="hero">
   <div class="container">
     <div class="title-header">Accompagnement pilotage d'entreprise</div>
-    <h1>90 jours pour transformer ton organisation en levier de rentabilité avec un COO externalisé</h1>
-    <p>On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et fluidifier ton "day-to-day"</p>
-    <a href="" class="button cta">Je veux améliorer ma marge</a>
+    <h1 class="page-title">90 jours pour transformer ton organisation en levier de rentabilité avec un COO externalisé</h1>
+    <p>On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et fluidifier ton "day-to-day".</p>
+    <a href="" class="button cta">Je veux améliorer ma marge <span><i class="fa-solid fa-money-bill-trend-up"></i></span></a>
   </div>
 </section>
 
 <style>
-  h1 {
-    font-size: var(--step-4);
+  * {
+    margin-block: 0;
+  }
+
+  .title-header {
+    margin-bottom: -1.5rem;
+  }
+
+  p {
+    max-width: 40ch;
     text-align: center;
-    line-height: 1.25;
-    margin-top: -1rem;
     text-wrap: balance;
   }
 
   .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: var(--space-m);
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-s);
+    width: fit-content;
+    padding-right: .75rem;
+  }
+
+  .cta i {
+    background-color: var(--primary-xtra-light);
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in;
+  }
+
+  .cta:hover i {
+    background-color: #647F24;
   }
 </style>

@@ -7,30 +7,43 @@ import { Image } from 'astro:assets';
 
 <footer>
   <div class="container footer">
-    <div class="menu">
-      <Image src={logo} alt="" height={90} />
-      <p>Accompagnement en stratégie et pilotage d'entreprise pour solopreneurs et petites entreprises : optimisation, transformation et croissance. Clarifie tes priorités, optimise tes process, développe ton activité sereinement.
-    </div>
-    <div class="menu">
-      <div class="menu-heading">Infos</div>
-      <div class="infos submenu">
-        <div class="menu-subheading">Office hours</div>
-        <div>10H00 &ndash; 18H00 Lundi à Vendredi</div>
-        <div style="font-style:italic">En visio et sur Paris, Boulogne-Billancourt &amp; 92</div>
+    <div class="menu-wrapper">
+      <div class="menu">
+        <Image src={logo} alt="" class="logo" />
+        <p>Accompagnement en stratégie et pilotage d'entreprise pour solopreneurs et petites entreprises : optimisation, transformation et croissance. Clarifie tes priorités, optimise tes process, développe ton activité sereinement.
       </div>
-      <div class="contact submenu">
-        <div class="menu-subheading">Contact</div>
-        <a href="">Prendre rendez-vous</a>
-        <div class="socials">
-          <a href="">Instagram</a>
-          <div class="separator"></div>
-          <a href="">LinkedIn</a>
+      <div class="menu">
+        <div class="menu-heading">Infos</div>
+        <div class="infos submenu">
+          <div class="menu-subheading">Office hours</div>
+          <div>10H00 &ndash; 18H00 Lundi à Vendredi</div>
+          <div style="font-style:italic">En visio et sur Paris, Boulogne-Billancourt &amp; 92</div>
+        </div>
+        <div class="contact submenu">
+          <div class="menu-subheading">Contact</div>
+          <a href="">Prendre rendez-vous</a>
+          <div class="socials">
+            <a href="">Instagram</a>
+            <div class="separator"></div>
+            <a href="">LinkedIn</a>
+          </div>
         </div>
       </div>
+      <div class="menu">
+        <div class="menu-heading">Menu</div>
+        {links.map(link => <a href={link.url}>{link.name}</a>)}
+      </div>
+      <div class="menu">
+        <div class="menu-heading">Légal</div>
+        <a href="">CGV</a>
+        <a href="">Mentions légales</a>
+        <a href="">Politique de confidentialité</a>
+      </div>
     </div>
-    <div class="menu">
-      <div class="menu-heading">Menu</div>
-      {links.map(link => <a href={link.url}>{link.name}</a>)}
+    <div class="copyright">
+      <div>Designed by <a href="https://www.yeauleaucollective.com" target="_blank" rel="noopener noreferrer">Yeauleau Collective</a></div>
+      <div>Branding Photography by <a href="https://marlenejoeyphotos.pic-time.com" target="_blank" rel="noopener noreferrer">Irma Marlene Joey</a></div>
+      <div>Copyright &copy; 2026 &mdash; The Plannerist.</div>
     </div>
   </div>
 </footer>
@@ -38,8 +51,16 @@ import { Image } from 'astro:assets';
 <style>
   .footer {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-l);
+  }
+
+  .menu-wrapper {
+    display: flex;
     justify-content: space-between;
     gap: var(--space-xl);
+    width: 100%;
   }
 
   .menu {
@@ -60,9 +81,14 @@ import { Image } from 'astro:assets';
     margin-top: var(--space-2xs);
   }
 
+  .logo {
+    object-fit: contain;
+    width: 100%;
+  }
+
   .menu-heading {
     text-transform: uppercase;
-    margin-bottom: var(--space-m);
+    margin-bottom: var(--space-s);
     font-weight: 700;
   }
 
@@ -99,5 +125,15 @@ import { Image } from 'astro:assets';
     width: 1px;
     height: 100%;
     background-color: white;
+  }
+
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .copyright a {
+    color: var(--text);
   }
 </style>
