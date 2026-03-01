@@ -18,6 +18,7 @@ console.log(articles);
   <!-- <div class="bg-blob blob-5"></div> -->
   <section id="posts">
   <div class="container">
+    <div class="title-header">Mieux piloter &amp; décider</div>
     <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
 <div class="article-grid">
   {articles.map(article => 
@@ -78,7 +79,26 @@ console.log(articles);
     background-color: var(--bg-color-dark);
   }
 
-  .article-card {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-m);
+  }
+
+  .article-card {
+    height: 10rem;
+    width: 100%;
+  }
+
+  .article-card h3 {
+    font-size: var(--step-0);
+    text-wrap: balance;
+    margin-top: 0;
   }
 </style>
