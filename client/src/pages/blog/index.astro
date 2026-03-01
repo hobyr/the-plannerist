@@ -18,12 +18,15 @@ console.log(articles);
   <!-- <div class="bg-blob blob-5"></div> -->
   <section id="posts">
   <div class="container">
-{articles.map(article => 
-  <div>
-    <h3>{article.title}</h3>
-    <a href={`/blog/${article.slug}`}>Voir l'article</a>
-  </div>
-  )}
+    <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
+<div class="article-grid">
+  {articles.map(article => 
+    <div class="article-card">
+      <h3>{article.title}</h3>
+      <a href={`/blog/${article.slug}`}>Voir l'article</a>
+    </div>
+    )}
+</div>
 </div>
 </section>
 </Layout>
@@ -73,5 +76,9 @@ console.log(articles);
     top: 3800px;
     right: 0px;
     background-color: var(--bg-color-dark);
+  }
+
+  .article-card {
+
   }
 </style>

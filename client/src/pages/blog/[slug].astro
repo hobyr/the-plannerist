@@ -34,9 +34,9 @@ const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(a
   <!-- <div class="bg-blob blob-5"></div> -->
   <section id="post">
   <div class="container">
-    <h1 class="page-title">{article.title}</h1>
-    <div class="posting-date">Publié le {FormattedDate}</div>
     <article>
+      <h1 class="page-title">{article.title}</h1>
+      <div class="posting-date">Publié le {FormattedDate}</div>
       <StrapiBlocks
         data={article.content}
       />
