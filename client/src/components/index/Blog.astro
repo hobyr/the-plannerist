@@ -1,7 +1,16 @@
 ---
 import '../../styles/global.css';
-const response = await fetch("https://graceful-splendor-ed9c514534.strapiapp.com/api/blogs?pagination[offset]=0&pagination[limit]=3");
-const data = await response.json();
+import fetchApi from '../../lib/strapi';
+
+const articles = await fetchApi({
+  endpoint: 'blogs',
+  wrappedByKey: 'data',
+  query: {
+    'pagination[start]': '0',
+    'pagination[limit]': '3',
+  },
+});
+
 const optionsDate = {
 year: "numeric",
 month: "long",
@@ -15,20 +24,20 @@ const locale = 'fr-FR';
   <div class="container">
     <h2 class="section-title">Les derniers articles de blog</h2>
     <div class="card-grid">
-      {data.data.map(card => 
+      {articles.map(article => 
       <div class="card">
         <div class="cover-placeholder"></div>
         <div class="card-info-wrapper">
-          <h3 class="card-title">{card.title}</h3>
+          <h3 class="card-title">{article.title}</h3>
           <div class="card-content">
             <div class="card-author-wrapper">
               <div class="placeholder"></div>
               <div class="card-author-text-wrapper">
                 <div class="card-author">Seheno Ratefimandimby</div>
-                <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(card.posted_at))}</div>
+                <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
               </div>
             </div>
-            <a href={`/blog/${card.documentId}`} class="card-cta">Lire l'article</a>
+            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article</a>
           </div>
         </div>
       </div>

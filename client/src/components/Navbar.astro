@@ -10,8 +10,8 @@ const currentPath = Astro.url.pathname;
   <div class="container top-navbar">
     <Image src={logo} height={40} alt="" />
     <nav>
-      {links.map(link => <a href={link.url} class={`nav-link ${currentPath === link.url ? 'active' : ''}`}>{link.name}</a>)}
-      <a href="" class="button cta"><span><i class="fa-solid fa-gift"></i></span> +30 process à mettre en place</a>
+      {links.map(link => <a href={link.url} class={`nav-link${currentPath === link.url ? ' active' : ''}`}>{link.name}</a>)}
+      <a href="" class="button cta"><span><i class="fa-solid fa-file-arrow-down"></i></span> +30 process à mettre en place</a>
     </nav>
   </div>
 <script>

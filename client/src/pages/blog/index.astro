@@ -1,8 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import fetchApi from '../../lib/strapi.ts';
+import type Blog from '../../interfaces/blog';
 
-const response = await fetch("https://graceful-splendor-ed9c514534.strapiapp.com/api/blogs")
-const data = await response.json();
+const articles = await fetchApi({
+endpoint: 'blogs',
+wrappedByKey: 'data',
+});
+console.log(articles);
 ---
 
 <Layout>
@@ -13,14 +18,18 @@ const data = await response.json();
   <!-- <div class="bg-blob blob-5"></div> -->
   <section id="posts">
   <div class="container">
-    {data.data.map(post => 
-    <div>
-      <h3>{post.Title}</h3>
-      <a href={`/blog/${post.documentId}`}>Voir l'article</a>
+    <div class="title-header">Mieux piloter &amp; décider</div>
+    <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
+<div class="article-grid">
+  {articles.map(article => 
+    <div class="article-card">
+      <h3>{article.title}</h3>
+      <a href={`/blog/${article.slug}`}>Voir l'article</a>
     </div>
     )}
-  </div>
-  </section>
+</div>
+</div>
+</section>
 </Layout>
 
 <style>
@@ -68,5 +77,28 @@ const data = await response.json();
     top: 3800px;
     right: 0px;
     background-color: var(--bg-color-dark);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-m);
+  }
+
+  .article-card {
+    height: 10rem;
+    width: 100%;
+  }
+
+  .article-card h3 {
+    font-size: var(--step-0);
+    text-wrap: balance;
+    margin-top: 0;
   }
 </style>
