@@ -28,7 +28,7 @@ const locale = 'fr-FR';
     <div class="card-grid">
       {articles.map(article => 
       <div class="card">
-        <Image src={`${import.meta.env.STRAPI_URL}${article.cover.url}`} height={200} width={300} alt="" class="card-cover" />
+        <Image src={article.cover.url} height={200} width={300} alt="" class="card-cover" />
         <div class="card-info-wrapper">
           <h3 class="card-title">{article.title}</h3>
           <div class="card-content">

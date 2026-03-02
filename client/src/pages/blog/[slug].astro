@@ -36,7 +36,7 @@ const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(a
   <!-- <div class="bg-blob blob-3"></div> -->
   <!-- <div class="bg-blob blob-4"></div> -->
   <!-- <div class="bg-blob blob-5"></div> -->
-  <Image src=`${import.meta.env.STRAPI_URL}${article.cover.url}` width={1400} height={400} alt="" class="post-cover" />
+  <Image src={article.cover.url} width={1400} height={400} alt="" class="post-cover" />
   <section id="post">
   <div class="container">
     <article>
