@@ -1,13 +1,15 @@
 ---
 import '../../styles/global.css';
 import fetchApi from '../../lib/strapi';
+import { Image } from 'astro:assets';
 
 const articles = await fetchApi({
   endpoint: 'blogs',
   wrappedByKey: 'data',
   query: {
     'pagination[start]': '0',
-    'pagination[limit]': '3',
+    'pagination[limit]': '4',
+    'populate': 'cover',
   },
 });
 
@@ -26,7 +28,7 @@ const locale = 'fr-FR';
     <div class="card-grid">
       {articles.map(article => 
       <div class="card">
-        <div class="cover-placeholder"></div>
+        <Image src={`${import.meta.env.STRAPI_URL}${article.cover.url}`} height={200} width={300} alt="" class="card-cover" />
         <div class="card-info-wrapper">
           <h3 class="card-title">{article.title}</h3>
           <div class="card-content">
@@ -37,7 +39,7 @@ const locale = 'fr-FR';
                 <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
               </div>
             </div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article</a>
+            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
       </div>
@@ -83,13 +85,13 @@ const locale = 'fr-FR';
     border-radius: 12px;
     border: 1px solid #dadadd;
     box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
-    height: 35rem;
+    height: 28rem;
     overflow: hidden;
   }
 
-  .card .cover-placeholder {
+  .card-cover {
     width: 100%;
-    height: 60%;
+    height: 45%;
     object-fit: cover;
     background-color: var(--bg-color-light);
   }

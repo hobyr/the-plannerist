@@ -2,17 +2,21 @@
 import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
-const articles = await fetchApi({
+  const articles = await fetchApi({
     endpoint: 'blogs',
     wrappedByKey: 'data',
+    query: {
+      'populate': 'cover',
+    }
   });
 
   return articles.map((article) => ({
     params: { slug: article.slug },
     props: article,
-    }));
+  }));
 };
 
 
@@ -32,6 +36,7 @@ const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(a
   <!-- <div class="bg-blob blob-3"></div> -->
   <!-- <div class="bg-blob blob-4"></div> -->
   <!-- <div class="bg-blob blob-5"></div> -->
+  <Image src=`${import.meta.env.STRAPI_URL}${article.cover.url}` width={1400} height={400} alt="" class="post-cover" />
   <section id="post">
   <div class="container">
     <article>
@@ -90,6 +95,14 @@ const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(a
     top: 3800px;
     right: 0px;
     background-color: var(--bg-color-dark);
+  }
+
+  .post-cover {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    position: relative;
+    top: -80px;
   }
 
   .posting-date {
