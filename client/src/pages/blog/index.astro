@@ -28,7 +28,7 @@ query: {
       <div class="article-grid">
         {articles.map(article => 
         <div class="article-card">
-          <Image src=`${import.meta.env.STRAPI_URL}${article.cover.url}` alt="" width={300} height={250} class="card-cover"/>
+          <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <p>{article.description}</p>
