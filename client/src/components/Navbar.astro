@@ -73,26 +73,19 @@ const currentPath = Astro.url.pathname;
     z-index: 1;
   }
 
-  .nav-link.active::after {
-    position: absolute;
-    content: "";
-    background-color: var(--secondary);
-    bottom: -8px;
-    height: 6px;
-    left: 13%;
-    right: 13%;
-    z-index: -1;
-    border-radius: 99px;
+  .nav-link.active {
+    border-bottom: 2px solid var(--text);
   }
 
   .nav-link:hover {
-    color: #f57200;
+    color: var(--primary);
+    background-color: var(--primary-xtra-light);
   }
 
   .cta {
-    color: #7a3900;
-    background-color: #ffbe85;
-    border: 2px solid #7a3900;
+    color: white;
+    background-color: var(--text);
+    border: 2px solid var(--text);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -103,8 +96,9 @@ const currentPath = Astro.url.pathname;
   }
 
   .cta:hover {
-    background-color: #7a3900;
-    color: white;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
   }
 
   .cta i {
@@ -114,15 +108,17 @@ const currentPath = Astro.url.pathname;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffe9d6;
+    background-color: white;
+    color: var(--text);
 
-    transition-property: background-color;
+    transition-property: background-color, color;
     transition-duration: 150ms;
     transition-timing-function: ease-in;
   }
 
   .cta:hover i {
-    background-color: #F57200;
+    color: var(--primary-light);
+    background-color: var(--primary);
   }
 </style>
 
