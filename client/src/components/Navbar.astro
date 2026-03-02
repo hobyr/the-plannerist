@@ -3,7 +3,10 @@ import '../styles/global.css';
 import { links } from './links.js'
 import { Image } from 'astro:assets';
 import logo from '../assets/logos/logo-dark.png';
+
+// const { currentPath } = Astro.props;
 const currentPath = Astro.url.pathname;
+console.log(currentPath);
 ---
 
 <header class="top-navbar-wrapper">
