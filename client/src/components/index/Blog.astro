@@ -39,7 +39,7 @@ const locale = 'fr-FR';
                 <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
               </div>
             </div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article</a>
+            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
       </div>

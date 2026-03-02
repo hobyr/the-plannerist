@@ -32,7 +32,7 @@ query: {
           <div class="card-content">
             <h3>{article.title}</h3>
             <p>{article.description}</p>
-            <a href={`/blog/${article.slug}`}>Voir l'article</a>
+            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
@@ -163,4 +163,26 @@ query: {
     font-size: var(--step-0);
     margin-bottom: auto;
   }
+
+  a.card-cta {
+    display: flex;
+    gap: var(--space-2xs);
+    align-items: flex-end;
+    text-decoration: none;
+    color: var(--text);
+    border-bottom: 1px solid var(--text);
+    width: fit-content;
+
+    transition-property: gap, color, border-color;
+  }
+
+  a.card-cta span {
+    font-size: var(--step--1);
+  }
+
+  a.card-cta:hover {
+    color: var(--bg-color-light);
+    gap: var(--space-xs);
+    border-color: var(--bg-color-light);
+  } 
 </style>
