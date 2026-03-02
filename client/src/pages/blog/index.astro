@@ -7,10 +7,12 @@ const articles = await fetchApi({
 endpoint: 'blogs',
 wrappedByKey: 'data',
 query: {
-  'populate': 'cover',
+'populate': 'cover',
+'pagination[offset]': '0',
+'pagination[limit]': '5',
 }
 });
-console.log(articles);
+// console.log(articles);
 ---
 
 <Layout>
@@ -20,23 +22,23 @@ console.log(articles);
   <!-- <div class="bg-blob blob-4"></div> -->
   <!-- <div class="bg-blob blob-5"></div> -->
   <section id="posts">
-  <div class="container">
-    <div class="title-header">Mieux piloter &amp; décider</div>
-    <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
-<div class="article-grid">
-  {articles.map(article => 
-    <div class="article-card">
-      <Image src=`${import.meta.env.STRAPI_URL}${article.cover.url}` alt="" width={300} height={250} class="card-cover"/>
-      <div class="card-content">
-        <h3>{article.title}</h3>
-        <p>{article.description}</p>
-        <a href={`/blog/${article.slug}`}>Voir l'article</a>
+    <div class="container">
+      <div class="title-header">Mieux piloter &amp; décider</div>
+      <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
+      <div class="article-grid">
+        {articles.map(article => 
+        <div class="article-card">
+          <Image src=`${import.meta.env.STRAPI_URL}${article.cover.url}` alt="" width={300} height={250} class="card-cover"/>
+          <div class="card-content">
+            <h3>{article.title}</h3>
+            <p>{article.description}</p>
+            <a href={`/blog/${article.slug}`}>Voir l'article</a>
+          </div>
+        </div>
+        )}
       </div>
     </div>
-    )}
-</div>
-</div>
-</section>
+  </section>
 </Layout>
 
 <style>
@@ -93,13 +95,41 @@ console.log(articles);
   }
 
   .article-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-l);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "hero hero hero hero aside2 aside2"
+      "hero hero hero hero aside2 aside2"
+      "hero hero hero hero aside3 aside3"
+      "hero hero hero hero aside3 aside3"
+      "aside4 aside4 aside4 aside5 aside5 aside5";
+  }
+
+  .article-card:nth-child(1) {
+    grid-area: hero;
+  }
+
+  .article-card:nth-child(2) {
+    grid-area: aside2;
+  }
+
+  .article-card:nth-child(3) {
+    grid-area: aside3;
+  }
+
+  .article-card:nth-child(4) {
+    grid-area: aside4;
+  }
+
+  .article-card:nth-child(5) {
+    grid-area: aside5;
   }
 
   .article-card {
-    height: 30rem;
+    min-height: 15rem;
     width: 100%;
     /* border: 1px solid red; */
     display: flex;
@@ -108,12 +138,13 @@ console.log(articles);
 
   .article-card .card-cover {
     width: 100%;
-    height: 50%;
+    height: 100%;
     object-fit: cover;
   }
 
   .article-card .card-content {
     flex: 1;
+    min-height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
