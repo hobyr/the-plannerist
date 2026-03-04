@@ -1,13 +1,28 @@
 ---
 import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import florie from '../../assets/images/florie.jpg';
+import QuoteIcon from '../../assets/quote.svg';
 ---
+
 <section id="success-story">
   <div class="container">
-    <h2 class="section-title">Elle a transformé son entreprise <span>avec The Plannerist</span></h2>
-    <p>Florie de MyBlueprintVF a débloqué sa croissance <strong>en structurant son activité, en déléguant efficacement</strong> et en mettant en place des <strong>process clairs</strong>.</p>
-    <div class="buttons">
-      <a href="" class="button cta">Lire sa success story</a>
-      <a href="" class="button cta cta--outline">Voir plus de success stories</a>
+    <header>
+      <h2 class="section-title">Elle a transformé son entreprise <span>avec The Plannerist</span></h2>
+      <p>Florie de MyBlueprintVF a débloqué sa croissance <strong>en structurant son activité, en déléguant efficacement</strong> et en mettant en place des <strong>process clairs</strong>.</p>
+      <div class="buttons">
+        <a href="" class="button cta">Lire sa success story</a>
+        <a href="" class="button cta cta--outline">Voir plus de success stories</a>
+      </div>
+    </header>
+    <div class="portrait-grid">
+      <Image src={florie} alt="" width={800} height={450} class="item story-portrait" />
+      <div class="item metric"><span>+130%</span>de chiffre d'affaires</div>
+      <div class="item metric"><span>8 mois</span>Atteinte de la rentabilité</div>
+      <div class="item quote">
+        <QuoteIcon />
+        <p>Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -15,9 +30,25 @@ import '../../styles/global.css';
 <style>
   .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     gap: var(--space-l);
+  }
+
+  header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-m);
+  }
+
+  header * {
+    margin: 0;
+  }
+
+  h2 {
+    text-align: left;
   }
 
   h2 span {
@@ -29,5 +60,82 @@ import '../../styles/global.css';
     flex-direction: row;
     justify-content: center;
     gap: var(--space-s);
+  }
+
+  .portrait-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "portrait portrait portrait portrait portrait metric2 metric2 metric2"
+      "portrait portrait portrait portrait portrait metric3 metric3 metric3"
+      "quote quote quote quote quote quote quote quote"
+      "quote quote quote quote quote quote quote quote";
+    gap: var(--space-s);
+    border: 1px solid var(--border-color);
+    padding: var(--space-l);
+    border-radius: var(--space-m);
+    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    width: 60%;
+  }
+
+  .story-portrait {
+    object-fit: cover;
+    grid-area: portrait;
+    width: 100%;
+  }
+
+  .item {
+    border-radius: var(--space-s);
+  }
+
+  .item:nth-child(1) {
+    grid-area: portrait;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .item:nth-child(2) {
+    grid-area: metric2;
+    background-color: var(--bg-color-light);
+    color: var(--text);
+  }
+
+  .item:nth-child(3) {
+    grid-area: metric3;
+    background-color: var(--primary-xtra-light);
+    color: var(--primary);
+  }
+
+  .item:nth-child(4) {
+    grid-area: quote;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-m);
+  }
+
+  .metric span {
+    font-size: var(--step-5);
+    font-weight: 600;
+  }
+
+  .quote {
+    position: relative;
+  }
+
+  .quote svg {
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    width: 6rem;
+    height: 6rem;
+    color: var(--text);
+    opacity: .20;
+    z-index: -1;
   }
 </style>

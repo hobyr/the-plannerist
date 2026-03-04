@@ -1,10 +1,15 @@
 ---
 import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/images/portrait.png';
 ---
 
 <section id="profile">
   <div class="container">
-    <div class="image"></div>
+    <div class="shape-wrapper">
+      <div class="shape"></div>
+      <Image src={portrait} alt="" class="image"/>
+    </div>
     <article>
       <p>Quand j'ai lancé ma première entreprise <a href="https://embrace-planner.myshopify.com" class="site-link">Embrace Planner</a>, j'ai vite compris qu'on ne peut pas <strong>tout gérer seul sans y laisser son énergie</strong>. Aujourd'hui, je suis COO freelance. J'accompagne <strong>les solopreneurs et le PME à structurer leur activité</strong> pour gagner en temps, en clarté et en performance.</p>
       <p>Mon objectif ? T'aider à bâtir une activité et une organisation qui soutiennent ta croissance et ta vision, tout en te laissant la liberté de te concentrer sur ce qui compte vraiment.</p>
@@ -34,12 +39,32 @@ import '../../styles/global.css';
   }
 
   .image {
-    border: 1px solid black;
     max-width: 35rem;
-    height: 550px;
+    height: 650px;
+    object-fit: contain;
   }
 
   article {
     max-width: 55ch;
+  }
+
+  .shape-wrapper {
+    flex: 1;
+    position: relative;
+    /* clip-path: inset(8% 3% 2% 3% round 20% 20% 20% 20%); */
+    clip-path: inset(0% 14% 3% 4% round 50% 50% 50% 50%);
+    /* clip-path: circle(64% at 49% 23%); */
+    padding-top: 3rem;
+  }
+
+  .shape {
+    width: 100%;
+    height: 570px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #cee397;
+    z-index: -1;
+    clip-path: ellipse(63% 38% at 59% 65%);
   }
 </style>
