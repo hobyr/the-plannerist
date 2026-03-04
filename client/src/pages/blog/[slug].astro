@@ -9,7 +9,9 @@ export async function getStaticPaths() {
     endpoint: 'blogs',
     wrappedByKey: 'data',
     query: {
-      'populate': 'cover',
+      'populate[0]': 'cover',
+      'populate[1]': 'call_to_action',
+      'populate[2]': 'author',
     }
   });
 
@@ -28,6 +30,29 @@ day: "numeric"
 };
 const locale = 'fr-FR';
 const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt));
+
+// Calculate estimated reading time
+const readingSpeedWPM = 170;
+let wordCount = 0;
+article.content.map(ctx => {
+if (ctx.children[0].text) {
+  wordCount += ctx.children[0].text.trim().split(/\s+/).length;
+  }
+})
+const readingTime = Math.round(wordCount/readingSpeedWPM);
+
+// Create table of contents with 1 level deep headings
+let toc = [];
+toc.push(article.title);
+for (let item of article.content) {
+console.log(item)
+  if (item.type === "heading") {
+    if (item.level === 2) {
+    toc.push(item.children[0].text);
+    }
+  }
+}
+console.log(toc);
 ---
 
 <Layout>
@@ -37,16 +62,30 @@ const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(a
   <!-- <div class="bg-blob blob-4"></div> -->
   <!-- <div class="bg-blob blob-5"></div> -->
   <Image src={article.cover.url} width={1400} height={400} alt="" class="post-cover" />
+  <div class="post-cover-copyright">Copyright couverture: photographe</div>
   <section id="post">
-  <div class="container">
-    <article>
-      <h1 class="page-title">{article.title}</h1>
-      <div class="posting-date">Publié le {FormattedDate}</div>
-      <StrapiBlocks
-        data={article.content}
-      />
-    </article>
-  </div>
+    <div class="container">
+      <header>
+        <h1 class="page-title">{article.title}</h1>
+        <div class="info">
+          <span class="posting-date">Écrit par {article.author.name}</span>
+          <span class="posting-date">Publié le {FormattedDate}</span>
+          <span class="reading-time">Temps de lecture estimé : {readingTime} minutes</span>
+        </div>
+      </header>
+      <div class="article">
+        <div class="table-of-contents">
+          <h2>Sommaire</h2>
+          {toc.map(heading => <div>{heading}</div>)}
+        </div>
+        <article>
+          <StrapiBlocks
+              data={article.content}
+              />
+              <a href={article.call_to_action.cta_url} target="_blank" rel="noopener noreferrer" class="button cta">{article.call_to_action.cta_label}</a>
+        </article>
+      </div>
+    </div>
   </section>
 </Layout>
 
@@ -97,21 +136,63 @@ const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(a
     background-color: var(--bg-color-dark);
   }
 
-  .post-cover {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    position: relative;
-    top: -80px;
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 2rem;
   }
 
+  header .info span + span {
+    margin-left: var(--space-s);
+    padding-left: var(--space-s);
+    border-left: 2px solid #bababa;
+  }
+
+  .page-title {
+    margin-bottom: 1rem;
+  }
+
+  .article {
+    display: grid;
+    grid-template-columns: 1fr 70ch;
+    column-gap: var(--space-xl);
+    position: relative;
+    margin-top: 2rem;
+  }
+
+  .table-of-contents {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .post-cover {
+    width: 100%;
+    height: 60vh;
+    max-height: 600px;
+    object-fit: cover;
+  }
+
+  .post-cover-copyright {
+    margin-left: var(--space-m);
+  }
+
+  .post-cover-copyright,
+  .reading-time,
   .posting-date {
     color: #808080;
     text-align: center;
   }
 
   article {
-    max-width: 65ch;
+    max-width: 70ch;
     margin: 0 auto;
+    padding-left: var(--space-xl);
+    border-left: 1px solid var(--bg-color-light);
   }
 </style>

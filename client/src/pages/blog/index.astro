@@ -9,10 +9,14 @@ wrappedByKey: 'data',
 query: {
 'populate': 'cover',
 'pagination[offset]': '0',
-'pagination[limit]': '5',
+'pagination[limit]': '10',
 }
 });
 // console.log(articles);
+const topArticles = articles.slice(0,5);
+const remainArticles = articles.slice(5);
+console.log(topArticles.length)
+console.log(remainArticles.length)
 ---
 
 <Layout>
@@ -26,7 +30,19 @@ query: {
       <div class="title-header">Mieux piloter &amp; décider</div>
       <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
       <div class="article-grid">
-        {articles.map(article => 
+        {topArticles.map(article => 
+        <div class="article-card">
+          <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
+          <div class="card-content">
+            <h3>{article.title}</h3>
+            <p>{article.description}</p>
+            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+          </div>
+        </div>
+        )}
+      </div>
+      <div class="article-grid-2">
+        {remainArticles.map(article => 
         <div class="article-card">
           <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
