@@ -1,9 +1,11 @@
 ---
 import '../../styles/global.css';
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 const knowMore = "/bibliotheque";
-const workbookDL = "";
-const autoAuditDL = "";
+const workbookDL = "https://tinyurl.com/TPLEA";
+const autoAuditDL = "https://tinyurl.com/TPLEA";
+import workbookImg from '../../assets/images/workbook.webp';
+import autoAuditGif from '../../assets/images/auto_audit.gif';
 ---
 
 <section id="tools">
@@ -13,8 +15,8 @@ const autoAuditDL = "";
     <p class="header-text">Des outils simples, concrets et directement utilisables pour faire progresser ton business dès aujourd'hui.</p>
     <div class="cards">
       <div class="card">
-        <!-- <Image src="" alt="" /> -->
         <h3>The Plannerist Workbook</h3>
+        <Image src={workbookImg} alt="" width={350} height={350} />
         <div class="links">
           <a href={workbookDL} class="button cta">Télecharger le workbook <span><i class="fa-solid fa-file-arrow-down"></i></span></a>
           <a href={knowMore} class="card-link">En savoir plus</a>
@@ -32,8 +34,8 @@ const autoAuditDL = "";
         <p>Résultat ? Un plan clair pour ajuster tes actions et accélérer ta croissance.</p>
       </div>
       <div class="card">
-        <!-- <Image src="" alt="" /> -->
         <h3>The Plannerist Auto-Audit</h3>
+        <img src={autoAuditGif.src} alt="" width={350} height={350} />
         <div class="links">
           <a href={autoAuditDL} class="button cta">Télecharger l'auto-audit<span><i class="fa-solid fa-file-arrow-down"></i></span></a>
           <a href={knowMore} class="card-link">En savoir plus</a>
@@ -85,6 +87,12 @@ const autoAuditDL = "";
     border: 1px solid #dadadd;
     max-width: 45ch;
     font-size: var(--step-0);
+  }
+
+  .card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
   }
 
   .card h3 {

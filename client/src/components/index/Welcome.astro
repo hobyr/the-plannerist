@@ -1,9 +1,12 @@
 ---
 import '../../styles/global.css';
+import googleReviews from '../../assets/Google_reviews.png';
+import { Image } from 'astro:assets';
 ---
 
 <section id="hero">
   <div class="container">
+    <Image src={googleReviews} alt="" width={300} height={100} class="review-image"/>
     <div class="title-header">Accompagnement pilotage d'entreprise</div>
     <h1 class="page-title">90 jours pour transformer ton organisation en levier de rentabilité avec un COO externalisé</h1>
     <p>On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et fluidifier ton "day-to-day".</p>
@@ -12,6 +15,10 @@ import '../../styles/global.css';
 </section>
 
 <style>
+  #hero {
+    padding-block: 8rem;
+  }
+
   * {
     margin-block: 0;
   }
@@ -35,6 +42,11 @@ import '../../styles/global.css';
   }
 
   .cta {
+    margin-top: var(--space-l);
     padding-right: .75rem;
+  }
+
+  .review-image {
+    object-fit: contain;
   }
 </style>
