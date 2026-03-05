@@ -126,7 +126,8 @@ import PlusSign from '../assets/plus.svg';
 
   .grid {
     display: flex;
-    gap: var(--space-xl);
+    flex-direction: column;
+    gap: var(--space-m);
     justify-content: space-evenly;
   }
 
@@ -195,5 +196,13 @@ import PlusSign from '../assets/plus.svg';
 
   .q-and-a main.active {
     display: block;
+  }
+
+  @media (min-width: 1000px) {
+    .grid {
+      flex-direction: row;
+      gap: var(--space-xl);
+      justify-content: space-evenly;
+    }
   }
 </style>
