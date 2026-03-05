@@ -9,7 +9,7 @@ export const links = [
   },
   {
     name: "La Bibliothèque",
-    url: "",
+    url: "/bibliotheque",
   },
   {
   name: "Business Cases",
