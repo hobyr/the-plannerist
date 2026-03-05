@@ -103,10 +103,10 @@ import BusinessIcon from '../../assets/employees.svg';
 
   .cards {
     display: flex;
+    flex-direction: column;
     gap: var(--space-s);
     margin-bottom: var(--space-l);
   }
-
 
   .card {
     flex: 1;
@@ -180,5 +180,11 @@ import BusinessIcon from '../../assets/employees.svg';
 
   .cta i {
     transform: rotate(-45deg);
+  }
+
+  @media (min-width: 1000px) {
+    .cards {
+      flex-direction: row;
+    }
   }
 </style>

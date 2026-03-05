@@ -3,22 +3,18 @@ export const links = [
   name: "Accueil",
   url: "/",
   },
-  {
-  name: "À propos",
-  url: "/about",
-  },
+  // {
+  // name: "À propos",
+  // url: "/about",
+  // },
   {
     name: "La Bibliothèque",
-    url: "",
+    url: "/bibliotheque",
   },
-  {
-  name: "Business Cases",
-  url: "",
-  },
-  {
-  name: "Ressources",
-  url: "",
-  },
+  // {
+  // name: "Business Cases",
+  // url: "/cases",
+  // },
   {
   name: "Blog",
   url: "/blog",

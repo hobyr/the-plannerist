@@ -4,13 +4,15 @@ import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
 
 const articles = await fetchApi({
-  endpoint: 'blogs',
-  wrappedByKey: 'data',
-  query: {
-    'pagination[start]': '0',
-    'pagination[limit]': '4',
-    'populate': 'cover',
-  },
+endpoint: 'blogs',
+wrappedByKey: 'data',
+query: {
+'pagination[start]': '0',
+'pagination[limit]': '4',
+'populate[0]': 'cover',
+'populate[1]': 'author',
+'populate[2]': 'author.avatar',
+},
 });
 
 const optionsDate = {
@@ -33,13 +35,13 @@ const locale = 'fr-FR';
           <h3 class="card-title">{article.title}</h3>
           <div class="card-content">
             <div class="card-author-wrapper">
-              <div class="placeholder"></div>
+              <Image src={article.author.avatar.formats.thumbnail.url} width={50} height={50} alt="" class="card-avatar"/>
               <div class="card-author-text-wrapper">
-                <div class="card-author">Seheno Ratefimandimby</div>
+                <div class="card-author">{article.author.name}</div>
                 <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
               </div>
             </div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/${article.slug}`} class="card-cta"><span class="word">Lire </span><span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
       </div>
@@ -69,12 +71,11 @@ const locale = 'fr-FR';
   }
 
   .card-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-m);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-m);
   }
 
   .card {
@@ -126,13 +127,52 @@ const locale = 'fr-FR';
 
   .card-date {
     color: #a4a4a4;
+    font-size: var(--step--1);
   }
 
-  .placeholder {
+  .card-avatar {
     width: 3rem;
     aspect-ratio: 1/1;
-    border: 1px solid var(--text);
-    background-color: var(--bg-color-light);
     border-radius: 9999px;
+  }
+
+  .card-cta {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--bg-color-light);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    position: relative;
+    text-decoration: none;
+
+    transition-property: width;
+    transition-duration: 200ms;
+  }
+
+  .card-cta:hover {
+    background-color: var(--text);
+    width: 4.5rem;
+    justify-content: space-evenly;
+  }
+
+  .card-cta .word {
+    display: none;
+  }
+
+  .card-cta:hover .word {
+    display: block;
+  }
+
+  @media (min-width: 1000px) {
+    .card-grid {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-m);
+    }
   }
 </style>

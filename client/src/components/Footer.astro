@@ -59,30 +59,17 @@ const calendlyLink = 'https://calendly.com/seheno-theplannerist/appel-decouverte
 
   .menu-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     gap: var(--space-xl);
     width: 100%;
   }
-
   .menu {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
     max-width: 20rem;
   }
-
-  .menu:first-of-type {
-    margin-right: auto;
-  }
-
-  .footer a {
-    color: var(--bg-color-dark);
-  }
-
-   .footer a:hover {
-    color: #f57200;
-  }
-
   .logo {
     object-fit: contain;
     width: 100%;
@@ -115,24 +102,12 @@ const calendlyLink = 'https://calendly.com/seheno-theplannerist/appel-decouverte
     z-index: -1;
   }
 
-  .submenu {
-    margin-bottom: var(--space-m);
+  .footer a {
+    color: var(--bg-color-dark);
   }
 
-  .socials {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: var(--space-xs);
-    height: fit-content;
-    margin-top: var(--space-s);
-    position: relative;
-  }
-
-  .separator {
-    width: 1px;
-    height: 1rem;
-    background-color: var(--text);
+  .footer a:hover {
+    color: var(--bg-color-light);
   }
 
   .copyright {
@@ -143,5 +118,38 @@ const calendlyLink = 'https://calendly.com/seheno-theplannerist/appel-decouverte
 
   .copyright a {
     color: var(--text);
+  }
+
+  @media (min-width: 1000px) {
+    .menu-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--space-xl);
+      width: 100%;
+    }
+
+    .menu:first-of-type {
+      margin-right: auto;
+    }
+
+    .submenu {
+      margin-bottom: var(--space-m);
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: var(--space-xs);
+      height: fit-content;
+      margin-top: var(--space-s);
+      position: relative;
+    }
+
+    .separator {
+      width: 1px;
+      height: 1rem;
+      background-color: var(--text);
+    }
   }
 </style>

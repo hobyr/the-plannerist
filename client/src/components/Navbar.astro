@@ -11,12 +11,18 @@ console.log(currentPath);
 
 <header class="top-navbar-wrapper">
   <div class="container top-navbar">
-    <Image src={logo} height={40} alt="" />
+    <Image src={logo} width={300} height={140} alt="" class="top-logo" />
     <nav>
+      <header>
+        <Image src={logo} width={300} height={140} alt="" class="mobile-logo"/>
+        <div class="toggle-button"><span><i class="fa-solid fa-xmark"></i></span></div>
+      </header>
       {links.map(link => <a href={link.url} class={`nav-link${currentPath === link.url ? ' active' : ''}`}>{link.name}</a>)}
       <a href="" class="button cta"><span><i class="fa-solid fa-file-arrow-down"></i></span> +30 process à mettre en place</a>
     </nav>
+    <div class="toggle-button-main"><span><i class="fa-solid fa-bars"></i></span></div>
   </div>
+
 <script>
   window.onscroll = () => {
     let navbar = document.querySelector(".top-navbar-wrapper");
@@ -26,6 +32,18 @@ console.log(currentPath);
       navbar.classList.remove("after-scroll");
     }
   }
+
+  const toggleBtnMain = document.querySelector(".top-navbar .toggle-button-main");
+  const toggleBtn = document.querySelector(".top-navbar .toggle-button");
+  const navbar = document.querySelector(".top-navbar nav");
+  toggleBtnMain.addEventListener('click', () => {
+    navbar.classList.add("active");
+    document.querySelector("body").style.overflowY = "hidden";
+  })
+  toggleBtn?.addEventListener('click', () => {
+    navbar.classList.remove("active");
+    document.querySelector("body").style.overflowY = "visible";
+  })
 </script>
   </header>
 
@@ -34,7 +52,6 @@ console.log(currentPath);
     position: sticky;
     top: 0;
     margin: 0 auto;
-    padding: 1rem 0;
     border-radius: 999px;
     z-index: 10;
     width: min(97%, 1500px);
@@ -44,24 +61,60 @@ console.log(currentPath);
     transition-timing-function: ease;
   }
 
-  .after-scroll {
-    top: 14px;
-    background-image: linear-gradient(0deg, #ffffffc3 0%, #ffffff93 100%);
-    box-shadow: 0px 4px 8px #33333380;
-    backdrop-filter: blur(6px);
-  }
-
   .top-navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
+  }
+
+  .top-logo {
+    object-fit: contain;
+    height: 50px;
+    width: 150px;
   }
 
   nav {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-m);
+    padding: var(--space-m);
+    height: 100vh;
+    background-color: white;
+  }
+
+  nav.active {
+    visibility: visible;
+  }
+
+  nav header {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
+    justify-content: space-between;
+    padding-bottom: var(--space-m);
+    margin-bottom: var(--space-m);
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+
+  .mobile-logo {
+    width: 50%;
+    height: 55px;
+    object-fit: contain;
+  }
+
+  .after-scroll {
+    top: 14px;
+    background-image: linear-gradient(0deg, #ffffffc3 0%, #ffffff93 100%);
+    box-shadow: 0px 4px 8px #33333380;
+    backdrop-filter: blur(6px);
   }
 
   .nav-link {
@@ -80,8 +133,7 @@ console.log(currentPath);
   }
 
   .nav-link:hover {
-    color: var(--primary);
-    background-color: var(--primary-xtra-light);
+    color: var(--bg-color-light);
   }
 
   .cta {
@@ -121,6 +173,25 @@ console.log(currentPath);
   .cta:hover i {
     color: var(--primary-light);
     background-color: var(--primary);
+  }
+
+  @media (min-width: 1000px) {
+    nav {
+      visibility: visible;
+      position: relative;
+      width: fit-content;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-xs);
+      height: 100%;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    nav header,
+    .toggle-button-main {
+      display: none;
+    }
   }
 </style>
 

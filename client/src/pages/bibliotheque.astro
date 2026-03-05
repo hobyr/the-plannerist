@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import workbookImg from '../assets/images/workbook.webp';
+import auditImg from '../assets/images/auto_audit.gif';
+import PlusSign from '../assets/plus.svg';
+---
+
+<Layout>
+  <section>
+    <div class="container">
+      <h1 class="page-title">La Bibliothèque</h1>
+      <p class="tagline">Tu es solopreneur ou une petite équipe avec une activité en B2C ? <strong>Accède à une bibliothèque de ressources pensées pour t'aider à mieux piloter ton entreprise au quotidien.</strong> Des outils concrets pour structurer, optimiser et faire évoluer ton activité avec clarté et efficacité.</p>
+    </div>
+  </section>
+  <section class="resources">
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <Image src={workbookImg} alt="" width={300} height={300} /> 
+            <h2>The Plannerist Workbook</h2>
+            <div class="q-and-a">
+              <header>
+                <div>Pour qui ?</div>
+                <PlusSign class="toggle" />
+              </header>
+              <main>
+                <p>
+                Ce questionnaire est conçu pour les entrepreneurs et petites équipes en B2C, qu'ils proposent des services ou des produits. Il aide à mieux comprendre les leviers de croissance et les points de blocage spécifiques à leur activité.
+                </p>
+              </main>
+            </div>
+            <div class="q-and-a">
+              <header>
+                <div>Pour quels objectifs ?</div>
+                <PlusSign class="toggle" />
+              </header>
+              <main>
+                <p>
+                L'objectif principal est de te permettre d'identifier rapidement les forces et faiblesses de ton business, de clarifier ta stratégie, et d'identifier les sujets qu'il faut traiter pour améliorer ton chiffre d'affaires et ta rentabilité.
+                </p>
+              </main>
+            </div>
+            <div class="q-and-a">
+              <header>
+                <div>Quel est le contenu ?</div>
+                <PlusSign class="toggle" />
+              </header>
+              <main>
+                <p>Ce questionnaire stratégique couvre les aspects essentiels pour développer ton activité B2C à travers 7 grandes thématiques :</p>
+                <ol>
+                  <li><strong>Proposition de valeur &amp; concurrence</strong> (6 questions) : analyse la pertinence de ton offre face à la concurrence.</li>
+                  <li><strong>Acquisition &amp; notoriété</strong> (6 questions) : évalue tes canaux d'acquisition et la visibilité de ta marque.</li>
+                  <li><strong>Persona &amp; transformation</strong> (5 questions) : explore la connaissance de ta cible et le parcours client.</li>
+                  <li><strong>Structure des offres</strong> (4 questions) : examine la clarté et la cohérence de tes offres commerciales.</li>
+                  <li><strong>Pricing &amp; rentabilité</strong> (3 questions) : analyse ta stratégie tarifaire et la rentabilité de ton activité.</li>
+                  <li><strong>Process &amp; pilotage</strong> (3 questions) : vérifie l'efficacité de tes processus internes et ton suivi d'activité.</li>
+                  <li><strong>Vision &amp; cap stratégique</strong> (3 questions) : te guide pour clarifier tes objectifs à moyen et long terme.</li>
+                </ol>
+              </main>
+            </div>
+            <a href="https://tinyurl.com/TPLEA" class="button cta">Télécharger maintenant <span><i class="fa-solid fa-file-arrow-down"></i></span></a>
+        </div>
+        <div class="card">
+          <img src={auditImg.src} alt="" width={300} height={300} /> 
+          <h2>The Plannerist Auto-Audit</h2>
+          <div class="q-and-a">
+            <header>
+              <div>Pour qui ?</div>
+              <PlusSign class="toggle"/>
+            </header>
+            <main>
+              <p>Cet auto-audit est spécialement conçu pour les entrepreneurs, solopreneurs et petites équipes qui vendent des produits ou des services </p>
+            </main>
+          </div>
+          <div class="q-and-a">
+            <header>
+              <div>Pour quels objectifs ?</div>
+              <PlusSign class="toggle"/>
+            </header>
+            <main>
+              <p>L'objectif principal est de t'aider à identifier clairement les forces et les axes d'amélioration dans ton business B2c. Grâce à ce diagnostif, tu pourras prioriser les actions stratégiques à mener pour optimiser ton chiffre d'affaires, ta rentabilité et l'expérience client.</p>
+            </main>
+          </div>
+          <div class="q-and-a">
+            <header>
+              <div>Quel est le contenu ?</div>
+              <PlusSign class="toggle"/>
+            </header>
+            <main>
+              <p>L'auto-audit est structuré en 6 pôles clés, chacun comprenant plusieurs questions précises pour analyser ta performance et organisation :</p>
+              <ol>
+                <li><strong>Commercial, Marketing &amp; Communication </strong>: évaluation de ta stratégie commerciale, acquisition et visibilité</li>
+                <li><strong>Finance &amp; Comptabilité </strong>: analyse de ta gestion financière et de ta rentabilité.</li>
+                <li><strong>Parcours Client </strong>: étude de l'expérience client de la découverte à la fidélisation.</li>
+                <li><strong>Day to day </strong>: organisation quotidienne et gestion du temps.</li>
+                <li><strong>Opérations &amp; Logistique </strong>: efficacité des processus internes, gestion des stocks et logistique.</li>
+              </ol>
+              <p>Ce diagnostic complet te donne une vision claire de ta situation actuelle pour mieux piloter ta croissance.</p>
+            </main>
+          </div>
+          <a href="https://tinyurl.com/TPLEA" class="button cta">Télécharger maintenant <span><i class="fa-solid fa-file-arrow-down"></i></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const qAndAheaders = document.querySelectorAll(".q-and-a header");
+  qAndAheaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const toggle = header.querySelector(".toggle");
+      toggle.classList.toggle("active");
+      content.classList.toggle("active");
+    })
+  })
+</script>
+
+<style>
+  .tagline {
+    text-wrap: balance;
+    text-align: center;
+  }
+
+  .grid {
+    display: flex;
+    gap: var(--space-xl);
+    justify-content: space-evenly;
+  }
+
+  .card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+  }
+
+  .card img {
+    width: 100%;
+    height: 500px; 
+    object-fit: contain;
+  }
+
+  .card h2 {
+    position: relative;
+  }
+
+  .card h2::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 80%;
+    height: 9px;
+    background-color: var(--primary-light);
+    z-index: -1;
+  }
+
+  .card .cta {
+    margin-top: var(--space-m);
+    padding-right: .75rem;
+  }
+
+  .q-and-a {
+    width: 100%;
+    border-bottom: 1px solid var(--text);
+  }
+
+  .q-and-a:first-of-type {
+    border-top: 1px solid var(--text);
+  }
+
+  .q-and-a header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+  }
+
+  .q-and-a .toggle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .q-and-a .toggle.active {
+    transform: rotate(45deg);
+  }
+
+  .q-and-a main {
+    display: none;
+  }
+
+  .q-and-a main.active {
+    display: block;
+  }
+</style>
