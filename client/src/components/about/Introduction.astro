@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+import SehenoPortrait from '../../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_4.webp';
+import { Image } from 'astro:assets';
 ---
 
 <section id="welcome-about">
@@ -12,7 +14,7 @@ import '../../styles/global.css';
       <p>Structuration, organisation, pilotage &ndash; je mets mon expérience de bras droit stratégique au service de ton développement.</p>
       <a href="" class="button cta">Ton approche m'inspire <span><i class="fa-solid fa-comments"></i></span></a>
     </article>
-    <div class="placeholder"></div>
+    <Image src={SehenoPortrait} alt="" width={800} height={800} class="portrait"/>
   </div>
 </section>
 
@@ -21,13 +23,6 @@ import '../../styles/global.css';
     display: flex;
     align-items: center;
     gap: var(--space-m);
-  }
-
-  .placeholder {
-    border: 1px solid black;
-    background-color: var(--bg-color-light);
-    height: 640px;
-    flex: 1;
   }
 
   .page-title {
@@ -40,5 +35,10 @@ import '../../styles/global.css';
 
   .cta {
     padding-right: .75rem;
+  }
+
+  .portrait {
+    flex: 1;
+    object-fit: cover;
   }
 </style>

@@ -1,10 +1,12 @@
 ---
 import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import SehenoPortrait from '../../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_1.webp';
 ---
 
 <section id="journey">
   <div class="container">
-    <div class="placeholder"></div>
+    <Image src={SehenoPortrait} width={1800} height={1000} alt="" class="portrait" />
     <article>
       <div class="title-header">La curiosité comme fil conducteur</div>
       <h2 class="section-title">Mon parcours de COO pour PME et solopreneurs</h2>
@@ -24,11 +26,9 @@ import '../../styles/global.css';
     gap: var(--space-m);
   }
 
-  .placeholder {
-    border: 1px solid black;
-    background-color: var(--bg-color-light);
-    height: 840px;
+  .portrait {
     flex: 1;
+    object-fit: cover;
   }
 
   .section-title {

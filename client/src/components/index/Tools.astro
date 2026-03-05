@@ -74,6 +74,7 @@ import autoAuditGif from '../../assets/images/auto_audit.gif';
 
   .cards {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: var(--space-m);
   }
@@ -119,8 +120,9 @@ import autoAuditGif from '../../assets/images/auto_audit.gif';
 
   .links {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--space-s);
+    gap: var(--space-xs);
   }
 
   .card-link {
@@ -129,5 +131,18 @@ import autoAuditGif from '../../assets/images/auto_audit.gif';
 
   .card-link:hover {
     color: var(--bg-color-light);
+  }
+
+  @media (min-width: 1000px) {
+    .cards {
+      flex-direction: row;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-s);
+    }
   }
 </style>

@@ -3,10 +3,10 @@ export const links = [
   name: "Accueil",
   url: "/",
   },
-  {
-  name: "À propos",
-  url: "/about",
-  },
+  // {
+  // name: "À propos",
+  // url: "/about",
+  // },
   {
     name: "La Bibliothèque",
     url: "/bibliotheque",

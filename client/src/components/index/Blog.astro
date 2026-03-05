@@ -4,15 +4,15 @@ import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
 
 const articles = await fetchApi({
-  endpoint: 'blogs',
-  wrappedByKey: 'data',
-  query: {
-    'pagination[start]': '0',
-    'pagination[limit]': '4',
-    'populate[0]': 'cover',
-    'populate[1]': 'author',
-    'populate[2]': 'author.avatar',
-  },
+endpoint: 'blogs',
+wrappedByKey: 'data',
+query: {
+'pagination[start]': '0',
+'pagination[limit]': '4',
+'populate[0]': 'cover',
+'populate[1]': 'author',
+'populate[2]': 'author.avatar',
+},
 });
 
 const optionsDate = {
@@ -71,12 +71,11 @@ const locale = 'fr-FR';
   }
 
   .card-grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-m);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-m);
   }
 
   .card {
@@ -165,5 +164,15 @@ const locale = 'fr-FR';
 
   .card-cta:hover .word {
     display: block;
+  }
+
+  @media (min-width: 1000px) {
+    .card-grid {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-m);
+    }
   }
 </style>
