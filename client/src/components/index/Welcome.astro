@@ -6,11 +6,13 @@ import { Image } from 'astro:assets';
 
 <section id="hero">
   <div class="container">
-    <Image src={googleReviews} alt="" width={300} height={100} class="review-image"/>
     <div class="title-header">Accompagnement pilotage d'entreprise</div>
     <h1 class="page-title">90 jours pour transformer ton organisation en levier de rentabilité avec un COO externalisé</h1>
     <p>On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et fluidifier ton "day-to-day".</p>
-    <a href="" class="button cta">Je veux améliorer ma marge <span><i class="fa-solid fa-money-bill-trend-up"></i></span></a>
+    <footer>
+      <a href="" class="button cta">Je veux améliorer ma marge <span><i class="fa-solid fa-money-bill-trend-up"></i></span></a>
+      <Image src={googleReviews} alt="" width={300} height={100} class="review-image"/>
+    </footer>
   </div>
 </section>
 
@@ -42,11 +44,20 @@ import { Image } from 'astro:assets';
   }
 
   .cta {
-    margin-top: var(--space-l);
     padding-right: .75rem;
   }
 
   .review-image {
-    object-fit: contain;
+    object-fit: cover;
+    width: 170px;
+    height: 80px;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 </style>
