@@ -41,7 +41,7 @@ const locale = 'fr-FR';
                 <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
               </div>
             </div>
-            <a href={`/blog/${article.slug}`} class="card-cta"><span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/${article.slug}`} class="card-cta"><span class="word">Lire </span><span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
       </div>
@@ -139,16 +139,31 @@ const locale = 'fr-FR';
 
   .card-cta {
     width: 2rem;
-    aspect-ratio: 1/1;
+    height: 2rem;
     background-color: var(--bg-color-light);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 999px;
+    position: relative;
+    text-decoration: none;
+
+    transition-property: width;
+    transition-duration: 200ms;
   }
 
   .card-cta:hover {
     background-color: var(--text);
+    width: 4.5rem;
+    justify-content: space-evenly;
+  }
+
+  .card-cta .word {
+    display: none;
+  }
+
+  .card-cta:hover .word {
+    display: block;
   }
 </style>
