@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import florie from '../assets/images/florie.jpg';
+---
+
+<Layout>
+  <section>
+    <div class="container">
+      <div class="hero">
+        <div class="title-header">Des stratégies qui font la différence</div>
+        <h1 class=page-title>Des exemples de conseil en pilotage d'entreprise</h1>
+        <a href="" class="button cta">Prendre un appel découverte <span><i class="fa-solid fa-phone"></i></span></a>
+      </div>
+    </div>
+  </section>
+  <section class="consulting">
+    <div class="container">
+      <h2 class="section-title">Le conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
+      <p class="description">Découvre quelques exemples concrets d'entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
+      <div class="project-grid">
+        <div class="card">
+          <Image src={florie} width={600} height={400} alt="" />
+          <main>
+            <h3>De la surcharge à une délégation fluide.</h3>
+            <p>En <i>repensant son organisation</i>, Myblueprint VF a pu <i><b>fluidifier sa gestion interne</b></i>, et <i><b>augmenter son chiffre d'affaires de 130%</b></i> dans un context de pandémie et confinement.</p>
+          <a href="" class="button cta">Voir le business case <span><i class="fa-solid fa-arrow-right"></i></span></a>
+          </main>
+        </div>
+        <div class="card">
+          <Image src={florie} width={600} height={400} alt="" />
+          <main>
+            <h3>De la surcharge à une délégation fluide.</h3>
+            <p>En <i>repensant son organisation</i>, Myblueprint VF a pu <i><b>fluidifier sa gestion interne</b></i>, et <i><b>augmenter son chiffre d'affaires de 130%</b></i> dans un context de pandémie et confinement.</p>
+          <a href="" class="button cta">Voir le business case <span><i class="fa-solid fa-arrow-right"></i></span></a>
+          </main>
+        </div>
+        <div class="card">
+          <Image src={florie} width={600} height={400} alt="" />
+          <main>
+            <h3>De la surcharge à une délégation fluide.</h3>
+            <p>En <i>repensant son organisation</i>, Myblueprint VF a pu <i><b>fluidifier sa gestion interne</b></i>, et <i><b>augmenter son chiffre d'affaires de 130%</b></i> dans un context de pandémie et confinement.</p>
+          <a href="" class="button cta">Voir le business case <span><i class="fa-solid fa-arrow-right"></i></span></a>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .consulting .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .consulting .description {
+    max-width: 70ch;
+    text-align: center;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    max-width: 40rem;
+    background-color: white;
+    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .card img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card main h3 {
+    margin-top: 0;
+  }
+
+  .card main {
+    padding: var(--space-s);
+  }
+
+  .card main .cta {
+    padding-right: .75rem;
+  }
+</style>

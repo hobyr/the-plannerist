@@ -13,11 +13,7 @@ export const links = [
   },
   {
   name: "Business Cases",
-  url: "",
-  },
-  {
-  name: "Ressources",
-  url: "",
+  url: "/cases",
   },
   {
   name: "Blog",
