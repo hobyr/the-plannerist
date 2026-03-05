@@ -9,7 +9,9 @@ const articles = await fetchApi({
   query: {
     'pagination[start]': '0',
     'pagination[limit]': '4',
-    'populate': 'cover',
+    'populate[0]': 'cover',
+    'populate[1]': 'author',
+    'populate[2]': 'author.avatar',
   },
 });
 
@@ -33,13 +35,13 @@ const locale = 'fr-FR';
           <h3 class="card-title">{article.title}</h3>
           <div class="card-content">
             <div class="card-author-wrapper">
-              <div class="placeholder"></div>
+              <Image src={article.author.avatar.formats.thumbnail.url} width={50} height={50} alt="" class="card-avatar"/>
               <div class="card-author-text-wrapper">
-                <div class="card-author">Seheno Ratefimandimby</div>
+                <div class="card-author">{article.author.name}</div>
                 <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
               </div>
             </div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Lire l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/${article.slug}`} class="card-cta"><span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
       </div>
@@ -126,13 +128,27 @@ const locale = 'fr-FR';
 
   .card-date {
     color: #a4a4a4;
+    font-size: var(--step--1);
   }
 
-  .placeholder {
+  .card-avatar {
     width: 3rem;
     aspect-ratio: 1/1;
-    border: 1px solid var(--text);
-    background-color: var(--bg-color-light);
     border-radius: 9999px;
+  }
+
+  .card-cta {
+    width: 2rem;
+    aspect-ratio: 1/1;
+    background-color: var(--bg-color-light);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+  }
+
+  .card-cta:hover {
+    background-color: var(--text);
   }
 </style>
