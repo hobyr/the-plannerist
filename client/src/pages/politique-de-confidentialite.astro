@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import * as cgvContent from "../content/cgv.md";
+import * as cgvContent from "../content/politique-confidentialite.md";
 const headings = cgvContent.getHeadings();
 const title = headings.slice(0, 1);
 const h2Headings = headings.slice(1);
@@ -32,7 +32,8 @@ console.log(title);
   aside {
     position: sticky;
     top: 100px;
-    height: 70vh;
+    height: fit-content;
+    max-height: 70vh;
     overflow-y: scroll;
   }
 
@@ -41,3 +42,4 @@ console.log(title);
     padding-left: var(--space-s);
   }
 </style>
+
