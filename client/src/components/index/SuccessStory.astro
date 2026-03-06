@@ -22,6 +22,7 @@ import QuoteIcon from '../../assets/quote.svg';
       <div class="item quote">
         <QuoteIcon />
         <p>Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe.</p>
+        <p>Florie Gatet, fondatrice MyBlueprintVF</p>
       </div>
     </div>
   </div>
@@ -31,7 +32,12 @@ import QuoteIcon from '../../assets/quote.svg';
   .container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--space-l);
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    padding: var(--space-l);
+    border-radius: 48px;
   }
 
   header {
@@ -56,22 +62,19 @@ import QuoteIcon from '../../assets/quote.svg';
   }
 
   .buttons {
-    display: none;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* gap: var(--space-s); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-s);
   }
 
   .portrait-grid {
-    background-color: #fffff8;
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
-    border: 1px solid var(--border-color);
+    /* border: 1px solid var(--border-color); */
     padding: var(--space-s);
     border-radius: 12px;
-    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
     width: 100%;
   }
 
@@ -122,6 +125,8 @@ import QuoteIcon from '../../assets/quote.svg';
 
   .quote {
     position: relative;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
   }
 
   .quote svg {
@@ -156,11 +161,11 @@ import QuoteIcon from '../../assets/quote.svg';
       "quote quote quote quote quote quote quote quote"
       "quote quote quote quote quote quote quote quote";
       gap: var(--space-s);
-      border: 1px solid var(--border-color);
-      padding: var(--space-l);
+      /* border: 1px solid var(--border-color); */
+      /* padding: var(--space-l); */
       border-radius: var(--space-m);
-      box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+      /* box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%); */
       width: 60%;
-  }
+    }
   }
 </style>
