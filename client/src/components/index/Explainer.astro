@@ -1,22 +1,30 @@
 ---
 import '../../styles/global.css';
+import visual_1 from '../../assets/images/Visuel_1_-_Aspiration_client.png';
+import visual_2 from '../../assets/images/Visuel_2_-_Aspiration_client.png';
+import visual_3 from '../../assets/images/Visuel_3_-_Aspiration_client.png';
+import { Image } from 'astro:assets';
 ---
 
 <section id="explainer">
   <div class="container">
     <h2 class="section-title">Pourquoi faire appel à un COO externalisé quand on est une PME ?</h2>
+    <p class="tagline">L'accompagnement The Plannerist repose sur 3 piliers clés: <strong>organisation</strong>, <strong>responsabilisation</strong> et <strong>visibilité</strong> pour reprendre le contrôle de votre entreprise.</p>
     <div class="cards">
       <div class="card">
-        <h3>Tu veux plus qu'un boost de mindset ou des conseils business génériques</h3>
-        <p>Tu veux un <strong>accompagnement concret</strong>, qui te <strong>challenge en profondeur</strong> &ndash; sur tes offres, ton organisation et tes chiffres.</p>
+        <h3>Reprenez le contrôle de votre agenda</h3>
+        <p>Votre rôle n'est pas d'être partout, mais de décider. En structurant l'organisation et les responsabilités, votre entreprise avance sans dépendre de votre présence permanente. Vous retrouvez du temps pour prendre du recul et diriger.</p>
+        <Image src={visual_1} width={500} height={500} class="visual" alt="" />
       </div>
       <div class="card">
-        <h3>Tu fais trop de sacrifices perso pour atteindre ton CA actuel</h3>
-        <p>Tu fais déjà du chiffre, mais tu <strong>tires trop sur la corde pour y arriver</strong> &ndash; journées, trop longues pauses repoussées, toujours une urgence à gérer. Et tu sais que <strong>ça ne pourra pas durer comme ça</strong>.</p>
+        <h3>Pilotez l'activité sans micro-management</h3>
+        <p>Gardez une vision claire des priorités, des projets et de l'avancement des équipes. Les rôles sont définis, les informations circulent et chacun sait ce qu'il doit livrer, sans que vous ayez à vérifier chaque détail.</p>
+        <Image src={visual_2} width={500} height={500} class="visual" alt="" />
       </div>
       <div class="card">
-        <h3>Tu veux connecter ton savoir-faire à ta performance</h3>
-        <p>Je t'aide à <strong>créer un système qui amplifie ce que tu as déjà construit</strong>, pour que tu n'aies plus à choisir entre servir tes clients et développer ton activité. Un <strong>équilibre entre ta passion et la réalité du business</strong>.</p>
+        <h3>Décidez avec des chiffres, pas des intuitions</h3>
+        <p>Accédez aux bons indicateurs pour comprendre ce qui fonctionne réellement dans votre entreprise. Chiffre d'affaires, rentabilité, performance commerciale : vous disposez d'une lecture claire pour orienter vos décisions et sécuriser votre croissance.</p>
+        <Image src={visual_3} width={500} height={500} class="visual" alt="" />
       </div>
     </div>
     <a href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer" class="button cta">Évaluer si un COO externalisé correspond à tes besoins <span><i class="fa-solid fa-user-check"></i></span></a>
@@ -24,16 +32,15 @@ import '../../styles/global.css';
 </section>
 
 <style>
-  .title-header {
-    font-family: "AH Ernie", sans-serif;
-    font-size: 1.5rem;
-  }
-
   .container {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  .tagline {
+    margin-bottom: var(--space-l);
   }
 
   .cards {
@@ -45,25 +52,43 @@ import '../../styles/global.css';
   .card {
     flex: 1;
     background-color: white;
-    padding: var(--space-m);
+    padding: var(--space-l);
     border-radius: 12px;
     box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .card .visual {
+    object-fit: contain;
+    width: 100%;
+    height: 50%;
+    margin-top: var(--space-m);
   }
 
   .card h3 {
     margin-top: 0;
-    line-height: 1;
+    margin-bottom: 0;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .card p {
+    margin-bottom: auto;
   }
 
   .cta {
+    margin-top: var(--space-s);
     padding-right: .75rem;
   }
 
   @media (min-width: 1000px) {
     .cards {
       flex-direction: row;
+      gap: var(--space-m);
       margin-bottom: var(--space-l);
-      width: 80%;
     }
   }
 </style>
