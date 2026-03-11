@@ -15,8 +15,8 @@ export const links = [
   // name: "Business Cases",
   // url: "/cases",
   // },
-  // {
-  // name: "Blog",
-  // url: "/blog",
-  // },
+  {
+  name: "Blog",
+  url: "/blog",
+  },
 ]
