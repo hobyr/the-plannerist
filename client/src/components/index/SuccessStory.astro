@@ -22,6 +22,7 @@ import QuoteIcon from '../../assets/quote.svg';
       <div class="item quote">
         <QuoteIcon />
         <p>Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe.</p>
+        <p>Florie Gatet, fondatrice MyBlueprintVF</p>
       </div>
     </div>
   </div>
@@ -61,11 +62,10 @@ import QuoteIcon from '../../assets/quote.svg';
   }
 
   .buttons {
-    display: none;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* gap: var(--space-s); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-s);
   }
 
   .portrait-grid {
@@ -128,6 +128,8 @@ import QuoteIcon from '../../assets/quote.svg';
 
   .quote {
     position: relative;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
   }
 
   .quote svg {
