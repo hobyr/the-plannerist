@@ -1,4 +1,19 @@
 import type { Core } from '@strapi/strapi';
+const getPreviewPathname = (uid, { document }): string => {
+  const { slug } = document;
+
+  switch (uid) {
+    case "api::blog.blog": {
+      if (!slug) {
+        return "/blog";
+      }
+      return `/blog/${slug}`;
+    }
+    default: {
+      return null;
+    }
+  }
+};
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Admin => ({
   auth: {

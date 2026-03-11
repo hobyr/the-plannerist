@@ -7,8 +7,8 @@ export interface SharedCallToAction extends Struct.ComponentSchema {
     icon: 'paperPlane';
   };
   attributes: {
-    cta_label: Schema.Attribute.String;
-    cta_url: Schema.Attribute.String;
+    cta_label: Schema.Attribute.String & Schema.Attribute.Required;
+    cta_url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

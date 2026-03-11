@@ -7,10 +7,12 @@
   "options": {},
   "attributes": {
     "cta_label": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "cta_url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   },
   "config": {}
