@@ -13,8 +13,8 @@ query: {
 }
 });
 // console.log(articles);
-const topArticles = articles.slice(0,5);
-const remainArticles = articles.slice(5);
+const topArticles = articles.slice(0,6);
+const remainArticles = articles.slice(6);
 console.log(topArticles.length)
 console.log(remainArticles.length)
 ---
@@ -29,7 +29,7 @@ console.log(remainArticles.length)
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
       <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
-      <div class="article-grid">
+      <div class="post-grid">
         {topArticles.map(article => 
         <div class="article-card">
           <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
@@ -40,6 +40,7 @@ console.log(remainArticles.length)
         </div>
         )}
       </div>
+      <h2 class="section-title">Autres articles</h2>
       <div class="article-grid-2">
         {remainArticles.map(article => 
         <div class="article-card">
@@ -57,59 +58,13 @@ console.log(remainArticles.length)
 </Layout>
 
 <style>
-  :root {
-    --blob-col-1: #F4E04D;
-    --blob-col-2: #95BF74;
-    --blob-col-3: #DDA77B;
-    /* --blob-col-3: #669BBC; */
-  }
-
-  .bg-blob {
-    position: absolute;
-    --length: 600px;
-    width: var(--length);
-    height: var(--length);
-    z-index: -1;
-    filter: blur(500px);
-  }
-
-  .blob-1 {
-    top: 0;
-    right: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-2 {
-    left: 0;
-    top: 800px;
-    background-color: var(--blob-col-2);
-  }
-
-  .blob-3 {
-    top: 1400px;
-    right: 0;
-    background-color: var(--blob-col-3);
-  }
-
-  .blob-4 {
-    top: 2400px;
-    left: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-5 {
-    top: 3800px;
-    right: 0px;
-    background-color: var(--bg-color-dark);
-  }
-
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .article-grid {
+  .post-grid {
     width: 100%;
     display: grid;
     gap: var(--space-l);
@@ -120,35 +75,47 @@ console.log(remainArticles.length)
       "hero hero hero hero aside2 aside2"
       "hero hero hero hero aside3 aside3"
       "hero hero hero hero aside3 aside3"
-      "aside4 aside4 aside4 aside5 aside5 aside5";
+      "aside4 aside4 aside5 aside5 aside6 aside6"
+      "aside4 aside4 aside5 aside5 aside6 aside6";
+    margin-bottom: var(--space-m);
   }
 
-  .article-card:nth-child(1) {
+  .post-grid .article-card:nth-child(1) {
     grid-area: hero;
   }
 
-  .article-card:nth-child(2) {
+  .post-grid .article-card:nth-child(2) {
     grid-area: aside2;
   }
 
-  .article-card:nth-child(3) {
+  .post-grid .article-card:nth-child(3) {
     grid-area: aside3;
   }
 
-  .article-card:nth-child(4) {
+  .post-grid .article-card:nth-child(4) {
     grid-area: aside4;
   }
 
-  .article-card:nth-child(5) {
+  .post-grid .article-card:nth-child(5) {
     grid-area: aside5;
+  }
+
+  .post-grid .article-card:nth-child(6) {
+    grid-area: aside6;
   }
 
   .article-card {
     min-height: 15rem;
     width: 100%;
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
+  }
+
+  .article-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: var(--space-l);
+    margin-top: var(--space-m);
   }
 
   .article-card .card-cover {
