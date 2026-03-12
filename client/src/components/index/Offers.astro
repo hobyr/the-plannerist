@@ -3,7 +3,7 @@ import '../../styles/global.css';
 const locale = "fr-FR";
 const currency = "EUR";
 const price = Intl.NumberFormat(locale, { style: "currency", currency: currency, maximumFractionDigits: 0 }).format(2950);
-const price_2 = Intl.NumberFormat(locale, { style: "currency", currency: currency, maximumFractionDigits: 0 }).format(3500);
+const price_2 = Intl.NumberFormat(locale, { style: "currency", currency: currency, maximumFractionDigits: 0 }).format(4500);
 import OSIcon from '../../assets/organization.svg';
 import BusinessIcon from '../../assets/employees.svg';
 ---
@@ -21,10 +21,12 @@ import BusinessIcon from '../../assets/employees.svg';
             <h3 class="card-title">The Plannerist OS</h3>
           </div>
           <div class="card-tagline">3 mois pour remettre de l'ordre dans ton activité.</div>
-          <div class="card-price">{price}</div>
+          <div class="card-price">{price} HT<span>tout-en-un</span></div>
           <a href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer" class="button cta">Mettre en place mon OS <span><i class="fa-solid fa-arrow-right"></i></span></a>
+          <div class="modality">Paiement en 3 fois possible.</div>
         </header>
         <!-- <p>On fait un état des lieux complet. On simplifie, on ajuste et on crée une feuille de route claire pour fluidifier ton opérationnel.</p> -->
+        <p>L'indispensable pour la gestion de projet :</p>
         <h4>Structuration de votre organisation</h4>
         <ul class="fa-ul">
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Workspace Asana organisé par pôles (Finance, Marketing, Produit, etc.)</li>
@@ -36,18 +38,20 @@ import BusinessIcon from '../../assets/employees.svg';
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Process clés templarisés sur Asana</li>
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Checklists pour réduire erreurs et pertes de temps</li>
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Automatisations (logistique, reporting, post-achat, leads, etc.)</li>
+          <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Mise à jour et enrichissement de la Knowledge Base<div class="macaron">OFFERT</div></li>
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card copilotage">
         <header>
           <div class="header-icon">
             <BusinessIcon />
             <h3 class="card-title">Le Co-pilotage</h3>
           </div>
           <div class="card-tagline">+6 mois pour gagner des points de marge.</div>
-          <div class="card-price">{price_2}<span>/mois</span></div>
+          <div class="card-price">{price_2} HT<span>/mois</span></div>
           <a href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer" class="button cta">Prendre un co-pilote <span><i class="fa-solid fa-arrow-right"></i></span></a>
+          <div class="modality"><div class=led></div> 2 places disponibles.</div>
         </header>
         <!-- <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p> -->
         <p>Tout The Plannerist OS, plus :</p>
@@ -64,7 +68,7 @@ import BusinessIcon from '../../assets/employees.svg';
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Optimisation continue des process et automatisations</li>
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Identification et résolution des goulots d'étranglement opérationnels</li>
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Amélioration des workflows entre marketing, produit et support</li>
-          <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Mise à jour et enrichissement de la Knowledge Base</li>
+          <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Mise à jour et enrichissement de la Knowledge Base<div class="macaron">OFFERT</div></li>
           <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Veille outils et méthodes pour soutenir la croissance</li>
         </ul>
         <h4>Délégation &amp; Structuration de l'équipe</h4>
@@ -103,7 +107,7 @@ import BusinessIcon from '../../assets/employees.svg';
 
   .cards {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--space-s);
     margin-bottom: var(--space-l);
   }
@@ -111,7 +115,7 @@ import BusinessIcon from '../../assets/employees.svg';
   .card {
     flex: 1;
     background-color: white;
-    padding: var(--space-m);
+    padding: var(--space-xl) var(--space-l);
     border-radius: 12px;
     box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
     border: 1px solid #dadadd;
@@ -182,9 +186,70 @@ import BusinessIcon from '../../assets/employees.svg';
     transform: rotate(-45deg);
   }
 
-  @media (min-width: 1000px) {
-    .cards {
-      flex-direction: row;
+  .modality {
+    margin-top: var(--space-s);
+    color: #909090;
+  }
+
+  .copilotage {
+    border: 3px solid var(--bg-color-light);
+    /* box-shadow: 0px 0px 8px 8px var(--bg-color-light); */
+    position: relative;
+  }
+
+  .copilotage::after {
+    content: "Recommandé";
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: -1rem;
+    background-color: var(--bg-color-light);
+    /* color: var(--bg-color-dark); */
+    color: white;
+    font-weight: 550;
+    height: 2rem;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes glowing {
+    0% {
+      background-color: var(--text);
+      box-shadow: 0px 0px 3px var(--text);
     }
+
+    50% {
+      background-color: var(--bg-color-light);
+      box-shadow: 0px 0px 9px var(--bg-color-light);
+    }
+
+    100% {
+      background-color: var(--text);
+      box-shadow: 0px 0px 3px var(--text);
+    }
+  }
+  
+  .led {
+    --length: 12px;
+    width: var(--length);
+    height: var(--length);
+    border-radius: var(--length);
+    animation: glowing 1500ms infinite;
+    display: inline-block;
+    margin-right: var(--space-2xs);
+  }
+
+  .macaron {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: var(--step--1);
+    letter-spacing: 1px;
+    font-weight: 600;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    padding: .1rem .75rem;;
+    border-radius: 99px;
   }
 </style>
