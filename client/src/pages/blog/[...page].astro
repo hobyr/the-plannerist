@@ -2,21 +2,27 @@
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi.ts';
 import { Image } from 'astro:assets';
-const pageSize = 12;
-const { page } = Astro.props;
+const pageSize = 15;
 
-export async function getStaticPaths({ paginate }) {
+// Asking for on-demand server rendering for pagination through Strapi
+export const prerender = false;
+
 const articles = await fetchApi({
 endpoint: 'blogs',
 wrappedByKey: 'data',
 query: {
 'populate': 'cover',
 'pagination[page]': 1,
-'pagination[pageSize]': 60,
+'pagination[pageSize]': 50,
+'sort': 'posted_at:desc',
 }
 });
 
-return paginate(articles, { pageSize: 12 });
+// Fix URL path for local development
+for (let article of articles) {
+if (import.meta.env.NODE_ENV === 'development') {
+  article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+}
 }
 ---
 
@@ -25,38 +31,38 @@ return paginate(articles, { pageSize: 12 });
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
       <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
-      <div class="post-grid">
-        {page.data.slice(0, 6).map(article => 
-        <div class="article-card">
-          <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
-          <div class="card-content">
-            <h3>{article.title}</h3>
-            <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,14))}</div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
-          </div>
-        </div>
-        )}
-      </div>
-      <h2 class="section-title">Autres articles</h2>
+      <!-- <div class="post-grid"> -->
+      <!--   {articles.slice(0, 6).map(article => --> 
+      <!--   <div class="article-card"> -->
+      <!--     <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/> -->
+      <!--     <div class="card-content"> -->
+      <!--       <h3>{article.title}</h3> -->
+      <!--       <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,14))}</div> -->
+      <!--       <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a> -->
+      <!--     </div> -->
+      <!--   </div> -->
+      <!--   )} -->
+      <!-- </div> -->
+      <h2 class="section-title">Tous les articles</h2>
       <div class="article-grid-2">
-        {page.data.slice(6).map(article => 
+        {articles.map(article => 
         <div class="article-card">
           <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,14))}</div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/post/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
       </div>
-      <nav class="pagination">
-        {page.url.first ? <a href={page.url.first}>1</a> : null}
-        {page.url.prev && page.currentPage > 2 ? <a href={page.url.prev}>{page.currentPage - 1}</a> : null}
-        {page.url.current ? <a href={page.url.current} class="currentPage">{page.currentPage}</a> : null}
-        {page.url.next ? <a href={page.url.next}>{page.currentPage + 1}</a> : null}
-        {page.url.last && page.url.last === page.url.next ? <a href={page.url.last}>{page.lastPage}</a> : null}
-      </nav>
+      <!-- <nav class="pagination"> -->
+      <!--   {page.url.first ? <a href={page.url.first}>1</a> : null} -->
+      <!--   {page.url.prev && page.currentPage > 2 ? <a href={page.url.prev}>{page.currentPage - 1}</a> : null} -->
+      <!--   {page.url.current ? <a href={page.url.current} class="currentPage">{page.currentPage}</a> : null} -->
+      <!--   {page.url.next ? <a href={page.url.next}>{page.currentPage + 1}</a> : null} -->
+      <!--   {page.url.last && page.url.last === page.url.next ? <a href={page.url.last}>{page.lastPage}</a> : null} -->
+      <!-- </nav> -->
     </div>
   </section>
 </Layout>
@@ -110,6 +116,7 @@ return paginate(articles, { pageSize: 12 });
 
   .article-card {
     width: 100%;
+    height: 32rem;
     display: flex;
     flex-direction: column;
   }
@@ -124,7 +131,8 @@ return paginate(articles, { pageSize: 12 });
 
   .article-card .card-cover {
     width: 100%;
-    height: 100%;
+    height: 20rem;
+    max-height: 20rem;
     object-fit: cover;
   }
 
@@ -133,17 +141,19 @@ return paginate(articles, { pageSize: 12 });
     display: flex;
     flex-direction: column;
     padding: var(--space-s);
-    gap: var(--space-xs);
     padding-left: 0;
   }
 
   .article-card h3 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
     font-size: var(--step-1);
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: .5rem;
   }
 
   .article-date {
+    font-size: var(--step-0);
     font-weight: 200;
     color: #808080;
   }
@@ -156,6 +166,7 @@ return paginate(articles, { pageSize: 12 });
     color: var(--text);
     border-bottom: 1px solid var(--text);
     width: fit-content;
+    margin-top: auto;
 
     transition-property: gap, color, border-color;
   }
