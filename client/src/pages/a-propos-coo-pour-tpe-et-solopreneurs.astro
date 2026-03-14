@@ -4,6 +4,38 @@ import Introduction from '../components/about/Introduction.astro';
 import Journey from '../components/about/Journey.astro';
 import Solution from '../components/about/Solution.astro';
 import Workflow from '../components/about/Workflow.astro';
+import { Image } from 'astro:assets';
+import funFact1 from '../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_loisir_tennis.webp';
+import funFact2 from '../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_2.webp';
+import funFact3 from '../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_Newton.webp';
+import collaborationCover from '../assets/images/PHOTOS/The_Plannerist_-_Seheno-WORKSHOP-JUDITH.webp';
+
+const linkedInReviews = [
+{
+recommender: "Gilles Charles Muller",
+title: "Directeur Général Associé Groupe Giraphes",
+date: "2021-06-30",
+recommendation: "J'ai grandement apprécié travailler avec Seheno. En effet, au cours de nos collaborations (Embrace Planner puis MyBluePrintVF), Seheno s'est avérée être une interlocutrice très constructive. Pragmatique, elle sait faire la part des choses et se concentre sur les bons sujets. Je la recommande vivement pour des postes relatifs à de la gestion de projet."
+},
+{
+recommender: "Raphael Tardio",
+title: "Entrepreneur & Co-fondateur Groupe Giraphes | CTO",
+date: "2021-06-30",
+recommendation: "Seheno est une cheffe de projet remarquable, sérieuse et professionnelle. Elle est sensibles aux enjeux business de par ses expériences en entrepreneuriat et sait également entrer dans des détails lorsque cela est nécessaire."
+},
+{
+recommender: "Florie Gatet",
+title: "Fondatrice & CEO MyBluePrintVF",
+date: "2021-03-31",
+recommendation: "Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe."
+},
+{
+recommender: "Nancy Shulunugu",
+title: "Fondatrice Legal Team Management",
+date: "2020-05-31",
+recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans le cadre de nos activités respectives. Elle est professionnelle, investie dans son travail et très à l'écoute des aspirations et attentes de ses clients. Elle est continuellement dans une démarche de bien faire les choses. C'est un plaisir de collaborer avec elle. Je la recommande sans aucune hésitation !"
+},
+]
 ---
 
 <Layout>
@@ -20,17 +52,22 @@ import Workflow from '../components/about/Workflow.astro';
   <section id="fun-facts">
     <div class="container">
       <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
-      <div class="item">
-        <h3>01. J'adore le tennis</h3>
-        <p>C'est le seul sport qui me permet d'évacuer et me mettre dans le flow. C'est un sport qui cultive l'esprit stratégique</p>
-      </div>
-      <div class="item">
-        <h3>02. Je suis une experte en Dad Jokes</h3>
-        <p>Mon jeu favori est de faire des jeux de mots avec les stations de métro ou les villes. Par exemple : s'il y a Billancourt, il y a Billanlong ? Voilà.</p>
-      </div>
-      <div class="item">
-        <h3>03. Je suis la cat mom d'un petit Newton</h3>
-        <p>Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de route pour le récupérer en Normandie. (True story)</p>
+      <div class="item-grid">
+        <div class="item">
+          <Image src={funFact1} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <h3>01. J'adore le tennis</h3>
+          <p>C'est le seul sport qui me permet d'évacuer et me mettre dans le flow. C'est un sport qui cultive l'esprit stratégique</p>
+        </div>
+        <div class="item">
+          <Image src={funFact2} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <h3>02. Je suis une experte en Dad Jokes</h3>
+          <p>Mon jeu favori est de faire des jeux de mots avec les stations de métro ou les villes. Par exemple : s'il y a Billancourt, il y a Billanlong ? Voilà.</p>
+        </div>
+        <div class="item">
+          <Image src={funFact3} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <h3>03. Je suis la cat mom d'un petit Newton</h3>
+          <p>Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de route pour le récupérer en Normandie. (True story)</p>
+        </div>
       </div>
     </div>
   </section>
@@ -38,19 +75,31 @@ import Workflow from '../components/about/Workflow.astro';
   <section id="reviews">
     <div class="container">
       <h2 class="section-title">Ce que disent les <i>solofounders &amp; les TPE</i> qui ont travaillé avec moi</h2>
+      <div class="reviews-grid">
+        {linkedInReviews.map(review => (
+        <div class="review-card">
+          <h3 class="review-reviewer-name">{review.recommender}</h3>
+          <h4 class="review-reviewer-title">{review.title}</h4>
+          <p class="review-text">{review.recommendation}</p>
+        </div>
+        ))}
+      </div>
       <a class="button cta" href="https://www.linkedin.com/in/seheno-ratefimandimby/" target="_blank" rel="noopener noreferrer">Voir le profil LinkedIn</a>
     </div>
   </section>
 
   <section id="collaboration">
     <div class="container">
-      <h2 class="section-title">Envie de collaborer avec moi ?</h2>
-      <article>
-        <p>Tu avances, ton activité se développe, mais tu sens qu'un peu plus de structure ne ferait pas de mal ?</p>
-        <p>En tant que COO pour TPE et entrepreneurs, je peux t'aider à y voir plus clair, à remettre du cadre là où c'est flou, à poser les premières briques d'une organisation performante et alignée qui tient la route.</p>
-        <p>On peut simplement commencer par une conversation pour comprendre où tu en es, et voir si je suis la bonne personne pour t'épauler.</p>
-        <a class="button cta" href="https://tally.so/r/wzGVok" target="_blank" rel="noopener noreferrer">Programmer un café Zoom</a>
-      </article>
+      <div class="content">
+        <Image src={collaborationCover} width={800} height={800} class="collaboration-cover" alt="" />
+        <article>
+          <h2 class="section-title">Envie de collaborer avec moi ?</h2>
+          <p>Tu avances, ton activité se développe, mais tu sens qu'un peu plus de structure ne ferait pas de mal ?</p>
+          <p>En tant que COO pour TPE et entrepreneurs, je peux t'aider à y voir plus clair, à remettre du cadre là où c'est flou, à poser les premières briques d'une organisation performante et alignée qui tient la route.</p>
+          <p>On peut simplement commencer par une conversation pour comprendre où tu en es, et voir si je suis la bonne personne pour t'épauler.</p>
+          <a class="button cta" href="https://tally.so/r/wzGVok" target="_blank" rel="noopener noreferrer">Programmer un café Zoom</a>
+        </article>
+      </div>
     </div>
   </section>
 </Layout>
@@ -105,5 +154,119 @@ import Workflow from '../components/about/Workflow.astro';
   h2 span {
     font-style: italic;
   }
+
+  /********************************************************/
+  /******************** FUN FACTS *************************/
+  /********************************************************/
+  #fun-facts .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-grid {
+    position: relative;
+    width: 100%;
+    height: 1400px;
+    margin-top: var(--space-m);
+    /* border: 2px solid yellow; */
+  }
+
+  .item {
+    /* border: 3px solid red; */
+    max-width: 35rem;
+    position: absolute;
+  }
+
+  .item:nth-of-type(1) {
+    top: 0px;
+    left: 0px;
+  }
+
+  .item:nth-of-type(2) {
+    top: 200px;
+    right: 0px;
+  }
+
+  .item:nth-of-type(3) {
+    bottom: 0px;
+    left: 120px;
+  }
+
+  .fun-fact-image {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+  }
+
+  /********************************************************/
+  /******************** REVIEWS ***************************/
+  /********************************************************/
+  #reviews .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .reviews-grid {
+      display: grid;
+      gap: var(--space-l);
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      margin-bottom: var(--space-l);
+    }
+
+    .review-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
+      padding-inline: var(--space-m);
+    }
+
+    .review-reviewer-name {
+      font-family: "Outfit", sans-serif;
+      font-size: var(--step-0);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .review-reviewer-title {
+      font-size: var(--step--1);
+      font-weight: 200;
+      color: #808080;
+      margin-top: 0.15rem;
+    }
+
+    .review-text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+    }
+  }
+
+  /********************************************************/
+  /******************** COLLABORATION *********************/
+  /********************************************************/
+  #collaboration .content {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    gap: var(--space-l);
+
+    .section-title {
+      text-align: left;
+    }
+
+    article {
+      align-self: center;
+    }
+
+    .collaboration-cover {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+
 </style>
 
