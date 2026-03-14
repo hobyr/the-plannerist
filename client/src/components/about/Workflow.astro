@@ -1,10 +1,15 @@
 ---
 import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import SehenoPortrait from '../../assets/images/portrait_travail.png';
 ---
 
 <section id="workflow">
   <div class="container">
-    <div class="placeholder"></div>
+    <div class="shape-wrapper">
+      <div class="shape"></div>
+      <Image src={SehenoPortrait} alt="" width={800} height={800} class="portrait"/>
+    </div>
     <article>
       <div class="title-header">Le workflow The Plannerist</div>
       <h2 class="section-title">Ma façon de travailler, en tant que <span>COO externalisée</span></h2>
@@ -21,15 +26,33 @@ import '../../styles/global.css';
 <style>
   .container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: var(--space-m);
+    justify-content: center;
+    gap: var(--space-xl);
   }
 
-  .placeholder {
-    border: 1px solid black;
-    background-color: var(--bg-color-light);
-    height: 840px;
-    flex: 1;
+  .portrait {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .shape-wrapper {
+    position: relative;
+    clip-path: inset(5% 0% 0% 3% round 10% 10% 15% 10%);
+    /* clip-path: ellipse(53% 79% at 53% 21%); */
+  }
+
+  .shape {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #cee397;
+    z-index: -1;
+    /* clip-path: inset(5% 0% 0% 3% round 10% 10% 10% 10%); */
+    clip-path: circle(88% at 65% 85%);
   }
 
   .section-title {
@@ -38,6 +61,10 @@ import '../../styles/global.css';
 
   article {
     flex: 1;
+  }
+
+  article p {
+    max-width: unset;
   }
 
   .cta {
