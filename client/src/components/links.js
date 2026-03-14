@@ -11,10 +11,10 @@ export const links = [
     name: "La Bibliothèque",
     url: "/bibliotheque",
   },
-  // {
-  // name: "Business Cases",
-  // url: "/cases",
-  // },
+  {
+  name: "Business Cases",
+  url: "/business-cases",
+  },
   {
   name: "Blog",
   url: "/blog",
