@@ -29,7 +29,12 @@ month: "long",
 day: "numeric"
 };
 const locale = 'fr-FR';
-const FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt));
+let FormattedDate = null;
+if (article.posted_at) {
+FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.posted_at));
+} else {
+FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt));
+}
 
 // Calculate estimated reading time
 const readingSpeedWPM = 170;
@@ -45,14 +50,12 @@ const readingTime = Math.round(wordCount/readingSpeedWPM);
 let toc = [];
 toc.push(article.title);
 for (let item of article.content) {
-console.log(item)
   if (item.type === "heading") {
     if (item.level === 2) {
     toc.push(item.children[0].text);
     }
   }
 }
-console.log(toc);
 ---
 
 <Layout>

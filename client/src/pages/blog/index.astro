@@ -8,15 +8,10 @@ endpoint: 'blogs',
 wrappedByKey: 'data',
 query: {
 'populate': 'cover',
-'pagination[offset]': '0',
-'pagination[limit]': '10',
 }
 });
-// console.log(articles);
 const topArticles = articles.slice(0,6);
 const remainArticles = articles.slice(6);
-console.log(topArticles.length)
-console.log(remainArticles.length)
 ---
 
 <Layout>
@@ -47,7 +42,6 @@ console.log(remainArticles.length)
           <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
-            <p>{article.description}</p>
             <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
