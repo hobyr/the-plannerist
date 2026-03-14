@@ -2,28 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi.ts';
 import { Image } from 'astro:assets';
+const pageSize = 12;
+const { page } = Astro.props;
 
 export async function getStaticPaths({ paginate }) {
 const articles = await fetchApi({
 endpoint: 'blogs',
 wrappedByKey: 'data',
 query: {
-'populate[0]': 'cover',
-'populate[1]': 'author',
+'populate': 'cover',
+'pagination[page]': 1,
+'pagination[pageSize]': 60,
 }
 });
-return paginate(articles, { pageSize: 15 });
-}
 
-const { page } = Astro.props;
+return paginate(articles, { pageSize: 12 });
+}
 ---
 
 <Layout>
-  <!-- <div class="bg-blob blob-1"></div> -->
-  <!-- <div class="bg-blob blob-2"></div> -->
-  <!-- <div class="bg-blob blob-3"></div> -->
-  <!-- <div class="bg-blob blob-4"></div> -->
-  <!-- <div class="bg-blob blob-5"></div> -->
   <section id="posts">
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
