@@ -2,18 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi.ts';
 import { Image } from 'astro:assets';
-const pageSize = 15;
 
 // Asking for on-demand server rendering for pagination through Strapi
 export const prerender = false;
+
+const { page } = Astro.params;
+const pageSize = 15;
 
 const articles = await fetchApi({
 endpoint: 'blogs',
 wrappedByKey: 'data',
 query: {
 'populate': 'cover',
-'pagination[page]': 1,
-'pagination[pageSize]': 50,
+'pagination[page]': Number(page),
+'pagination[pageSize]': pageSize,
 'sort': 'posted_at:desc',
 }
 });
@@ -21,9 +23,10 @@ query: {
 // Fix URL path for local development
 for (let article of articles) {
 if (import.meta.env.NODE_ENV === 'development') {
-  article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+  article.CoverURL = import.meta.env.STRAPI_URL + article.cover.url;
 }
 }
+
 ---
 
 <Layout>
@@ -43,26 +46,19 @@ if (import.meta.env.NODE_ENV === 'development') {
       <!--   </div> -->
       <!--   )} -->
       <!-- </div> -->
-      <h2 class="section-title">Tous les articles</h2>
+      <!-- <h2 class="section-title">Tous les articles</h2> -->
       <div class="article-grid-2">
         {articles.map(article => 
         <div class="article-card">
-          <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
+          <Image src={article.CoverURL ? article.CoverURL : article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
-            <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,14))}</div>
+            <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
             <a href={`/blog/post/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
       </div>
-      <!-- <nav class="pagination"> -->
-      <!--   {page.url.first ? <a href={page.url.first}>1</a> : null} -->
-      <!--   {page.url.prev && page.currentPage > 2 ? <a href={page.url.prev}>{page.currentPage - 1}</a> : null} -->
-      <!--   {page.url.current ? <a href={page.url.current} class="currentPage">{page.currentPage}</a> : null} -->
-      <!--   {page.url.next ? <a href={page.url.next}>{page.currentPage + 1}</a> : null} -->
-      <!--   {page.url.last && page.url.last === page.url.next ? <a href={page.url.last}>{page.lastPage}</a> : null} -->
-      <!-- </nav> -->
     </div>
   </section>
 </Layout>
@@ -116,17 +112,17 @@ if (import.meta.env.NODE_ENV === 'development') {
 
   .article-card {
     width: 100%;
-    height: 32rem;
     display: flex;
     flex-direction: column;
   }
 
   .article-grid-2 {
     display: grid;
-    grid-template-columns: repeat(3, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: var(--space-l);
     margin-top: var(--space-m);
-    width: 100%;
+    margin-left: var(--space-m);
+    margin-right: var(--space-m);
   }
 
   .article-card .card-cover {

@@ -4,27 +4,24 @@ import Layout from '../../../layouts/Layout.astro';
 import fetchApi from '../../../lib/strapi';
 import { Image } from 'astro:assets';
 
-export async function getStaticPaths() {
-  const articles = await fetchApi({
-    endpoint: 'blogs',
-    wrappedByKey: 'data',
-    query: {
-      'populate[0]': 'cover',
-      'populate[1]': 'call_to_action',
-      'populate[2]': 'author',
-    }
-  });
+// SSR
+export const prerender = false
 
-  console.log(articles);
+const { slug } = Astro.params;
+const data = await fetchApi({
+endpoint: 'blogs',
+wrappedByKey: 'data',
+query: {
+'populate[0]': 'cover',
+'populate[1]': 'call_to_action',
+'populate[2]': 'author',
+'filters[slug][$eq]': slug,
+'pagination[limit]': 1
+}
+});
 
-  return articles.map((article) => ({
-    params: { slug: article.slug },
-    props: article,
-  }));
-};
+const article = data[0];
 
-
-const article = Astro.props;
 
 const optionsDate = {
 year: "numeric",
@@ -69,7 +66,7 @@ for (let item of article.content) {
 ---
 
 <Layout>
-  <Image src={coverURL() ? coverURL() : article.cover.url} width={1400} height={400} alt="" class="post-cover" />
+  <Image src={coverURL() ? coverURL() : article.cover.url} width={2500} height={400} alt="" class="post-cover" />
   <div class="post-cover-copyright">Copyright couverture: photographe</div>
   <section id="post">
     <div class="container">

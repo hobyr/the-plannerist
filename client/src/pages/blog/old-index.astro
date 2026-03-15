@@ -15,11 +15,6 @@ const remainArticles = articles.slice(6);
 ---
 
 <Layout>
-  <!-- <div class="bg-blob blob-1"></div> -->
-  <!-- <div class="bg-blob blob-2"></div> -->
-  <!-- <div class="bg-blob blob-3"></div> -->
-  <!-- <div class="bg-blob blob-4"></div> -->
-  <!-- <div class="bg-blob blob-5"></div> -->
   <section id="posts">
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
@@ -42,7 +37,7 @@ const remainArticles = articles.slice(6);
           <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
-            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/post/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
