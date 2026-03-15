@@ -19,28 +19,32 @@ export default async function fetchApi<T>({
   wrappedByKey,
   wrappedByList,
 }: Props): Promise<T> {
-  if (endpoint.startsWith('/')) {
-    endpoint = endpoint.slice(1);
+  try {
+    if (endpoint.startsWith('/')) {
+      endpoint = endpoint.slice(1);
+    }
+
+    // const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
+    const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
+
+    if (query) {
+      Object.entries(query).forEach(([key, value]) => {
+        url.searchParams.append(key, value);
+      });
+    }
+    const res = await fetch(url.toString());
+    let data = await res.json();
+
+    if (wrappedByKey) {
+      data = data[wrappedByKey];
+    }
+
+    if (wrappedByList) {
+      data = data[0];
+    }
+
+    return data as T;
+  } catch (error) {
+    console.error(error);
   }
-
-  // const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
-  const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
-
-  if (query) {
-    Object.entries(query).forEach(([key, value]) => {
-      url.searchParams.append(key, value);
-    });
-  }
-  const res = await fetch(url.toString());
-  let data = await res.json();
-
-  if (wrappedByKey) {
-    data = data[wrappedByKey];
-  }
-
-  if (wrappedByList) {
-    data = data[0];
-  }
-
-  return data as T;
 }

@@ -1,0 +1,84 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+
+const structureContent = [
+{
+title: "Aligner ta vision avec ton organisation",
+description: "Tu sais où tu veux aller, mais ton quotidien ne suit pas toujours. Le conseil en pilotage permet de reconnecter les décisions aux vraies priorités, pour que chaque action soit un pas concret vers tes objectifs de développement.",
+},
+{
+title: "Poser un système qui tient la route",
+description: "Pas de modèles préfabriqués ici. On part de ta réalité pour structurer une organisation sur-mesure : outils, process, rôles, rythmes… Tout est passé en revue pour poser une base solide, capable de suivre la croissance sans s’effondrer.",
+},
+{
+title: "Avancer avec clarté (et plus de bande passante)",
+description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarifiant ton fonctionnement, tu gagnes du temps, de la visibilité, et une capacité à déléguer sereinement. Résultat ? Plus de décisions alignées, moins de dispersion.",
+},
+]
+---
+
+<Layout>
+  <section id="business-cases">
+    <div class="container">
+      <div class="title-header">Des stratégies qui font la différence</div>
+      <h1 class="page-title">Des examples de conseil en pilotage d'entreprise</h1>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre un appel découverte</a>
+    </div>
+  </section>
+
+  <section id="pilotage">
+    <div class="container">
+      <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
+      <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
+    </div>
+  </section>
+
+  <section id="structure">
+    <div class="container">
+      <h2 class="section-title">Conseil en pilotage d'entreprise : bien plus qu'un regard extérieur de notre équipe</h2>
+      <div class="card-grid">
+        {structureContent.map(item => (
+        <div class="card">
+          <h3 class="card-title">{item.title}</h3>
+          <p class="card-description">{item.description}</p>
+        </div>
+      ))}
+      </div>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Besoin de clarté pour structurer mon activité et passer un cap !</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  #business-cases .container,
+  #pilotage .container,
+  #structure .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #structure {
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: var(--space-l);
+      margin-bottom: var(--space-l);
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
+      padding-inline: var(--space-m);
+      background-color: white;
+      border-radius: 6px;
+    }
+
+    .card-title {
+      font-size: var(--step-1);
+    }
+  }
+</style>
+
