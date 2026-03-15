@@ -1,0 +1,105 @@
+---
+import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
+import Layout from '../../layouts/Layout.astro';
+import fetchApi from '../../lib/strapi';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+  const cases = await fetchApi({
+    endpoint: 'business-cases',
+    wrappedByKey: 'data',
+    query: {
+      'populate': '*',
+    }
+    });
+
+    return cases.map((business_case) => ({
+      params: { slug: business_case.slug},
+      props: business_case,
+    }))
+    }
+
+    const business_case = Astro.props
+---
+
+<Layout>
+  <section class="hero">
+    <div class="container">
+      <div class="title-header">Business case</div>
+      <h1 class="page-title">{business_case.title}</h1>
+    </div>
+  </section>
+
+  <section id="contexte">
+    <div class="container">
+      <h2 class="section-title">Contexte</h2>
+      <article>
+        <StrapiBlocks data={business_case.contexte} />
+      </article>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="container">
+      <div class="audit-wrapper">
+        <Image src={import.meta.env.NODE_ENV === "development" ? import.meta.env.STRAPI_URL + business_case.auditCover.url : business_case.auditCover.url} alt="" width={800} />
+        <div class="right">
+          <h2 class="section-title">Audit</h2>
+          <article>
+            <StrapiBlocks data={business_case.auditDescription} />
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="accompagnement">
+    <div class="container">
+      <h2 class="section-title">L'Accompagnement</h2>
+      <div class="accompagnement-wrapper">
+        <div class="column">
+          <h3 class="column-title">Type d'offre &amp; durée</h3>
+          <div class="type-offre">{business_case.accompagnement.typeOffre}</div>
+          <div class="duration">{business_case.accompagnement.duration}</div>
+        </div>
+        <div class="column">
+          <h3 class="column-title">Plan d'Action</h3>
+          <StrapiBlocks data={business_case.accompagnement.planAction} />
+        </div>
+        <div class="column">
+          <h3 class="column-title">Résultats</h3>
+          <h4>Milestones</h4>
+          <StrapiBlocks data={business_case.accompagnement.milestones} />
+          <h4>KPI</h4>
+          <StrapiBlocks data={business_case.accompagnement.KPI} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /**************************************************/
+  /**************** AUDIT ***************************/
+  /**************************************************/
+  .audit-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-l);
+
+    .right {
+      .section-title {
+        text-align: left;
+      }
+    }
+  }
+
+  /**************************************************/
+  /*************** ACCOMPAGNEMENT *******************/
+  /**************************************************/
+  .accompagnement-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-l);
+  }
+</style>

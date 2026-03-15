@@ -13,7 +13,7 @@ export const links = [
   },
   {
   name: "Business Cases",
-  url: "/business-cases",
+  url: "/business-cases-conseil-en-pilotage-dentreprise",
   },
   {
   name: "Blog",

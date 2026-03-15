@@ -49,9 +49,31 @@ description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarif
     </div>
   </section>
 
+  <section id="merits">
+    <div class="container">
+      <h2 class="section-title">Ce que peut t'apporter un accompagnement en pilotage d'entreprise</h2>
+      <p class="tagline">Les business cases parlent d’eux-mêmes : chaque entrepreneur a ses objectifs, ses blocages, sa façon de fonctionner. Mais tous, à un moment, ont ressenti le besoin d’un cadre plus solide pour avancer sereinement. C’est exactement ce qu’apporte le conseil en pilotage d’entreprise : des ajustements ciblés, une vision plus claire, et des leviers concrets pour faire évoluer ton activité dans la bonne direction.</p>
+      <div class="item-wrapper">
+        <div class="item">
+          <h3 class="item-title">1. Identifier ce qui freine vraiment ta croissance</h3>
+          <p>Tu navigues à vue, sans toujours savoir pourquoi tu stagnes, ou ce qui crée cette sensation de chaos. Ici, on fait le tri : ce qui fonctionne, ce qui t’épuise, ce qui ralentit sans que tu t’en rendes compte. Un diagnostic lucide, sans jargon, pour retrouver une base saine.</p>
+        </div>
+        <div class="item">
+          <h3 class="item-title">2. Installer un mode de fonctionnement plus stable</h3>
+          <p>L’idée n’est pas de faire dépendre ton business d’un consultant, mais de poser un fonctionnement clair, durable, qui te ressemble. Des outils simples, des rythmes définis, une organisation plus fluide pour que tu puisses souffler, et garder le contrôle.</p>
+        </div>
+        <div class="item">
+          <h3 class="item-title">3. Reprendre la main sur tes chiffres et ta performance</h3>
+          <p>Le pilotage d’entreprise, ce n’est pas seulement organiser ton agenda ou clarifier tes offres. C’est comprendre où va ton chiffre d’affaires, ce que tu gagnes vraiment, ce qui te coûte et comment mieux décider, mieux répartir, mieux investir pour faire grandir ton activité sans y laisser ton énergie.</p>
+        </div>
+      </div>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
+    </div>
+  </section>
 </Layout>
 
 <style>
+  #merits .container,
   #business-cases .container,
   #pilotage .container,
   #structure .container {
@@ -78,6 +100,24 @@ description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarif
 
     .card-title {
       font-size: var(--step-1);
+    }
+  }
+
+  #merits {
+    .item-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 65ch;
+      width: 100%;
+      gap: var(--space-m);
+      margin-top: var(--space-m);
+      margin-bottom: var(--space-l);
+    }
+
+    .item {
+      background-color: #eaeaea;
+      border-radius: 6px;
+      padding-inline: var(--space-m);
     }
   }
 </style>
