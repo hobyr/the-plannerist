@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BusinessCasesAccompagnement extends Struct.ComponentSchema {
+  collectionName: 'components_business_cases_accompagnements';
+  info: {
+    displayName: 'accompagnement';
+  };
+  attributes: {
+    duration: Schema.Attribute.String & Schema.Attribute.Required;
+    KPI: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    milestones: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    planAction: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    typeOffre: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCallToAction extends Struct.ComponentSchema {
   collectionName: 'components_shared_call_to_actions';
   info: {
@@ -77,6 +91,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'business-cases.accompagnement': BusinessCasesAccompagnement;
       'shared.call-to-action': SharedCallToAction;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
