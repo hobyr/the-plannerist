@@ -22,7 +22,6 @@ query: {
 
 const article = data[0];
 
-
 const optionsDate = {
 year: "numeric",
 month: "long",
@@ -66,7 +65,7 @@ for (let item of article.content) {
 ---
 
 <Layout>
-  <Image src={coverURL() ? coverURL() : article.cover.url} width={2500} height={400} alt="" class="post-cover" />
+  <Image src={coverURL() ? coverURL() : article.cover.url} width={2500} height={800} alt="" class="post-cover" />
   <div class="post-cover-copyright">Copyright couverture: photographe</div>
   <section id="post">
     <div class="container">

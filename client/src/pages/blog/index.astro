@@ -7,14 +7,16 @@ import { Image } from 'astro:assets';
 export const prerender = false;
 
 const currentPageNumber = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
-const pageSize = 9;
+const pageSize = 12;
 
 const data = await fetchApi({
 endpoint: 'blogs',
 query: {
-'populate': 'cover',
 'pagination[page]': currentPageNumber,
 'pagination[pageSize]': pageSize,
+'populate[0]': 'cover',
+'populate[1]': 'categories',
+'sort': 'posted_at:desc',
 }
 });
 
@@ -29,11 +31,12 @@ if (import.meta.env.NODE_ENV === 'development') {
 }
 
 const topArticles = articles.slice(0,6);
-const remainArticles = articles.slice(6);
 ---
 
 <Layout>
   <section id="posts">
+    <div class="upper"></div>
+    <div class="lower"></div>
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
       <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
@@ -43,15 +46,25 @@ const remainArticles = articles.slice(6);
           <Image src={article.CoverURL ? article.CoverURL : article.cover.url} alt="" width={3000} height={3000} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
+            <div class=categories-wrapper>
+              {!article.categories ? null : article.categories.map(category => 
+              <div class="category">{category.name}</div>
+              )}
+            </div>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
             <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
       </div>
-      <h2 class="section-title">Autres articles</h2>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Derniers articles</h2>
       <div class="article-grid-2">
-        {remainArticles.map(article => 
+        {articles.map(article => 
         <div class="article-card">
           <Image src={article.CoverURL ? article.CoverURL : article.cover.url} alt="" width={3000} height={3000} class="card-cover"/>
           <div class="card-content">
@@ -64,15 +77,15 @@ const remainArticles = articles.slice(6);
       </div>
       <nav class="pagination">
         <!-- First page link -->
-        {currentPageNumber > 1 ? <a href="/blog">1</a> : null}
+        {currentPageNumber > 1 ? <a href="/blog" class="first-page">1</a> : null}
         <!-- Previous page link -->
-        {currentPageNumber > 2 ? <a href=`/blog?page=${currentPageNumber - 1}`>{currentPageNumber - 1}</a> : null}
+        {currentPageNumber > 2 ? <a href=`/blog?page=${currentPageNumber - 1}` class="previous-page">{currentPageNumber - 1}</a> : null}
         <!-- Current page link -->
-        <div>{currentPageNumber}</div>
+        <div class="current-page">{currentPageNumber}</div>
         <!-- Next page link -->
-        {currentPageNumber < lastPage - 1 ? <a href=`/blog?page=${currentPageNumber + 1}`>{currentPageNumber + 1}</a> : null}
+        {currentPageNumber < lastPage - 1 ? <a href=`/blog?page=${currentPageNumber + 1}` class="next-page">{currentPageNumber + 1}</a> : null}
         <!-- Last page link -->
-        {currentPageNumber < lastPage ? <a href=`/blog?page=${lastPage}`>{lastPage}</a> : null}
+        {currentPageNumber < lastPage ? <a href=`/blog?page=${lastPage}` class="last-page">{lastPage}</a> : null}
       </nav>
     </div>
   </section>
@@ -83,6 +96,20 @@ const remainArticles = articles.slice(6);
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  #posts {
+    position: relative;
+
+    .upper {
+      background-color: #eaeaea;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 500px;
+      width: 100%;
+      z-index: -1;
+    }
   }
 
   .post-grid {
@@ -126,10 +153,12 @@ const remainArticles = articles.slice(6);
   }
 
   .article-card {
-    min-height: 15rem;
     width: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    border-radius: 6px;
   }
 
   .article-grid-2 {
@@ -137,33 +166,42 @@ const remainArticles = articles.slice(6);
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: var(--space-l);
     margin-top: var(--space-m);
+    width: 100%;
   }
 
   .article-card .card-cover {
     width: 100%;
-    height: 100%;
+    flex: 1 1 50%;
     object-fit: cover;
+    aspect-ratio: 3/2;
   }
 
   .article-card .card-content {
-    flex: 1;
+    flex: 1 1 200px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
     padding: var(--space-s);
-    padding-left: 0;
   }
 
   .article-card h3 {
     font-size: var(--step-1);
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: .5rem;
   }
 
   .article-date {
     font-size: var(--step-0);
     font-weight: 200;
     color: #808080;
+  }
+
+  .category {
+    font-size: var(--step--2);
+    text-transform: uppercase;
+    letter-spacing: .1px;
+    border: 1px solid var(--text);
+    display: inline-block;
+    padding: .35rem;
   }
 
   a.card-cta {
@@ -173,6 +211,7 @@ const remainArticles = articles.slice(6);
     text-decoration: none;
     color: var(--text);
     border-bottom: 1px solid var(--text);
+    margin-top: auto;
     width: fit-content;
 
     transition-property: gap, color, border-color;
@@ -187,4 +226,34 @@ const remainArticles = articles.slice(6);
     gap: var(--space-xs);
     border-color: var(--bg-color-light);
   } 
+
+  nav.pagination {
+    margin-top: var(--space-xl);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-s);
+
+    & > * {
+      --length: 2.25rem;
+      border-radius: 99px;
+      width: var(--length);
+      height: var(--length);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .current-page {
+      background-color: var(--bg-color-light);
+    }
+
+    a {
+      color: var(--text);
+    }
+
+    a:hover {
+      color: var(--bg-color-light);
+    }
+  }
 </style>
