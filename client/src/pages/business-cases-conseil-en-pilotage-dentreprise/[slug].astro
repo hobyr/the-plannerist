@@ -23,117 +23,83 @@ export async function getStaticPaths() {
 ---
 
 <Layout>
-  <section class="business-case">
+  <section class="hero">
     <div class="container">
+      <div class="title-header">Business case</div>
+      <h1 class="page-title">{business_case.title}</h1>
+    </div>
+  </section>
 
+  <section id="contexte">
+    <div class="container">
+      <h2 class="section-title">Contexte</h2>
+      <article>
+        <StrapiBlocks data={business_case.contexte} />
+      </article>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="container">
+      <div class="audit-wrapper">
+        <Image src={import.meta.env.NODE_ENV === "development" ? import.meta.env.STRAPI_URL + business_case.auditCover.url : business_case.auditCover.url} alt="" width={800} />
+        <div class="right">
+          <h2 class="section-title">Audit</h2>
+          <article>
+            <StrapiBlocks data={business_case.auditDescription} />
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="accompagnement">
+    <div class="container">
+      <h2 class="section-title">L'Accompagnement</h2>
+      <div class="accompagnement-wrapper">
+        <div class="column">
+          <h3 class="column-title">Type d'offre &amp; durée</h3>
+          <div class="type-offre">{business_case.accompagnement.typeOffre}</div>
+          <div class="duration">{business_case.accompagnement.duration}</div>
+        </div>
+        <div class="column">
+          <h3 class="column-title">Plan d'Action</h3>
+          <StrapiBlocks data={business_case.accompagnement.planAction} />
+        </div>
+        <div class="column">
+          <h3 class="column-title">Résultats</h3>
+          <h4>Milestones</h4>
+          <StrapiBlocks data={business_case.accompagnement.milestones} />
+          <h4>KPI</h4>
+          <StrapiBlocks data={business_case.accompagnement.KPI} />
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  :root {
-    --blob-col-1: #F4E04D;
-    --blob-col-2: #95BF74;
-    --blob-col-3: #DDA77B;
-    /* --blob-col-3: #669BBC; */
-  }
-
-  .bg-blob {
-    position: absolute;
-    --length: 600px;
-    width: var(--length);
-    height: var(--length);
-    z-index: -1;
-    filter: blur(500px);
-  }
-
-  .blob-1 {
-    top: 0;
-    right: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-2 {
-    left: 0;
-    top: 800px;
-    background-color: var(--blob-col-2);
-  }
-
-  .blob-3 {
-    top: 1400px;
-    right: 0;
-    background-color: var(--blob-col-3);
-  }
-
-  .blob-4 {
-    top: 2400px;
-    left: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-5 {
-    top: 3800px;
-    right: 0px;
-    background-color: var(--bg-color-dark);
-  }
-
-  header {
+  /**************************************************/
+  /**************** AUDIT ***************************/
+  /**************************************************/
+  .audit-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-block: 2rem;
+    flex-direction: row;
+    gap: var(--space-l);
+
+    .right {
+      .section-title {
+        text-align: left;
+      }
+    }
   }
 
-  header .info span + span {
-    margin-left: var(--space-s);
-    padding-left: var(--space-s);
-    border-left: 2px solid #bababa;
-  }
-
-  .page-title {
-    margin-bottom: 1rem;
-  }
-
-  .article {
+  /**************************************************/
+  /*************** ACCOMPAGNEMENT *******************/
+  /**************************************************/
+  .accompagnement-wrapper {
     display: grid;
-    grid-template-columns: 1fr 70ch;
-    column-gap: var(--space-xl);
-    position: relative;
-    margin-top: 2rem;
-  }
-
-  .table-of-contents {
-    position: sticky;
-    top: 100px;
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .post-cover {
-    width: 100%;
-    height: 60vh;
-    max-height: 600px;
-    object-fit: cover;
-  }
-
-  .post-cover-copyright {
-    margin-left: var(--space-m);
-  }
-
-  .post-cover-copyright,
-  .reading-time,
-  .posting-date {
-    color: #808080;
-    text-align: center;
-  }
-
-  article {
-    max-width: 70ch;
-    margin: 0 auto;
-    padding-left: var(--space-xl);
-    border-left: 1px solid var(--bg-color-light);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--space-l);
   }
 </style>
