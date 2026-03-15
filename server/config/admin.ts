@@ -18,6 +18,10 @@ const getPreviewPathname = (uid, { document }): string => {
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Admin => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
+    sessions: {
+      maxRefreshTokenLifespan: 2592000, // = 30 days
+      maxSessionLifespan: 2592000, // = 30 days
+    },
   },
   apiToken: {
     salt: env('API_TOKEN_SALT'),
@@ -33,6 +37,12 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Admin => 
   flags: {
     nps: env.bool('FLAG_NPS', true),
     promoteEE: env.bool('FLAG_PROMOTE_EE', true),
+  },
+  rateLimit: {
+    enabled: true,
+    max: 10,
+    timeWait: 5000,
+    delayAfter: 1,
   },
 });
 

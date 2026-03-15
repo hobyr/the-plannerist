@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^7.0.2",
     "@sensinum/astro-strapi-blocks": "^1.2.7",
-    "astro": "^5.17.1"
+    "astro": "^6.0.4"
   }
 }

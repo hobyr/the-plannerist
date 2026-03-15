@@ -4,25 +4,25 @@ import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
 
-export async function getStaticPaths() {
-  const articles = await fetchApi({
-    endpoint: 'blogs',
-    wrappedByKey: 'data',
-    query: {
-      'populate[0]': 'cover',
-      'populate[1]': 'call_to_action',
-      'populate[2]': 'author',
-    }
-  });
+// SSR
+export const prerender = false
 
-  return articles.map((article) => ({
-    params: { slug: article.slug },
-    props: article,
-  }));
-};
+const { slug } = Astro.params;
+const data = await fetchApi({
+endpoint: 'blogs',
+wrappedByKey: 'data',
+query: {
+'populate[0]': 'cover',
+'populate[1]': 'call_to_action',
+'populate[2]': 'author',
+'filters[slug][$eq]': slug,
+'pagination[limit]': 1
+}
+});
+
+const article = data[0];
 
 
-const article = Astro.props;
 const optionsDate = {
 year: "numeric",
 month: "long",
@@ -34,6 +34,13 @@ if (article.posted_at) {
 FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.posted_at));
 } else {
 FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt));
+}
+
+// Fix URL path for cover image
+const coverURL = () => {
+if (import.meta.env.NODE_ENV === 'development') {
+return import.meta.env.STRAPI_URL + article.cover.url;
+}
 }
 
 // Calculate estimated reading time
@@ -59,16 +66,12 @@ for (let item of article.content) {
 ---
 
 <Layout>
-  <!-- <div class="bg-blob blob-1"></div> -->
-  <!-- <div class="bg-blob blob-2"></div> -->
-  <!-- <div class="bg-blob blob-3"></div> -->
-  <!-- <div class="bg-blob blob-4"></div> -->
-  <!-- <div class="bg-blob blob-5"></div> -->
-  <Image src={article.cover.url} width={1400} height={400} alt="" class="post-cover" />
+  <Image src={coverURL() ? coverURL() : article.cover.url} width={2500} height={400} alt="" class="post-cover" />
   <div class="post-cover-copyright">Copyright couverture: photographe</div>
   <section id="post">
     <div class="container">
       <header>
+        <a class="button cta" href="/blog"><i></i>Revenir au blog</a>
         <h1 class="page-title">{article.title}</h1>
         <div class="info">
           <span class="posting-date">Écrit par {article.author.name}</span>

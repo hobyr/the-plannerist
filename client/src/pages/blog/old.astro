@@ -3,23 +3,24 @@ import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi.ts';
 import { Image } from 'astro:assets';
 
-// SSR
+// Asking for on-demand server rendering for pagination through Strapi
 export const prerender = false;
 
-const currentPageNumber = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
-const pageSize = 9;
+const { page } = Astro.params;
+const pageSize = 15;
 
-const data = await fetchApi({
+const articles = await fetchApi({
 endpoint: 'blogs',
+wrappedByKey: 'data',
 query: {
 'populate': 'cover',
-'pagination[page]': currentPageNumber,
+'pagination[page]': Number(page),
 'pagination[pageSize]': pageSize,
+'sort': 'posted_at:desc',
 }
 });
 
-const articles = data.data;
-const lastPage = data.meta.pagination.pageCount;
+console.log(articles.meta);
 
 // Fix URL path for local development
 for (let article of articles) {
@@ -28,8 +29,6 @@ if (import.meta.env.NODE_ENV === 'development') {
 }
 }
 
-const topArticles = articles.slice(0,6);
-const remainArticles = articles.slice(6);
 ---
 
 <Layout>
@@ -37,43 +36,31 @@ const remainArticles = articles.slice(6);
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
       <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
-      <div class="post-grid">
-        {topArticles.map(article => 
-        <div class="article-card">
-          <Image src={article.CoverURL ? article.CoverURL : article.cover.url} alt="" width={3000} height={3000} class="card-cover"/>
-          <div class="card-content">
-            <h3>{article.title}</h3>
-            <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
-          </div>
-        </div>
-        )}
-      </div>
-      <h2 class="section-title">Autres articles</h2>
+      <!-- <div class="post-grid"> -->
+      <!--   {articles.slice(0, 6).map(article => --> 
+      <!--   <div class="article-card"> -->
+      <!--     <Image src={article.cover.url} alt="" width={300} height={250} class="card-cover"/> -->
+      <!--     <div class="card-content"> -->
+      <!--       <h3>{article.title}</h3> -->
+      <!--       <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,14))}</div> -->
+      <!--       <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a> -->
+      <!--     </div> -->
+      <!--   </div> -->
+      <!--   )} -->
+      <!-- </div> -->
+      <!-- <h2 class="section-title">Tous les articles</h2> -->
       <div class="article-grid-2">
-        {remainArticles.map(article => 
+        {articles.map(article => 
         <div class="article-card">
-          <Image src={article.CoverURL ? article.CoverURL : article.cover.url} alt="" width={3000} height={3000} class="card-cover"/>
+          <Image src={article.CoverURL ? article.CoverURL : article.cover.url} alt="" width={300} height={250} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
-            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/post/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
       </div>
-      <nav class="pagination">
-        <!-- First page link -->
-        {currentPageNumber > 1 ? <a href="/blog">1</a> : null}
-        <!-- Previous page link -->
-        {currentPageNumber > 2 ? <a href=`/blog?page=${currentPageNumber - 1}`>{currentPageNumber - 1}</a> : null}
-        <!-- Current page link -->
-        <div>{currentPageNumber}</div>
-        <!-- Next page link -->
-        {currentPageNumber < lastPage - 1 ? <a href=`/blog?page=${currentPageNumber + 1}`>{currentPageNumber + 1}</a> : null}
-        <!-- Last page link -->
-        {currentPageNumber < lastPage ? <a href=`/blog?page=${lastPage}`>{lastPage}</a> : null}
-      </nav>
     </div>
   </section>
 </Layout>
@@ -126,7 +113,6 @@ const remainArticles = articles.slice(6);
   }
 
   .article-card {
-    min-height: 15rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -134,14 +120,17 @@ const remainArticles = articles.slice(6);
 
   .article-grid-2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: var(--space-l);
     margin-top: var(--space-m);
+    margin-left: var(--space-m);
+    margin-right: var(--space-m);
   }
 
   .article-card .card-cover {
     width: 100%;
-    height: 100%;
+    height: 20rem;
+    max-height: 20rem;
     object-fit: cover;
   }
 
@@ -149,15 +138,16 @@ const remainArticles = articles.slice(6);
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
     padding: var(--space-s);
     padding-left: 0;
   }
 
   .article-card h3 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
     font-size: var(--step-1);
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: .5rem;
   }
 
   .article-date {
@@ -174,6 +164,7 @@ const remainArticles = articles.slice(6);
     color: var(--text);
     border-bottom: 1px solid var(--text);
     width: fit-content;
+    margin-top: auto;
 
     transition-property: gap, color, border-color;
   }
@@ -187,4 +178,25 @@ const remainArticles = articles.slice(6);
     gap: var(--space-xs);
     border-color: var(--bg-color-light);
   } 
+
+  nav.pagination {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-m);
+  }
+
+  nav.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    text-decoration: none;
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999px;
+  }
+
+  nav.pagination .currentPage {
+    background-color: var(--primary-light);
+  }
 </style>
