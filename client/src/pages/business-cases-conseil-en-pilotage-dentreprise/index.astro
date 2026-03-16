@@ -1,6 +1,7 @@
 ---
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
+import fetchApi from '../../lib/strapi';
 
 const structureContent = [
 {
@@ -16,6 +17,15 @@ title: "Avancer avec clarté (et plus de bande passante)",
 description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarifiant ton fonctionnement, tu gagnes du temps, de la visibilité, et une capacité à déléguer sereinement. Résultat ? Plus de décisions alignées, moins de dispersion.",
 },
 ]
+
+const cases = await fetchApi({
+endpoint: 'business-cases',
+wrappedByKey: 'data',
+query: {
+'populate': '*',
+'locale': 'en',
+}
+});
 ---
 
 <Layout>
@@ -31,6 +41,14 @@ description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarif
     <div class="container">
       <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
       <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
+      <div class="case-wrapper">
+        {cases.map(business_case => 
+        <div class="case">
+          <h3>{business_case.title}</h3>
+          <a href=`/business-cases-conseil-en-pilotage-dentreprise/${business_case.slug}` class="button cta">Voir le business case</a>
+        </div>
+        )}
+      </div>
     </div>
   </section>
 
