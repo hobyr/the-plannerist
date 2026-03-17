@@ -17,6 +17,28 @@ import Navbar from "../components/Navbar.astro";
     <meta name="generator" content={Astro.generator} />
     <title>The Plannerist | Double ton CA sans doubler tes heures</title>
     <script src="https://kit.fontawesome.com/2efcc39dc7.js" crossorigin="anonymous"></script>
+    {
+    import.meta.env.PROD && (
+    <>
+    <!-- Google tag (gtag.js) --> 
+<script is:inline type="text/partytown" src=`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.GOOGLE_TRACKING_ID}`></script>
+<script is:inline type="text/partytown">
+  window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+      gtag('config', import.meta.env.GOOGLE_TRACKING_ID);
+</script>
+  </> 
+      )
+    }
   </head>
   <body>
     <Navbar />
