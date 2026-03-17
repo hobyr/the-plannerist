@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^7.0.2",
+    "@astrojs/partytown": "^2.1.5",
     "@sensinum/astro-strapi-blocks": "^1.2.7",
     "astro": "^6.0.4"
   }
