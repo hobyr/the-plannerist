@@ -15,10 +15,8 @@ try {
     endpoint: 'blogs',
     wrappedByKey: 'data',
     query: {
-      'pagination[page]': 1,
-      'pagination[pageSize]': 12,
       'populate[0]': 'cover',
-      'populate[1]': 'category',
+      'populate[1]': 'categories',
       'sort': 'posted_at:desc',
     }
   });
