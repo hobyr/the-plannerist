@@ -20,7 +20,6 @@ try {
       'sort': 'posted_at:desc',
     }
   });
-  console.log(articles);
   return paginate(articles, { pageSize: 12 });
   } catch (error) {
     console.log(error);
