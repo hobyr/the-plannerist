@@ -9,19 +9,22 @@ import { Image } from 'astro:assets';
 // const currentPageNumber = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
 
 export async function getStaticPaths({ paginate }) {
+try {
+
   const articles = await fetchApi({
     endpoint: 'blogs',
     wrappedByKey: 'data',
     query: {
-      'pagination[start]': 0,
-      'pagination[limit]': 70,
       'populate[0]': 'cover',
       'populate[1]': 'category',
       'sort': 'posted_at:desc',
     }
   });
-
+  console.log(articles);
   return paginate(articles, { pageSize: 12 });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 const { page } = Astro.props;
