@@ -1,0 +1,142 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import fetchApi from '../../lib/strapi';
+
+const structureContent = [
+{
+title: "Aligner ta vision avec ton organisation",
+description: "Tu sais où tu veux aller, mais ton quotidien ne suit pas toujours. Le conseil en pilotage permet de reconnecter les décisions aux vraies priorités, pour que chaque action soit un pas concret vers tes objectifs de développement.",
+},
+{
+title: "Poser un système qui tient la route",
+description: "Pas de modèles préfabriqués ici. On part de ta réalité pour structurer une organisation sur-mesure : outils, process, rôles, rythmes… Tout est passé en revue pour poser une base solide, capable de suivre la croissance sans s’effondrer.",
+},
+{
+title: "Avancer avec clarté (et plus de bande passante)",
+description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarifiant ton fonctionnement, tu gagnes du temps, de la visibilité, et une capacité à déléguer sereinement. Résultat ? Plus de décisions alignées, moins de dispersion.",
+},
+]
+
+const cases = await fetchApi({
+endpoint: 'business-cases',
+wrappedByKey: 'data',
+query: {
+'populate': '*',
+'locale': 'en',
+}
+});
+---
+
+<Layout>
+  <section id="business-cases">
+    <div class="container">
+      <div class="title-header">Des stratégies qui font la différence</div>
+      <h1 class="page-title">Des examples de conseil en pilotage d'entreprise</h1>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre un appel découverte</a>
+    </div>
+  </section>
+
+  <section id="pilotage">
+    <div class="container">
+      <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
+      <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
+      <div class="case-wrapper">
+        {cases.map(business_case => 
+        <div class="case">
+          <h3>{business_case.title}</h3>
+          <a href=`/business-cases-conseil-en-pilotage-dentreprise/${business_case.slug}` class="button cta">Voir le business case</a>
+        </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section id="structure">
+    <div class="container">
+      <h2 class="section-title">Conseil en pilotage d'entreprise : bien plus qu'un regard extérieur de notre équipe</h2>
+      <div class="card-grid">
+        {structureContent.map(item => (
+        <div class="card">
+          <h3 class="card-title">{item.title}</h3>
+          <p class="card-description">{item.description}</p>
+        </div>
+      ))}
+      </div>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Besoin de clarté pour structurer mon activité et passer un cap !</a>
+    </div>
+  </section>
+
+  <section id="merits">
+    <div class="container">
+      <h2 class="section-title">Ce que peut t'apporter un accompagnement en pilotage d'entreprise</h2>
+      <p class="tagline">Les business cases parlent d’eux-mêmes : chaque entrepreneur a ses objectifs, ses blocages, sa façon de fonctionner. Mais tous, à un moment, ont ressenti le besoin d’un cadre plus solide pour avancer sereinement. C’est exactement ce qu’apporte le conseil en pilotage d’entreprise : des ajustements ciblés, une vision plus claire, et des leviers concrets pour faire évoluer ton activité dans la bonne direction.</p>
+      <div class="item-wrapper">
+        <div class="item">
+          <h3 class="item-title">1. Identifier ce qui freine vraiment ta croissance</h3>
+          <p>Tu navigues à vue, sans toujours savoir pourquoi tu stagnes, ou ce qui crée cette sensation de chaos. Ici, on fait le tri : ce qui fonctionne, ce qui t’épuise, ce qui ralentit sans que tu t’en rendes compte. Un diagnostic lucide, sans jargon, pour retrouver une base saine.</p>
+        </div>
+        <div class="item">
+          <h3 class="item-title">2. Installer un mode de fonctionnement plus stable</h3>
+          <p>L’idée n’est pas de faire dépendre ton business d’un consultant, mais de poser un fonctionnement clair, durable, qui te ressemble. Des outils simples, des rythmes définis, une organisation plus fluide pour que tu puisses souffler, et garder le contrôle.</p>
+        </div>
+        <div class="item">
+          <h3 class="item-title">3. Reprendre la main sur tes chiffres et ta performance</h3>
+          <p>Le pilotage d’entreprise, ce n’est pas seulement organiser ton agenda ou clarifier tes offres. C’est comprendre où va ton chiffre d’affaires, ce que tu gagnes vraiment, ce qui te coûte et comment mieux décider, mieux répartir, mieux investir pour faire grandir ton activité sans y laisser ton énergie.</p>
+        </div>
+      </div>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #merits .container,
+  #business-cases .container,
+  #pilotage .container,
+  #structure .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #structure {
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: var(--space-l);
+      margin-bottom: var(--space-l);
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
+      padding-inline: var(--space-m);
+      background-color: white;
+      border-radius: 6px;
+    }
+
+    .card-title {
+      font-size: var(--step-1);
+    }
+  }
+
+  #merits {
+    .item-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 65ch;
+      width: 100%;
+      gap: var(--space-m);
+      margin-top: var(--space-m);
+      margin-bottom: var(--space-l);
+    }
+
+    .item {
+      background-color: #eaeaea;
+      border-radius: 6px;
+      padding-inline: var(--space-m);
+    }
+  }
+</style>
+

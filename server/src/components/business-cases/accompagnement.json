@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_business_cases_accompagnements",
+  "info": {
+    "displayName": "accompagnement"
+  },
+  "options": {},
+  "attributes": {
+    "typeOffre": {
+      "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    },
+    "planAction": {
+      "type": "blocks",
+      "required": true
+    },
+    "milestones": {
+      "type": "blocks",
+      "required": true
+    },
+    "KPI": {
+      "type": "blocks",
+      "required": true
+    }
+  },
+  "config": {}
+}
