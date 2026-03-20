@@ -1,26 +1,25 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import fetchApi from '../../lib/strapi.ts';
+import Layout from '../../../../layouts/Layout.astro';
+import fetchApi from '../../../../lib/strapi.ts';
 import { Image } from 'astro:assets';
 
 // SSR
 export const prerender = false
 
+const { category } = Astro.params;
 const currentPage = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
-const pageSize = 12
+const pageSize = 12;
 
-  const data = await fetchApi({
-    endpoint: 'blogs',
-    query: {
-      'populate[0]': 'cover',
-      'populate[1]': 'categories',
-      'sort': 'posted_at:desc',
-      'pagination[page]': currentPage,
-      'pagination[pageSize]': pageSize,
-    }
-  });
+const data = await fetchApi({
+  endpoint: 'blogs',
+  query: {
+    'filters[categories][slug][$in]': category,
+    'populate': '*',
+  }
+});
 
 const articles = data.data;
+const categoryData = articles[0].categories.find((data) => data.slug === category);
 const lastPage = data.meta.pagination.pageCount;
 ---
 
@@ -53,7 +52,7 @@ const lastPage = data.meta.pagination.pageCount;
 
   <section>
     <div class="container">
-      <h2 class="section-title">Derniers articles</h2>
+      <h2 class="section-title">{categoryData.description}</h2>
       <div class="article-grid-2">
         {articles.map(article => 
         <div class="article-card">
