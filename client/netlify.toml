@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/la-bibliothque"
+  to = "/bibliotheque"
+  status = 301
+  force = false
