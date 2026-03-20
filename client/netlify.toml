@@ -1,4 +1,22 @@
 [[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/mentions-legales-1"
+  to = "/mentions-legales"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/cgv"
+  to = "/conditions-generales-de-vente"
+  status = 301
+  force = false
+
+[[redirects]]
   from = "/la-bibliothque"
   to = "/bibliotheque"
   status = 301
