@@ -88,6 +88,18 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTable extends Struct.ComponentSchema {
+  collectionName: 'components_shared_tables';
+  info: {
+    displayName: 'Table';
+    icon: 'apps';
+  };
+  attributes: {
+    table: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<'plugin::table-field.table'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -98,6 +110,7 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.table': SharedTable;
     }
   }
 }

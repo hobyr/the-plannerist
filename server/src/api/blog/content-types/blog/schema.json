@@ -63,6 +63,19 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "blogs"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "blocks": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "preset": "standard",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzUyNjA3OTksImp0aSI6ImQ3NDZkMThiLTUzZTgtNGY0My04NWFkLTJmODEwNjE3NmJlZiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6IjIyMGYxYmQ4In0.qJrCyQJ1Q5jrQNrJA9u1moxvM9E472Xi233NKewAbIg_2fzIee4tBIpLsH0VArnvte5IE8O9g7979jVn32r_Cw"
+      },
+      "required": true
     }
   }
 }
