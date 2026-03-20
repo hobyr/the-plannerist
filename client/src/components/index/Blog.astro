@@ -12,6 +12,7 @@ query: {
 'populate[0]': 'cover',
 'populate[1]': 'author',
 'populate[2]': 'author.avatar',
+'sort': 'posted_at:desc',
 },
 });
 
@@ -38,7 +39,7 @@ const locale = 'fr-FR';
               <Image src={article.author.avatar.formats.thumbnail.url} width={50} height={50} alt="" class="card-avatar"/>
               <div class="card-author-text-wrapper">
                 <div class="card-author">{article.author.name}</div>
-                <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt))}</div>
+                <div class="card-date">{Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.posted_at))}</div>
               </div>
             </div>
             <a href={`/blog/${article.slug}`} class="card-cta"><span class="word">Lire </span><span><i class="fa-solid fa-arrow-right"></i></span></a>
