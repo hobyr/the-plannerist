@@ -188,9 +188,15 @@ section {
 }
 
 a {
+  color: var(--primary);
+
   transition-property: color, background-color;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
+}
+
+a:hover {
+  color: var(--bg-color-light);
 }
 
 .button {
