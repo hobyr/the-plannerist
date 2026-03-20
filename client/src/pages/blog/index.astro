@@ -21,6 +21,13 @@ const pageSize = 12
   });
 
 const articles = data.data;
+console.log(articles);
+
+for (let article of articles) {
+if (import.meta.env.NODE_ENV === 'development' && article.cover.url) {
+    article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+  }
+}
 const lastPage = data.meta.pagination.pageCount;
 ---
 
@@ -57,7 +64,7 @@ const lastPage = data.meta.pagination.pageCount;
       <div class="article-grid-2">
         {articles.map(article => 
         <div class="article-card">
-          <Image src={article.cover.url} alt="" width={3000} height={300} class="card-cover"/>
+          <Image src={!article.cover.url ? null : article.cover.url} alt={!article.cover.alternativeText ? "alternative text" : article.cover.alternativeText} width={500} height={500} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
