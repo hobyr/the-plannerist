@@ -590,16 +590,6 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    blocks: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzUyNjA3OTksImp0aSI6ImQ3NDZkMThiLTUzZTgtNGY0My04NWFkLTJmODEwNjE3NmJlZiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6IjIyMGYxYmQ4In0.qJrCyQJ1Q5jrQNrJA9u1moxvM9E472Xi233NKewAbIg_2fzIee4tBIpLsH0VArnvte5IE8O9g7979jVn32r_Cw';
-          output: 'HTML';
-          preset: 'standard';
-        }
-      >;
     call_to_action: Schema.Attribute.Component<'shared.call-to-action', false> &
       Schema.Attribute.Required;
     categories: Schema.Attribute.Relation<
@@ -622,7 +612,6 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     posted_at: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    text: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
