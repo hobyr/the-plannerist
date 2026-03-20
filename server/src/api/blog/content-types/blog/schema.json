@@ -63,6 +63,10 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "blogs"
+    },
+    "cover_copyright": {
+      "type": "richtext",
+      "required": true
     }
   }
 }
