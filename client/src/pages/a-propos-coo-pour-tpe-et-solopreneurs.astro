@@ -39,11 +39,6 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
 ---
 
 <Layout>
-  <!-- <div class="bg-blob blob-1"></div> -->
-  <!-- <div class="bg-blob blob-2"></div> -->
-  <!-- <div class="bg-blob blob-3"></div> -->
-  <!-- <div class="bg-blob blob-4"></div> -->
-  <!-- <div class="bg-blob blob-5"></div> -->
   <Introduction />
   <Journey />
   <Solution />
@@ -54,17 +49,17 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
       <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
       <div class="item-grid">
         <div class="item">
-          <Image src={funFact1} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <Image src={funFact1} alt="" width={800} class="fun-fact-image"/>
           <h3>01. J'adore le tennis</h3>
           <p>C'est le seul sport qui me permet d'évacuer et me mettre dans le flow. C'est un sport qui cultive l'esprit stratégique</p>
         </div>
         <div class="item">
-          <Image src={funFact2} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <Image src={funFact2} alt="" width={800} class="fun-fact-image"/>
           <h3>02. Je suis une experte en Dad Jokes</h3>
           <p>Mon jeu favori est de faire des jeux de mots avec les stations de métro ou les villes. Par exemple : s'il y a Billancourt, il y a Billanlong ? Voilà.</p>
         </div>
         <div class="item">
-          <Image src={funFact3} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <Image src={funFact3} alt="" width={800} class="fun-fact-image"/>
           <h3>03. Je suis la cat mom d'un petit Newton</h3>
           <p>Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de route pour le récupérer en Normandie. (True story)</p>
         </div>
@@ -105,52 +100,6 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
 </Layout>
 
 <style>
-  :root {
-    --blob-col-1: #F4E04D;
-    --blob-col-2: #95BF74;
-    --blob-col-3: #DDA77B;
-    /* --blob-col-3: #669BBC; */
-  }
-
-  .bg-blob {
-    position: absolute;
-    --length: 600px;
-    width: var(--length);
-    height: var(--length);
-    z-index: -1;
-    filter: blur(500px);
-  }
-
-  .blob-1 {
-    top: 0;
-    right: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-2 {
-    left: 0;
-    top: 800px;
-    background-color: var(--blob-col-2);
-  }
-
-  .blob-3 {
-    top: 1400px;
-    right: 0;
-    background-color: var(--blob-col-3);
-  }
-
-  .blob-4 {
-    top: 2400px;
-    left: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-5 {
-    top: 3800px;
-    right: 0px;
-    background-color: var(--bg-color-dark);
-  }
-
   h2 span {
     font-style: italic;
   }
