@@ -15,6 +15,9 @@ const data = await fetchApi({
   query: {
     'filters[categories][slug][$in]': category,
     'populate': '*',
+    'sort': 'posted_at:desc',
+    'pagination[page]': currentPage,
+    'pagination[pageSize]': pageSize,
   }
 });
 
@@ -30,6 +33,7 @@ const lastPage = data.meta.pagination.pageCount;
     <div class="container">
       <div class="title-header">Mieux piloter &amp; décider</div>
       <h1 class="page-title">Le carnet de bord stratégique de The Plannerist</h1>
+      <a class="button cta" href="/blog"><span><i class="fa-solid fa-arrow-left"></i></span> Revenir à l'accueil du blog</a>
       <!-- <div class="post-grid"> -->
       <!--   {topArticles.map(article => --> 
       <!--   <div class="article-card"> -->
