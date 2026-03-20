@@ -599,6 +599,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     content: Schema.Attribute.Blocks & Schema.Attribute.Required;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
+    cover_copyright: Schema.Attribute.RichText & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
