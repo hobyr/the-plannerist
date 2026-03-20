@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_tables",
+  "info": {
+    "displayName": "Table",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "table": {
+      "type": "customField",
+      "customField": "plugin::table-field.table"
+    }
+  },
+  "config": {}
+}
