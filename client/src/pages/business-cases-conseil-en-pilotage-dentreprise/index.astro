@@ -2,6 +2,7 @@
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
+import { Image } from 'astro:assets';
 
 const structureContent = [
 {
@@ -18,7 +19,7 @@ description: "Quand tout repose sur toi, la fatigue s’installe vite. En clarif
 },
 ]
 
-const cases = await fetchApi({
+const business_cases = await fetchApi({
 endpoint: 'business-cases',
 wrappedByKey: 'data',
 query: {
@@ -26,10 +27,16 @@ query: {
 'locale': 'en',
 }
 });
+
+for (let item of business_cases) {
+if (import.meta.env.NODE_ENV === 'development' && item.cover) {
+    item.cover.url = import.meta.env.STRAPI_URL + item.cover.url;
+  }
+}
 ---
 
 <Layout>
-  <section id="business-cases">
+  <section id="presentation">
     <div class="container">
       <div class="title-header">Des stratégies qui font la différence</div>
       <h1 class="page-title">Des examples de conseil en pilotage d'entreprise</h1>
@@ -37,15 +44,19 @@ query: {
     </div>
   </section>
 
-  <section id="pilotage">
+  <section id="business-cases">
     <div class="container">
       <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
       <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
       <div class="case-wrapper">
-        {cases.map(business_case => 
+        {business_cases.map(item => 
         <div class="case">
-          <h3>{business_case.title}</h3>
-          <a href=`/business-cases-conseil-en-pilotage-dentreprise/${business_case.slug}` class="button cta">Voir le business case</a>
+          <Image src={item.cover.url} alt={!item.cover.alternativeText ? "alternative text" : item.cover.alternativeText} width={500} height={500} class="case-cover"/>
+          <div class="case-content">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a href=`/business-cases-conseil-en-pilotage-dentreprise/${item.slug}` class="button cta">Voir le business case <span><i class="fa-solid fa-eye"></i></span></a>
+          </div>
         </div>
         )}
       </div>
@@ -85,7 +96,7 @@ query: {
           <p>Le pilotage d’entreprise, ce n’est pas seulement organiser ton agenda ou clarifier tes offres. C’est comprendre où va ton chiffre d’affaires, ce que tu gagnes vraiment, ce qui te coûte et comment mieux décider, mieux répartir, mieux investir pour faire grandir ton activité sans y laisser ton énergie.</p>
         </div>
       </div>
-      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
+      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
     </div>
   </section>
 </Layout>
@@ -93,7 +104,7 @@ query: {
 <style>
   #merits .container,
   #business-cases .container,
-  #pilotage .container,
+  #presentation .container,
   #structure .container {
     display: flex;
     flex-direction: column;
@@ -118,6 +129,53 @@ query: {
 
     .card-title {
       font-size: var(--step-1);
+    }
+  }
+
+  /******************************************************************/
+  /********************** BUSINESS CASES ****************************/
+  /******************************************************************/
+  #business-cases {
+    .case-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-l);
+      width: 100%;
+
+      .case {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0px 0px 8px #dadada;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .case-content {
+        padding: var(--space-m);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-m);
+        justify-content: flex-start;
+        flex: 1;
+
+        * {
+          margin: 0;
+        }
+
+        .button {
+          margin-top: auto;
+        }
+
+        .cta {
+          padding-right: .75rem;
+        }
+      }
+
+      .case-cover {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 
