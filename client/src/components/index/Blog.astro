@@ -23,6 +23,13 @@ day: "numeric"
 };
 
 const locale = 'fr-FR';
+
+for (let article of articles) {
+if (import.meta.env.NODE_ENV === 'development') {
+    article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+    article.author.avatar.formats.thumbnail.url = import.meta.env.STRAPI_URL + article.author.avatar.formats.thumbnail.url;
+  }
+}
 ---
 
 <section id="blog">
