@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as mentionsLegales from './mentions.md';
+import { Content } from './mentions.md';
+
+console.log(Astro.props);
+---
+
+<Layout>
+  <div class="container">
+    <h1 class="page-title">{mentionsLegales.frontmatter.title}</h1>
+    <article>
+      <Content />
+    </article>
+  </div>
+</Layout>
+
+<style>
+  article {
+    max-width: 65ch;
+    margin-inline: auto;
+
+    a {
+      color: var(--text);
+      border: 1px solid red;
+    }
+
+    a:hover {
+      color: orange;
+    }
+  }
+</style>
