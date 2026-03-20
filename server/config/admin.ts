@@ -40,7 +40,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Admin => 
   },
   rateLimit: {
     enabled: true,
-    max: 10,
+    max: 5,
     timeWait: 5000,
     delayAfter: 1,
   },

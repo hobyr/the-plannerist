@@ -5,7 +5,7 @@ const knowMore = "/bibliotheque";
 const workbookDL = "https://tinyurl.com/TPLEA";
 const autoAuditDL = "https://tinyurl.com/TPLEA";
 import workbookImg from '../../assets/images/workbook.webp';
-import autoAuditGif from '../../assets/images/auto_audit.gif';
+import autoAudit from '../../assets/images/auto_audit.webm';
 ---
 
 <section id="tools">
@@ -35,7 +35,7 @@ import autoAuditGif from '../../assets/images/auto_audit.gif';
       </div>
       <div class="card">
         <h3>The Plannerist Auto-Audit</h3>
-        <img src={autoAuditGif.src} alt="" width={350} height={350} />
+        <video src={autoAudit} alt="" width={350} height={350} autoplay loop />
         <div class="links">
           <a href={autoAuditDL} class="button cta">Télecharger l'auto-audit<span><i class="fa-solid fa-file-arrow-down"></i></span></a>
           <a href={knowMore} class="card-link">En savoir plus</a>
@@ -131,6 +131,10 @@ import autoAuditGif from '../../assets/images/auto_audit.gif';
 
   .card-link:hover {
     color: var(--bg-color-light);
+  }
+
+  video {
+    width: 100%;
   }
 
   @media (min-width: 1000px) {
