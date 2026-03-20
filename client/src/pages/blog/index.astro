@@ -3,25 +3,25 @@ import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi.ts';
 import { Image } from 'astro:assets';
 
-export async function getStaticPaths({ paginate }) {
-  try {
-    const articles = await fetchApi({
-      endpoint: 'blogs',
-      wrappedByKey: 'data',
-      query: {
-        'populate[0]': 'cover',
-        'populate[1]': 'categories',
-        'sort': 'posted_at:desc',
-      }
-    });
+// SSR
+export const prerender = false
 
-    return paginate(articles, { pageSize: 12 });
-  } catch (error) {
-    console.log(error);
-  }
-}
+const currentPage = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
+const pageSize = 12
 
-const { page } = Astro.props;
+  const data = await fetchApi({
+    endpoint: 'blogs',
+    query: {
+      'populate[0]': 'cover',
+      'populate[1]': 'categories',
+      'sort': 'posted_at:desc',
+      'pagination[page]': currentPage,
+      'pagination[pageSize]': pageSize,
+    }
+  });
+
+const articles = data.data;
+const lastPage = data.meta.pagination.pageCount;
 ---
 
 <Layout>
@@ -55,28 +55,28 @@ const { page } = Astro.props;
     <div class="container">
       <h2 class="section-title">Derniers articles</h2>
       <div class="article-grid-2">
-        {page.data.map(article => 
+        {articles.map(article => 
         <div class="article-card">
           <Image src={article.cover.url} alt="" width={3000} height={300} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
-            <a href={`/blog/post/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href={`/blog/${article.slug}`} class="card-cta">Voir l'article <span><i class="fa-solid fa-arrow-right"></i></span></a>
           </div>
         </div>
         )}
       </div>
       <nav class="pagination">
         <!-- First page link -->
-        {page.currentPage > 1 ? <a href="/blog" class="first-page">1</a> : null}
+        {currentPage > 1 ? <a href="/blog" class="first-page">1</a> : null}
         <!-- Previous page link -->
-        {page.currentPage > 2 ? <a href={page.url.prev} class="previous-page">{page.currentPage - 1}</a> : null}
+        {currentPage > 2 ? <a href=`/blog?page=${currentPage - 1}` class="previous-page">{currentPage - 1}</a> : null}
         <!-- Current page link -->
-        <div class="current-page">{page.currentPage}</div>
+        <div class="current-page">{currentPage}</div>
         <!-- Next page link -->
-        {page.currentPage < page.lastPage - 1 ? <a href={page.url.next} class="next-page">{page.currentPage + 1}</a> : null}
+        {currentPage < lastPage - 1 ? <a href=`/blog?page=${currentPage + 1}` class="next-page">{currentPage + 1}</a> : null}
         <!-- Last page link -->
-        {page.currentPage < page.lastPage ? <a href={page.url.last} class="last-page">{page.lastPage}</a> : null}
+        {currentPage < lastPage ? <a href=`/blog?page=${lastPage}` class="last-page">{lastPage}</a> : null}
       </nav>
     </div>
   </section>

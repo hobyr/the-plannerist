@@ -1,7 +1,7 @@
 ---
 import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
-import Layout from '../../../layouts/Layout.astro';
-import fetchApi from '../../../lib/strapi';
+import Layout from '../../layouts/Layout.astro';
+import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
@@ -74,7 +74,7 @@ for (let item of article.content) {
   <section id="post">
     <div class="container">
       <header>
-        <a class="button cta" href="/blog"><i></i>Revenir au blog</a>
+        <a class="button cta" href="/blog"><span><i class="fa-solid fa-arrow-left"></i></span> Revenir au blog</a>
         <h1 class="page-title">{article.title}</h1>
         <div class="info">
           <span class="posting-date">Écrit par {article.author.name}</span>
@@ -203,5 +203,10 @@ for (let item of article.content) {
     margin: 0 auto;
     padding-left: var(--space-xl);
     border-left: 1px solid var(--bg-color-light);
+  }
+
+  .cta {
+    padding-left: 0.75rem;
+    margin-bottom: var(--space-l);
   }
 </style>
