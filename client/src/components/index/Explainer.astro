@@ -72,6 +72,20 @@ import { Image } from 'astro:assets';
     margin-bottom: 0;
     line-height: 1.15;
     text-wrap: balance;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card h3::after {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+    height: 8px;
+    width: 50%;
+    opacity: .6;
+    background-color: var(--primary-light);
+    z-index: -1;
   }
 
   .card p {
