@@ -21,7 +21,6 @@ const pageSize = 12
   });
 
 const articles = data.data;
-console.log(articles);
 
 for (let article of articles) {
 if (import.meta.env.NODE_ENV === 'development' && article.cover.url) {
@@ -175,7 +174,7 @@ const lastPage = data.meta.pagination.pageCount;
 
   .article-card .card-cover {
     width: 100%;
-    flex: 1 1 50%;
+    flex: 1 1 10rem;
     object-fit: cover;
     aspect-ratio: 3/2;
   }
