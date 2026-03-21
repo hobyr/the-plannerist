@@ -14,7 +14,7 @@ import { Image } from 'astro:assets';
       <p>Structuration, organisation, pilotage &ndash; je mets mon expérience de bras droit stratégique au service de ton développement.</p>
       <a href="https://tally.so/r/wzGVok" class="button cta" target="_blank" rel="noopener noreferrer">Ton approche m'inspire <span><i class="fa-solid fa-comments"></i></span></a>
     </article>
-    <Image src={SehenoPortrait} alt="" width={800} height={800} class="portrait"/>
+    <Image src={SehenoPortrait} alt="" height={1000} class="portrait"/>
   </div>
 </section>
 
@@ -22,23 +22,35 @@ import { Image } from 'astro:assets';
   .container {
     display: flex;
     align-items: center;
-    gap: var(--space-m);
-  }
-
-  .page-title {
-    text-align: left;
+    justify-content: center;
+    gap: var(--space-l);
   }
 
   article {
-    flex: 1;
-  }
+    flex: 1 1 40ch;
+    max-width: 65ch;
 
-  .cta {
-    padding-right: .75rem;
+    .page-title {
+      text-align: left;
+    }
+
+    .cta {
+      padding-right: .75rem;
+    }
   }
 
   .portrait {
-    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 750px;
     object-fit: cover;
+  }
+
+  @media (max-width: 1000px) {
+    .container {
+      flex-direction: column-reverse;
+      height: fit-content;
+    }
   }
 </style>
