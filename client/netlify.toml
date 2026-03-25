@@ -21,3 +21,9 @@
   to = "/bibliotheque"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/coo-chief-operating-officer-externalise"
+  to = "/accompagnements-coo"
+  status = 301
+  force = false
