@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import funFact1 from '../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_loisir_tennis.webp';
 import funFact2 from '../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_2.webp';
 import funFact3 from '../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_Newton.webp';
+import LinkedInLogo from '../assets/LI-In-Bug.png';
 import collaborationCover from '../assets/images/PHOTOS/The_Plannerist_-_Seheno-WORKSHOP-JUDITH.webp';
 
 const linkedInReviews = [
@@ -39,11 +40,6 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
 ---
 
 <Layout>
-  <!-- <div class="bg-blob blob-1"></div> -->
-  <!-- <div class="bg-blob blob-2"></div> -->
-  <!-- <div class="bg-blob blob-3"></div> -->
-  <!-- <div class="bg-blob blob-4"></div> -->
-  <!-- <div class="bg-blob blob-5"></div> -->
   <Introduction />
   <Journey />
   <Solution />
@@ -54,17 +50,17 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
       <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
       <div class="item-grid">
         <div class="item">
-          <Image src={funFact1} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <Image src={funFact1} alt="" width={800} class="fun-fact-image"/>
           <h3>01. J'adore le tennis</h3>
           <p>C'est le seul sport qui me permet d'évacuer et me mettre dans le flow. C'est un sport qui cultive l'esprit stratégique</p>
         </div>
         <div class="item">
-          <Image src={funFact2} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <Image src={funFact2} alt="" width={800} class="fun-fact-image"/>
           <h3>02. Je suis une experte en Dad Jokes</h3>
           <p>Mon jeu favori est de faire des jeux de mots avec les stations de métro ou les villes. Par exemple : s'il y a Billancourt, il y a Billanlong ? Voilà.</p>
         </div>
         <div class="item">
-          <Image src={funFact3} alt="" width={800} height={1200} class="fun-fact-image"/>
+          <Image src={funFact3} alt="" width={800} class="fun-fact-image"/>
           <h3>03. Je suis la cat mom d'un petit Newton</h3>
           <p>Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de route pour le récupérer en Normandie. (True story)</p>
         </div>
@@ -78,8 +74,11 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
       <div class="reviews-grid">
         {linkedInReviews.map(review => (
         <div class="review-card">
-          <h3 class="review-reviewer-name">{review.recommender}</h3>
-          <h4 class="review-reviewer-title">{review.title}</h4>
+          <header>
+            <h3 class="review-reviewer-name">{review.recommender}</h3>
+            <h4 class="review-reviewer-title">{review.title}</h4>
+            <Image src={LinkedInLogo} alt="LinkedIn logo" height={200} loading="lazy" class="linked-in-logo"/>
+          </header>
           <p class="review-text">{review.recommendation}</p>
         </div>
         ))}
@@ -105,52 +104,6 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
 </Layout>
 
 <style>
-  :root {
-    --blob-col-1: #F4E04D;
-    --blob-col-2: #95BF74;
-    --blob-col-3: #DDA77B;
-    /* --blob-col-3: #669BBC; */
-  }
-
-  .bg-blob {
-    position: absolute;
-    --length: 600px;
-    width: var(--length);
-    height: var(--length);
-    z-index: -1;
-    filter: blur(500px);
-  }
-
-  .blob-1 {
-    top: 0;
-    right: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-2 {
-    left: 0;
-    top: 800px;
-    background-color: var(--blob-col-2);
-  }
-
-  .blob-3 {
-    top: 1400px;
-    right: 0;
-    background-color: var(--blob-col-3);
-  }
-
-  .blob-4 {
-    top: 2400px;
-    left: 0;
-    background-color: var(--blob-col-1);
-  }
-
-  .blob-5 {
-    top: 3800px;
-    right: 0px;
-    background-color: var(--bg-color-dark);
-  }
-
   h2 span {
     font-style: italic;
   }
@@ -169,7 +122,7 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
     width: 100%;
     height: 1400px;
     margin-top: var(--space-m);
-    /* border: 2px solid yellow; */
+    /* border: 2px solid orange; */
   }
 
   .item {
@@ -221,6 +174,10 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
       background-color: white;
       box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
       padding-inline: var(--space-m);
+
+      header {
+        position: relative;
+      }
     }
 
     .review-reviewer-name {
@@ -235,6 +192,16 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
       font-weight: 200;
       color: #808080;
       margin-top: 0.15rem;
+      max-width: 70%;
+    }
+
+    .linked-in-logo {
+      height: 1.5rem;
+      object-fit: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: fit-content;
     }
 
     .review-text {
@@ -267,6 +234,44 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
     }
   }
 
+  @media (max-width: 1350px) {
+    #fun-facts .container {
+      .item-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        gap: var(--space-m);
+        height: 100%;
+      }
 
+      .item {
+        position: static;
+      }
+
+      .item:nth-of-type(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      .item:nth-of-type(2) {
+        top: 0px;
+        right: 0px;
+      }
+
+      .item:nth-of-type(3) {
+        bottom: 0px;
+        left: 0px;
+      }
+
+    }
+  }
+
+  @media (max-width: 950px) {
+    #collaboration .content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 </style>
 

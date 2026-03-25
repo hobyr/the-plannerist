@@ -6,7 +6,7 @@ import SehenoPortrait from '../../assets/images/PHOTOS/The_Plannerist_-_Portrait
 
 <section id="journey">
   <div class="container">
-    <Image src={SehenoPortrait} width={1800} height={1000} alt="" class="portrait" />
+    <Image src={SehenoPortrait} height={1000} alt="" class="portrait" />
     <article>
       <div class="title-header">La curiosité comme fil conducteur</div>
       <h2 class="section-title">Mon parcours de COO pour PME et solopreneurs</h2>
@@ -23,12 +23,13 @@ import SehenoPortrait from '../../assets/images/PHOTOS/The_Plannerist_-_Portrait
   .container {
     display: flex;
     align-items: center;
-    gap: var(--space-m);
+    gap: var(--space-l);
   }
 
   .portrait {
     flex: 1;
     object-fit: cover;
+    width: 100%;
   }
 
   .section-title {
@@ -41,5 +42,11 @@ import SehenoPortrait from '../../assets/images/PHOTOS/The_Plannerist_-_Portrait
 
   .cta {
     padding-right: .75rem;
+  }
+
+  @media (max-width: 1000px) {
+    .container {
+      flex-direction: column;
+    }
   }
 </style>

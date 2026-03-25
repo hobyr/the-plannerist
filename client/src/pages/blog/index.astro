@@ -21,6 +21,12 @@ const pageSize = 12
   });
 
 const articles = data.data;
+
+for (let article of articles) {
+if (import.meta.env.NODE_ENV === 'development' && article.cover.url) {
+    article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+  }
+}
 const lastPage = data.meta.pagination.pageCount;
 ---
 
@@ -53,11 +59,11 @@ const lastPage = data.meta.pagination.pageCount;
 
   <section>
     <div class="container">
-      <h2 class="section-title">Derniers articles</h2>
-      <div class="article-grid-2">
+      <!-- <h2 class="section-title">Derniers articles</h2> -->
+      <div class="articles-wrapper">
         {articles.map(article => 
         <div class="article-card">
-          <Image src={article.cover.url} alt="" width={3000} height={300} class="card-cover"/>
+          <Image src={!article.cover.url ? null : article.cover.url} alt={!article.cover.alternativeText ? "alternative text" : article.cover.alternativeText} width={500} height={500} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>
@@ -148,6 +154,14 @@ const lastPage = data.meta.pagination.pageCount;
     grid-area: aside6;
   }
 
+  .articles-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-m);
+    margin-top: var(--space-m);
+    width: 100%;
+  }
+
   .article-card {
     width: 100%;
     display: flex;
@@ -155,20 +169,13 @@ const lastPage = data.meta.pagination.pageCount;
     border: 1px solid var(--border-color);
     overflow: hidden;
     border-radius: 6px;
-  }
 
-  .article-grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-m);
-    margin-top: var(--space-m);
-    width: 100%;
-    max-width: 1280px;
+    container-type: inline-size;
   }
 
   .article-card .card-cover {
     width: 100%;
-    flex: 1 1 50%;
+    flex: 1 1 10rem;
     object-fit: cover;
     aspect-ratio: 3/2;
   }
@@ -181,7 +188,6 @@ const lastPage = data.meta.pagination.pageCount;
   }
 
   .article-card h3 {
-    font-size: var(--step-1);
     margin-top: 0;
     margin-bottom: .5rem;
   }
@@ -215,6 +221,12 @@ const lastPage = data.meta.pagination.pageCount;
     background-color: var(--primary-light);
     color: var(--primary);
     border-color: var(--primary);
+  }
+
+  @container (300px < width < 850px) {
+    h3 {
+      font-size: 5cqi;
+    }
   }
 
   a.card-cta {
@@ -267,6 +279,12 @@ const lastPage = data.meta.pagination.pageCount;
 
     a:hover {
       color: var(--bg-color-light);
+    }
+  }
+
+  @media (width < 550px) {
+    .articles-wrapper {
+      grid-template-columns: 1fr;
     }
   }
 </style>

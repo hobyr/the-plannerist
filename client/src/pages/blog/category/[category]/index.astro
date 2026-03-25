@@ -22,6 +22,13 @@ const data = await fetchApi({
 });
 
 const articles = data.data;
+
+for (let article of articles) {
+if (import.meta.env.NODE_ENV === 'development') {
+    article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+  }
+}
+
 const categoryData = articles[0].categories.find((data) => data.slug === category);
 const lastPage = data.meta.pagination.pageCount;
 ---
@@ -60,7 +67,7 @@ const lastPage = data.meta.pagination.pageCount;
       <div class="article-grid-2">
         {articles.map(article => 
         <div class="article-card">
-          <Image src={article.cover.url} alt="" width={3000} height={300} class="card-cover"/>
+          <Image src={article.cover.url} alt={!article.cover.alternativeText ? "alternative text" : article.cover.alternativeText} width={800} height={800} class="card-cover"/>
           <div class="card-content">
             <h3>{article.title}</h3>
             <div class="article-date">{Intl.DateTimeFormat("fr-FR", { year: "numeric", month: "long", day: "numeric" }).format(article.posted_at ? new Date(article.posted_at) : new Date(2026,3,15))}</div>

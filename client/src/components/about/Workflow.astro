@@ -8,7 +8,7 @@ import SehenoPortrait from '../../assets/images/portrait_travail.png';
   <div class="container">
     <div class="shape-wrapper">
       <div class="shape"></div>
-      <Image src={SehenoPortrait} alt="" width={800} height={800} class="portrait"/>
+      <Image src={SehenoPortrait} alt="The Plannerist - Working woman with laptop sitting at desk" height={800} class="portrait"/>
     </div>
     <article>
       <div class="title-header">Le workflow The Plannerist</div>
@@ -33,18 +33,18 @@ import SehenoPortrait from '../../assets/images/portrait_travail.png';
   }
 
   .portrait {
-    object-fit: cover;
-    height: 100%;
+    object-fit: contain;
+    height: 80%;
+    width: 100%;
   }
 
   .shape-wrapper {
     position: relative;
-    clip-path: inset(5% 0% 0% 3% round 10% 10% 15% 10%);
-    /* clip-path: ellipse(53% 79% at 53% 21%); */
+    clip-path: inset(5% 0% 0% 3% round 0% 0% 5rem 5rem);
   }
 
   .shape {
-    height: 100vh;
+    height: 80%;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -73,6 +73,12 @@ import SehenoPortrait from '../../assets/images/portrait_travail.png';
 
   .cta i {
     transform: rotate(-45deg);
+  }
+
+  @media (max-width: 1070px) {
+    .container {
+      flex-direction: column;
+    }
   }
 </style>
 
