@@ -1,13 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Head from "../components/Head.astro";
 ---
 
-<Layout>
+<!doctype html>
+<html>
+  <Head title="The Plannerist | Page introuvable" description="404" />
+  <Layout>
   <div class="container">
     <h1 class="page-title">Oops, la page que vous recherchez n'est pas disponible!</h1>
     <a href="/" class="button cta">Cliquez ici pour revenir à l'accueil</a>
   </div>
-</Layout>
+  </Layout>
+</html>
 
 <style>
   .container {

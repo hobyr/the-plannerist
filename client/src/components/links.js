@@ -12,6 +12,10 @@ export const links = [
     url: "/bibliotheque",
   },
   {
+    name: "Accompagnements",
+    url: "/accompagnements-coo",
+  },
+  {
   name: "Business Cases",
   url: "/business-cases-conseil-en-pilotage-dentreprise",
   },
