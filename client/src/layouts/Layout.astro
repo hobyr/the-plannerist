@@ -3,49 +3,8 @@ import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé" />
-    <link rel="sitemap" href="/sitemap-0.xml" />
-    <title>The Plannerist | Double ton CA sans doubler tes heures</title>
-    <script src="https://kit.fontawesome.com/2efcc39dc7.js" crossorigin="anonymous"></script>
-    {
-    import.meta.env.PROD && (
-    <>
-    <!-- Google tag (gtag.js) --> 
-<script is:inline type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-2ERBRNRM0X"></script>
-<script is:inline type="text/partytown">
-  window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-2ERBRNRM0X');
-</script>
-  </> 
-      )
-    }
-  </head>
-  <body>
-    <Navbar />
-    <slot />
-    <Footer />
-  </body>
-</html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-  }
-</style>
+<body>
+  <Navbar />
+  <slot />
+  <Footer />
+</body>

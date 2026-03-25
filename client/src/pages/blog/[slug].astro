@@ -3,6 +3,7 @@ import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
+import Head from '../../components/Head.astro';
 
 export async function getStaticPaths() {
   const articles = await fetchApi({
@@ -64,9 +65,15 @@ for (let item of article.content) {
     }
   }
 }
+
+const pageTitle = article.title;
+const pageDescription = article.description;
 ---
 
-<Layout>
+<!doctype html>
+<html lang="en">
+  <Head description={pageDescription} title={`The Plannerist | ${pageTitle}`} />
+  <Layout>
   <Image src={coverURL() ? coverURL() : article.cover.url} width={2500} height={800} alt="" class="post-cover" />
   <section id="post">
     <div class="container">
@@ -89,7 +96,7 @@ for (let item of article.content) {
         <div class="table-of-contents">
           <h2>Sommaire</h2>
           <ul>
-          {toc.map(heading => <li>{heading}</li>)}
+            {toc.map(heading => <li>{heading}</li>)}
           </ul>
         </div>
         <article>
@@ -101,7 +108,8 @@ for (let item of article.content) {
       </div>
     </div>
   </section>
-</Layout>
+  </Layout>
+</html>
 
 <style>
   :root {
