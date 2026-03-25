@@ -4,9 +4,15 @@ import { Image } from 'astro:assets';
 import workbookImg from '../assets/images/workbook.webp';
 import auditImg from '../assets/images/auto_audit.gif';
 import PlusSign from '../assets/plus.svg';
+import Head from '../components/Head.astro';
+const pageDescription = "Accède à une bibliothèque d'outils gratuits The Plannerist pour fluidifier et organiser ton activité avec efficacité.";
+const pageTitle = "The Plannerist | La Bibliothèque";
 ---
 
-<Layout>
+<!doctype html>
+<html lang="en">
+  <Head title={pageTitle} description={pageDescription} />
+  <Layout>
   <section>
     <div class="container">
       <h1 class="page-title">La Bibliothèque</h1>
@@ -104,7 +110,8 @@ import PlusSign from '../assets/plus.svg';
       </div>
     </div>
   </section>
-</Layout>
+  </Layout>
+</html>
 
 <script>
   const qAndAheaders = document.querySelectorAll(".q-and-a header");

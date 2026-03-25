@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi.ts';
 import { Image } from 'astro:assets';
+import Head from '../../components/Head.astro';
 
 // SSR
 export const prerender = false
@@ -9,28 +10,34 @@ export const prerender = false
 const currentPage = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
 const pageSize = 12
 
-  const data = await fetchApi({
-    endpoint: 'blogs',
-    query: {
-      'populate[0]': 'cover',
-      'populate[1]': 'categories',
-      'sort': 'posted_at:desc',
-      'pagination[page]': currentPage,
-      'pagination[pageSize]': pageSize,
-    }
-  });
+const data = await fetchApi({
+endpoint: 'blogs',
+query: {
+'populate[0]': 'cover',
+'populate[1]': 'categories',
+'sort': 'posted_at:desc',
+'pagination[page]': currentPage,
+'pagination[pageSize]': pageSize,
+}
+});
 
 const articles = data.data;
 
 for (let article of articles) {
 if (import.meta.env.NODE_ENV === 'development' && article.cover.url) {
-    article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
-  }
+article.cover.url = import.meta.env.STRAPI_URL + article.cover.url;
+}
 }
 const lastPage = data.meta.pagination.pageCount;
+
+const pageTitle = "The Plannerist | Le carnet de bord pour mieux piloter et décider";
+const pageDescription = "Le Carnet de bord de The Plannerist : conseils concrets pour structurer ton activité, piloter ton entreprise et développer ton chiffre d’affaires sans t’épuiser.";
 ---
 
-<Layout>
+<!doctype html>
+<html lang="en">
+  <Head title={pageTitle} description={pageDescription} />
+  <Layout>
   <section id="posts">
     <div class="upper"></div>
     <div class="lower"></div>
@@ -91,7 +98,8 @@ const lastPage = data.meta.pagination.pageCount;
       </nav>
     </div>
   </section>
-</Layout>
+  </Layout>
+</html>
 
 <style>
   .container {
@@ -122,11 +130,11 @@ const lastPage = data.meta.pagination.pageCount;
     grid-template-rows: auto;
     grid-template-areas:
       "hero hero hero hero aside2 aside2"
-      "hero hero hero hero aside2 aside2"
-      "hero hero hero hero aside3 aside3"
-      "hero hero hero hero aside3 aside3"
-      "aside4 aside4 aside5 aside5 aside6 aside6"
-      "aside4 aside4 aside5 aside5 aside6 aside6";
+    "hero hero hero hero aside2 aside2"
+    "hero hero hero hero aside3 aside3"
+    "hero hero hero hero aside3 aside3"
+    "aside4 aside4 aside5 aside5 aside6 aside6"
+    "aside4 aside4 aside5 aside5 aside6 aside6";
     margin-bottom: var(--space-m);
   }
 
@@ -224,67 +232,67 @@ const lastPage = data.meta.pagination.pageCount;
   }
 
   @container (300px < width < 850px) {
-    h3 {
-      font-size: 5cqi;
-    }
-  }
+                                                                   h3 {
+                                                                   font-size: 5cqi;
+                                                                   }
+                                                                   }
 
-  a.card-cta {
-    display: flex;
-    gap: var(--space-2xs);
-    align-items: flex-end;
-    text-decoration: none;
-    color: var(--text);
-    border-bottom: 1px solid var(--text);
-    margin-top: auto;
-    width: fit-content;
+                                                                   a.card-cta {
+                                                                   display: flex;
+                                                                   gap: var(--space-2xs);
+                                                                   align-items: flex-end;
+                                                                   text-decoration: none;
+                                                                   color: var(--text);
+                                                                   border-bottom: 1px solid var(--text);
+                                                                   margin-top: auto;
+                                                                   width: fit-content;
 
-    transition-property: gap, color, border-color;
-  }
+                                                                   transition-property: gap, color, border-color;
+                                                                   }
 
-  a.card-cta span {
-    font-size: var(--step--1);
-  }
+                                                                   a.card-cta span {
+                                                                   font-size: var(--step--1);
+                                                                   }
 
-  a.card-cta:hover {
-    color: var(--bg-color-light);
-    gap: var(--space-xs);
-    border-color: var(--bg-color-light);
-  } 
+                                                                   a.card-cta:hover {
+                                                                   color: var(--bg-color-light);
+                                                                   gap: var(--space-xs);
+                                                                   border-color: var(--bg-color-light);
+                                                                   } 
 
-  nav.pagination {
-    margin-top: var(--space-xl);
-    display: flex;
-    justify-content: center;
-    gap: var(--space-s);
+                                                                   nav.pagination {
+                                                                   margin-top: var(--space-xl);
+                                                                   display: flex;
+                                                                   justify-content: center;
+                                                                   gap: var(--space-s);
 
-    & > * {
-      --length: 2.25rem;
-      border-radius: 99px;
-      width: var(--length);
-      height: var(--length);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-    }
+                                                                   & > * {
+                                                                   --length: 2.25rem;
+                                                                   border-radius: 99px;
+                                                                   width: var(--length);
+                                                                   height: var(--length);
+                                                                   display: flex;
+                                                                   justify-content: center;
+                                                                   align-items: center;
+                                                                   text-decoration: none;
+                                                                   }
 
-    .current-page {
-      background-color: var(--bg-color-light);
-    }
+                                                                   .current-page {
+                                                                   background-color: var(--bg-color-light);
+                                                                   }
 
-    a {
-      color: var(--text);
-    }
+                                                                   a {
+                                                                   color: var(--text);
+                                                                   }
 
-    a:hover {
-      color: var(--bg-color-light);
-    }
-  }
+                                                                   a:hover {
+                                                                   color: var(--bg-color-light);
+                                                                   }
+                                                                   }
 
-  @media (width < 550px) {
-    .articles-wrapper {
-      grid-template-columns: 1fr;
-    }
-  }
+                                                                   @media (width < 550px) {
+                                                                   .articles-wrapper {
+                                                                   grid-template-columns: 1fr;
+                                                                   }
+                                                                   }
 </style>

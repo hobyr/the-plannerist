@@ -3,6 +3,7 @@ import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
+import Head from '../../components/Head.astro';
 
 export async function getStaticPaths() {
   const cases = await fetchApi({
@@ -20,9 +21,15 @@ export async function getStaticPaths() {
     }))
     }
 
-    const business_case = Astro.props
+    const business_case = Astro.props;
+
+const pageTitle = business_case.title;
+const pageDescription = business_case.description;
 ---
 
+<!doctype html>
+<html lang="en">
+  <Head description={pageDescription} title={`The Plannerist | Business Case | ${pageTitle}`} />
 <Layout>
   <section class="hero">
     <div class="container">
@@ -78,8 +85,12 @@ export async function getStaticPaths() {
     </div>
   </section>
 </Layout>
+</html>
 
 <style>
+  .title-header {
+    text-align: center;
+  }
   /**************************************************/
   /**************** AUDIT ***************************/
   /**************************************************/

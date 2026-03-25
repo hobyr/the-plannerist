@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
+import Head from '../../components/Head.astro';
 
 const structureContent = [
 {
@@ -30,76 +31,83 @@ query: {
 
 for (let item of business_cases) {
 if (import.meta.env.NODE_ENV === 'development' && item.cover) {
-    item.cover.url = import.meta.env.STRAPI_URL + item.cover.url;
-  }
+item.cover.url = import.meta.env.STRAPI_URL + item.cover.url;
 }
+}
+
+const pageDescription = "Besoin de clarté et de structure ? Découvre, à travers des business cases concrets, comment le conseil en pilotage d’entreprise peut transformer ton activité.";
+const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entreprise";
 ---
 
-<Layout>
-  <section id="presentation">
-    <div class="container">
-      <div class="title-header">Des stratégies qui font la différence</div>
-      <h1 class="page-title">Des examples de conseil en pilotage d'entreprise</h1>
-      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre un appel découverte</a>
-    </div>
-  </section>
+<!doctype html>
+<html lang="en">
+  <Head description={pageDescription} title={pageTitle} />
+    <Layout>
+      <section id="presentation">
+        <div class="container">
+          <div class="title-header">Des stratégies qui font la différence</div>
+          <h1 class="page-title">Des examples de conseil en pilotage d'entreprise</h1>
+          <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre un appel découverte</a>
+        </div>
+      </section>
 
-  <section id="business-cases">
-    <div class="container">
-      <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
-      <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
-      <div class="case-wrapper">
-        {business_cases.map(item => 
-        <div class="case">
-          <Image src={item.cover.url} alt={!item.cover.alternativeText ? "alternative text" : item.cover.alternativeText} width={500} height={500} class="case-cover"/>
-          <div class="case-content">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <a href=`/business-cases-conseil-en-pilotage-dentreprise/${item.slug}` class="button cta">Voir le business case <span><i class="fa-solid fa-eye"></i></span></a>
+      <section id="business-cases">
+        <div class="container">
+          <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
+          <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
+          <div class="case-wrapper">
+            {business_cases.map(item => 
+            <div class="case">
+              <Image src={item.cover.url} alt={!item.cover.alternativeText ? "alternative text" : item.cover.alternativeText} width={500} height={500} class="case-cover"/>
+              <div class="case-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <a href=`/business-cases-conseil-en-pilotage-dentreprise/${item.slug}` class="button cta">Voir le business case <span><i class="fa-solid fa-eye"></i></span></a>
+              </div>
+            </div>
+            )}
           </div>
         </div>
-        )}
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section id="structure">
-    <div class="container">
-      <h2 class="section-title">Conseil en pilotage d'entreprise : bien plus qu'un regard extérieur de notre équipe</h2>
-      <div class="card-grid">
-        {structureContent.map(item => (
-        <div class="card">
-          <h3 class="card-title">{item.title}</h3>
-          <p class="card-description">{item.description}</p>
+      <section id="structure">
+        <div class="container">
+          <h2 class="section-title">Conseil en pilotage d'entreprise : bien plus qu'un regard extérieur de notre équipe</h2>
+          <div class="card-grid">
+            {structureContent.map(item => (
+            <div class="card">
+              <h3 class="card-title">{item.title}</h3>
+              <p class="card-description">{item.description}</p>
+            </div>
+            ))}
+          </div>
+          <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Besoin de clarté pour structurer mon activité et passer un cap !</a>
         </div>
-      ))}
-      </div>
-      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Besoin de clarté pour structurer mon activité et passer un cap !</a>
-    </div>
-  </section>
+      </section>
 
-  <section id="merits">
-    <div class="container">
-      <h2 class="section-title">Ce que peut t'apporter un accompagnement en pilotage d'entreprise</h2>
-      <p class="tagline">Les business cases parlent d’eux-mêmes : chaque entrepreneur a ses objectifs, ses blocages, sa façon de fonctionner. Mais tous, à un moment, ont ressenti le besoin d’un cadre plus solide pour avancer sereinement. C’est exactement ce qu’apporte le conseil en pilotage d’entreprise : des ajustements ciblés, une vision plus claire, et des leviers concrets pour faire évoluer ton activité dans la bonne direction.</p>
-      <div class="item-wrapper">
-        <div class="item">
-          <h3 class="item-title">1. Identifier ce qui freine vraiment ta croissance</h3>
-          <p>Tu navigues à vue, sans toujours savoir pourquoi tu stagnes, ou ce qui crée cette sensation de chaos. Ici, on fait le tri : ce qui fonctionne, ce qui t’épuise, ce qui ralentit sans que tu t’en rendes compte. Un diagnostic lucide, sans jargon, pour retrouver une base saine.</p>
+      <section id="merits">
+        <div class="container">
+          <h2 class="section-title">Ce que peut t'apporter un accompagnement en pilotage d'entreprise</h2>
+          <p class="tagline">Les business cases parlent d’eux-mêmes : chaque entrepreneur a ses objectifs, ses blocages, sa façon de fonctionner. Mais tous, à un moment, ont ressenti le besoin d’un cadre plus solide pour avancer sereinement. C’est exactement ce qu’apporte le conseil en pilotage d’entreprise : des ajustements ciblés, une vision plus claire, et des leviers concrets pour faire évoluer ton activité dans la bonne direction.</p>
+          <div class="item-wrapper">
+            <div class="item">
+              <h3 class="item-title">1. Identifier ce qui freine vraiment ta croissance</h3>
+              <p>Tu navigues à vue, sans toujours savoir pourquoi tu stagnes, ou ce qui crée cette sensation de chaos. Ici, on fait le tri : ce qui fonctionne, ce qui t’épuise, ce qui ralentit sans que tu t’en rendes compte. Un diagnostic lucide, sans jargon, pour retrouver une base saine.</p>
+            </div>
+            <div class="item">
+              <h3 class="item-title">2. Installer un mode de fonctionnement plus stable</h3>
+              <p>L’idée n’est pas de faire dépendre ton business d’un consultant, mais de poser un fonctionnement clair, durable, qui te ressemble. Des outils simples, des rythmes définis, une organisation plus fluide pour que tu puisses souffler, et garder le contrôle.</p>
+            </div>
+            <div class="item">
+              <h3 class="item-title">3. Reprendre la main sur tes chiffres et ta performance</h3>
+              <p>Le pilotage d’entreprise, ce n’est pas seulement organiser ton agenda ou clarifier tes offres. C’est comprendre où va ton chiffre d’affaires, ce que tu gagnes vraiment, ce qui te coûte et comment mieux décider, mieux répartir, mieux investir pour faire grandir ton activité sans y laisser ton énergie.</p>
+            </div>
+          </div>
+          <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
         </div>
-        <div class="item">
-          <h3 class="item-title">2. Installer un mode de fonctionnement plus stable</h3>
-          <p>L’idée n’est pas de faire dépendre ton business d’un consultant, mais de poser un fonctionnement clair, durable, qui te ressemble. Des outils simples, des rythmes définis, une organisation plus fluide pour que tu puisses souffler, et garder le contrôle.</p>
-        </div>
-        <div class="item">
-          <h3 class="item-title">3. Reprendre la main sur tes chiffres et ta performance</h3>
-          <p>Le pilotage d’entreprise, ce n’est pas seulement organiser ton agenda ou clarifier tes offres. C’est comprendre où va ton chiffre d’affaires, ce que tu gagnes vraiment, ce qui te coûte et comment mieux décider, mieux répartir, mieux investir pour faire grandir ton activité sans y laisser ton énergie.</p>
-        </div>
-      </div>
-      <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
-    </div>
-  </section>
-</Layout>
+      </section>
+    </Layout>
+</html>
 
 <style>
   #merits .container,
