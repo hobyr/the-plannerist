@@ -1,0 +1,152 @@
+---
+import Head from "../components/Head.astro";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import PlusSign from "../assets/plus.svg";
+import Offers from "../components/index/Offers.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    title="The Plannerist | Chief Operating Officer Externalisé (COO)"
+    description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
+  />
+  <Layout>
+    <section class="hero">
+      <div class="title-header">
+        Pour t'organiser
+      </div>
+      <h1 class="page-title">
+        The Plannerist OS
+      </h1>
+      <article>
+        <p>
+          Bonjour. Merci. Au revoir.
+        </p>
+        <a
+          class="button cta"
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          >Je suis un élément de télécommande</a
+        >
+      </article>
+    </section>
+  </Layout>
+
+
+  <script>
+    const qAndAheaders = document.querySelectorAll(".faq-item header");
+    qAndAheaders.forEach((header) => {
+      header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        const toggle = header.querySelector(".toggle");
+        toggle.classList.toggle("active");
+        content.classList.toggle("active");
+      });
+    });
+  </script>
+
+  <style>
+    section {
+      max-width: 1440px;
+      margin: 0 auto;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section.hero {
+      .page-title {
+        text-wrap: balance;
+        max-width: 35ch;
+      }
+
+      article {
+        max-width: 65ch;
+        margin: 0 auto;
+      }
+    }
+
+    section.why {
+      .tagline {
+        max-width: 65ch;
+        text-align: center;
+        margin-bottom: var(--space-l);
+        text-wrap: balance;
+      }
+
+      .card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        column-gap: var(--space-l);
+        margin-bottom: var(--space-l);
+      }
+
+      .card {
+        background-color: white;
+        padding-inline: var(--space-m);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px 0px #dadada;
+      }
+    }
+
+    section.steps {
+      .card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-m);
+        margin-bottom: var(--space-m);
+      }
+
+      .card {
+        background-color: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px 0px #dadada;
+        padding-inline: var(--space-m);
+      }
+    }
+
+    section.faq {
+      .faq-wrapper {
+        width: 100%;
+        max-width: 95ch;
+        margin: 0 auto;
+        margin-bottom: var(--space-m);
+      }
+      .faq-item {
+        border-bottom: 1px solid var(--text);
+      }
+
+      .faq-item:first-of-type {
+        border-top: 1px solid var(--text);
+      }
+
+      .faq-item header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-item .toggle {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .faq-item .toggle.active {
+        transform: rotate(45deg);
+      }
+
+      .faq-item main {
+        display: none;
+      }
+
+      .faq-item main.active {
+        display: block;
+      }
+    }
+  </style>
+</html>
