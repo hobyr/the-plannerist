@@ -1,11 +1,11 @@
 export const links = [
-{
-  name: "Accueil",
-  url: "/",
+  {
+    name: "Accueil",
+    url: "/",
   },
   {
-  name: "À propos",
-  url: "/a-propos-coo-pour-tpe-et-solopreneurs",
+    name: "À propos",
+    url: "/a-propos-coo-pour-tpe-et-solopreneurs",
   },
   {
     name: "La Bibliothèque",
@@ -14,13 +14,23 @@ export const links = [
   {
     name: "Accompagnements",
     url: "/accompagnements-coo",
+    submenu: [
+      {
+        name: "The Plannerist OS",
+        url: "/accompagnements-coo/the-plannerist-os",
+      },
+      {
+        name: "Le Copilotage",
+        url: "/accompagnements-coo/le-copilotage",
+      },
+    ]
   },
   {
-  name: "Business Cases",
-  url: "/business-cases-conseil-en-pilotage-dentreprise",
+    name: "Business Cases",
+    url: "/business-cases-conseil-en-pilotage-dentreprise",
   },
   {
-  name: "Blog",
-  url: "/blog",
+    name: "Blog",
+    url: "/blog",
   },
 ]

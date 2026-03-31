@@ -2,7 +2,38 @@
 import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import PlusSign from "../assets/plus.svg";
+import Faq from "../components/faq.astro";
+
+const faqContent = [
+  {
+    heading: "C'est quoi un Chief Operating Officer (COO) ?",
+    main: "Le COO est souvent décrit comme le garant de la performance interne. Concrètement, il veille à ce que l’entreprise fonctionne de façon fluide, que les projets avancent, que les équipes (si équipe il y a) soient alignées, et que les ressources (temps, énergie, budget) soient utilisées là où elles ont le plus d’impact. C’est un rôle transversal, qui demande à la fois une vision stratégique et une solide compréhension du terrain.\n\n**Un poste clé au service de la stabilité et de la croissance**\n\nLe COO pas là pour décider à ta place, mais pour t’aider à concrétiser ta vision. Il fait le lien entre les objectifs à long terme et les opérations du quotidien. Résultat ? Des décisions plus structurées, des projets mieux coordonnés, et une capacité à croître sans désorganiser l’existant.\n\n**Une mission souvent négligée dans les petites structures**\n\nDans les grandes entreprises, ce rôle est bien identifié. Mais dans les TPE, startups ou entreprises en croissance, il est souvent absorbé (malgré lui) par le fondateur ou la fondatrice (autrement dit par toi). Résultat ? Des journées saturées, une charge mentale permanente, et peu de place pour la prise de recul. C’est précisément pour ça que faire appel à un COO externalisé peut devenir un vrai levier pour ton activité.qui demande à la fois une vision stratégique et une solide compréhension du terrain.",
+  },
+  {
+    heading: "Quelle différence entre un COO externalisé et un directeur des opérations salarié ?",
+    main: "Un directeur des opérations salarié est intégré à temps plein dans l’entreprise. Le COO externalisé, lui, intervient à distance ou en ponctuel, avec un regard neuf et une mission définie. C’est un appui stratégique et opérationnel ciblé, sans les contraintes RH classiques.",
+  },
+  {
+    heading: "Est-ce qu'un Chief Operating Officer externalisé peut intervenir à distance ?",
+    main: "Oui, c’est même tout l’intérêt du format. Le COO externalisé s’adapte à ton fonctionnement, à distance ou en hybride, selon ce qui est le plus pertinent. L’objectif reste le même : t’apporter un pilotage efficace, sans alourdir ta structure interne.",
+  },
+  {
+    heading: "Est-ce qu'un COO externalisé peut s'adapter à mon secteur d'activité ?",
+    main: "Oui. Mon accompagnement s’adresse spécifiquement aux entreprises qui vendent en B2C, qu’il s’agisse de services, de produits physiques ou d’offres digitales.\n\nQuel que soit ton modèle, l’objectif reste le même : structurer, aligner et piloter ton activité pour soutenir ta croissance, avec des solutions adaptées à ta réalité.",
+  },
+  {
+    heading: "Faut-il déjà avoir une équipe pour bénéficier d'un accompagnement de type COO ?",
+    main: "Non. Le rôle du COO est justement de t’aider à structurer ton organisation, même en solo. Si tu envisages de te développer et/ou de déléguer bientôt, poser un cadre maintenant t’évitera les erreurs et pertes de temps au moment de recruter.\n\nEt puis, ma spécialité, c’est justement de t’accompagner dans la transition de solo à équipe. On pose ensemble un cadre solide avant même le recrutement, pour que tu gagnes en efficacité dès maintenant et que l’arrivée de nouvelles personnes se fasse sans perte de temps ni de qualité.",
+  },
+  {
+    heading: "Est-ce que le rôle du COO couvre aussi le marketing et la stratégie commerciale ?",
+    main: "Oui, dans leur dimension stratégique et organisationnelle. Mon rôle est de m’assurer que le marketing, le commercial, la production et le back-office avancent de manière cohérente pour soutenir ta croissance.\n\nEn revanche, je ne prends pas en charge la production quotidienne de services marketing ou commerciaux (comme le community management ou la prospection). L’objectif est de créer le cadre, les priorités et les process pour que ces actions soient alignées et efficaces.",
+  },
+  {
+    heading: "Combien de temps faut-il pour voir les premiers résultats d'un accompagnement ?",
+    main: "Le Co-pilotage est conçu pour travailler en profondeur sur ton organisation et ta stratégie, ce qui demande du temps pour être efficace et durable.\n\nSur 5 mois, on avance étape par étape pour poser des bases solides, mettre en place les bons process et t’habituer à ce nouveau fonctionnement. Les bénéfices se construisent progressivement et s’ancrent sur le long terme.",
+  },
+];
 ---
 
 <!doctype html>
@@ -384,179 +415,7 @@ import PlusSign from "../assets/plus.svg";
         Tout ce que tu te demandes (encore) sur le Chief Operating Officer
         externalisé
       </h2>
-      <div class="faq-wrapper">
-        <div class="faq-item">
-          <header>
-            <h3>C'est quoi un Chief Operating Officer (COO) ?</h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Le COO est souvent décrit comme le garant de la performance
-              interne. Concrètement, il veille à ce que l’entreprise fonctionne
-              de façon fluide, que les projets avancent, que les équipes (si
-              équipe il y a) soient alignées, et que les ressources (temps,
-              énergie, budget) soient utilisées là où elles ont le plus
-              d’impact. C’est un rôle transversal, qui demande à la fois une
-              vision stratégique et une solide compréhension du terrain.
-            </p>
-            <p>
-              <strong>
-                Un poste clé au service de la stabilité et de la croissance
-              </strong>
-            </p>
-            <p>
-              Le COO n’est pas là pour décider à ta place, mais pour t’aider à
-              concrétiser ta vision. Il fait le lien entre les objectifs à long
-              terme et les opérations du quotidien. Résultat ? Des décisions
-              plus structurées, des projets mieux coordonnés, et une capacité à
-              croître sans désorganiser l’existant.
-            </p>
-            <p>
-              <strong>
-                Une mission souvent négligée dans les petites structures
-              </strong>
-            </p>
-            <p>
-              Dans les grandes entreprises, ce rôle est bien identifié. Mais
-              dans les TPE, startups ou entreprises en croissance, il est
-              souvent absorbé (malgré lui) par le fondateur ou la fondatrice
-              (autrement dit par toi). Résultat ? Des journées saturées, une
-              charge mentale permanente, et peu de place pour la prise de recul.
-              C’est précisément pour ça que faire appel à un COO externalisé
-              peut devenir un vrai levier pour ton activité.qui demande à la
-              fois une vision stratégique et une solide compréhension du
-              terrain.
-            </p>
-          </main>
-        </div>
-        <div class="faq-item">
-          <header>
-            <h3>
-              Quelle différence entre un COO externalisé et un directeur des
-              opérations salarié ?
-            </h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Un directeur des opérations salarié est intégré à temps plein dans
-              l’entreprise. Le COO externalisé, lui, intervient à distance ou en
-              ponctuel, avec un regard neuf et une mission définie. C’est un
-              appui stratégique et opérationnel ciblé, sans les contraintes RH
-              classiques.
-            </p>
-          </main>
-        </div>
-        <div class="faq-item">
-          <header>
-            <h3>
-              Est-ce qu'un Chief Operating Officer externalisé peut intervenir à
-              distance ?
-            </h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Oui, c’est même tout l’intérêt du format. Le COO externalisé
-              s’adapte à ton fonctionnement, à distance ou en hybride, selon ce
-              qui est le plus pertinent. L’objectif reste le même : t’apporter
-              un pilotage efficace, sans alourdir ta structure interne.
-            </p>
-          </main>
-        </div>
-        <div class="faq-item">
-          <header>
-            <h3>
-              Est-ce qu'un COO externalisé peut s'adapter à mon secteur
-              d'activité ?
-            </h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Oui. Mon accompagnement s’adresse spécifiquement aux entreprises
-              qui vendent en B2C, qu’il s’agisse de services, de produits
-              physiques ou d’offres digitales.
-            </p>
-            <p>
-              Quel que soit ton modèle, l’objectif reste le même : structurer,
-              aligner et piloter ton activité pour soutenir ta croissance, avec
-              des solutions adaptées à ta réalité.
-            </p>
-          </main>
-        </div>
-        <div class="faq-item">
-          <header>
-            <h3>
-              Faut-il déjà avoir une équipe pour bénéficier d'un accompagnement
-              de type COO ?
-            </h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Non. Le rôle du COO est justement de t’aider à structurer ton
-              organisation, même en solo. Si tu envisages de te développer et/ou
-              de déléguer bientôt, poser un cadre maintenant t’évitera les
-              erreurs et pertes de temps au moment de recruter.
-            </p>
-            <p>
-              Et puis, ma spécialité, c’est justement de t’accompagner dans la
-              transition de solo à équipe. On pose ensemble un cadre solide
-              avant même le recrutement, pour que tu gagnes en efficacité dès
-              maintenant et que l’arrivée de nouvelles personnes se fasse sans
-              perte de temps ni de qualité.
-            </p>
-          </main>
-        </div>
-        <div class="faq-item">
-          <header>
-            <h3>
-              Est-ce que le rôle du COO couvre aussi le marketing et la
-              stratégie commerciale ?
-            </h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Oui, dans leur dimension stratégique et organisationnelle. Mon
-              rôle est de m’assurer que le marketing, le commercial, la
-              production et le back-office avancent de manière cohérente pour
-              soutenir ta croissance.
-            </p>
-            <p>
-              En revanche, je ne prends pas en charge la production quotidienne
-              de services marketing ou commerciaux (comme le community
-              management ou la prospection). L’objectif est de créer le cadre,
-              les priorités et les process pour que ces actions soient alignées
-              et efficaces.
-            </p>
-          </main>
-        </div>
-        <div class="faq-item">
-          <header>
-            <h3>
-              Combien de temps faut-il pour voir les premiers résultats d'un
-              accompagnement ?
-            </h3>
-            <PlusSign class="toggle" />
-          </header>
-          <main>
-            <p>
-              Le Co-pilotage est conçu pour travailler en profondeur sur ton
-              organisation et ta stratégie, ce qui demande du temps pour être
-              efficace et durable.
-            </p>
-            <p>
-              Sur 5 mois, on avance étape par étape pour poser des bases
-              solides, mettre en place les bons process et t’habituer à ce
-              nouveau fonctionnement. Les bénéfices se construisent
-              progressivement et s’ancrent sur le long terme.
-            </p>
-          </main>
-        </div>
-      </div>
+      <Faq faqContent={faqContent} />
       <a
         class="button cta"
         href="https://calendly.com/seheno-theplannerist/appel-decouverte"
@@ -589,18 +448,6 @@ import PlusSign from "../assets/plus.svg";
     </section>
   </Layout>
 </html>
-
-<script>
-  const qAndAheaders = document.querySelectorAll(".faq-item header");
-  qAndAheaders.forEach((header) => {
-    header.addEventListener("click", () => {
-      const content = header.nextElementSibling;
-      const toggle = header.querySelector(".toggle");
-      toggle.classList.toggle("active");
-      content.classList.toggle("active");
-    });
-  });
-</script>
 
 <style>
   section {
@@ -663,45 +510,6 @@ import PlusSign from "../assets/plus.svg";
       border-radius: 8px;
       box-shadow: 0px 0px 8px 0px #dadada;
       padding-inline: var(--space-m);
-    }
-  }
-
-  section.faq {
-    .faq-wrapper {
-      width: 100%;
-      max-width: 95ch;
-      margin: 0 auto;
-      margin-bottom: var(--space-m);
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--text);
-    }
-
-    .faq-item:first-of-type {
-      border-top: 1px solid var(--text);
-    }
-
-    .faq-item header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-item .toggle {
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .faq-item .toggle.active {
-      transform: rotate(45deg);
-    }
-
-    .faq-item main {
-      display: none;
-    }
-
-    .faq-item main.active {
-      display: block;
     }
   }
 </style>
