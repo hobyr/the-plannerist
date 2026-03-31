@@ -1,9 +1,6 @@
 ---
 import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import PlusSign from "../assets/plus.svg";
-import Offers from "../components/index/Offers.astro";
 ---
 
 <!doctype html>
@@ -14,16 +11,10 @@ import Offers from "../components/index/Offers.astro";
   />
   <Layout>
     <section class="hero">
-      <div class="title-header">
-        Pour t'organiser
-      </div>
-      <h1 class="page-title">
-        The Plannerist OS
-      </h1>
+      <div class="title-header">Pour t'organiser</div>
+      <h1 class="page-title">The Plannerist OS</h1>
       <article>
-        <p>
-          Bonjour. Merci. Au revoir.
-        </p>
+        <p>Bonjour. Merci. Au revoir.</p>
         <a
           class="button cta"
           href="https://calendly.com/seheno-theplannerist/appel-decouverte"
@@ -32,7 +23,6 @@ import Offers from "../components/index/Offers.astro";
       </article>
     </section>
   </Layout>
-
 
   <script>
     const qAndAheaders = document.querySelectorAll(".faq-item header");
@@ -149,4 +139,5 @@ import Offers from "../components/index/Offers.astro";
       }
     }
   </style>
+
 </html>

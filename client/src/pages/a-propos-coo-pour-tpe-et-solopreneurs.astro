@@ -1,111 +1,166 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Introduction from '../components/about/Introduction.astro';
-import Journey from '../components/about/Journey.astro';
-import Solution from '../components/about/Solution.astro';
-import Workflow from '../components/about/Workflow.astro';
-import { Image } from 'astro:assets';
-import funFact1 from '../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_loisir_tennis.webp';
-import funFact2 from '../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_2.webp';
-import funFact3 from '../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_Newton.webp';
-import LinkedInLogo from '../assets/LI-In-Bug.png';
-import collaborationCover from '../assets/images/PHOTOS/The_Plannerist_-_Seheno-WORKSHOP-JUDITH.webp';
-import Head from '../components/Head.astro';
+import Layout from "../layouts/Layout.astro";
+import Introduction from "../components/about/Introduction.astro";
+import Journey from "../components/about/Journey.astro";
+import Solution from "../components/about/Solution.astro";
+import Workflow from "../components/about/Workflow.astro";
+import { Image } from "astro:assets";
+import funFact1 from "../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_loisir_tennis.webp";
+import funFact2 from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_2.webp";
+import funFact3 from "../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_Newton.webp";
+import LinkedInLogo from "../assets/LI-In-Bug.png";
+import collaborationCover from "../assets/images/PHOTOS/The_Plannerist_-_Seheno-WORKSHOP-JUDITH.webp";
+import Head from "../components/Head.astro";
 
 const linkedInReviews = [
-{
-recommender: "Gilles Charles Muller",
-title: "Directeur Général Associé Groupe Giraphes",
-date: "2021-06-30",
-recommendation: "J'ai grandement apprécié travailler avec Seheno. En effet, au cours de nos collaborations (Embrace Planner puis MyBluePrintVF), Seheno s'est avérée être une interlocutrice très constructive. Pragmatique, elle sait faire la part des choses et se concentre sur les bons sujets. Je la recommande vivement pour des postes relatifs à de la gestion de projet."
-},
-{
-recommender: "Raphael Tardio",
-title: "Entrepreneur & Co-fondateur Groupe Giraphes | CTO",
-date: "2021-06-30",
-recommendation: "Seheno est une cheffe de projet remarquable, sérieuse et professionnelle. Elle est sensibles aux enjeux business de par ses expériences en entrepreneuriat et sait également entrer dans des détails lorsque cela est nécessaire."
-},
-{
-recommender: "Florie Gatet",
-title: "Fondatrice & CEO MyBluePrintVF",
-date: "2021-03-31",
-recommendation: "Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe."
-},
-{
-recommender: "Nancy Shulunugu",
-title: "Fondatrice Legal Team Management",
-date: "2020-05-31",
-recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans le cadre de nos activités respectives. Elle est professionnelle, investie dans son travail et très à l'écoute des aspirations et attentes de ses clients. Elle est continuellement dans une démarche de bien faire les choses. C'est un plaisir de collaborer avec elle. Je la recommande sans aucune hésitation !"
-},
-]
+  {
+    recommender: "Gilles Charles Muller",
+    title: "Directeur Général Associé Groupe Giraphes",
+    date: "2021-06-30",
+    recommendation:
+      "J'ai grandement apprécié travailler avec Seheno. En effet, au cours de nos collaborations (Embrace Planner puis MyBluePrintVF), Seheno s'est avérée être une interlocutrice très constructive. Pragmatique, elle sait faire la part des choses et se concentre sur les bons sujets. Je la recommande vivement pour des postes relatifs à de la gestion de projet.",
+  },
+  {
+    recommender: "Raphael Tardio",
+    title: "Entrepreneur & Co-fondateur Groupe Giraphes | CTO",
+    date: "2021-06-30",
+    recommendation:
+      "Seheno est une cheffe de projet remarquable, sérieuse et professionnelle. Elle est sensibles aux enjeux business de par ses expériences en entrepreneuriat et sait également entrer dans des détails lorsque cela est nécessaire.",
+  },
+  {
+    recommender: "Florie Gatet",
+    title: "Fondatrice & CEO MyBluePrintVF",
+    date: "2021-03-31",
+    recommendation:
+      "Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe.",
+  },
+  {
+    recommender: "Nancy Shulunugu",
+    title: "Fondatrice Legal Team Management",
+    date: "2020-05-31",
+    recommendation:
+      "Cela fait maintenant 1 année que je travaille avec Seheno dans le cadre de nos activités respectives. Elle est professionnelle, investie dans son travail et très à l'écoute des aspirations et attentes de ses clients. Elle est continuellement dans une démarche de bien faire les choses. C'est un plaisir de collaborer avec elle. Je la recommande sans aucune hésitation !",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head description="Seheno Ratefimandimby, COO pour TPE et entrepreneurs : structure, pilote et optimise votre activité pour gagner en clarté, temps et rentabilité." title="The Plannerist | Seheno, COO pour TPE et entrepreneurs" />
-<Layout>
-  <Introduction />
-  <Journey />
-  <Solution />
-  <Workflow />
+  <Head
+    description="Seheno Ratefimandimby, COO pour TPE et entrepreneurs : structure, pilote et optimise votre activité pour gagner en clarté, temps et rentabilité."
+    title="The Plannerist | Seheno, COO pour TPE et entrepreneurs"
+  />
+  <Layout>
+    <Introduction />
+    <Journey />
+    <Solution />
+    <Workflow />
 
-  <section id="fun-facts">
-    <div class="container">
-      <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
-      <div class="item-grid">
-        <div class="item">
-          <Image src={funFact1} alt="" width={800} class="fun-fact-image"/>
-          <h3>01. J'adore le tennis</h3>
-          <p>C'est le seul sport qui me permet d'évacuer et me mettre dans le flow. C'est un sport qui cultive l'esprit stratégique</p>
-        </div>
-        <div class="item">
-          <Image src={funFact2} alt="" width={800} class="fun-fact-image"/>
-          <h3>02. Je suis une experte en Dad Jokes</h3>
-          <p>Mon jeu favori est de faire des jeux de mots avec les stations de métro ou les villes. Par exemple : s'il y a Billancourt, il y a Billanlong ? Voilà.</p>
-        </div>
-        <div class="item">
-          <Image src={funFact3} alt="" width={800} class="fun-fact-image"/>
-          <h3>03. Je suis la cat mom d'un petit Newton</h3>
-          <p>Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de route pour le récupérer en Normandie. (True story)</p>
+    <section id="fun-facts">
+      <div class="container">
+        <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
+        <div class="item-grid">
+          <div class="item">
+            <Image src={funFact1} alt="" width={800} class="fun-fact-image" />
+            <h3>01. J'adore le tennis</h3>
+            <p>
+              C'est le seul sport qui me permet d'évacuer et me mettre dans le
+              flow. C'est un sport qui cultive l'esprit stratégique
+            </p>
+          </div>
+          <div class="item">
+            <Image src={funFact2} alt="" width={800} class="fun-fact-image" />
+            <h3>02. Je suis une experte en Dad Jokes</h3>
+            <p>
+              Mon jeu favori est de faire des jeux de mots avec les stations de
+              métro ou les villes. Par exemple : s'il y a Billancourt, il y a
+              Billanlong ? Voilà.
+            </p>
+          </div>
+          <div class="item">
+            <Image src={funFact3} alt="" width={800} class="fun-fact-image" />
+            <h3>03. Je suis la cat mom d'un petit Newton</h3>
+            <p>
+              Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de
+              route pour le récupérer en Normandie. (True story)
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="reviews">
-    <div class="container">
-      <h2 class="section-title">Ce que disent les <i>solofounders &amp; les TPE</i> qui ont travaillé avec moi</h2>
-      <div class="reviews-grid">
-        {linkedInReviews.map(review => (
-        <div class="review-card">
-          <header>
-            <h3 class="review-reviewer-name">{review.recommender}</h3>
-            <h4 class="review-reviewer-title">{review.title}</h4>
-            <Image src={LinkedInLogo} alt="LinkedIn logo" height={200} loading="lazy" class="linked-in-logo"/>
-          </header>
-          <p class="review-text">{review.recommendation}</p>
+    <section id="reviews">
+      <div class="container">
+        <h2 class="section-title">
+          Ce que disent les <em>solofounders &amp; les TPE</em> qui ont travaillé
+          avec moi
+        </h2>
+        <div class="reviews-grid">
+          {
+            linkedInReviews.map((review) => (
+              <div class="review-card">
+                <header>
+                  <h3 class="review-reviewer-name">{review.recommender}</h3>
+                  <h4 class="review-reviewer-title">{review.title}</h4>
+                  <Image
+                    src={LinkedInLogo}
+                    alt="LinkedIn logo"
+                    height={200}
+                    loading="lazy"
+                    class="linked-in-logo"
+                  />
+                </header>
+                <p class="review-text">{review.recommendation}</p>
+              </div>
+            ))
+          }
         </div>
-        ))}
+        <a
+          class="button cta"
+          href="https://www.linkedin.com/in/seheno-ratefimandimby/"
+          target="_blank"
+          rel="noopener noreferrer">Voir le profil LinkedIn</a
+        >
       </div>
-      <a class="button cta" href="https://www.linkedin.com/in/seheno-ratefimandimby/" target="_blank" rel="noopener noreferrer">Voir le profil LinkedIn</a>
-    </div>
-  </section>
+    </section>
 
-  <section id="collaboration">
-    <div class="container">
-      <div class="content">
-        <Image src={collaborationCover} width={800} height={800} class="collaboration-cover" alt="" />
-        <article>
-          <h2 class="section-title">Envie de collaborer avec moi ?</h2>
-          <p>Tu avances, ton activité se développe, mais tu sens qu'un peu plus de structure ne ferait pas de mal ?</p>
-          <p>En tant que COO pour TPE et entrepreneurs, je peux t'aider à y voir plus clair, à remettre du cadre là où c'est flou, à poser les premières briques d'une organisation performante et alignée qui tient la route.</p>
-          <p>On peut simplement commencer par une conversation pour comprendre où tu en es, et voir si je suis la bonne personne pour t'épauler.</p>
-          <a class="button cta" href="https://tally.so/r/wzGVok" target="_blank" rel="noopener noreferrer">Programmer un café Zoom</a>
-        </article>
+    <section id="collaboration">
+      <div class="container">
+        <div class="content">
+          <Image
+            src={collaborationCover}
+            width={800}
+            height={800}
+            class="collaboration-cover"
+            alt=""
+          />
+          <article>
+            <h2 class="section-title">Envie de collaborer avec moi ?</h2>
+            <p>
+              Tu avances, ton activité se développe, mais tu sens qu'un peu plus
+              de structure ne ferait pas de mal ?
+            </p>
+            <p>
+              En tant que COO pour TPE et entrepreneurs, je peux t'aider à y
+              voir plus clair, à remettre du cadre là où c'est flou, à poser les
+              premières briques d'une organisation performante et alignée qui
+              tient la route.
+            </p>
+            <p>
+              On peut simplement commencer par une conversation pour comprendre
+              où tu en es, et voir si je suis la bonne personne pour t'épauler.
+            </p>
+            <a
+              class="button cta"
+              href="https://tally.so/r/wzGVok"
+              target="_blank"
+              rel="noopener noreferrer">Programmer un café Zoom</a
+            >
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
-</Layout>
+    </section>
+  </Layout>
 </html>
 
 <style>
@@ -268,7 +323,6 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
         bottom: 0px;
         left: 0px;
       }
-
     }
   }
 
@@ -279,4 +333,3 @@ recommendation: "Cela fait maintenant 1 année que je travaille avec Seheno dans
     }
   }
 </style>
-

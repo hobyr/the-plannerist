@@ -210,6 +210,33 @@ a:hover {
   color: var(--bg-color-light);
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+
+  thead {
+    text-align: left;
+    background-color: var(--text);
+    color: white;
+  }
+
+  th,
+  td {
+    padding: var(--space-xs);
+    border: 1px solid var(--text);
+  }
+
+  td:nth-child(1) {
+    background-color: var(--primary-xtra-light);
+    color: var(--primary);
+  }
+
+  tbody {
+    border-bottom: 1px solid var(--text);
+  }
+}
+
 .button {
   display: inline-block;
   text-decoration: none;

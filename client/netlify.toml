@@ -27,3 +27,22 @@
   to = "/accompagnements-coo"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/business-case-myblueprintvf"
+  to = "/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/business-case-the-rising-court"
+  to = "/business-cases-conseil-en-pilotage-dentreprise/business-case-the-rising-court"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/business-case-embrace-planner"
+  to = "/business-cases-conseil-en-pilotage-dentreprise/business-case-embrace-planner"
+  status = 301
+  force = false
+
