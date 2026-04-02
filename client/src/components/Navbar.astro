@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
           } else {
             return (
               <nav class="nav-link has-submenu">
-                {link.name}
+                {link.name} <i class="fa-solid fa-chevron-down"></i>
                 <nav class="submenu">
                   {link.submenu.map((sublink) => (
                     <a href={sublink.url} class="nav-link">{sublink.name}</a>
@@ -153,6 +153,13 @@ const currentPath = Astro.url.pathname;
 
   nav.has-submenu {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .fa-chevron-down {
+      font-size: var(--step--2);
+    }
   }
 
   nav.submenu {
