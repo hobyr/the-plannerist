@@ -56,6 +56,10 @@ const { faqContent } = Astro.props;
   .faq-item .toggle {
     width: 2rem;
     height: 2rem;
+
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
   }
 
   .faq-item .toggle.active {

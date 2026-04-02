@@ -17,14 +17,29 @@ const currentPath = Astro.url.pathname;
         </div>
       </header>
       {
-        links.map((link) => (
-          <a
-            href={link?.url}
-            class={`nav-link${currentPath === link.url ? " active" : ""}`}
-          >
-            {link?.name}
-          </a>
-        ))
+        links.map((link) => {
+          if (!link.submenu) {
+            return (
+              <a
+                href={link.url}
+                class={`nav-link${currentPath === link.url ? " active" : ""}`}
+              >
+                {link.name}
+              </a>
+            );
+          } else {
+            return (
+              <nav class="nav-link has-submenu">
+                {link.name}
+                <nav class="submenu">
+                  {link.submenu.map((sublink) => (
+                    <a href={sublink.url} class="nav-link">{sublink.name}</a>
+                  ))}
+                </nav>
+              </nav>
+            );
+          }
+        })
       }
       <a
         href="https://tinyurl.com/TPLEA"
@@ -123,6 +138,41 @@ const currentPath = Astro.url.pathname;
     width: 100%;
   }
 
+  .nav-link {
+    display: inline-block;
+    color: var(--bg-color-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: var(--step--1);
+    position: relative;
+    width: fit-content;
+    padding-block: var(--space-xs);
+    z-index: 1;
+  }
+
+  nav.has-submenu {
+    position: relative;
+  }
+
+  nav.submenu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    height: fit-content;
+    width: 12rem;
+    padding: var(--space-xs);
+    top: 3rem;
+    display: none;
+  }
+  
+  nav.has-submenu:hover nav.submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .mobile-logo {
     width: 50%;
     height: 55px;
@@ -136,31 +186,12 @@ const currentPath = Astro.url.pathname;
     backdrop-filter: blur(6px);
   }
 
-  .nav-link {
-    display: inline-block;
-    color: var(--bg-color-dark);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: var(--step--1);
-    position: relative;
-    width: fit-content;
-    z-index: 1;
-  }
-
   .nav-link.active {
-    border-bottom: 2px solid var(--text);
+    /* border-bottom: 2px solid var(--text); */
   }
 
   .nav-link:hover {
     color: var(--bg-color-light);
-  }
-
-  .submenu {
-    border: 1px solid red;
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 
   .cta {

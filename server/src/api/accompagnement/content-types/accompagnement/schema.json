@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "accompagnements",
+  "info": {
+    "singularName": "accompagnement",
+    "pluralName": "accompagnements",
+    "displayName": "Accompagnement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.rich-text",
+        "shared.media",
+        "shared.call-to-action",
+        "shared.slider"
+      ]
+    },
+    "faq": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.faq",
+        "shared.rich-text",
+        "shared.call-to-action"
+      ]
+    }
+  }
+}

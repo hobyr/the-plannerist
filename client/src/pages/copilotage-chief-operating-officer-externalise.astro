@@ -3,6 +3,16 @@ import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Faq from "../components/faq.astro";
+import fetchApi from "../lib/strapi";
+
+// const data = await fetchApi({
+//   endpoint: 'accompagnement',
+//   wrappedByKey: 'data',
+//   query: {
+//     'populate': '*',
+//     'status': 'draft',
+//   }
+// });
 
 const faqContent = [
   {
@@ -270,7 +280,6 @@ const faqContent = [
       </article>
 
       <div class="card">
-        <Image src="" alt="" width={650} />
         <article>
           <header>
             <h3>Le Co-pilotage</h3>

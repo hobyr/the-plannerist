@@ -13,15 +13,14 @@ export const links = [
   },
   {
     name: "Accompagnements",
-    url: "/accompagnements-coo",
     submenu: [
       {
         name: "The Plannerist OS",
-        url: "/accompagnements-coo/the-plannerist-os",
+        url: "/the-plannerist-os-coo-a-temps-partage",
       },
       {
         name: "Le Copilotage",
-        url: "/accompagnements-coo/le-copilotage",
+        url: "/copilotage-chief-operating-officer-externalise",
       },
     ]
   },
