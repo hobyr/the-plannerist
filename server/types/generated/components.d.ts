@@ -26,6 +26,28 @@ export interface SharedCallToAction extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFaq extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faqs';
+  info: {
+    displayName: 'FAQ';
+    icon: 'question';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    main: Schema.Attribute.RichText;
+  };
+}
+
+export interface SharedHeading extends Struct.ComponentSchema {
+  collectionName: 'components_shared_headings';
+  info: {
+    displayName: 'Heading';
+  };
+  attributes: {
+    heading: Schema.Attribute.RichText;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -105,6 +127,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'business-cases.accompagnement': BusinessCasesAccompagnement;
       'shared.call-to-action': SharedCallToAction;
+      'shared.faq': SharedFaq;
+      'shared.heading': SharedHeading;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

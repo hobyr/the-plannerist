@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_headings",
+  "info": {
+    "displayName": "Heading"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

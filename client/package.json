@@ -13,6 +13,7 @@
     "@astrojs/partytown": "^2.1.5",
     "@astrojs/sitemap": "^3.7.1",
     "@sensinum/astro-strapi-blocks": "^1.2.7",
-    "astro": "^6.0.4"
+    "astro": "^6.0.4",
+    "marked": "^17.0.5"
   }
 }

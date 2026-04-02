@@ -1,17 +1,18 @@
 ---
-import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
-import Layout from '../../layouts/Layout.astro';
-import fetchApi from '../../lib/strapi';
-import { Image } from 'astro:assets';
-import Head from '../../components/Head.astro';
+import { StrapiBlocks } from "@sensinum/astro-strapi-blocks";
+import Layout from "../../layouts/Layout.astro";
+import fetchApi from "../../lib/strapi";
+import { Image } from "astro:assets";
+import Head from "../../components/Head.astro";
+import { marked } from "marked";
 
 export async function getStaticPaths() {
   const articles = await fetchApi({
-    endpoint: 'blogs',
-    wrappedByKey: 'data',
+    endpoint: "blogs",
+    wrappedByKey: "data",
     query: {
-      'populate': '*',
-    }
+      populate: "*",
+    },
   });
 
   return articles.map((article) => {
@@ -26,34 +27,38 @@ const { slug } = Astro.params;
 const { article } = Astro.props;
 
 const optionsDate = {
-year: "numeric",
-month: "long",
-day: "numeric"
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 };
-const locale = 'fr-FR';
+const locale = "fr-FR";
 let FormattedDate = null;
 if (article.posted_at) {
-FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.posted_at));
+  FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(
+    new Date(article.posted_at),
+  );
 } else {
-FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(new Date(article.publishedAt));
+  FormattedDate = Intl.DateTimeFormat(locale, optionsDate).format(
+    new Date(article.publishedAt),
+  );
 }
 
 // Fix URL path for cover image
 const coverURL = () => {
-if (import.meta.env.NODE_ENV === 'development') {
-return import.meta.env.STRAPI_URL + article.cover.url;
-}
-}
+  if (import.meta.env.NODE_ENV === "development") {
+    return import.meta.env.STRAPI_URL + article.cover.url;
+  }
+};
 
 // Calculate estimated reading time
 const readingSpeedWPM = 170;
 let wordCount = 0;
-article.content.map(ctx => {
-if (ctx.children[0].text) {
-  wordCount += ctx.children[0].text.trim().split(/\s+/).length;
+article.content.map((ctx) => {
+  if (ctx.children[0].text) {
+    wordCount += ctx.children[0].text.trim().split(/\s+/).length;
   }
-})
-const readingTime = Math.round(wordCount/readingSpeedWPM);
+});
+const readingTime = Math.round(wordCount / readingSpeedWPM);
 
 // Create table of contents with 1 level deep headings
 let toc = [];
@@ -61,7 +66,7 @@ let toc = [];
 for (let item of article.content) {
   if (item.type === "heading") {
     if (item.level === 2) {
-    toc.push(item.children[0].text);
+      toc.push(item.children[0].text);
     }
   }
 }
@@ -74,48 +79,65 @@ const pageDescription = article.description;
 <html lang="en">
   <Head description={pageDescription} title={`The Plannerist | ${pageTitle}`} />
   <Layout>
-  <Image src={coverURL() ? coverURL() : article.cover.url} width={2500} height={800} alt="" class="post-cover" />
-  <section id="post">
-    <div class="container">
-      <header>
-        <a class="button cta blog-return" href="/blog"><span><i class="fa-solid fa-arrow-left"></i></span> Revenir au blog</a>
-        <h1 class="page-title">{article.title}</h1>
-        <div class="categories-wrapper">
-          {!article.categories ? null : article.categories.map(category =>
-          <div class="category">{category.name}</div>
-          )}
+    <Image
+      src={coverURL() ? coverURL() : article.cover.url}
+      width={2500}
+      height={800}
+      alt=""
+      class="post-cover"
+    />
+    <section id="post">
+      <div class="container">
+        <header>
+          <a class="button cta blog-return" href="/blog"
+            ><span><i class="fa-solid fa-arrow-left"></i></span> Revenir au blog</a
+          >
+          <h1 class="page-title">{article.title}</h1>
+          <div class="categories-wrapper">
+            {
+              !article.categories
+                ? null
+                : article.categories.map((category) => (
+                    <div class="category">{category.name}</div>
+                  ))
+            }
+          </div>
+          <div class="info">
+            <div class="posting-author">Écrit par {article.author.name}</div>
+            <div class="posting-date">Publié le {FormattedDate}</div>
+            <div class="reading-time">
+              Temps de lecture estimé : {readingTime} minutes
+            </div>
+            <div class="post-cover-copyright">{article.cover_copyright}</div>
+          </div>
+        </header>
+        <div class="article">
+          <div class="table-of-contents">
+            <h2>Sommaire</h2>
+            <ul>
+              {toc.map((heading) => <li>{heading}</li>)}
+            </ul>
+          </div>
+          <article>
+            <StrapiBlocks data={article.content} />
+            <a
+              href={article.call_to_action.cta_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button cta">{article.call_to_action.cta_label}</a
+            >
+          </article>
         </div>
-        <div class="info">
-          <div class="posting-author">Écrit par {article.author.name}</div>
-          <div class="posting-date">Publié le {FormattedDate}</div>
-          <div class="reading-time">Temps de lecture estimé : {readingTime} minutes</div>
-          <div class="post-cover-copyright">{article.cover_copyright}</div>
-        </div>
-      </header>
-      <div class="article">
-        <div class="table-of-contents">
-          <h2>Sommaire</h2>
-          <ul>
-            {toc.map(heading => <li>{heading}</li>)}
-          </ul>
-        </div>
-        <article>
-          <StrapiBlocks
-              data={article.content}
-              />
-              <a href={article.call_to_action.cta_url} target="_blank" rel="noopener noreferrer" class="button cta">{article.call_to_action.cta_label}</a>
-        </article>
       </div>
-    </div>
-  </section>
+    </section>
   </Layout>
 </html>
 
 <style>
   :root {
-    --blob-col-1: #F4E04D;
-    --blob-col-2: #95BF74;
-    --blob-col-3: #DDA77B;
+    --blob-col-1: #f4e04d;
+    --blob-col-2: #95bf74;
+    --blob-col-3: #dda77b;
     /* --blob-col-3: #669BBC; */
   }
 
@@ -180,7 +202,7 @@ const pageDescription = article.description;
 
   .cta.blog-return {
     margin-bottom: var(--space-l);
-    padding-left: .75rem;
+    padding-left: 0.75rem;
   }
 
   .page-title {
@@ -236,7 +258,7 @@ const pageDescription = article.description;
 
   .category {
     border: 1px solid var(--text);
-    padding: .25rem .5rem;
+    padding: 0.25rem 0.5rem;
     text-transform: uppercase;
     font-size: var(--step--1);
   }

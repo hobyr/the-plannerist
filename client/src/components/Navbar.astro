@@ -1,12 +1,9 @@
 ---
-import '../styles/global.css';
-import { links } from './links.js'
-import { Image } from 'astro:assets';
-import logo from '../assets/logos/logo-dark.png';
-
-// const { currentPath } = Astro.props;
+import "../styles/global.css";
+import { links } from "./links.js";
+import { Image } from "astro:assets";
+import logo from "../assets/logos/logo-dark.png";
 const currentPath = Astro.url.pathname;
-console.log(currentPath);
 ---
 
 <header class="top-navbar-wrapper">
@@ -14,38 +11,75 @@ console.log(currentPath);
     <Image src={logo} width={300} alt="" class="top-logo" />
     <nav>
       <header>
-        <Image src={logo} width={300} height={140} alt="" class="mobile-logo"/>
-        <div class="toggle-button"><span><i class="fa-solid fa-xmark"></i></span></div>
+        <Image src={logo} width={300} height={140} alt="" class="mobile-logo" />
+        <div class="toggle-button">
+          <span><i class="fa-solid fa-xmark"></i></span>
+        </div>
       </header>
-      {links.map(link => <a href={link.url} class={`nav-link${currentPath === link.url ? ' active' : ''}`}>{link.name}</a>)}
-      <a href="https://tinyurl.com/TPLEA" target="_blank" rel="noopener noreferrer" class="button cta"><span><i class="fa-solid fa-file-arrow-down"></i></span> +30 process à mettre en place</a>
+      {
+        links.map((link) => {
+          if (!link.submenu) {
+            return (
+              <a
+                href={link.url}
+                class={`nav-link${currentPath === link.url ? " active" : ""}`}
+              >
+                {link.name}
+              </a>
+            );
+          } else {
+            return (
+              <nav class="nav-link has-submenu">
+                {link.name} <i class="fa-solid fa-chevron-down"></i>
+                <nav class="submenu">
+                  {link.submenu.map((sublink) => (
+                    <a href={sublink.url} class="nav-link">{sublink.name}</a>
+                  ))}
+                </nav>
+              </nav>
+            );
+          }
+        })
+      }
+      <a
+        href="https://tinyurl.com/TPLEA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button cta"
+        ><span><i class="fa-solid fa-file-arrow-down"></i></span> +30 process à mettre
+        en place</a
+      >
     </nav>
-    <div class="toggle-button-main"><span><i class="fa-solid fa-bars"></i></span></div>
+    <div class="toggle-button-main">
+      <span><i class="fa-solid fa-bars"></i></span>
+    </div>
   </div>
 
-<script>
-  window.onscroll = () => {
-    let navbar = document.querySelector(".top-navbar-wrapper");
-    if(document.documentElement.scrollTop > 80) {
-      navbar.classList.add("after-scroll");
-    } else {
-      navbar.classList.remove("after-scroll");
-    }
-  }
+  <script>
+    window.onscroll = () => {
+      let navbar = document.querySelector(".top-navbar-wrapper");
+      if (document.documentElement.scrollTop > 80) {
+        navbar.classList.add("after-scroll");
+      } else {
+        navbar.classList.remove("after-scroll");
+      }
+    };
 
-  const toggleBtnMain = document.querySelector(".top-navbar .toggle-button-main");
-  const toggleBtn = document.querySelector(".top-navbar .toggle-button");
-  const navbar = document.querySelector(".top-navbar nav");
-  toggleBtnMain.addEventListener('click', () => {
-    navbar.classList.add("active");
-    document.querySelector("body").style.overflowY = "hidden";
-  })
-  toggleBtn?.addEventListener('click', () => {
-    navbar.classList.remove("active");
-    document.querySelector("body").style.overflowY = "visible";
-  })
-</script>
-  </header>
+    const toggleBtnMain = document.querySelector(
+      ".top-navbar .toggle-button-main",
+    );
+    const toggleBtn = document.querySelector(".top-navbar .toggle-button");
+    const navbar = document.querySelector(".top-navbar nav");
+    toggleBtnMain.addEventListener("click", () => {
+      navbar.classList.add("active");
+      document.querySelector("body").style.overflowY = "hidden";
+    });
+    toggleBtn?.addEventListener("click", () => {
+      navbar.classList.remove("active");
+      document.querySelector("body").style.overflowY = "visible";
+    });
+  </script>
+</header>
 
 <style>
   .top-navbar-wrapper {
@@ -104,6 +138,48 @@ console.log(currentPath);
     width: 100%;
   }
 
+  .nav-link {
+    display: inline-block;
+    color: var(--bg-color-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: var(--step--1);
+    position: relative;
+    width: fit-content;
+    padding-block: var(--space-xs);
+    z-index: 1;
+  }
+
+  nav.has-submenu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .fa-chevron-down {
+      font-size: var(--step--2);
+    }
+  }
+
+  nav.submenu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    height: fit-content;
+    width: 12rem;
+    padding: var(--space-xs);
+    top: 3rem;
+    display: none;
+  }
+  
+  nav.has-submenu:hover nav.submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .mobile-logo {
     width: 50%;
     height: 55px;
@@ -117,19 +193,8 @@ console.log(currentPath);
     backdrop-filter: blur(6px);
   }
 
-  .nav-link {
-    color: var(--bg-color-dark);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: var(--step--1);
-    position: relative;
-    width: fit-content;
-    z-index: 1;
-  }
-
   .nav-link.active {
-    border-bottom: 2px solid var(--text);
+    /* border-bottom: 2px solid var(--text); */
   }
 
   .nav-link:hover {
@@ -146,7 +211,7 @@ console.log(currentPath);
     justify-content: flex-start;
     gap: var(--space-2xs);
     width: fit-content;
-    padding: .25rem .75rem .25rem .25rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
   }
 
   .cta:hover {
@@ -198,4 +263,3 @@ console.log(currentPath);
     }
   }
 </style>
-
