@@ -1,19 +1,25 @@
 ---
+import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
-import * as mentionsLegales from './mentions.md';
-import { Content } from './mentions.md';
+import * as mentionsLegales from "./mentions.md";
+import { Content } from "./mentions.md";
 
-console.log(Astro.props);
+const pageTitle = "The Plannerist | Mentions légales";
+const pageDescription = "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé.";
 ---
 
-<Layout>
-  <div class="container">
-    <h1 class="page-title">{mentionsLegales.frontmatter.title}</h1>
-    <article>
-      <Content />
-    </article>
-  </div>
-</Layout>
+<!doctype html>
+<html lang="en">
+  <Head title={pageTitle} description={pageDescription} />
+  <Layout>
+    <div class="container">
+      <h1 class="page-title">{mentionsLegales.frontmatter.title}</h1>
+      <article>
+        <Content />
+      </article>
+    </div>
+  </Layout>
+</html>
 
 <style>
   article {
