@@ -11,6 +11,6 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https", hostname: "**.strapiapp.com" }, { protocol: "http" }],
   },
   adapter: netlify(),
-  site: "https://www.theplannerist.com",
+  site: "https://theplannerist.com",
   integrations: [partytown({ config: { forward: ['dataLayer.push'] } }), sitemap()],
 });
