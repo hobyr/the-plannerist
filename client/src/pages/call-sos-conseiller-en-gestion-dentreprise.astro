@@ -1,0 +1,256 @@
+---
+import Head from "../components/Head.astro";
+import Layout from "../layouts/Layout.astro";
+import { marked } from 'marked';
+
+const collaborationContent = [
+{
+heading: "Créer de la cohérence entre actions, organisation et croissance",
+main: [
+"Structurer ton activité, c’est une chose. Mais encore faut-il que chaque action, chaque projet, chaque décision soit **en phase avec ce que tu veux construire**.",
+"En créant plus de cohérence, tu gagnes en clarté, en efficacité et en fluidité. Tes priorités deviennent évidentes, ton énergie est mieux utilisée et **chaque action contribue vraiment à ta croissance**."
+],
+},
+{
+heading: "Créer une structure simple mais efficace",
+main: [
+"**Une entreprise saine repose sur une base solide**. Pourtant, beaucoup fonctionnent encore au feeling, sans pilotage d'entreprise concret ni priorités bien définies.",
+"Mon rôle, c’est de **t’aider à structurer les bons éléments au bon endroit** : offres, organisation, outils, parcours client. L'idée n'est pas d'alourdir ton quotidien, mais au contraire de l’**alléger intelligemment**."
+],
+},
+{
+heading: "Transformer ta gestion en moteur de croissance",
+main: [
+"Ce que tu gagnes, ce n’est pas juste une to-do mieux rangée. C’est un **système qui soutient ta stratégie de développement**, te permet d’anticiper, de déléguer, et de **faire les bons choix au bon moment**.",
+"Un système à ton image, **pensé pour durer**, même quand tu lèves le pied.",
+],
+},
+];
+
+const merits = [ 
+"Parfois, ce n’est pas un manque d’idées, mais un manque de pilotage : trop de tâches, trop de décisions, et aucune vision claire de ce qui doit vraiment être fait en priorité. Tu avances, mais sans structure, et ton activité finit par te diriger plus que l’inverse.",
+"Avec moi en rôle de COO externalisé, on remet de l’ordre dans ton organisation, on clarifie tes priorités et on structure ton fonctionnement pour retrouver un pilotage simple et efficace. On sort du flou opérationnel pour revenir à une logique de décision et de gestion.",
+"Idéal pour débloquer une situation, restructurer ton activité ou poser les bases d’un système qui te permet enfin de croître sans t’épuiser.",
+];
+
+const stepsCard = [
+{
+heading: "1. Un diagnostic",
+main: [
+"L’accompagnement The Plannerist s’adresse aux dirigeants de TPE & PME qui veulent reprendre le contrôle de leur activité et structurer leur fonctionnement pour retrouver un vrai pilotage de leur business.",
+"Après un diagnostic global de ton activité : on prend de la hauteur sur ton pilotage, ton organisation, ton offre et tes actions commerciales et marketing pour identifier ce qui bloque réellement ta progression.",
+"L’objectif : mettre en lumière les écarts, les incohérences et les points de friction, afin de repartir avec une vision claire de ce que tu dois corriger, structurer ou prioriser pour avancer plus efficacement.",
+],
+},
+{
+heading: "2. Des actions concrètes, dès maintenant",
+main: [
+"L'accompagnement The Plannerist ne te laisse pas avec une pile de conseils en stratégie d'entreprise théoriques. Tu repars avec une **roadmap priorisée, timée & réaliste** à mettre en place immédiatement.",
+"Des leviers simples, adaptés à ta réalité, choisis pour leur impact direct. L’idée n’est pas de tout changer, mais **d’agir là où ça compte le plus** pour que tu voies rapidement une différence dans ton quotidien et tes résultats.",
+"C’est un point de départ. Un bilan d'activité structuré pour **retrouver une direction claire, sans attendre des mois**.",
+],
+},
+{
+heading: "3. Un format léger pour avancer avec un budget maîtrisé",
+main: [
+"Un accompagnement COO en temps partagé, c’est une manière de structurer et piloter ton activité sans alourdir ta structure. Tu bénéficies d’un regard externe et d’un vrai rôle de pilotage, sans les contraintes d’un recrutement à temps plein. C’est un format léger, flexible et adapté à ton stade de développement : tu avances avec un budget maîtrisé, tout en accédant à un niveau de structuration et de prise de décision habituellement réservé aux entreprises plus structurées. L’objectif est simple : t’aider à remettre de la clarté, de la méthode et de la cohérence dans ton fonctionnement, sans te surcharger ni complexifier ton organisation.",
+],
+},
+];
+
+const forWhomList = [
+"Ton business tourne, mais dépend encore trop de toi",
+"Tu prends des décisions au fil de l'eau, sans vrai cadre de pilotage",
+"Tu avances sans tableau de bord, donc sans visibilité claire sur ce qui fonctionne vraiment",
+"Tes priorités bougent en permanence et tu perds en efficacité",
+"Tu sens que tu dois structurer avant de pouvoir déléguer, mais tout reste encore flou",
+]
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    title="Call SOS | Conseiller en gestion d'entreprise (COO) | The Plannerist"
+    description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
+    />
+    <Layout>
+      <section class="hero">
+        <div class="title-header">Un n°2 pour mieux décider</div>
+        <h1 class="page-title">Tranche dans le flou avec un conseiller en gestion d'entreprise</h1>
+        <article>
+          <p>Clarifie tes priorités et structure ton activité avec l’aide d’un conseiller en gestion d’entreprise. Prends des décisions éclairées grâce à une vision globale de ton organisation, de tes finances et de ton développement. Pilote ta croissance avec méthode, sans te disperser ni subir ton quotidien.</p>
+        </article>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">En discuter avec moi</a>
+      </section>
+
+      <section class="why">
+        <h2 class="section-title">Pourquoi faire appel à un conseiller en gestion d'entreprise ?</h2>
+        <div class="card-wrapper">
+          {collaborationContent.map(card => (
+          <div class="card">
+            <h3 class="card-title">{card.heading}</h3>
+            <article>
+              {card.main.map(item => (
+              <p set:html={marked.parse(item)}></p>
+              ))}
+            </article>
+          </div>
+          ))}
+        </div>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Réserver un call SOS</a>
+      </section>
+
+      <section class="merit">
+        <h2 class="section-title">Travailler avec un conseiller en gestion d'entreprise pour repartir du bon pied</h2>
+        <article>
+        {merits.map(item => <p>{item}</p>)}
+        </article>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Je veux repartir du bon pied</a>
+      </section>
+
+      <section class="forwhom">
+        <h2 class="section-title">À qui s'adresse ce service de conseil en pilotage d'activité ?</h2>
+        <p>Cet accompagnement en COO externalisé s’adresse aux solopreneurs qui ont déjà lancé leur activité, mais dont l’organisation commence à atteindre ses limites.</p>
+        <p>Tu es probablement dans cette phase où :</p>
+        <ul class="fa-ul">
+          {forWhomList.map(item => (
+          <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>{item}</li>
+          ))}
+        </ul>
+        <p>Ce dont tu as besoin, ce n’est pas d’informations supplémentaires, mais d’un cadrage opérationnel clair : remettre de la logique dans ton fonctionnement, hiérarchiser ce qui compte et structurer ce qui te freine aujourd’hui.</p>
+        <p>L’accompagnement The Plannerist est pensé pour reprendre le contrôle rapidement, clarifier ton système de pilotage et poser des bases solides, sans t’engager immédiatement dans un accompagnement long.</p>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Donne à ton activité la clarté qu'elle mérite</a>
+      </section>
+
+      <section class="steps">
+        <h2 class="section-title">Un accompagnement stratégique et opérationnel ciblé</h2>
+        <p class="tagline">Tu portes déjà beaucoup, et tu sais que ça ne peut pas durer comme ça. Le Co-pilotage est un accompagnement sur 5 mois pour structurer ton organisation, poser des bases solides, et retrouver une dynamique de croissance plus fluide, sans t'éparpiller ni t'épuiser.</p>
+        <div class="card-wrapper">
+          {stepsCard.map(card => (
+          <div class="card">
+            <h3 class="card-title">
+              {card.heading}
+            </h3>
+            {card.main.map(item => (
+            <p set:html={marked.parse(item)}></p>
+            ))}
+          </div>
+          ))}
+        </div>
+        <a class="button cta" href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf">Je veux bénéficier de cet accompagnement</a>
+      </section>
+
+      <section class="final">
+        <h2 class="section-title">Besoin d'en parler pour être sûr.e que c'est ce qu'il te faut ?</h2>
+        <p>Réserve ton appel découverte offert pour discuter de tes défis business et trouver quel accompagnement correspond à tes besoins. </p>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Prendre un café Google Meet et en discuter</a>
+      </section>
+
+    </Layout>
+
+<style>
+  section {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.hero {
+    .page-title {
+      text-wrap: balance;
+      max-width: 35ch;
+    }
+
+    article {
+      max-width: 65ch;
+      margin: 0 auto;
+    }
+  }
+
+  section.why {
+    .tagline {
+      max-width: 65ch;
+      text-align: center;
+      margin-bottom: var(--space-l);
+      text-wrap: balance;
+    }
+
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      column-gap: var(--space-l);
+      margin-bottom: var(--space-l);
+    }
+
+    .card {
+      background-color: white;
+      padding-inline: var(--space-m);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0px 0px 8px 0px #dadada;
+    }
+  }
+
+  section.steps {
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-m);
+      margin-bottom: var(--space-m);
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0px 0px 8px 0px #dadada;
+      padding-inline: var(--space-m);
+    }
+  }
+
+  section.faq {
+    .faq-wrapper {
+      width: 100%;
+      max-width: 95ch;
+      margin: 0 auto;
+      margin-bottom: var(--space-m);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--text);
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--text);
+    }
+
+    .faq-item header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item .toggle {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .faq-item .toggle.active {
+      transform: rotate(45deg);
+    }
+
+    .faq-item main {
+      display: none;
+    }
+
+    .faq-item main.active {
+      display: block;
+    }
+  }
+</style>
+
+
+  </html>
