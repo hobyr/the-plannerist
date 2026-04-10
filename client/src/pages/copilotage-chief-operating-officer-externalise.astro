@@ -15,510 +15,593 @@ import fetchApi from "../lib/strapi";
 // });
 
 const faqContent = [
-  {
-    heading: "C'est quoi un Chief Operating Officer (COO) ?",
-    main: "Le COO est souvent décrit comme le garant de la performance interne. Concrètement, il veille à ce que l’entreprise fonctionne de façon fluide, que les projets avancent, que les équipes (si équipe il y a) soient alignées, et que les ressources (temps, énergie, budget) soient utilisées là où elles ont le plus d’impact. C’est un rôle transversal, qui demande à la fois une vision stratégique et une solide compréhension du terrain.\n\n**Un poste clé au service de la stabilité et de la croissance**\n\nLe COO pas là pour décider à ta place, mais pour t’aider à concrétiser ta vision. Il fait le lien entre les objectifs à long terme et les opérations du quotidien. Résultat ? Des décisions plus structurées, des projets mieux coordonnés, et une capacité à croître sans désorganiser l’existant.\n\n**Une mission souvent négligée dans les petites structures**\n\nDans les grandes entreprises, ce rôle est bien identifié. Mais dans les TPE, startups ou entreprises en croissance, il est souvent absorbé (malgré lui) par le fondateur ou la fondatrice (autrement dit par toi). Résultat ? Des journées saturées, une charge mentale permanente, et peu de place pour la prise de recul. C’est précisément pour ça que faire appel à un COO externalisé peut devenir un vrai levier pour ton activité.qui demande à la fois une vision stratégique et une solide compréhension du terrain.",
-  },
-  {
-    heading: "Quelle différence entre un COO externalisé et un directeur des opérations salarié ?",
-    main: "Un directeur des opérations salarié est intégré à temps plein dans l’entreprise. Le COO externalisé, lui, intervient à distance ou en ponctuel, avec un regard neuf et une mission définie. C’est un appui stratégique et opérationnel ciblé, sans les contraintes RH classiques.",
-  },
-  {
-    heading: "Est-ce qu'un Chief Operating Officer externalisé peut intervenir à distance ?",
-    main: "Oui, c’est même tout l’intérêt du format. Le COO externalisé s’adapte à ton fonctionnement, à distance ou en hybride, selon ce qui est le plus pertinent. L’objectif reste le même : t’apporter un pilotage efficace, sans alourdir ta structure interne.",
-  },
-  {
-    heading: "Est-ce qu'un COO externalisé peut s'adapter à mon secteur d'activité ?",
-    main: "Oui. Mon accompagnement s’adresse spécifiquement aux entreprises qui vendent en B2C, qu’il s’agisse de services, de produits physiques ou d’offres digitales.\n\nQuel que soit ton modèle, l’objectif reste le même : structurer, aligner et piloter ton activité pour soutenir ta croissance, avec des solutions adaptées à ta réalité.",
-  },
-  {
-    heading: "Faut-il déjà avoir une équipe pour bénéficier d'un accompagnement de type COO ?",
-    main: "Non. Le rôle du COO est justement de t’aider à structurer ton organisation, même en solo. Si tu envisages de te développer et/ou de déléguer bientôt, poser un cadre maintenant t’évitera les erreurs et pertes de temps au moment de recruter.\n\nEt puis, ma spécialité, c’est justement de t’accompagner dans la transition de solo à équipe. On pose ensemble un cadre solide avant même le recrutement, pour que tu gagnes en efficacité dès maintenant et que l’arrivée de nouvelles personnes se fasse sans perte de temps ni de qualité.",
-  },
-  {
-    heading: "Est-ce que le rôle du COO couvre aussi le marketing et la stratégie commerciale ?",
-    main: "Oui, dans leur dimension stratégique et organisationnelle. Mon rôle est de m’assurer que le marketing, le commercial, la production et le back-office avancent de manière cohérente pour soutenir ta croissance.\n\nEn revanche, je ne prends pas en charge la production quotidienne de services marketing ou commerciaux (comme le community management ou la prospection). L’objectif est de créer le cadre, les priorités et les process pour que ces actions soient alignées et efficaces.",
-  },
-  {
-    heading: "Combien de temps faut-il pour voir les premiers résultats d'un accompagnement ?",
-    main: "Le Co-pilotage est conçu pour travailler en profondeur sur ton organisation et ta stratégie, ce qui demande du temps pour être efficace et durable.\n\nSur 5 mois, on avance étape par étape pour poser des bases solides, mettre en place les bons process et t’habituer à ce nouveau fonctionnement. Les bénéfices se construisent progressivement et s’ancrent sur le long terme.",
-  },
+    {
+        heading: "C'est quoi un Chief Operating Officer (COO) ?",
+        main: "Le COO est souvent décrit comme le garant de la performance interne. Concrètement, il veille à ce que l’entreprise fonctionne de façon fluide, que les projets avancent, que les équipes (si équipe il y a) soient alignées, et que les ressources (temps, énergie, budget) soient utilisées là où elles ont le plus d’impact. C’est un rôle transversal, qui demande à la fois une vision stratégique et une solide compréhension du terrain.\n\n**Un poste clé au service de la stabilité et de la croissance**\n\nLe COO pas là pour décider à ta place, mais pour t’aider à concrétiser ta vision. Il fait le lien entre les objectifs à long terme et les opérations du quotidien. Résultat ? Des décisions plus structurées, des projets mieux coordonnés, et une capacité à croître sans désorganiser l’existant.\n\n**Une mission souvent négligée dans les petites structures**\n\nDans les grandes entreprises, ce rôle est bien identifié. Mais dans les TPE, startups ou entreprises en croissance, il est souvent absorbé (malgré lui) par le fondateur ou la fondatrice (autrement dit par toi). Résultat ? Des journées saturées, une charge mentale permanente, et peu de place pour la prise de recul. C’est précisément pour ça que faire appel à un COO externalisé peut devenir un vrai levier pour ton activité.qui demande à la fois une vision stratégique et une solide compréhension du terrain.",
+    },
+    {
+        heading:
+            "Quelle différence entre un COO externalisé et un directeur des opérations salarié ?",
+        main: "Un directeur des opérations salarié est intégré à temps plein dans l’entreprise. Le COO externalisé, lui, intervient à distance ou en ponctuel, avec un regard neuf et une mission définie. C’est un appui stratégique et opérationnel ciblé, sans les contraintes RH classiques.",
+    },
+    {
+        heading:
+            "Est-ce qu'un Chief Operating Officer externalisé peut intervenir à distance ?",
+        main: "Oui, c’est même tout l’intérêt du format. Le COO externalisé s’adapte à ton fonctionnement, à distance ou en hybride, selon ce qui est le plus pertinent. L’objectif reste le même : t’apporter un pilotage efficace, sans alourdir ta structure interne.",
+    },
+    {
+        heading:
+            "Est-ce qu'un COO externalisé peut s'adapter à mon secteur d'activité ?",
+        main: "Oui. Mon accompagnement s’adresse spécifiquement aux entreprises qui vendent en B2C, qu’il s’agisse de services, de produits physiques ou d’offres digitales.\n\nQuel que soit ton modèle, l’objectif reste le même : structurer, aligner et piloter ton activité pour soutenir ta croissance, avec des solutions adaptées à ta réalité.",
+    },
+    {
+        heading:
+            "Faut-il déjà avoir une équipe pour bénéficier d'un accompagnement de type COO ?",
+        main: "Non. Le rôle du COO est justement de t’aider à structurer ton organisation, même en solo. Si tu envisages de te développer et/ou de déléguer bientôt, poser un cadre maintenant t’évitera les erreurs et pertes de temps au moment de recruter.\n\nEt puis, ma spécialité, c’est justement de t’accompagner dans la transition de solo à équipe. On pose ensemble un cadre solide avant même le recrutement, pour que tu gagnes en efficacité dès maintenant et que l’arrivée de nouvelles personnes se fasse sans perte de temps ni de qualité.",
+    },
+    {
+        heading:
+            "Est-ce que le rôle du COO couvre aussi le marketing et la stratégie commerciale ?",
+        main: "Oui, dans leur dimension stratégique et organisationnelle. Mon rôle est de m’assurer que le marketing, le commercial, la production et le back-office avancent de manière cohérente pour soutenir ta croissance.\n\nEn revanche, je ne prends pas en charge la production quotidienne de services marketing ou commerciaux (comme le community management ou la prospection). L’objectif est de créer le cadre, les priorités et les process pour que ces actions soient alignées et efficaces.",
+    },
+    {
+        heading:
+            "Combien de temps faut-il pour voir les premiers résultats d'un accompagnement ?",
+        main: "Le Co-pilotage est conçu pour travailler en profondeur sur ton organisation et ta stratégie, ce qui demande du temps pour être efficace et durable.\n\nSur 5 mois, on avance étape par étape pour poser des bases solides, mettre en place les bons process et t’habituer à ce nouveau fonctionnement. Les bénéfices se construisent progressivement et s’ancrent sur le long terme.",
+    },
 ];
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head
-    title="The Plannerist | Chief Operating Officer Externalisé (COO)"
-    description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
-  />
-  <Layout>
-    <section class="hero">
-      <div class="title-header">En finir avec le pilotage en mode pompier</div>
-      <h1 class="page-title">
-        <em>Mieux anticiper</em> et <em>reprendre la main</em> avec un Chief Operating
-        Officer à tes côtés
-      </h1>
-      <article>
-        <p>
-          En tant que Chief Operating Officer (COO) externalisé, j’accompagne
-          les solopreneurs et petites entreprises en B2C dans <strong
-            >la structuration, le pilotage et l’optimisation globale de leur
-            activité.</strong>
-        </p>
-        <p>
-          Mon rôle ? Transformer ta vision en un <strong
-            >système clair et cohérent</strong
-          >, où l’organisation, le marketing, le commercial et la gestion <strong
-            >avancent ensemble dans la même direction.</strong>
-        </p>
-        <p>
-          Quand ton business est en pleine croissance, je t’aide <strong
-            >à garder le cap</strong
-          >, à éviter la dispersion et à concentrer ton énergie sur ce qui <strong
-            >fait vraiment évoluer ton entreprise</strong
-          >.
-        </p>
-        <p>
-          Externaliser ce rôle, c’est t’<strong>offrir un point d’appui</strong
-          >, sans la lourdeur du recrutement.
-        </p>
-        <a
-          class="button cta"
-          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-          >Réserver un appel découverte</a
-        >
-      </article>
-    </section>
+    <Head
+        title="The Plannerist | Chief Operating Officer Externalisé (COO)"
+        description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
+    />
+    <Layout>
+        <section class="hero">
+            <div class="container">
+              <div class="title-header">
+                  En finir avec le pilotage en mode pompier
+              </div>
+              <h1 class="page-title">
+                  <em>Mieux anticiper</em> et <em>reprendre la main</em> avec un Chief
+                  Operating Officer à tes côtés
+              </h1>
+              <article>
+                  <p>
+                      En tant que Chief Operating Officer (COO) externalisé,
+                      j’accompagne les solopreneurs et petites entreprises en B2C
+                      dans <strong
+                          >la structuration, le pilotage et l’optimisation globale
+                          de leur activité.</strong
+                      >
+                  </p>
+                  <p>
+                      Mon rôle ? Transformer ta vision en un <strong
+                          >système clair et cohérent</strong
+                      >, où l’organisation, le marketing, le commercial et la
+                      gestion <strong
+                          >avancent ensemble dans la même direction.</strong
+                      >
+                  </p>
+                  <p>
+                      Quand ton business est en pleine croissance, je t’aide <strong
+                          >à garder le cap</strong
+                      >, à éviter la dispersion et à concentrer ton énergie sur ce
+                      qui <strong>fait vraiment évoluer ton entreprise</strong>.
+                  </p>
+                  <p>
+                      Externaliser ce rôle, c’est t’<strong
+                          >offrir un point d’appui</strong
+                      >, sans la lourdeur du recrutement.
+                  </p>
+              </article>
+                  <a
+                      class="button cta"
+                      href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                      >Réserver un appel découverte</a
+                  >
+            </div>
+        </section>
 
-    <section class="why">
-      <h2 class="section-title">
-        Pourquoi faire appel à un COO <em>externalisé</em> quand on est <em
-          >solopreneur</em
-        > ?
-      </h2>
-      <p class="tagline">
-        Ton entreprise grandit, les projets s'enchaînent, les décisions
-        s'accumulent et l'<strong>organisation ne suit pas toujours</strong>.
-        Mon rôle de COO, c'est de t'aider à garder le cap, à <strong
-          >simplifier ton fonctionnement</strong
-        > et à <strong
-          >aligner chaque action sur tes objectifs de croissance</strong
-        >.
-      </p>
-      <div class="card-wrapper">
-        <div class="card">
-          <h3 class="card-title">T'affranchir du mode "couteau suisse"</h3>
-          <article>
-            <p>
-              Quand on dirige une entreprise, on finit souvent par <strong
-                >tout faire soi-même</strong
-              > : gérer les clients, organiser les projets, prendre toutes les décisions
-              <strong>jusqu’à ne plus avoir de bande passante</strong>, etc.
-            </p>
-            <p>
-              Avec moi à tes côtés, tu structures et <strong
-                >optimises ton organisation</strong
-              > pour déléguer intelligemment, <strong
-                >sans compromettre la qualité</strong
-              >.
-            </p>
-          </article>
-        </div>
-        <div class="card">
-          <h3 class="card-title">
-            Garder la vision, sans être seul.e à tenir la barre
-          </h3>
-          <article>
-            <p>
-              Ton rôle, c’est de <strong
-                >piloter ton entreprise, de prendre les bonnes décisions et de
-                préparer l’avenir</strong
-              >. Pas de te noyer dans l’opérationnel. Mais difficile de <strong
-                >garder cette hauteur de vue</strong
-              > quand tu es <strong
-                >absorbé·e par l’organisation et les imprévus</strong
-              >.
-            </p>
-            <p>
-              Mon intervention te permet de prendre ce <strong
-                >recul nécessaire pour avancer</strong
-              >, de clarifier tes priorités et de valider tes choix, pour que <strong
-                >tes actions du quotidien restent en phase avec la direction</strong
-              > que tu veux donner à ton business.
-            </p>
-          </article>
-        </div>
-        <div class="card">
-          <h3 class="card-title">
-            Connecter ton savoir faire à ta performance
-          </h3>
-          <article>
-            <p>
-              Tu as déjà construit quelque chose de solide. Le but n’est pas de
-              tout réinventer, mais de <strong
-                >créer un système qui amplifie tes forces</strong
-              >.
-            </p>
-            <p>
-              Ici, tu n’as plus à choisir entre servir tes clients actuels ou
-              développer ton activité. On <strong
-                >trouve l’équilibre entre tes aspirations et les exigences du
-                business</strong
-              >, pour que tes performances suivent ta vision.
-            </p>
-          </article>
-        </div>
-      </div>
-      <a
-        class="button cta"
-        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-        >Se renseigner sur les services de COO externalisé</a
-      >
-    </section>
+        <section class="why">
+            <div class="container">
+              <h2 class="section-title">
+                  Pourquoi faire appel à un COO <em>externalisé</em> quand on est <em
+                      >solopreneur</em
+                  > ?
+              </h2>
+              <p class="tagline">
+                  Ton entreprise grandit, les projets s'enchaînent, les décisions
+                  s'accumulent et l'<strong
+                      >organisation ne suit pas toujours</strong
+                  >. Mon rôle de COO, c'est de t'aider à garder le cap, à <strong
+                      >simplifier ton fonctionnement</strong
+                  > et à <strong
+                      >aligner chaque action sur tes objectifs de croissance</strong
+                  >.
+              </p>
+              <div class="card-wrapper">
+                  <div class="card">
+                      <h3 class="card-title">
+                          T'affranchir du mode "couteau suisse"
+                      </h3>
+                      <article>
+                          <p>
+                              Quand on dirige une entreprise, on finit souvent par <strong
+                                  >tout faire soi-même</strong
+                              > : gérer les clients, organiser les projets, prendre
+                              toutes les décisions
+                              <strong
+                                  >jusqu’à ne plus avoir de bande passante</strong
+                              >, etc.
+                          </p>
+                          <p>
+                              Avec moi à tes côtés, tu structures et <strong
+                                  >optimises ton organisation</strong
+                              > pour déléguer intelligemment, <strong
+                                  >sans compromettre la qualité</strong
+                              >.
+                          </p>
+                      </article>
+                  </div>
+                  <div class="card">
+                      <h3 class="card-title">
+                          Garder la vision, sans être seul.e à tenir la barre
+                      </h3>
+                      <article>
+                          <p>
+                              Ton rôle, c’est de <strong
+                                  >piloter ton entreprise, de prendre les bonnes
+                                  décisions et de préparer l’avenir</strong
+                              >. Pas de te noyer dans l’opérationnel. Mais
+                              difficile de <strong
+                                  >garder cette hauteur de vue</strong
+                              > quand tu es <strong
+                                  >absorbé·e par l’organisation et les imprévus</strong
+                              >.
+                          </p>
+                          <p>
+                              Mon intervention te permet de prendre ce <strong
+                                  >recul nécessaire pour avancer</strong
+                              >, de clarifier tes priorités et de valider tes
+                              choix, pour que <strong
+                                  >tes actions du quotidien restent en phase avec
+                                  la direction</strong
+                              > que tu veux donner à ton business.
+                          </p>
+                      </article>
+                  </div>
+                  <div class="card">
+                      <h3 class="card-title">
+                          Connecter ton savoir faire à ta performance
+                      </h3>
+                      <article>
+                          <p>
+                              Tu as déjà construit quelque chose de solide. Le but
+                              n’est pas de tout réinventer, mais de <strong
+                                  >créer un système qui amplifie tes forces</strong
+                              >.
+                          </p>
+                          <p>
+                              Ici, tu n’as plus à choisir entre servir tes clients
+                              actuels ou développer ton activité. On <strong
+                                  >trouve l’équilibre entre tes aspirations et les
+                                  exigences du business</strong
+                              >, pour que tes performances suivent ta vision.
+                          </p>
+                      </article>
+                  </div>
+              </div>
+              <a
+                  class="button cta"
+                  href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                  >Se renseigner sur les services de COO externalisé</a
+              >
+            </div>
+        </section>
 
-    <section class="merit">
-      <h2 class="section-title">
-        Ne choisis plus entre <em>servir tes clients</em>... ou <em
-          >développer ton activité</em
-        >.
-      </h2>
-      <article>
-        <p>
-          Grandir, c’est souvent inconfortable. Mais avec le bon binôme, ça peut
-          devenir plus fluide, plus clair, plus rapide. Et si tu pouvais
-          développer ton activité… <strong
-            >sans devoir choisir entre livrer tes clients actuels ou en
-            accueillir de nouveaux</strong
-          > ?
-        </p>
-        <p>Tu ne te demandes plus si :</p>
-        <ul class="fa-ul">
-          <li>
-            <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
-            >Tu travailles sur ton business — pas juste dans ton business.
-          </li>
-          <li>
-            <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
-            >Tu délègues sans perdre en qualité.
-          </li>
-          <li>
-            <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
-            >Tu embauches pour avancer, pas pour colmater.
-          </li>
-          <li>
-            <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
-            >Tu construis enfin l’après, sans sacrifier le présent.
-          </li>
-          <li>
-            <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
-            >Tu gardes la main sur le développement, sans sacrifier
-            l’opérationnel.
-          </li>
-          <li>
-            <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
-            >Tu avances avec un deuxième cerveau pour te conseiller, challenger
-            ta vision et affiner tes décisions.
-          </li>
-        </ul>
-      </article>
-      <a
-        class="button cta"
-        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-        >Je ne veux plus choisir</a
-      >
-    </section>
+        <section class="merit">
+            <div class="container">
+              <h2 class="section-title">
+                  Ne choisis plus entre <em>servir tes clients</em>... ou <em
+                      >développer ton activité</em
+                  >.
+              </h2>
+              <article>
+                  <p>
+                      Grandir, c’est souvent inconfortable. Mais avec le bon
+                      binôme, ça peut devenir plus fluide, plus clair, plus
+                      rapide. Et si tu pouvais développer ton activité… <strong
+                          >sans devoir choisir entre livrer tes clients actuels ou
+                          en accueillir de nouveaux</strong
+                      > ?
+                  </p>
+                  <p>Tu ne te demandes plus si :</p>
+                  <ul class="fa-ul">
+                      <li>
+                          <span class="fa-li"
+                              ><i class="fa-regular fa-circle-check"></i></span
+                          >Tu travailles sur ton business — pas juste dans ton
+                          business.
+                      </li>
+                      <li>
+                          <span class="fa-li"
+                              ><i class="fa-regular fa-circle-check"></i></span
+                          >Tu délègues sans perdre en qualité.
+                      </li>
+                      <li>
+                          <span class="fa-li"
+                              ><i class="fa-regular fa-circle-check"></i></span
+                          >Tu embauches pour avancer, pas pour colmater.
+                      </li>
+                      <li>
+                          <span class="fa-li"
+                              ><i class="fa-regular fa-circle-check"></i></span
+                          >Tu construis enfin l’après, sans sacrifier le présent.
+                      </li>
+                      <li>
+                          <span class="fa-li"
+                              ><i class="fa-regular fa-circle-check"></i></span
+                          >Tu gardes la main sur le développement, sans sacrifier
+                          l’opérationnel.
+                      </li>
+                      <li>
+                          <span class="fa-li"
+                              ><i class="fa-regular fa-circle-check"></i></span
+                          >Tu avances avec un deuxième cerveau pour te conseiller,
+                          challenger ta vision et affiner tes décisions.
+                      </li>
+                  </ul>
+              </article>
+              <a
+                  class="button cta"
+                  href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                  >Je ne veux plus choisir</a
+              >
+            </div>
+        </section>
 
-    <section class="success">
-      <h2 class="section-title">
-        Florie a choisi d'être accompagnée pour accélérer la croissance de
-        MyBlueprintVF
-      </h2>
-      <article>
-        <p>
-          Florie, de chez MyblueprintVF, a doublé son chiffre d’affaires en
-          dépassant son goulot d’étranglement. Encore multitâche, elle s’est
-          concentrée sur la création de ses produits pendant qu’on a structuré
-          son activité, automatisé son marketing, et délégué ce qui pouvait
-          l’être.
-        </p>
-        <p>Résultat : un système clair pour scaler efficacement.</p>
-      </article>
-      <a
-        class="button cta"
-        href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
-        >Voir la success story de Florie</a
-      >
-    </section>
+        <section class="success">
+            <div class="container">
+              <h2 class="section-title">
+                  Florie a choisi d'être accompagnée pour accélérer la croissance
+                  de MyBlueprintVF
+              </h2>
+              <article>
+                  <p>
+                      Florie, de chez MyblueprintVF, a doublé son chiffre
+                      d’affaires en dépassant son goulot d’étranglement. Encore
+                      multitâche, elle s’est concentrée sur la création de ses
+                      produits pendant qu’on a structuré son activité, automatisé
+                      son marketing, et délégué ce qui pouvait l’être.
+                  </p>
+                  <p>Résultat : un système clair pour scaler efficacement.</p>
+              </article>
+              <a
+                  class="button cta"
+                  href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
+                  >Voir la success story de Florie</a
+              >
+            </div>
+        </section>
 
-    <section class="process">
-      <h2 class="section-title">
-        Le Co-pilotage : structurer et optimiser ton entreprise sur 5 mois
-      </h2>
-      <article>
-        <p>
-          C’est un accompagnement de 2 mois minimum pour <strong
-            >faire le point en profondeur sur ton activité</strong
-          >, reprendre le pilotage avec plus de hauteur et poser une
-          organisation capable de soutenir ta croissance sans t’épuiser.
-        </p>
-        <p>
-          Mais au-delà de l’organisation, on regarde aussi <strong
-            >l’efficacité de ta stratégie commerciale et marketing</strong
-          >, pour s’assurer qu’elle est <strong
-            >cohérente avec tes objectifs et tes capacités actuelles</strong
-          >.
-        </p>
-        <p>
-          On ne vient pas tout chambouler, mais <strong
-            >réaligner ce qui compte</strong
-          > : tes priorités, ton fonctionnement, tes leviers de performance. <strong
-            >Un accompagnement stratégique et opérationnel</strong
-          > pour créer un <strong>système clair et performant</strong>, adapté à
-          ton activité et à ta vision.
-        </p>
-      </article>
+        <section class="process">
+            <div class="container">
+              <h2 class="section-title">
+                  Le Co-pilotage : structurer et optimiser ton entreprise sur 5
+                  mois
+              </h2>
+              <article>
+                  <p>
+                      C’est un accompagnement de 2 mois minimum pour <strong
+                          >faire le point en profondeur sur ton activité</strong
+                      >, reprendre le pilotage avec plus de hauteur et poser une
+                      organisation capable de soutenir ta croissance sans
+                      t’épuiser.
+                  </p>
+                  <p>
+                      Mais au-delà de l’organisation, on regarde aussi <strong
+                          >l’efficacité de ta stratégie commerciale et marketing</strong
+                      >, pour s’assurer qu’elle est <strong
+                          >cohérente avec tes objectifs et tes capacités actuelles</strong
+                      >.
+                  </p>
+                  <p>
+                      On ne vient pas tout chambouler, mais <strong
+                          >réaligner ce qui compte</strong
+                      > : tes priorités, ton fonctionnement, tes leviers de performance.
+                      <strong
+                          >Un accompagnement stratégique et opérationnel</strong
+                      > pour créer un <strong>système clair et performant</strong
+                      >, adapté à ton activité et à ta vision.
+                  </p>
+              </article>
+              
+              <div class="card">
+                  <article>
+                      <header>
+                          <h3>Le Co-pilotage</h3>
+                          <p class="tagline">
+                              Un vrai binôme impliqué pour structurer et optimiser
+                              ton entreprise à tes côtés.
+                          </p>
+                          <p class="disclaimer">
+                              Accompagnement de 5 mois minimum.
+                          </p>
+                      </header>
+                      <main>
+                          <p>
+                              Au programme de l'accompagnement "Le Copilotage" :
+                          </p>
+                          <ul class="fa-ul">
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong>3 ateliers par mois d’1h30</strong> pour
+                                  avancer avec méthode et prendre de vraies décisions
+                                  stratégiques.
+                              </li>
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong>Audit organisationnel complet</strong> pour
+                                  repérer ce qui freine ta croissance et libérer du
+                                  temps au quotidien
+                              </li>
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong>Nouvelle organisation validée</strong> (outils,
+                                  process, responsabilités) pour travailler plus efficacement,
+                                  seul·e ou avec une équipe.
+                              </li>
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong
+                                      >Suivi des chantiers prioritaires sur Asana</strong
+                                  > pour savoir exactement quoi faire, dans quel ordre,
+                                  et comment.
+                              </li>
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong
+                                      >Création d’une knowledge base partagée</strong
+                                  > pour centraliser l’info et ne plus perdre de temps
+                                  à tout réexpliquer à ton équipe.
+                              </li>
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong>Suivi de KPI</strong> pour mesurer tes progrès
+                                  et ajuster quand c’est nécessaire.
+                              </li>
+                              <li>
+                                  <span class="fa-li"
+                                      ><i class="fa-regular fa-circle-check"
+                                      ></i></span
+                                  ><strong
+                                      >Suivi post-accompagnement de 2 mois</strong
+                                  > pour ancrer les changements et rester sur la bonne
+                                  trajectoire.
+                              </li>
+                          </ul>
+                          <a
+                              class="button cta"
+                              href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
+                              >J'ai besoin de COO externalisé</a
+                          >
+                      </main>
+                  </article>
+              </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <article>
-          <header>
-            <h3>Le Co-pilotage</h3>
-            <p class="tagline">
-              Un vrai binôme impliqué pour structurer et optimiser ton
-              entreprise à tes côtés.
-            </p>
-            <p class="disclaimer">Accompagnement de 5 mois minimum.</p>
-          </header>
-          <main>
-            <p>Au programme de l'accompagnement "Le Copilotage" :</p>
-            <ul class="fa-ul">
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>3 ateliers par mois d’1h30</strong> pour avancer avec méthode
-                et prendre de vraies décisions stratégiques.
-              </li>
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>Audit organisationnel complet</strong> pour repérer ce qui
-                freine ta croissance et libérer du temps au quotidien
-              </li>
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>Nouvelle organisation validée</strong> (outils, process,
-                responsabilités) pour travailler plus efficacement, seul·e ou avec
-                une équipe.
-              </li>
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>Suivi des chantiers prioritaires sur Asana</strong> pour
-                savoir exactement quoi faire, dans quel ordre, et comment.
-              </li>
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>Création d’une knowledge base partagée</strong> pour centraliser
-                l’info et ne plus perdre de temps à tout réexpliquer à ton équipe.
-              </li>
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>Suivi de KPI</strong> pour mesurer tes progrès et ajuster
-                quand c’est nécessaire.
-              </li>
-              <li>
-                <span class="fa-li"
-                  ><i class="fa-regular fa-circle-check"></i></span
-                ><strong>Suivi post-accompagnement de 2 mois</strong> pour ancrer
-                les changements et rester sur la bonne trajectoire.
-              </li>
-            </ul>
-            <a
-              class="button cta"
-              href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
-              >J'ai besoin de COO externalisé</a
-            >
-          </main>
-        </article>
-      </div>
-    </section>
+        <section class="steps">
+            <div class="container">
+              <h2 class="section-title">
+                  Parce que chaque entreprise est <em>unique</em>, mon
+                  accompagnement est adapté à ta <em>réalité</em>.
+              </h2>
+              <p class="tagline">
+                  On part de ce que tu as construit pour créer un système
+                  (délégation + organisation + automatisation) <strong
+                      >adaptée à tes enjeux sans compromettre la rentabilité</strong
+                  >.
+              </p>
+              <div class="card-wrapper">
+                  <div class="card">
+                      <h3 class="card-title">1. Analyse de ton entreprise</h3>
+                      <h4>Objectif</h4>
+                      <p>
+                          Difficile de repérer <strong
+                              >ce qui freine vraiment ton activité</strong
+                          > quand tu as la <strong>tête dans le guidon</strong>.
+                      </p>
+                      <h4>Enjeu</h4>
+                      <p>
+                          Un regard extérieur t’aide à voir clair, <strong
+                              >identifier les leviers cachés de croissance</strong
+                          > et mieux piloter ton entreprise.
+                      </p>
+                  </div>
+                  <div class="card">
+                      <h3 class="card-title">2. Analyse de ton profil</h3>
+                      <h4>Objectif</h4>
+                      <p>
+                          Chaque entrepreneur·e a <strong>un profil unique</strong
+                          >, avec ses propres compétences.
+                      </p>
+                      <h4>Enjeu</h4>
+                      <p>
+                          Je t’aide à <strong
+                              >clarifier où placer ton focus</strong
+                          > — et <strong
+                              >où déléguer, optimiser ou automatiser</strong
+                          > pour <strong>gagner en efficacité</strong>.
+                      </p>
+                  </div>
+                  <div class="card">
+                      <h3 class="card-title">3. Identification d'une roadmap</h3>
+                      <h4>Objectif</h4>
+                      <p>
+                          J’identifie avec toi <strong
+                              >les chantiers prioritaires</strong
+                          >, je t’aide à <strong>repenser ton organisation</strong
+                          > et à <strong>optimiser tes process</strong>.
+                      </p>
+                      <h4>Enjeu</h4>
+                      <p>
+                          Savoir quoi faire, dans quel ordre, et comment, pour que
+                          tout roule.
+                      </p>
+                  </div>
+                  <div class="card">
+                      <h3 class="card-title">4. Pilotage opérationnel</h3>
+                      <h4>Objectif</h4>
+                      <p>
+                          Je ne te lâche pas dans la nature ! Je t’accompagne dans <strong
+                              >la mise en place</strong
+                          > grâce à un <strong
+                              >suivi via Asana et des RDV réguliers</strong
+                          > pour
+                          <strong>rester dans la bonne direction</strong>.
+                      </p>
+                  </div>
+              </div>
+              <a
+                  class="button cta"
+                  href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
+                  >Je veux être accompagné.e</a
+              >
+            </div>
+        </section>
 
-    <section class="steps">
-      <h2 class="section-title">
-        Parce que chaque entreprise est <em>unique</em>, mon accompagnement est
-        adapté à ta <em>réalité</em>.
-      </h2>
-      <p class="tagline">
-        On part de ce que tu as construit pour créer un système (délégation +
-        organisation + automatisation) <strong
-          >adaptée à tes enjeux sans compromettre la rentabilité</strong
-        >.
-      </p>
-      <div class="card-wrapper">
-        <div class="card">
-          <h3 class="card-title">1. Analyse de ton entreprise</h3>
-          <h4>Objectif</h4>
-          <p>
-            Difficile de repérer <strong
-              >ce qui freine vraiment ton activité</strong
-            > quand tu as la <strong>tête dans le guidon</strong>.
-          </p>
-          <h4>Enjeu</h4>
-          <p>
-            Un regard extérieur t’aide à voir clair, <strong
-              >identifier les leviers cachés de croissance</strong
-            > et mieux piloter ton entreprise.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="card-title">2. Analyse de ton profil</h3>
-          <h4>Objectif</h4>
-          <p>
-            Chaque entrepreneur·e a <strong>un profil unique</strong>, avec ses
-            propres compétences.
-          </p>
-          <h4>Enjeu</h4>
-          <p>
-            Je t’aide à <strong>clarifier où placer ton focus</strong> — et <strong
-              >où déléguer, optimiser ou automatiser</strong
-            > pour <strong>gagner en efficacité</strong>.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="card-title">3. Identification d'une roadmap</h3>
-          <h4>Objectif</h4>
-          <p>
-            J’identifie avec toi <strong>les chantiers prioritaires</strong>, je
-            t’aide à <strong>repenser ton organisation</strong> et à <strong
-              >optimiser tes process</strong
-            >.
-          </p>
-          <h4>Enjeu</h4>
-          <p>
-            Savoir quoi faire, dans quel ordre, et comment, pour que tout roule.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="card-title">4. Pilotage opérationnel</h3>
-          <h4>Objectif</h4>
-          <p>
-            Je ne te lâche pas dans la nature ! Je t’accompagne dans <strong
-              >la mise en place</strong
-            > grâce à un <strong>suivi via Asana et des RDV réguliers</strong> pour
-            <strong>rester dans la bonne direction</strong>.
-          </p>
-        </div>
-      </div>
-      <a
-        class="button cta"
-        href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
-        >Je veux être accompagné.e</a
-      >
-    </section>
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">
+                    Tout ce que tu te demandes (encore) sur le Chief Operating
+                    Officer externalisé
+                </h2>
+                <div class="faq-wrapper">
+                    <Faq faqContent={faqContent} />
+                </div>
+                <a
+                    class="button cta"
+                    href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                    >Je fais appel aux services de COO externalisé</a
+                >
+            </div>
+        </section>
 
-    <section class="faq">
-      <h2 class="section-title">
-        Tout ce que tu te demandes (encore) sur le Chief Operating Officer
-        externalisé
-      </h2>
-      <Faq faqContent={faqContent} />
-      <a
-        class="button cta"
-        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-        >Je fais appel aux services de COO externalisé</a
-      >
-    </section>
-
-    <section class="final">
-      <h2 class="section-title">
-        Tu te demandes si un COO externalisé peut faire la différence dans ton
-        activité ?
-      </h2>
-      <article>
-        <p>
-          Si tu sens que ton entreprise grandit plus vite que ton organisation,
-          que ton énergie s’épuise à force de tout gérer, ou que tu avances sans
-          vraie ligne directrice alors il est peut-être temps de poser un cadre
-          plus solide.
-        </p>
-        <p>
-          Réserve un appel pour faire le point, sans engagement, et découvrir si
-          l’un des accompagnements est adapté à ta situation.
-        </p>
-      </article>
-      <a
-        class="button cta"
-        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-        >Je réserve un appel découverte</a
-      >
-    </section>
-  </Layout>
+        <section class="final">
+            <div class="container">
+              <h2 class="section-title">
+                  Tu te demandes si un COO externalisé peut faire la différence
+                  dans ton activité ?
+              </h2>
+              <article>
+                  <p>
+                      Si tu sens que ton entreprise grandit plus vite que ton
+                      organisation, que ton énergie s’épuise à force de tout
+                      gérer, ou que tu avances sans vraie ligne directrice alors
+                      il est peut-être temps de poser un cadre plus solide.
+                  </p>
+                  <p>
+                      Réserve un appel pour faire le point, sans engagement, et
+                      découvrir si l’un des accompagnements est adapté à ta
+                      situation.
+                  </p>
+              </article>
+              <a
+                  class="button cta"
+                  href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                  >Je réserve un appel découverte</a
+              >
+            </div>
+        </section>
+    </Layout>
 </html>
 
 <style>
-  section {
-    max-width: 1440px;
-    margin: 0 auto;
+    section .container {
+        max-width: 1440px;
+        margin: 0 auto;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  section.hero {
-    .page-title {
-      text-wrap: balance;
-      max-width: 35ch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    article {
-      max-width: 65ch;
-      margin: 0 auto;
-    }
-  }
+    section.hero {
+        .page-title {
+            text-wrap: balance;
+            max-width: 35ch;
+        }
 
-  section.why {
-    .tagline {
-      max-width: 65ch;
-      text-align: center;
-      margin-bottom: var(--space-l);
-      text-wrap: balance;
+        article {
+            max-width: 65ch;
+            margin: 0 auto;
+        }
     }
 
-    .card-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      column-gap: var(--space-l);
-      margin-bottom: var(--space-l);
+    section.why {
+        .tagline {
+            max-width: 65ch;
+            text-align: center;
+            margin-bottom: var(--space-l);
+            text-wrap: balance;
+        }
+
+        .card-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            column-gap: var(--space-l);
+            margin-bottom: var(--space-l);
+        }
+
+        .card {
+            background-color: white;
+            padding-inline: var(--space-m);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px 0px #dadada;
+        }
     }
 
-    .card {
-      background-color: white;
-      padding-inline: var(--space-m);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 0px 0px 8px 0px #dadada;
-    }
-  }
+    section.steps {
+        .card-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-m);
+            margin-bottom: var(--space-m);
+        }
 
-  section.steps {
-    .card-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-m);
-      margin-bottom: var(--space-m);
+        .card {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px 0px #dadada;
+            padding-inline: var(--space-m);
+        }
     }
 
-    .card {
-      background-color: white;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      box-shadow: 0px 0px 8px 0px #dadada;
-      padding-inline: var(--space-m);
+    .faq-wrapper {
+        border: 1px solid var(--border-color);
+        padding: var(--space-l);
+        padding-bottom: 0;
+        border-radius: var(--space-m);
+        margin-bottom: var(--space-l);
+        background-color: white;
     }
-  }
 </style>
