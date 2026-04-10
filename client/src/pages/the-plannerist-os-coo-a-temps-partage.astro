@@ -2,480 +2,527 @@
 import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
 import OSIcon from "../assets/organization.svg";
-import BusinessIcon from "../assets/employees.svg";
 import Faq from "../components/faq.astro";
 
 const faqContent = [
-  {
-    heading: "Pourquoi structurer mon entreprise est essentiel ?",
-    main: "Structurer ton entreprise te permet de clarifier les responsabilités, prioriser les actions et standardiser les process. Une organisation claire réduit les erreurs, libère du temps et améliore la marge, tout en garantissant une expérience client constante et professionnelle.",
-  },
-  {
-    heading: "Comment améliorer ma marge grâce aux opérations ?",
-    main: "En mettant en place des process efficaces et en automatisant les tâches répétitives, tu réduis les pertes de temps et les coûts opérationnels. Chaque décision devient plus rapide, tes équipes travaillent plus efficacement, et ton entreprise devient plus rentable sans augmenter le chiffre d’affaires.",
-  },
-  {
-    heading: "Quels outils utiliser pour organiser mon business ?",
-    main: "Des outils de gestion de projet comme **Asana**, **Trello** ou **Monday.com** sont efficaces lorsqu’ils sont configurés selon tes process. L’important est d’avoir une structure claire, avec des responsabilités définies et des objectifs prioritaires.",
-  },
-  {
-    heading: "Comment prioriser mes projets et tâches efficacement ?",
-    main: "La clé est de lier chaque action à un objectif stratégique clair et de suivre une roadmap définie. Définis ce qui est urgent vs important, délègue ce qui peut l’être, et centralise le suivi pour éviter les doublons et les pertes de temps.",
-  },
-  {
-    heading: "Quels process mettre en place pour réduire les erreurs ?",
-    main: "Les checklists, templates et workflows standardisés sont indispensables. Ils permettent à tes équipes de suivre les mêmes étapes à chaque fois, de réduire les oublis et de garantir une expérience client constante.",
-  },
-  {
-    heading: "Comment automatiser les tâches répétitives ?",
-    main: "Tu peux automatiser la logistique, le reporting, le suivi post-achat ou la gestion des leads grâce à des outils intégrés à ton système. L’automatisation réduit la charge mentale, libère du temps stratégique et diminue les risques d’erreurs humaines.",
-  },
-  {
-    heading:
-      "Pourquoi un audit organisationnel est utile avant de mettre en place un système complet ?",
-    main: "Un audit rapide te permet d’identifier les points de friction, les pertes de temps et les process inefficaces. Cela crée une base solide avant de déployer un système complet comme The Plannerist OS, garantissant des résultats concrets et mesurables.",
-  },
-  {
-    heading: "Quelle est la différence entre un audit et The Plannerist OS ?",
-    main: "L’audit est un diagnostic rapide avec un plan d’action clair, que tu peux mettre en place toi-même. The Plannerist OS est un accompagnement complet pour construire un système opérationnel durable, structurer ton organisation et automatiser les tâches critiques.",
-  },
-  {
-    heading:
-      "Comment améliorer l'expérience client grâce à une meilleure organisation ?",
-    main: "Une organisation claire et des process standardisés garantissent que chaque client reçoit la même qualité de service, les délais sont respectés et les interactions sont fluides. Moins d’erreurs et plus de réactivité se traduisent directement par une satisfaction et une fidélisation accrues.",
-  },
-  {
-    heading:
-      "Est-ce que structurer mon entreprise est utile si je génère déjà un bon chiffre d'affaires ?",
-    main: "**Oui.** Même avec un chiffre d’affaires élevé, une organisation floue limite ta marge, surcharge ton temps et réduit la satisfaction client. Structurer ton entreprise te permet de rendre ton chiffre d’affaires plus rentable et ton business plus scalable.",
-  },
+    {
+        heading: "Pourquoi structurer mon entreprise est essentiel ?",
+        main: "Structurer ton entreprise te permet de clarifier les responsabilités, prioriser les actions et standardiser les process. Une organisation claire réduit les erreurs, libère du temps et améliore la marge, tout en garantissant une expérience client constante et professionnelle.",
+    },
+    {
+        heading: "Comment améliorer ma marge grâce aux opérations ?",
+        main: "En mettant en place des process efficaces et en automatisant les tâches répétitives, tu réduis les pertes de temps et les coûts opérationnels. Chaque décision devient plus rapide, tes équipes travaillent plus efficacement, et ton entreprise devient plus rentable sans augmenter le chiffre d’affaires.",
+    },
+    {
+        heading: "Quels outils utiliser pour organiser mon business ?",
+        main: "Des outils de gestion de projet comme **Asana**, **Trello** ou **Monday.com** sont efficaces lorsqu’ils sont configurés selon tes process. L’important est d’avoir une structure claire, avec des responsabilités définies et des objectifs prioritaires.",
+    },
+    {
+        heading: "Comment prioriser mes projets et tâches efficacement ?",
+        main: "La clé est de lier chaque action à un objectif stratégique clair et de suivre une roadmap définie. Définis ce qui est urgent vs important, délègue ce qui peut l’être, et centralise le suivi pour éviter les doublons et les pertes de temps.",
+    },
+    {
+        heading: "Quels process mettre en place pour réduire les erreurs ?",
+        main: "Les checklists, templates et workflows standardisés sont indispensables. Ils permettent à tes équipes de suivre les mêmes étapes à chaque fois, de réduire les oublis et de garantir une expérience client constante.",
+    },
+    {
+        heading: "Comment automatiser les tâches répétitives ?",
+        main: "Tu peux automatiser la logistique, le reporting, le suivi post-achat ou la gestion des leads grâce à des outils intégrés à ton système. L’automatisation réduit la charge mentale, libère du temps stratégique et diminue les risques d’erreurs humaines.",
+    },
+    {
+        heading:
+            "Pourquoi un audit organisationnel est utile avant de mettre en place un système complet ?",
+        main: "Un audit rapide te permet d’identifier les points de friction, les pertes de temps et les process inefficaces. Cela crée une base solide avant de déployer un système complet comme The Plannerist OS, garantissant des résultats concrets et mesurables.",
+    },
+    {
+        heading:
+            "Quelle est la différence entre un audit et The Plannerist OS ?",
+        main: "L’audit est un diagnostic rapide avec un plan d’action clair, que tu peux mettre en place toi-même. The Plannerist OS est un accompagnement complet pour construire un système opérationnel durable, structurer ton organisation et automatiser les tâches critiques.",
+    },
+    {
+        heading:
+            "Comment améliorer l'expérience client grâce à une meilleure organisation ?",
+        main: "Une organisation claire et des process standardisés garantissent que chaque client reçoit la même qualité de service, les délais sont respectés et les interactions sont fluides. Moins d’erreurs et plus de réactivité se traduisent directement par une satisfaction et une fidélisation accrues.",
+    },
+    {
+        heading:
+            "Est-ce que structurer mon entreprise est utile si je génère déjà un bon chiffre d'affaires ?",
+        main: "**Oui.** Même avec un chiffre d’affaires élevé, une organisation floue limite ta marge, surcharge ton temps et réduit la satisfaction client. Structurer ton entreprise te permet de rendre ton chiffre d’affaires plus rentable et ton business plus scalable.",
+    },
 ];
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head
-    title="The Plannerist | Chief Operating Officer Externalisé (COO)"
-    description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
-  />
-  <Layout>
-    <section class="hero">
-      <div class="container">
-        <div class="title-header">Atteindre l'excellence opérationnelle</div>
-        <h1 class="page-title">
-          Arrêter de se noyer dans l’opérationnel avec un COO à temps partagé
-        </h1>
-        <article>
-          <p>
-            Tu génères déjà plus de 500 000 € de chiffre d’affaires, mais en
-            interne, tout n’est pas clair : les priorités se mélangent, les
-            process sont incomplets et on te sollicite pour tout.
-          </p>
-          <p>
-            Résultat ? Tu passes ton temps à éteindre des incendies, ta marge se
-            réduit et l’expérience client en pâtit. Il est temps de sortir de
-            cette routine, de structurer ton organisation et de reprendre le
-            contrôle de ton entreprise pour gagner en efficacité, en sérénité…
-            et en rentabilité.
-          </p>
-        </article>
-        <a
-          class="button cta"
-          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-          >Réserver un appel découverte</a
-        >
-      </div>
-    </section>
-
-    <section class="why">
-      <div class="container">
-        <h2 class="section-title">
-          Les bénéfices à travailler avec <em>un COO à temps partagé</em>
-        </h2>
-        <p>
-          Ton organisation n’est pas un détail, c’est le moteur invisible de ton
-          business. Quand les process sont flous, les priorités mal définies et
-          les responsabilités dispersées, tout devient compliqué : tu passes
-          plus de temps à gérer des urgences qu’à piloter, tes équipes perdent
-          en efficacité et les clients ressentent le manque de fluidité. Chaque
-          tâche répétitive ou chaque oubli coûte de l’argent, même si le chiffre
-          d’affaires continue de rentrer.
-        </p>
-        <p>
-          En réalité, ton entreprise pourrait générer plus de marge avec moins
-          d’effort si tout était clair et structuré. Comprendre cette dynamique
-          est le premier pas vers un business plus rentable et une expérience
-          client cohérente. En structurant tes projets, en priorisant
-          intelligemment et en déléguant efficacement, tu ne gagnes pas
-          seulement du temps : tu transformes ton organisation en un levier
-          concret de croissance, de rentabilité et de fidélisation client.
-        </p>
-      </div>
-    </section>
-
-    <section class="offers">
-      <div class="container">
-        <h2 class="section-title">
-          Reprendre le contrôle et sécuriser ton business
-        </h2>
-        <p>
-          Structurer ton entreprise ne consiste pas seulement à mettre de
-          l’ordre dans tes dossiers ou à créer des to-do lists. Il s’agit de
-          définir clairement tes priorités, d’organiser tes projets avec des
-          process fiables, et de centraliser toutes les informations
-          essentielles pour que chaque décision soit rapide et efficace.
-        </p>
-        <p>
-          Avec des outils comme Asana ou des systèmes de gestion de projet
-          adaptés, tu peux standardiser tes workflows, automatiser les tâches
-          répétitives et réduire drastiquement les erreurs.
-        </p>
-        <p>
-          Que tu choisisses un audit rapide pour identifier les points de
-          friction ou un accompagnement complet avec The Plannerist OS pour
-          mettre en place un système opérationnel complet, chaque démarche vise
-          à optimiser ta marge, améliorer la productivité de tes équipes et
-          garantir une expérience client constante et satisfaisante. Structurer
-          son entreprise devient ainsi un levier direct de croissance et de
-          rentabilité, et pas seulement un “plus” organisationnel.
-        </p>
-
-        <div class="card">
-          <header>
-            <div class="header-icon">
-              <OSIcon />
-              <h3 class="card-title">The Plannerist OS</h3>
+    <Head
+        title="The Plannerist | Chief Operating Officer Externalisé (COO)"
+        description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
+    />
+    <Layout>
+        <section class="hero">
+            <div class="container">
+                <div class="title-header">
+                    Atteindre l'excellence opérationnelle
+                </div>
+                <h1 class="page-title">
+                    Arrêter de se noyer dans l’opérationnel avec un COO à temps
+                    partagé
+                </h1>
+                <article>
+                    <p>
+                        Tu génères déjà plus de 500 000 € de chiffre d’affaires,
+                        mais en interne, tout n’est pas clair : les priorités se
+                        mélangent, les process sont incomplets et on te
+                        sollicite pour tout.
+                    </p>
+                    <p>
+                        Résultat ? Tu passes ton temps à éteindre des incendies,
+                        ta marge se réduit et l’expérience client en pâtit. Il
+                        est temps de sortir de cette routine, de structurer ton
+                        organisation et de reprendre le contrôle de ton
+                        entreprise pour gagner en efficacité, en sérénité… et en
+                        rentabilité.
+                    </p>
+                </article>
+                <a
+                    class="button cta"
+                    href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                    >Réserver un appel découverte</a
+                >
             </div>
-            <div class="card-tagline">
-              3 mois pour remettre de l'ordre dans ton activité.
+        </section>
+
+        <section class="why">
+            <div class="container">
+                <h2 class="section-title">
+                    Les bénéfices à travailler avec <em
+                        >un COO à temps partagé</em
+                    >
+                </h2>
+                <article>
+                    <p>
+                        Ton organisation n’est pas un détail, c’est le moteur
+                        invisible de ton business. Quand les process sont flous,
+                        les priorités mal définies et les responsabilités
+                        dispersées, tout devient compliqué : tu passes plus de
+                        temps à gérer des urgences qu’à piloter, tes équipes
+                        perdent en efficacité et les clients ressentent le
+                        manque de fluidité. Chaque tâche répétitive ou chaque
+                        oubli coûte de l’argent, même si le chiffre d’affaires
+                        continue de rentrer.
+                    </p>
+                    <p>
+                        En réalité, ton entreprise pourrait générer plus de
+                        marge avec moins d’effort si tout était clair et
+                        structuré. Comprendre cette dynamique est le premier pas
+                        vers un business plus rentable et une expérience client
+                        cohérente. En structurant tes projets, en priorisant
+                        intelligemment et en déléguant efficacement, tu ne
+                        gagnes pas seulement du temps : tu transformes ton
+                        organisation en un levier concret de croissance, de
+                        rentabilité et de fidélisation client.
+                    </p>
+                </article>
             </div>
-            <a
-              href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="button cta"
-              >Mettre en place mon OS <span
-                ><i class="fa-solid fa-arrow-right"></i></span
-              ></a
-            >
-            <div class="modality">Paiement en 3 fois possible.</div>
-          </header>
-          <p>L'indispensable pour la gestion de projet :</p>
-          <h4>Structuration de votre organisation</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Workspace Asana organisé par pôles (Finance, Marketing, Produit,
-              etc.)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Roadmap Asana avec objectifs clairs et priorités définies
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Répartition des responsabilités et deadlines
-            </li>
-          </ul>
-          <h4>Standardisation &amp; optimisation opérationnelle</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Process clés templarisés sur Asana
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Checklists pour réduire erreurs et pertes de temps
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Automatisations (logistique, reporting, post-achat, leads, etc.)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Mise à jour et enrichissement de la Knowledge Base<div
-                class="macaron"
-              >
-                OFFERT
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="who">
-      <div class="container">
-        <h2 class="section-title">Hello, je suis Seheno, ta COO à temps partagé attitrée</h2>
-        <p>
-          Tu <strong
-            >fais déjà tourner ton activité, les clients sont là, le chiffre
-            aussi</strong
-          >. Mais tu sens que tu tires trop sur la corde pour y arriver. Les
-          journées s’allongent, les pauses s’effacent, et malgré tes efforts, tu
-          avances sans savoir si <strong
-            >ce que tu construis peut tenir la route sur le long terme</strong
-          >.
-        </p>
-        <p>
-          Tu n’as pas besoin d’un déclic de plus, ni de conseils génériques. Tu
-          as besoin de clarté. D’un temps pour <strong
-            >faire le point, poser les bons jalons, reconnecter ton savoir-faire
-            à ta performance</strong
-          >, et remettre ton énergie au service d’une <strong
-            >vraie dynamique de croissance</strong
-          >.
-        </p>
-        <p>
-          Mon rôle, en tant que directrice des opérations à temps partagé, est
-          de <strong>croiser les axes clés de ton business</strong> (marketing, commercial,
-          organisation) pour <strong
-            >t’aider à retrouver une cohérence globale au service de tes
-            objectifs de développement</strong
-          >.
-        </p>
-        <a
-        class="button cta"
-        href="https://theplannerist.com/a-propos-coo-pour-tpe-et-solopreneurs"
-        rel="noopener noreferrer"
-        target="_blank">En savoir plus sur moi</a
-        >
-      </div>
-    </section>
+        <section class="offers">
+            <div class="container">
+                <h2 class="section-title">
+                    Reprendre le contrôle et sécuriser ton business
+                </h2>
+                <div class="content">
+                    <article>
+                        <p>
+                            Structurer ton entreprise ne consiste pas seulement
+                            à mettre de l’ordre dans tes dossiers ou à créer des
+                            to-do lists. Il s’agit de définir clairement tes
+                            priorités, d’organiser tes projets avec des process
+                            fiables, et de centraliser toutes les informations
+                            essentielles pour que chaque décision soit rapide et
+                            efficace.
+                        </p>
+                        <p>
+                            Avec des outils comme Asana ou des systèmes de
+                            gestion de projet adaptés, tu peux standardiser tes
+                            workflows, automatiser les tâches répétitives et
+                            réduire drastiquement les erreurs.
+                        </p>
+                        <p>
+                            Que tu choisisses un audit rapide pour identifier
+                            les points de friction ou un accompagnement complet
+                            avec The Plannerist OS pour mettre en place un
+                            système opérationnel complet, chaque démarche vise à
+                            optimiser ta marge, améliorer la productivité de tes
+                            équipes et garantir une expérience client constante
+                            et satisfaisante. Structurer son entreprise devient
+                            ainsi un levier direct de croissance et de
+                            rentabilité, et pas seulement un “plus”
+                            organisationnel.
+                        </p>
+                    </article>
 
-    <section class="where">
-      <div class="container">
-        <h2 class="section-title">
-          Faire appel à un COO Externalisé où que tu sois
-        </h2>
-        <p>
-          Mon lieu de travail est à Boulogne-Billancourt, mais j<strong
-            >e peux également me déplacer sur Paris et dans le 92 (Nanterre,
-            Issy-Les-Moulineaux, Sèvres, Neuilly-sur-Seine,Courbevoie)</strong
-          >. Toutefois, la majorité des accompagnements se fait en distanciel. Je
-          m’adapte à tes besoins pour que mon accompagnement soit le plus
-          efficace.
-        </p>
-      </div>
-    </section>
+                    <div class="card">
+                        <header>
+                            <div class="header-icon">
+                                <OSIcon />
+                                <h3 class="card-title">The Plannerist OS</h3>
+                            </div>
+                            <div class="card-tagline">
+                                3 mois pour remettre de l'ordre dans ton
+                                activité.
+                            </div>
+                            <a
+                                href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button cta"
+                                >Mettre en place mon OS <span
+                                    ><i class="fa-solid fa-arrow-right"
+                                    ></i></span
+                                ></a
+                            >
+                            <div class="modality">
+                                Paiement en 3 fois possible.
+                            </div>
+                        </header>
+                        <p>L'indispensable pour la gestion de projet :</p>
+                        <h4>Structuration de votre organisation</h4>
+                        <ul class="fa-ul">
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Workspace Asana organisé par pôles (Finance,
+                                Marketing, Produit, etc.)
+                            </li>
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Roadmap Asana avec objectifs clairs et
+                                priorités définies
+                            </li>
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Répartition des responsabilités et deadlines
+                            </li>
+                        </ul>
+                        <h4>
+                            Standardisation &amp; optimisation opérationnelle
+                        </h4>
+                        <ul class="fa-ul">
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Process clés templarisés sur Asana
+                            </li>
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Checklists pour réduire erreurs et pertes de
+                                temps
+                            </li>
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Automatisations (logistique, reporting,
+                                post-achat, leads, etc.)
+                            </li>
+                            <li>
+                                <span class="fa-li"
+                                    ><i class="fa-regular fa-circle-check"
+                                    ></i></span
+                                >Mise à jour et enrichissement de la Knowledge
+                                Base<div class="macaron">OFFERT</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="success">
-      <div class="container">
-        <h2 class="section-title">
-          Hoby a fluidifié ses opérations avec The Plannerist
-        </h2>
-        <p>
-          Hoby, fondateur de The Rising Court, voulait transformer sa passion pour
-          le tennis en activité professionnelle et créer une communauté pour les
-          anglophones vivant au Japon. Ingénieur de formation mais novice en
-          marketing, il se retrouvait bloqué pour attirer ses premiers clients et
-          donner de la visibilité à son offre de coaching. Grâce à un
-          accompagnement structuré, il a pu clarifier sa stratégie, organiser ses
-          actions et lancer son activité avec confiance.
-        </p>
-        <a
-          href="https://theplannerist.com/business-cases-conseil-en-pilotage-dentreprise/business-case-the-rising-court/"
-          class="button cta"
-          target="_blank"
-          rel="noopener noreferrer">Voir la success story de Hoby</a
-        >
-      </div>
-    </section>
+        <section class="who">
+            <div class="container">
+                <h2 class="section-title">
+                    Hello, je suis Seheno, ta COO à temps partagé attitrée
+                </h2>
+                <p>
+                    Tu <strong
+                        >fais déjà tourner ton activité, les clients sont là, le
+                        chiffre aussi</strong
+                    >. Mais tu sens que tu tires trop sur la corde pour y
+                    arriver. Les journées s’allongent, les pauses s’effacent, et
+                    malgré tes efforts, tu avances sans savoir si <strong
+                        >ce que tu construis peut tenir la route sur le long
+                        terme</strong
+                    >.
+                </p>
+                <p>
+                    Tu n’as pas besoin d’un déclic de plus, ni de conseils
+                    génériques. Tu as besoin de clarté. D’un temps pour <strong
+                        >faire le point, poser les bons jalons, reconnecter ton
+                        savoir-faire à ta performance</strong
+                    >, et remettre ton énergie au service d’une <strong
+                        >vraie dynamique de croissance</strong
+                    >.
+                </p>
+                <p>
+                    Mon rôle, en tant que directrice des opérations à temps
+                    partagé, est de <strong
+                        >croiser les axes clés de ton business</strong
+                    > (marketing, commercial, organisation) pour <strong
+                        >t’aider à retrouver une cohérence globale au service de
+                        tes objectifs de développement</strong
+                    >.
+                </p>
+                <a
+                    class="button cta"
+                    href="https://theplannerist.com/a-propos-coo-pour-tpe-et-solopreneurs"
+                    rel="noopener noreferrer"
+                    target="_blank">En savoir plus sur moi</a
+                >
+            </div>
+        </section>
 
-    <section class="faq">
-      <div class="container">
-        <h2 class="section-title">FAQ</h2>
-        <p class="tagline">
-          Tu te poses encore des questions sur l’organisation de ton entreprise,
-          la gestion de tes process ou l’impact sur ta rentabilité ? Cette FAQ
-          regroupe les réponses aux problématiques les plus fréquentes pour
-          t’aider à mieux comprendre comment structurer ton activité, gagner en
-          efficacité et améliorer durablement ton expérience client.
-        </p>
-        <Faq faqContent={faqContent} />
-        <a
-          class="button cta"
-          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-          >On commence notre accompagnement ?</a
-        >
-      </div>
-    </section>
-  </Layout>
+        <section class="where">
+            <div class="container">
+                <h2 class="section-title">
+                    Faire appel à un COO Externalisé où que tu sois
+                </h2>
+                <p>
+                    Mon lieu de travail est à Boulogne-Billancourt, mais j<strong
+                        >e peux également me déplacer sur Paris et dans le 92
+                        (Nanterre, Issy-Les-Moulineaux, Sèvres,
+                        Neuilly-sur-Seine,Courbevoie)</strong
+                    >. Toutefois, la majorité des accompagnements se fait en
+                    distanciel. Je m’adapte à tes besoins pour que mon
+                    accompagnement soit le plus efficace.
+                </p>
+            </div>
+        </section>
 
-  <style>
+        <section class="success">
+            <div class="container">
+                <h2 class="section-title">
+                    Hoby a fluidifié ses opérations avec The Plannerist
+                </h2>
+                <p>
+                    Hoby, fondateur de The Rising Court, voulait transformer sa
+                    passion pour le tennis en activité professionnelle et créer
+                    une communauté pour les anglophones vivant au Japon.
+                    Ingénieur de formation mais novice en marketing, il se
+                    retrouvait bloqué pour attirer ses premiers clients et
+                    donner de la visibilité à son offre de coaching. Grâce à un
+                    accompagnement structuré, il a pu clarifier sa stratégie,
+                    organiser ses actions et lancer son activité avec confiance.
+                </p>
+                <a
+                    href="https://theplannerist.com/business-cases-conseil-en-pilotage-dentreprise/business-case-the-rising-court/"
+                    class="button cta"
+                    target="_blank"
+                    rel="noopener noreferrer">Voir la success story de Hoby</a
+                >
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">FAQ</h2>
+                <p class="tagline">
+                    Tu te poses encore des questions sur l’organisation de ton
+                    entreprise, la gestion de tes process ou l’impact sur ta
+                    rentabilité ? Cette FAQ regroupe les réponses aux
+                    problématiques les plus fréquentes pour t’aider à mieux
+                    comprendre comment structurer ton activité, gagner en
+                    efficacité et améliorer durablement ton expérience client.
+                </p>
+                <div class="faq-wrapper">
+                    <Faq faqContent={faqContent} />
+                </div>
+                <a
+                    class="button cta"
+                    href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+                    >On commence notre accompagnement ?</a
+                >
+            </div>
+        </section>
+    </Layout>
+</html>
+
+<style>
     section .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     section.hero {
-      .page-title {
-        text-wrap: balance;
-        max-width: 35ch;
-      }
-
-      article {
-        max-width: 65ch;
-        margin: 0 auto;
-      }
+        .page-title {
+            text-wrap: balance;
+            max-width: 35ch;
+        }
     }
 
-    .cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--space-l);
-      margin-bottom: var(--space-l);
-      width: 100%;
-      margin-top: var(--space-m);
+    article {
+        max-width: 65ch;
+        margin: 0 auto;
+    }
+
+    .offers .content {
+        display: flex;
+        gap: var(--space-l);
     }
 
     .card {
-      flex: 1 1 400px;
-      background-color: white;
-      padding: var(--space-xl) var(--space-l) var(--space-s);
-      border-radius: 12px;
-      box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
-      border: 1px solid #dadadd;
-      max-width: 35rem;
-      font-size: var(--step-0);
+        flex: 1 1 400px;
+        background-color: white;
+        padding: var(--space-xl) var(--space-l) var(--space-s);
+        border-radius: 12px;
+        box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+        border: 1px solid #dadadd;
+        max-width: 35rem;
+        font-size: var(--step-0);
     }
 
     .card ul {
-      margin-left: var(--space-m);
+        margin-left: var(--space-m);
     }
 
     .card header {
-      border-bottom: 1px solid #dadadd;
-      padding-bottom: var(--space-s);
-      margin-bottom: var(--space-s);
-      position: relative;
+        border-bottom: 1px solid #dadadd;
+        padding-bottom: var(--space-s);
+        margin-bottom: var(--space-s);
+        position: relative;
     }
 
     .card .header-icon {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .card svg {
-      --length: 2rem;
-      width: var(--length);
-      height: var(--length);
-      color: var(--text);
+        --length: 2rem;
+        width: var(--length);
+        height: var(--length);
+        color: var(--text);
     }
 
     .card-title {
-      margin-top: 0;
-      margin-bottom: 0;
-      line-height: 1;
-      /* font-family: "Outfit", sans-serif; */
-      font-weight: 600;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1;
+        /* font-family: "Outfit", sans-serif; */
+        font-weight: 600;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
     }
 
     .card-tagline {
-      font-size: var(--step-0);
-      font-weight: 200;
-      line-height: 1.15;
+        font-size: var(--step-0);
+        font-weight: 200;
+        line-height: 1.15;
     }
 
     .card-price {
-      font-size: var(--step-2);
-      font-weight: 600;
+        font-size: var(--step-2);
+        font-weight: 600;
     }
 
     .card-price span {
-      font-size: var(--step-0);
-      color: #909090;
-      font-weight: 300;
-      margin-left: 0.25rem;
+        font-size: var(--step-0);
+        color: #909090;
+        font-weight: 300;
+        margin-left: 0.25rem;
     }
 
     .card .button {
-      /* width: 100%; */
-      padding-right: 0.75rem;
-      margin-top: var(--space-s);
+        /* width: 100%; */
+        padding-right: 0.75rem;
+        margin-top: var(--space-s);
     }
 
     .modality {
-      margin-top: var(--space-s);
-      color: #909090;
+        margin-top: var(--space-s);
+        color: #909090;
     }
 
     .copilotage {
-      border: 3px solid var(--bg-color-light);
-      /* box-shadow: 0px 0px 8px 8px var(--bg-color-light); */
-      position: relative;
+        border: 3px solid var(--bg-color-light);
+        /* box-shadow: 0px 0px 8px 8px var(--bg-color-light); */
+        position: relative;
     }
 
     .copilotage::after {
-      content: "Recommandé";
-      position: absolute;
-      left: 30%;
-      right: 30%;
-      top: -1rem;
-      background-color: var(--bg-color-light);
-      /* color: var(--bg-color-dark); */
-      color: white;
-      font-weight: 550;
-      height: 2rem;
-      border-radius: 999px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        content: "Recommandé";
+        position: absolute;
+        left: 30%;
+        right: 30%;
+        top: -1rem;
+        background-color: var(--bg-color-light);
+        /* color: var(--bg-color-dark); */
+        color: white;
+        font-weight: 550;
+        height: 2rem;
+        border-radius: 999px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     @keyframes glowing {
-      0% {
-        background-color: var(--text);
-        box-shadow: 0px 0px 3px var(--text);
-      }
+        0% {
+            background-color: var(--text);
+            box-shadow: 0px 0px 3px var(--text);
+        }
 
-      50% {
-        background-color: var(--bg-color-light);
-        box-shadow: 0px 0px 9px var(--bg-color-light);
-      }
+        50% {
+            background-color: var(--bg-color-light);
+            box-shadow: 0px 0px 9px var(--bg-color-light);
+        }
 
-      100% {
-        background-color: var(--text);
-        box-shadow: 0px 0px 3px var(--text);
-      }
+        100% {
+            background-color: var(--text);
+            box-shadow: 0px 0px 3px var(--text);
+        }
     }
 
     .led {
-      --length: 12px;
-      width: var(--length);
-      height: var(--length);
-      border-radius: var(--length);
-      animation: glowing 1500ms infinite;
-      display: inline-block;
-      margin-right: var(--space-2xs);
+        --length: 12px;
+        width: var(--length);
+        height: var(--length);
+        border-radius: var(--length);
+        animation: glowing 1500ms infinite;
+        display: inline-block;
+        margin-right: var(--space-2xs);
     }
 
     .macaron {
-      display: inline-block;
-      margin-left: 1rem;
-      font-size: var(--step--1);
-      letter-spacing: 1px;
-      font-weight: 600;
-      background-color: var(--primary-light);
-      color: var(--primary);
-      padding: 0.1rem 0.75rem;
-      border-radius: 99px;
+        display: inline-block;
+        margin-left: 1rem;
+        font-size: var(--step--1);
+        letter-spacing: 1px;
+        font-weight: 600;
+        background-color: var(--primary-light);
+        color: var(--primary);
+        padding: 0.1rem 0.75rem;
+        border-radius: 99px;
     }
-  </style>
 
-
-</html>
+    .faq-wrapper {
+        border: 1px solid var(--border-color);
+        padding: var(--space-l);
+        padding-bottom: 0;
+        border-radius: var(--space-m);
+        margin-bottom: var(--space-l);
+        background-color: white;
+    }
+</style>
