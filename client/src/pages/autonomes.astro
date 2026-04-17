@@ -1,0 +1,315 @@
+---
+import { marked } from "marked";
+import Layout from "../layouts/Layout.astro";
+import Head from "../components/Head.astro";
+import OfferCard from "../components/offerCard.astro";
+import Faq from "../components/faq.astro";
+
+const pageContent = {
+  hero: {
+    heading: "Garder le cap sans avancer à l'aveugle",
+    title:
+      "_Comprendre_ et décider des prochaines étapes _sans perdre ton autonomie_ avec un consultant en gestion d'entreprise à tes côtés",
+    main: "Conservez la maîtrise de vos actions tout en vous **appuyant sur un regard d’expert**. En tant que conseillère en gestion d’entreprise, **j’analyse, structure et vous guide** pour optimiser vos process, affiner vos décisions et **accélérer vos résultats**, tout en vous laissant la liberté d’**exécuter à votre rythme**.",
+  },
+  why: {
+    heading:
+      "Pourquoi faire appel à une _consultante en gestion d'entreprise_ ?",
+    cards: [
+      {
+        heading: "Retrouver un cap clair, sans la pression d'un patron",
+        main: "En tant qu’entrepreneur, tu veux garder ta liberté, mais tu sais qu’avancer sans cap précis peut freiner ta croissance. Un **consultant en gestion d’entreprise** t’apporte une vision globale et des priorités claires, sans t’imposer la rigidité d’un management hiérarchique.\n\nTu restes maître de tes choix, tout en bénéficiant d’un cadre structuré pour orienter ton développement.",
+      },
+      {
+        heading: "Bénéficier d’un véritable “deuxième cerveau”",
+        main: "Un **consultant en gestion d’entreprise** analyse tes forces, détecte les freins cachés et met en lumière des leviers que tu n’avais pas identifiés.\n\nC’est un **partenaire stratégique** qui t’aide à clarifier tes objectifs, structurer ton organisation et retrouver l’énergie nécessaire pour faire passer ton activité au niveau supérieur.",
+      },
+      {
+        heading:
+          "Reprendre du temps et de l’énergie pour développer ton activité",
+        main: "Quand tu passes moins de temps la tête dans l’opérationnel, tu peux te concentrer sur ce qui génère réellement de la rentabilité.\n\nAvec un accompagnement en **gestion d’entreprise**, tu priorises les **actions à fort retour sur investissement**, optimises tes process et t’assures que chaque effort **contribue directement à ta croissance durable**.",
+      },
+    ],
+  },
+  who: {
+    heading: "Ton experte dédiée",
+    title: "Hello, moi c'est Seheno, ta consultante en gestion d'entreprise",
+    main: "Tu as créé ton entreprise pour être libre : libre de tes décisions, de ton rythme, et de la direction que tu veux donner à ton activité. Et tu as **déjà franchi de belles étapes** : ton chiffre d’affaires est là, les clients aussi.\n\nMais cette liberté a un prix. Les journées s’étirent, les priorités s’empilent, et tu te demandes parfois si **la structure que tu as construite peut vraiment soutenir ta croissance sur le long terme**.\n\nCe dont tu as besoin, ce n’est pas d’un manager qui t’impose sa vision, ni de conseils génériques copiés-collés. C’est d’un **accompagnement qui respecte ton autonomie** tout en t’apportant la clarté nécessaire pour avancer.\n\nEn tant que **consultante en gestion d'entreprise**, j’analyse en profondeur tes leviers marketing, commerciaux et organisationnels pour t’aider à retrouver une cohérence globale. Mon rôle : **être ce regard extérieur qui relie les points, structure tes priorités et t’aide à prendre les bonnes décisions** — tout en te laissant maître de l’exécution et du rythme.",
+  },
+  how: {
+    title:
+      "Et si tu pouvais développer ton activité... _tout en gardant le contrôle_ ?",
+    main: "Tu continues de livrer tes projets tout en ayant le temps et la clarté pour **faire ce qui est vraiment nécessaire**, sans devoir choisir entre tâches urgentes et actions importantes. Avec cet accompagnement, tu peux :\n\n✔ Prioriser ce qui impacte vraiment ton activité\n\n✔ Mettre en place des process clairs et efficaces\n\n✔ Décider de tes projets et clients avec précision\n\n✔ Gagner du temps sur l’exécution pour te concentrer sur la croissance\n\n✔ Tester et ajuster sans perdre le contrôle\n\nUn accompagnement pour **garder la main sur ton business**, avancer avec méthode et libérer de la bande passante pour ce qui compte vraiment.",
+  },
+  faq: {
+    heading: "FAQ pour solopreneurs autonomes",
+    faqContent: [
+      {
+        heading:
+          "Je n'ai pas le temps, est-ce que ça vaut le coup de faire appel à une consultante en gestion d'entreprise ?",
+        main: "Oui ! L’objectif d’un consultant en gestion d’entreprise est de vous **faire gagner du temps** en vous aidant à prioriser ce qui a le plus d’impact sur votre activité. Vous continuez à gérer votre quotidien, mais avec **des décisions plus claires et efficaces**.",
+      },
+      {
+        heading:
+          "Est-ce que l'accompagnement en gestion d'entreprise porte uniquement sur l'organisation de mon activité ?",
+        main: "Non, l’accompagnement ne se limite pas à l’organisation. Un consultant en gestion d’entreprise **regarde l’ensemble de votre business** : offres, positionnement, marketing, ventes, process internes… L’objectif est de créer une **cohérence globale** et de vous aider à **prendre les bonnes décisions pour développer votre activité**, tout en gardant votre autonomie.",
+      },
+      {
+        heading:
+          "J'ai déjà testé des formations business et fait appel à des coachs business sans résultat. En quoi un consultant en gestion d'entreprise peut m'aider différement ?",
+        main: "Contrairement aux formations ou coachings classiques, un consultant en gestion d’entreprise **travaille directement sur vos priorités concrètes et spécifiques**. L’accompagnement est **personnalisé, pratique et orienté résultats**, avec des actions immédiatement applicables pour relancer votre activité, tout en vous laissant **garder le contrôle et l’autonomie** sur votre business.",
+      },
+      {
+        heading:
+          "Je gère déjà mon activité, pourquoi faire appel à un consultant en gestion d'entreprise plutôt qu'à un expert marketing ou commercial ?",
+        main: "Un expert marketing ou commercial peut améliorer une partie spécifique de votre activité, mais un consultant en gestion d’entreprise **regarde votre business dans sa globalité** : offres, organisation, marketing, ventes, process internes. L’objectif est de **prendre du recul**, identifier ce qui freine votre croissance et définir **des actions prioritaires cohérentes**, tout en vous laissant **conserver l’autonomie** sur l’exécution.",
+      },
+      {
+        heading: "Est-ce que vous allez gérer mon activité à ma place ?",
+        main: "Non. Le rôle d’un consultant en gestion d’entreprise est de vous **guider, conseiller et vous aider à prendre les bonnes décisions**. Vous gardez l’**autonomie sur l’exécution** tout en bénéficiant d’un accompagnement expert pour structurer et développer votre activité.\n\nSi vous cherchez plutôt quelqu’un pour **prendre en charge la gestion de projet au quotidien**, mon accompagnement **Copilotage** est adapté, où j’interviens en tant que **COO pour solopreneurs et TPE**, pour vous aider à piloter votre activité sans perdre le contrôle.",
+      },
+      {
+        heading: "Je crains que ça ne coûte trop cher pour mon entreprise...",
+        main: "Un accompagnement ciblé est un **investissement pour gagner du temps et maximiser vos résultats**. Mon rôle n’est pas d’agir sur la production elle-même, mais d’optimiser l’**efficacité de votre activité**. Ma “carte de visite”, ce sont les résultats concrets : chaque session ou programme est conçu pour générer un retour tangible, que ce soit en **chiffre d’affaires, productivité ou ROI**.\n\nIl ne s’agit pas d’un **quick win** immédiat : certaines optimisations demandent un peu de temps pour être mises en place et porter leurs fruits. Mais c’est dans mon intérêt comme dans le vôtre que l’accompagnement soit **ROISTE et rentable sur le long terme**.",
+      },
+      {
+        heading:
+          "J'ai besoin de résultats rapidement, est-ce qu'un consultant en gestion d'entreprise est adapté ?",
+        main: "Un consultant en gestion d’entreprise vous aide à **prendre les bonnes décisions et à structurer votre activité** pour maximiser vos résultats. Ce n’est pas un prestataire qui agit directement sur la production, donc certains bénéfices peuvent demander un peu de temps pour se matérialiser.\n\nSi vous cherchez un **quick win immédiat**, certaines actions opérationnelles ponctuelles peuvent être plus rapides. En revanche, faire appel à un consultant vous permet de **libérer du temps, clarifier vos priorités et sécuriser une croissance durable**, avec un accompagnement **ROISTE** qui maximise l’impact de vos efforts.",
+      },
+    ],
+  },
+};
+
+import BusinessIcon from "../assets/employees.svg";
+const cardContent = [
+  {
+    icon: BusinessIcon,
+    title: "The Plannerist OS",
+    subtitle: "3 mois pour remettre de l'ordre dans ton activité",
+    cta: "Mettre en place mon OS",
+    tagline: "L'indispensable pour la gestion de projet",
+    details: [
+      {
+        heading: "Structuration de votre organisation",
+        items: [
+          "Workspace Asana organisé par pôles (Finance, Marketing, Produit, etc.)",
+          "Roadmap Asana avec objectifs clairs et priorités définies",
+          "Répartition des responsabilités et deadlines",
+        ],
+      },
+      {
+        heading: "Standardisation & optimisation opérationnelle",
+        items: [
+          "Process clés templarisés sur Asana",
+          "Checklists pour réduire erreurs et pertes de temps",
+          "Automatisations (logistique, reporting, post-achat, leads, etc.",
+          "Mise à jour et enrichissement de la Knowledge Base",
+        ],
+      },
+    ],
+  },
+  {
+    icon: BusinessIcon,
+    title: "Le Co-pilotage",
+    subtitle: "+6 mois pour gagner des points de marge.",
+    cta: "Prendre un co-pilote",
+    tagline: "Tout _The Plannerist OS_, plus :",
+    details: [
+      {
+        heading: "Pilotage & Décisions",
+        items: [
+          "Weekly Business Review pour analyser les KPI et piloter les priorités",
+          "Arbitrage et priorisation des chantiers stratégiques",
+          "Tableau de bord de performance produit et activité",
+          "Suivi et projection de la trésorerie",
+          "Optimisation continue de la marge et de l'allocation des ressources",
+        ],
+      },
+      {
+        heading: "Optimisation & amélioration continue",
+        items: [
+          "Optimisation continue des process et automatisations",
+          "Identification et résolution des goulots d'étranglement opérationnels",
+          "Amélioration des workflows entre marketing, produit et support",
+          "Mise à jour et enrichissement de la Knowledge Base",
+          "Veille outils et méthodes pour soutenir la croissance",
+        ],
+      },
+      {
+        heading: "Délégation & Structuration de l'équipe",
+        items: [
+          "Management opérationnel d'une équipe d'assistants virtuels",
+          "Coordination des assistants spécialisés : E-commerce, Customer Care, Chef de ProduitCoordination des assistans spécialisés : E-commerce, Customer Care, Chef de Produit",
+          "Reporting structuré et contrôle qualité des missions",
+        ],
+      },
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    title="The Plannerist | OBM/COO externalisé pour entrepreneurs autonomes"
+    description="Gagnez du temps, augmentez vos ventes B2C et structurez votre business. Un bras droit à vos côtés, tout en gardant le contrôle de l’implémentation."
+  />
+  <Layout>
+    <section class="hero">
+      <div class="container">
+        <div class="title-header">Garder le cap sans avancer à l'aveugle.</div>
+        <h1 class="page-title">
+          <em>Comprendre</em> et décider des prochaines étapes <em
+            >sans perdre ton autonomie</em
+          > avec un consultant en gestion d'entreprise à tes côtés
+        </h1>
+        <p>
+          Conservez la maîtrise de vos actions tout en vous <strong
+            >appuyant sur un regard d’expert</strong
+          >. En tant que conseillère en gestion d’entreprise, <strong
+            >j’analyse, structure et vous guide</strong
+          > pour optimiser vos process, affiner vos décisions et <strong
+            >accélérer vos résultats</strong
+          >, tout en vous laissant la liberté d’<strong
+            >exécuter à votre rythme</strong
+          >.
+        </p>
+        <a
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">Réserver un appel découverte</a
+        >
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <h2 class="section-title">
+          <span set:html={marked.parse(pageContent.why.heading)} />
+        </h2>
+        <div class="card-wrapper">
+          {
+            pageContent.why.cards.map((card) => (
+              <div class="card">
+                <h3>{card.heading}</h3>
+                <article set:html={marked.parse(card.main)} />
+              </div>
+            ))
+          }
+        </div>
+        <a
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">Je veux être guidé.e tout en restant autonome !</a
+        >
+      </div>
+    </section>
+
+    <section class="who">
+      <div class="container">
+        <div class="title-header">{pageContent.who.heading}</div>
+        <h2 class="section-title">{pageContent.who.title}</h2>
+        <article set:html={marked.parse(pageContent.who.main)} />
+        <a
+          href="https://www.theplannerist.com/a-propos-coo-pour-tpe-et-solopreneurs"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">En savoir plus sur moi</a
+        >
+      </div>
+    </section>
+
+    <section class="offers">
+      <div class="container">
+        <h2 class="section-title">
+          <em>Ce que je construis</em> avec toi en tant que consultante en gestion
+          d’entreprise — <em>et comment</em>
+        </h2>
+        <div class="card-wrapper">
+          {cardContent.map((content) => <OfferCard cardContent={content} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="container">
+        <h2 class="section-title">
+          Et si tu pouvais développer ton activité... <em
+            >tout en gardant le contrôle</em
+          > ?
+        </h2>
+        <article set:html={marked.parse(pageContent.how.main)} />
+        <a
+          href="https://www.theplannerist.com/a-propos-coo-pour-tpe-et-solopreneurs"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">C'est ce qu'il me faut</a
+        >
+      </div>
+    </section>
+
+    <section class="success">
+      <div class="container">
+        <h2 class="section-title">Hoby a lancé son entreprise avec <em>l’accompagnement Sprint</em>.</h2>
+        <p>Hoby, fondateur de The Rising Court, voulait lancer son activité de coaching de tennis et rassembler une communauté anglophone au Japon. Ingénieur de formation et passionné de tennis, il se retrouvait face au défi de <strong>promouvoir efficacement son activité et d’attirer ses premiers clients</strong>.</p>
+        <a class="button cta" href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf">Voir la success story de Hoby</a>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h2 class="section-title">{pageContent.faq.heading}</h2>
+        <Faq faqContent={pageContent.faq.faqContent} />
+        <a
+          class="button cta"
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          >je veux être accompagné.e</a
+        >
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="container">
+        <h2 class="section-title">
+          Et si on <em>voyait ensemble</em> si un consultant en gestion d’entreprise
+          est fait pour toi ?
+        </h2>
+        <p>
+          Prenons le temps d’<strong>évaluer votre situation</strong> et vos objectifs pour
+          déterminer comment un consultant en gestion d’entreprise peut vous
+          aider à <strong>
+            structurer votre activité, optimiser vos process et booster
+            votre croissance
+          </strong>.
+        </p>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">PRENDRE UN Café GOOGLE MEET ET EN DISCUTER</a>
+      </div>
+    </section>
+  </Layout>
+</html>
+
+<style>
+  section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-m);
+    margin-bottom: var(--space-l);
+
+    .card {
+      background-color: white;
+      box-shadow: 0px 0px 8px #dadada;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding-inline: var(--space-m);
+    }
+  }
+</style>

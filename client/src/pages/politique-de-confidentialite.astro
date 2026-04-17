@@ -1,8 +1,8 @@
 ---
 import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
-import * as conditions from "./cgv.md";
-import { Content } from "./cgv.md";
+import * as politique from "./politique-confidentialite.md";
+import { Content } from "./politique-confidentialite.md";
 
 const pageTitle = "The Plannerist | Conditions générales de vente";
 const pageDescription = "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé.";
@@ -13,7 +13,7 @@ const pageDescription = "Accompagnement en stratégie et pilotage d'entreprise p
   <Head title={pageTitle} description={pageDescription} />
   <Layout>
     <div class="container">
-      <h1 class="page-title">{conditions.frontmatter.title}</h1>
+      <h1 class="page-title">{politique.frontmatter.title}</h1>
       <article>
         <Content />
       </article>
@@ -36,3 +36,4 @@ const pageDescription = "Accompagnement en stratégie et pilotage d'entreprise p
     }
   }
 </style>
+

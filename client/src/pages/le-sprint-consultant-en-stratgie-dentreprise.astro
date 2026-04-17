@@ -1,0 +1,315 @@
+---
+import { marked } from "marked";
+import Layout from "../layouts/Layout.astro";
+import Head from "../components/Head.astro";
+import OfferCard from "../components/offerCard.astro";
+import Faq from "../components/faq.astro";
+
+const pageContent = {
+  hero: {
+    heading: "Garder le cap sans avancer à l'aveugle",
+    title:
+      "_Comprendre_ et décider des prochaines étapes _sans perdre ton autonomie_ avec un consultant en gestion d'entreprise à tes côtés",
+    main: "Conservez la maîtrise de vos actions tout en vous **appuyant sur un regard d’expert**. En tant que conseillère en gestion d’entreprise, **j’analyse, structure et vous guide** pour optimiser vos process, affiner vos décisions et **accélérer vos résultats**, tout en vous laissant la liberté d’**exécuter à votre rythme**.",
+  },
+  why: {
+    cards: [
+      {
+        heading:
+          "Ton activité tourne, mais pas assez pour créer une vraie marge de manœuvre",
+        main: "Tu génères un **chiffre d’affaires régulier**, suffisamment pour faire vivre ton activité, mais pas assez pour recruter, investir ou ralentir sans que tout s’écroule. Tu avances, mais avec la **sensation de devoir** forcer chaque palier. Résultat : tu tires sur la corde, sans garantie que ce modèle puisse vraiment **tenir sur la durée**.\n\nLe Sprint est conçu pour **ce moment charnière** : celui où tu sens que **la croissance est possible, mais qu’elle demande un système plus solide**, une organisation optimisée, et un vrai **“recalibrage”** entre ton modèle actuel et tes ambitions.",
+      },
+      {
+        heading:
+          "Tu as besoin d’un regard stratégique, pas d’un cadre générique",
+        main: "Tu cherches un échange avec **quelqu’un capable de comprendre rapidement ta réalité, tes contraintes, tes marges de manœuvre réelles**. Ce que tu attends, ce n’est pas un diagnostic standard, mais une analyse fine et ciblée, capable de faire émerger les vrais leviers — ceux qui auront un **impact immédiat** sur ton fonctionnement et sur tes résultats.\n\nDans le Sprint, on prend **appui sur ton activité telle qu’elle est aujourd’hui**, sans plaquer un modèle tout fait, pour **créer des ajustements à la fois réalistes, performants, et directement applicables**.",
+      },
+      {
+        heading:
+          "Tu sais avancer seul·e, à condition d’avoir une feuille de route claire",
+        main: "Tu n’as pas besoin de quelqu’un pour t’expliquer comment travailler. Ce qu’il te manque, c’est **de la clarté dans la hiérarchisation des priorités, une vraie vision d’ensemble**, et **un cadre** de pilotage plus structuré pour **cesser de réagir dans l’urgence**.\n\nLe Sprint te permet de **concentrer ton énergie là où elle compte vraiment**, d’aligner ton organisation avec tes objectifs stratégiques, et de **reprendre la main sur ton développement** sans avoir à tout réinventer. Tu **gagnes en efficacité, en cohérence, et en lucidité sur la suite**.",
+      },
+    ],
+  },
+  who: {
+    heading: "Ton experte dédiée",
+    title: "Hello, moi c'est Seheno, ta consultante en gestion d'entreprise",
+    main: "Tu **fais déjà tourner ton activité, les clients sont là, le chiffre aussi**. Mais tu sens que tu tires trop sur la corde pour y arriver. Les journées s’allongent, les pauses s’effacent, et malgré tes efforts, tu avances sans savoir si **ce que tu construis peut tenir la route sur le long terme**.\n\nTu n’as pas besoin d’un déclic de plus, ni de conseils génériques. Tu as besoin de clarté. D’un temps pour **faire le point, poser les bons jalons, reconnecter ton savoir-faire à ta performance**, et remettre ton énergie au service d’une **vraie dynamique de croissance**.\n\nMon rôle, en tant que consultante en stratégie, est de **croiser les axes clés de ton business** (marketing, commercial, organisation) pour **t’aider à retrouver une cohérence globale au service de tes objectifs de développement**.",
+  },
+  how: {
+    main: "C’est un **accompagnement de 2 mois minimum** pour faire le point en profondeur sur ton activité, reprendre le pilotage avec plus de hauteur et poser une organisation capable de soutenir ta croissance sans t’épuiser.\n\nMais au-delà de **regarder l’efficacité opérationnelle**, on regarde aussi l’**efficacité de ta stratégie commerciale et marketing**, pour s’assurer qu’elle est cohérente avec tes objectifs et tes capacités actuelles.\n\nOn ne vient pas tout chambouler, mais **apporter de la cohérence à ce qui compte** : tes priorités, ton fonctionnement, tes leviers de performance.",
+  },
+  faq: {
+    faqContent: [
+      {
+        heading:
+          "Je n’ai pas (encore) d’équipe. Est-ce que faire appel à un conseiller en gestion d'entreprise est adapté ?",
+        main: "Oui. Justement, c’est souvent quand on pilote seul·e que le besoin de structure se fait le plus sentir. Le Sprint t’aide à poser des bases solides pour organiser ton activité de manière plus fluide et préparer sereinement la suite.",
+      },
+      {
+        heading:
+          "Et si je n’ai pas beaucoup de temps à y consacrer ?",
+        main: "Le Sprint est pensé pour ça. 3 ateliers de 1h30 par mois, une feuille de route claire, et un accompagnement focalisé sur l’essentiel. Tu avances avec un cadre et des priorités nettes, sans surcharge.",
+      },
+      {
+        heading:
+          "Est-ce qu’on parle uniquement d’organisation ?",
+        main: "Non. On fait le lien entre ton positionnement, tes offres, ton organisation et ta rentabilité. L’objectif n’est pas d’optimiser pour optimiser, mais d'apporter de la cohérence à ton fonctionnement selon ce que tu veux vraiment construire.",
+      },
+      {
+        heading:
+          "J’ai déjà testé des formations ou du coaching, sans résultats. En quoi c’est différent ?",
+        main: "Le Sprint n’est ni une méthode générique, ni un accompagnement passif. On travaille ensemble, sur mesure, avec une approche concrète,  structurée alliant conseils en management et consulting stratégique. Ce que tu obtiens, c’est un diagnostic clair, des ajustements ciblés, et un système que tu pourras faire évoluer dans le temps.",
+      },
+      {
+        heading: "Est-ce que je dois déjà avoir des objectifs clairs pour commencer ?",
+        main: "Pas du tout. Le Sprint sert justement à poser les bonnes questions, à clarifier ta direction et à remettre de l’ordre dans tes priorités. Que tu sois en période de doute, de transition ou de croissance rapide, l’objectif est d’y voir plus clair.",
+      },
+      {
+        heading: "Et après les 2 mois d’accompagnement ?",
+        main: "Tu bénéficies d’un suivi offert pendant 2 mois pour consolider les ajustements. Et si tu ressens le besoin d’aller plus loin, on en discute à ce moment-là. L’idée n’est pas de t’enfermer dans un accompagnement à rallonge, mais de t’aider à retrouver ton autonomie.",
+      },
+    ],
+  },
+};
+
+import BusinessIcon from "../assets/employees.svg";
+const cardContent = [
+  {
+    icon: BusinessIcon,
+    title: "The Plannerist OS",
+    subtitle: "3 mois pour remettre de l'ordre dans ton activité",
+    cta: "Mettre en place mon OS",
+    tagline: "L'indispensable pour la gestion de projet",
+    details: [
+      {
+        heading: "Structuration de votre organisation",
+        items: [
+          "Workspace Asana organisé par pôles (Finance, Marketing, Produit, etc.)",
+          "Roadmap Asana avec objectifs clairs et priorités définies",
+          "Répartition des responsabilités et deadlines",
+        ],
+      },
+      {
+        heading: "Standardisation & optimisation opérationnelle",
+        items: [
+          "Process clés templarisés sur Asana",
+          "Checklists pour réduire erreurs et pertes de temps",
+          "Automatisations (logistique, reporting, post-achat, leads, etc.",
+          "Mise à jour et enrichissement de la Knowledge Base",
+        ],
+      },
+    ],
+  },
+  {
+    icon: BusinessIcon,
+    title: "Le Co-pilotage",
+    subtitle: "+6 mois pour gagner des points de marge.",
+    cta: "Prendre un co-pilote",
+    tagline: "Tout _The Plannerist OS_, plus :",
+    details: [
+      {
+        heading: "Pilotage & Décisions",
+        items: [
+          "Weekly Business Review pour analyser les KPI et piloter les priorités",
+          "Arbitrage et priorisation des chantiers stratégiques",
+          "Tableau de bord de performance produit et activité",
+          "Suivi et projection de la trésorerie",
+          "Optimisation continue de la marge et de l'allocation des ressources",
+        ],
+      },
+      {
+        heading: "Optimisation & amélioration continue",
+        items: [
+          "Optimisation continue des process et automatisations",
+          "Identification et résolution des goulots d'étranglement opérationnels",
+          "Amélioration des workflows entre marketing, produit et support",
+          "Mise à jour et enrichissement de la Knowledge Base",
+          "Veille outils et méthodes pour soutenir la croissance",
+        ],
+      },
+      {
+        heading: "Délégation & Structuration de l'équipe",
+        items: [
+          "Management opérationnel d'une équipe d'assistants virtuels",
+          "Coordination des assistants spécialisés : E-commerce, Customer Care, Chef de ProduitCoordination des assistans spécialisés : E-commerce, Customer Care, Chef de Produit",
+          "Reporting structuré et contrôle qualité des missions",
+        ],
+      },
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    title="The Plannerist | OBM/COO externalisé pour entrepreneurs autonomes"
+    description="Gagnez du temps, augmentez vos ventes B2C et structurez votre business. Un bras droit à vos côtés, tout en gardant le contrôle de l’implémentation."
+  />
+  <Layout>
+    <section class="hero">
+      <div class="container">
+        <div class="title-header">Garder la main sans rester dans le flou.</div>
+        <h1 class="page-title">
+          Comprendre où tu en es et tracer une roadmap avec un consultant en
+          stratégie d’entreprise
+        </h1>
+        <p>
+          Besoin d’un <strong>regard analytique sur ton activité</strong> ? En tant
+          que consultante en stratégie d’entreprise, j’analyse ta stratégie marketing,
+          commerciale, ton organisation et tes KPI et pour <strong
+            >définir comment optimiser ton activité</strong
+          >.
+        </p>
+        <a
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">Réserver un appel découverte</a
+        >
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <h2 class="section-title">
+          Ton déclic pour <em>redémarrer</em> et <em>reprendre le contrôle</em>.
+        </h2>
+        <p>Le Sprint s’adresse aux dirigeant·es de commerces & e-commerce qui veulent faire une vraie mise au point. Pas pour tout revoir, mais pour ajuster ce qui doit l’être. Tu veux t’<strong>affranchir du mode “couteau suisse” sans faire cette transition seul·e</strong>, garder la vision sans être la seule personne à tenir la barre, et connecter ton savoir-faire à ta performance. Ensemble, on crée un système qui amplifie ce que tu as déjà construit, pour que tu n’aies plus à choisir entre servir tes clients et développer ton activité. <strong>Un équilibre concret entre tes aspirations et la réalité du business</strong>.</p>
+        <div class="card-wrapper">
+          {
+            pageContent.why.cards.map((card) => (
+              <div class="card">
+                <h3>{card.heading}</h3>
+                <article set:html={marked.parse(card.main)} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="who">
+      <div class="container">
+        <div class="title-header">{pageContent.who.heading}</div>
+        <h2 class="section-title">{pageContent.who.title}</h2>
+        <article set:html={marked.parse(pageContent.who.main)} />
+        <a
+          href="https://www.theplannerist.com/a-propos-coo-pour-tpe-et-solopreneurs"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">En savoir plus sur moi</a
+        >
+      </div>
+    </section>
+
+    <section class="offers">
+      <div class="container">
+        <h2 class="section-title">
+          Comment ça se passe l’accompagnement avec un consultant en stratégie d’entreprise
+        </h2>
+        <article set:html={marked.parse(pageContent.how.main)} />
+        <div class="card-wrapper">
+          {cardContent.map((content) => <OfferCard cardContent={content} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="who2">
+      <div class="container">
+        <h2 class="section-title">Faire appel à un consultant en stratégie d'entreprise où que tu sois</h2>
+        <p>Je suis basée à Boulogne-Billancourt, mais <strong>je me déplace ponctuellement à Paris et dans les Hauts-de-Seine</strong>. Toutefois, la majorité des accompagnements se fait à distance. Le Sprint est entièrement conçu pour <strong>fonctionner en visio</strong> : tu avances depuis ton bureau, à ton rythme, sans compromis sur l’efficacité ni sur la qualité des échanges.</p>
+      </div>
+    </section>
+
+    <section class="success">
+      <div class="container">
+        <h2 class="section-title">
+          Hoby a lancé son entreprise avec <em>l’accompagnement The Plannerist</em>.
+        </h2>
+        <p>
+         Hoby, fondateur de The Rising Court, souhaitait lancer son activité de <strong>Coaching Tennis</strong> et créer une <strong>Communauté Tennis</strong> pour les anglophones vivant au Japon. Ingénieur de formation et passionné de tennis, il ne savait pas comment bien <strong>promouvoir</strong> son activité pour attirer ses premiers clients.
+        </p>
+        <a
+          class="button cta"
+          href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
+          >Voir la success story de Hoby</a
+        >
+      </div>
+    </section>
+
+    <section class="guarantee">
+      <div class="container">
+        <h2 class="section-title">Ce que je te garantis avec nos accompagnements</h2>
+        <div class="card-wrapper">
+          <div class="card">
+            <h3>1. Un point d’ancrage clair</h3>
+            <p>Tu repars avec une <strong>vision nette de là où tu en es</strong>, de ce qui freine ton développement et des <strong>ajustements prioritaires</strong> à engager. Pas besoin de tout réinventer : <strong>on affine, on simplifie, on réorganise</strong>.</p>
+          </div>
+          <div class="card">
+            <h3>2. Du temps <em>bien utilisé</em></h3>
+            <p>Chaque atelier est pensé pour faire avancer concrètement ton activité. <strong>Pas de théorie inutile</strong>, pas de dispersion. On va droit à l’essentiel, et <strong>directement applicable sur ton niveau de développement actuel</strong>.</p>
+          </div>
+          <div class="card">
+            <h3>3. Un cadre qui reste <em>après l’accompagnement</em></h3>
+            <p>Tu poses les fondations d’un fonctionnement plus stable, que tu pourras faire évoluer à ton rythme. Le suivi post-accompagnement t’aide à <strong>consolider ces ajustements sans retomber dans l’ancien schéma</strong>.</p>
+          </div>
+        </div>
+        <a
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          class="button cta"
+          rel="noreferrer noopener"
+          target="_blank">Je veux bénéficier de l'accompagnement SPRINT</a
+        >
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <Faq faqContent={pageContent.faq.faqContent} />
+        <a
+          class="button cta"
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          >On commence le Sprint quand ?</a
+        >
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="container">
+        <h2 class="section-title">Besoin d’en parler pour être sûr.e que c’est ce qu’il te faut ?</h2>
+        <p>Tu sens que ton activité mérite mieux que des ajustements à la volée, mais tu ne sais pas par où commencer. Faire appel à moi, c'est obtenir ce point d’appui dont tu avais besoin pour reprendre le pilotage de ton activité.Réserve ton appel et voyons ensemble si c’est le bon format pour toi.</p>
+        <a
+          class="button cta"
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          >PRENDRE UN Café GOOGLE MEET ET EN DISCUTER</a
+        >
+      </div>
+    </section>
+  </Layout>
+</html>
+
+<style>
+  section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-m);
+    margin-bottom: var(--space-l);
+
+    .card {
+      background-color: white;
+      box-shadow: 0px 0px 8px #dadada;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding-inline: var(--space-m);
+    }
+  }
+</style>

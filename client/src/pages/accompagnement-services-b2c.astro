@@ -1,0 +1,297 @@
+---
+import Head from "../components/Head.astro";
+import Layout from "../layouts/Layout.astro";
+import { marked } from 'marked';
+import Offers from "../components/index/Offers.astro";
+import Faq from "../components/faq.astro";
+
+const collaborationContent = [
+{
+heading: "Ton expertise te retient dans l'opérationnel",
+main: [
+"Tu es au cœur de ton **activité** et chaque **mission** dépend de toi. Tu passes l'essentiel de ton temps à **produire** ou à **livrer tes services**, laissant peu de place pour réfléchir à la **stratégie** ou à la **croissance**.",
+"Résultat : ton **entreprise stagne**, tu t’épuises et tu n’arrives pas à structurer un **système** qui te permettrait de travailler moins tout en générant plus. Ce point est crucial pour les **prestataires** qui veulent **scaler** sans sacrifier la **qualité** de leurs **prestations** ni leur **équilibre personnel**."
+],
+},
+{
+heading: "Ton chiffre d'affaires est limité par ta disponibilité",
+main: [
+"Même si ton **activité est rentable** et que tu as des **clients réguliers**, tes **revenus** sont directement liés à ta **disponibilité**. Chaque nouveau **projet** implique plus d’**heures de travail**, ce qui te maintient dans un rythme intense et limite ton **potentiel de développement**.",
+"Sans une **organisation interne optimisée**, des **process** clairs et une **automatisation ciblée**, tu restes coincé dans un modèle linéaire où le **chiffre d’affaires** ne peut croître que si tu **travailles davantage**."
+],
+},
+{
+heading: "La visibilité et l’acquisition de clients sont chronophages",
+main: [
+"Entre la **prospection**, les **relances**, les **devis** et la **gestion administrative**, tu passes une grande partie de ton temps à **attirer et convertir de nouveaux clients**.",
+"Ce mode opératoire empêche de créer un **système structuré** qui génère des **leads qualifiés** de façon récurrente. Pour un **prestataire de services** ambitieux, c’est un **frein majeur** : sans mise en place de **process commerciaux** et **marketing efficaces**, la **croissance** reste limitée et chaque nouvelle **mission** devient une **urgence** à gérer plutôt qu’une **opportunité** à **scaler**.",
+],
+},
+];
+
+const merits = {
+heading: "## Développe ton activité de services _sans choisir_ entre livrer et grandir",
+description: "Pour beaucoup de prestataires, le temps et l’énergie sont immobilisés dans les livraisons, laissant peu de place pour développer l’activité. Résultat : tu cours après l’opérationnel et la croissance reste en suspens. Imagines alors :",
+list: [ "Tes **prospects et leads qualifiés** arrivent pendant que tu **assures tes prestations**.",
+"Tu ne termines plus tes missions **épuisé·e** ou **au bout du rouleau**.",
+"Tu choisis tes **clients et projets** avec **clarté et discernement**.",
+"Tu **embauches ou délègues** pour **structurer ton activité**, pas seulement pour **éteindre des feux**.",
+"Tu gardes la main sur le **développement de ton business** sans sacrifier la **qualité de tes services**.",
+"Tu peux enfin te **projeter** et planifier la **croissance** de ton activité, au lieu de juste **tenir le rythme**.",
+],
+};
+
+const stepsCard = [
+{
+heading: "1. Repérer les freins à ta croissance",
+main: [
+"**Objectif** : Sortir du quotidien pour identifier ce qui freine réellement la croissance.",
+"**Ce que tu gagnes** : Un regard extérieur pour révéler les leviers cachés de performance, optimiser ton chiffre d’affaires et piloter ton activité avec plus de clarté.",
+],
+},
+{
+heading: "2. Identifier tes forces et leviers personnels",
+main: [
+"**Objectif** : Identifier ton mode de fonctionnement, tes points forts et les tâches qui te ralentissent.",
+"**Ce que tu gagnes** : Savoir où investir ton temps et ton énergie, et déterminer ce qui peut être délégué, automatisé ou amélioré pour fluidifier ton activité.",
+],
+},
+{
+heading: "3. Définir les priorités et la stratégie d’action",
+main: [
+"**Objectif** : Prioriser les chantiers et repenser ton organisation et tes process internes.",
+"**Ce que tu gagnes** : Une feuille de route claire pour savoir exactement quoi faire, dans quel ordre, et comment exécuter chaque action pour améliorer rentabilité et fluidité opérationnelle.",
+],
+},
+{
+heading: "4. Accompagnement concret pour passer à l'action",
+main: [
+"**Objectif** : T’accompagner dans la mise en œuvre concrète des actions.",
+"**Ce que tu gagnes** : Suivi via Asana et rendez-vous réguliers pour maintenir le cap, optimiser les process et transformer ton activité en un système plus rentable et scalable.",
+],
+},
+]
+
+const faqContent = [
+{
+heading: "C'est quoi un Chief Operating Officer (COO) ?",
+main: "Le COO est souvent décrit comme le garant de la performance interne. Concrètement, il veille à ce que l’entreprise fonctionne de façon fluide, que les projets avancent, que les équipes (si équipe il y a) soient alignées, et que les ressources (temps, énergie, budget) soient utilisées là où elles ont le plus d’impact. C’est un rôle transversal, qui demande à la fois une vision stratégique et une solide compréhension du terrain.\n\n**Un poste clé au service de la stabilité et de la croissance**\n\nLe COO pas là pour décider à ta place, mais pour t’aider à concrétiser ta vision. Il fait le lien entre les objectifs à long terme et les opérations du quotidien. Résultat ? Des décisions plus structurées, des projets mieux coordonnés, et une capacité à croître sans désorganiser l’existant.\n\n**Une mission souvent négligée dans les petites structures**\n\nDans les grandes entreprises, ce rôle est bien identifié. Mais dans les TPE, startups ou entreprises en croissance, il est souvent absorbé (malgré lui) par le fondateur ou la fondatrice (autrement dit par toi). Résultat ? Des journées saturées, une charge mentale permanente, et peu de place pour la prise de recul. C’est précisément pour ça que faire appel à un COO externalisé peut devenir un vrai levier pour ton activité.qui demande à la fois une vision stratégique et une solide compréhension du terrain.",
+},
+{
+heading:
+"Quelle différence entre un COO externalisé et un directeur des opérations salarié ?",
+main: "Un directeur des opérations salarié est intégré à temps plein dans l’entreprise. Le COO externalisé, lui, intervient à distance ou en ponctuel, avec un regard neuf et une mission définie. C’est un appui stratégique et opérationnel ciblé, sans les contraintes RH classiques.",
+},
+{
+heading:
+"Est-ce qu'un Chief Operating Officer externalisé peut intervenir à distance ?",
+main: "Oui, c’est même tout l’intérêt du format. Le COO externalisé s’adapte à ton fonctionnement, à distance ou en hybride, selon ce qui est le plus pertinent. L’objectif reste le même : t’apporter un pilotage efficace, sans alourdir ta structure interne.",
+},
+{
+heading:
+"Est-ce qu'un COO externalisé peut s'adapter à mon secteur d'activité ?",
+main: "Oui. Mon accompagnement s’adresse spécifiquement aux entreprises qui vendent en B2C, qu’il s’agisse de services, de produits physiques ou d’offres digitales.\n\nQuel que soit ton modèle, l’objectif reste le même : structurer, aligner et piloter ton activité pour soutenir ta croissance, avec des solutions adaptées à ta réalité.",
+},
+{
+heading:
+"Faut-il déjà avoir une équipe pour bénéficier d'un accompagnement de type COO ?",
+main: "Non. Le rôle du COO est justement de t’aider à structurer ton organisation, même en solo. Si tu envisages de te développer et/ou de déléguer bientôt, poser un cadre maintenant t’évitera les erreurs et pertes de temps au moment de recruter.\n\nEt puis, ma spécialité, c’est justement de t’accompagner dans la transition de solo à équipe. On pose ensemble un cadre solide avant même le recrutement, pour que tu gagnes en efficacité dès maintenant et que l’arrivée de nouvelles personnes se fasse sans perte de temps ni de qualité.",
+},
+{
+heading:
+"Est-ce que le rôle du COO couvre aussi le marketing et la stratégie commerciale ?",
+main: "Oui, dans leur dimension stratégique et organisationnelle. Mon rôle est de m’assurer que le marketing, le commercial, la production et le back-office avancent de manière cohérente pour soutenir ta croissance.\n\nEn revanche, je ne prends pas en charge la production quotidienne de services marketing ou commerciaux (comme le community management ou la prospection). L’objectif est de créer le cadre, les priorités et les process pour que ces actions soient alignées et efficaces.",
+},
+{
+heading:
+"Combien de temps faut-il pour voir les premiers résultats d'un accompagnement ?",
+main: "Le Co-pilotage est conçu pour travailler en profondeur sur ton organisation et ta stratégie, ce qui demande du temps pour être efficace et durable.\n\nSur 5 mois, on avance étape par étape pour poser des bases solides, mettre en place les bons process et t’habituer à ce nouveau fonctionnement. Les bénéfices se construisent progressivement et s’ancrent sur le long terme.",
+},
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+      title="The Plannerist | Chief Operating Officer Externalisé (COO)"
+             description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
+             />
+    <Layout>
+      <section class="hero">
+        <div class="title-header">Tu as une activité de service pour les particuliers ?</div>
+        <h1 class="page-title"><em>Capitalise</em> sur ton savoir-faire et ton organisation, <em>sans tomber</em> dans le mode pompier.</h1>
+        <article>
+          <p>Un accompagnement qui <strong>capitalise sur vos atouts et ceux de l'entreprise</strong>, tout en résolvant les obstacles qui freinent votre développement.</p>
+        </article>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Réserver un appel découverte</a>
+      </section>
+
+      <section class="why">
+        <h2 class="section-title">Cette collaboration te correspond si...</h2>
+        <div class="card-wrapper">
+          {collaborationContent.map(card => (
+          <div class="card">
+            <h3 class="card-title">{card.heading}</h3>
+            <article>
+              {card.main.map(item => (
+              <p set:html={marked.parse(item)}></p>
+              ))}
+            </article>
+          </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="merit">
+        <h2 class="section-title">Développe ton activité de services <em>sans choisir</em> entre livrer et grandir</h2>
+        <p set:html={marked.parse(merits.description)}></p>
+        <ul class="fa-ul">
+          {merits.list.map(item => (
+          <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>{item}</li>
+          ))}
+        </ul>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Réserver un appel découverte</a>
+      </section>
+
+      <Offers />
+
+      <section class="steps">
+        <h2 class="section-title">Un accompagnement sur mesure pour ton activité</h2>
+        <p class="tagline">À partir de ce que tu as déjà mis en place, nous <strong>créons un système alliant délégation, organisation et automatisation</strong>, pour répondre à tes enjeux tout en préservant la rentabilité.</p>
+        <div class="card-wrapper">
+          {stepsCard.map(card => (
+          <div class="card">
+            <h3 class="card-title">
+              {card.heading}
+            </h3>
+            {card.main.map(item => (
+            <p set:html={marked.parse(item)}></p>
+            ))}
+          </div>
+          ))}
+        </div>
+        <a class="button cta" href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf">Je veux être accompagné.e</a>
+      </section>
+
+      <section class="success">
+        <h2 class="section-title">Hoby a repensé ses services et sa stratégie pour lancer The Rising Court grâce à The Plannerist</h2>
+        <article>
+          <p>Hoby, ingénieur passionné de tennis et fondateur de The Rising Court, voulait <strong>lancer son coaching et créer une communauté de joueurs de tennis pour les anglophones au Japon</strong>, avec un pricing attractif et des clients réellement investis, mais ne savait pas comment les attirer.</p>
+        </article>
+        <a class="button cta" href="/business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf">Voir la success story de Hoby</a>
+      </section>
+
+      <section class="final">
+        <h2 class="section-title">Une question ou un doute ? <em>Discutons-en</em> pour voir si c'est vraiment adapté à toi.</h2>
+        <p>On fait le point ensemble pour déterminer <strong>si c'est le bon moment</strong> pour toi et quel type d'accompagnement <strong>te conviendrait le mieux</strong>.</p>
+        <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte">Prendre un café Google Meet et en discuter</a>
+      </section>
+
+    </Layout>
+
+<style>
+  section {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.hero {
+    .page-title {
+      text-wrap: balance;
+      max-width: 35ch;
+    }
+
+    article {
+      max-width: 65ch;
+      margin: 0 auto;
+    }
+  }
+
+  section.why {
+    .tagline {
+      max-width: 65ch;
+      text-align: center;
+      margin-bottom: var(--space-l);
+      text-wrap: balance;
+    }
+
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      column-gap: var(--space-l);
+      margin-bottom: var(--space-l);
+    }
+
+    .card {
+      background-color: white;
+      padding-inline: var(--space-m);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0px 0px 8px 0px #dadada;
+    }
+  }
+
+  section.steps {
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-m);
+      margin-bottom: var(--space-m);
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0px 0px 8px 0px #dadada;
+      padding-inline: var(--space-m);
+    }
+  }
+
+  section.faq {
+    .faq-wrapper {
+      width: 100%;
+      max-width: 95ch;
+      margin: 0 auto;
+      margin-bottom: var(--space-m);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--text);
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--text);
+    }
+
+    .faq-item header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item .toggle {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .faq-item .toggle.active {
+      transform: rotate(45deg);
+    }
+
+    .faq-item main {
+      display: none;
+    }
+
+    .faq-item main.active {
+      display: block;
+    }
+  }
+</style>
+
+
+  </html>
