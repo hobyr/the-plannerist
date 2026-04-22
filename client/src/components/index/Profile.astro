@@ -5,23 +5,23 @@ import portrait from '../../assets/images/portrait.png';
 ---
 
 <section id="profile">
-  <div class="container">
     <div class="shape-wrapper">
       <div class="shape"></div>
       <Image src={portrait} alt="" class="image"/>
     </div>
     <article>
-      <p>Quand j'ai lancé ma première entreprise <a href="https://embrace-planner.myshopify.com" class="site-link">Embrace Planner</a>, j'ai vite compris qu'on ne peut pas <strong>tout gérer seul sans y laisser son énergie</strong>. Aujourd'hui, je suis COO freelance. J'accompagne <strong>les solopreneurs et le PME à structurer leur activité</strong> pour gagner en temps, en clarté et en performance.</p>
+      <h2>Qui se cache derrière The Plannerist, ta COO externalisée ?</h2>
+      <p>Quand j'ai lancé ma première entreprise <a href="https://embrace-planner.myshopify.com" class="site-link">Embrace Planner</a>, j'ai vite compris qu'<strong>on ne peut pas tout gérer seul sans y laisser son énergie</strong>. Aujourd'hui, je suis COO freelance. J'accompagne les solopreneurs et le PME à structurer leur activité pour gagner en temps, en clarté et en performance.</p>
       <p>Mon objectif ? T'aider à bâtir une activité et une organisation qui soutiennent ta croissance et ta vision, tout en te laissant la liberté de te concentrer sur ce qui compte vraiment.</p>
     <a href="" class="button cta">En savoir plus sur moi</a>
     </article>
-  </div>
 </section>
 
 <style>
-  .container {
+  #profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
   }
 
@@ -40,37 +40,37 @@ import portrait from '../../assets/images/portrait.png';
     position: relative;
     bottom: -8px;
   }
-
+  
   article {
-    max-width: 55ch;
+    position: relative;
+    max-width: 60ch;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0px 24px 24px 0px;
+    padding: var(--space-xl);
+    padding-left: 10rem;
+    left: -8rem;
+    top: 1rem;
   }
-
-  .button {
-    display: none;
-  }
-
+  
   .shape-wrapper {
     flex: 1;
     position: relative;
-    clip-path: inset(0% 0% 0% 0% round 0px 0px 5rem 5rem);
-    max-width: 500px;
+    clip-path: inset(1rem 0% 0%  0% round 0% 0 30% 30%);
+    max-width: 600px;
+    z-index: 1;
+  }
+
+  .button {
+    margin-top: var(--space-l)
   }
 
   .shape {
     position: absolute;
     inset: 0;
-    top: 20%;
+    /* top: 20%; */
     background-color: #cee397;
-    clip-path: inset(0% 0% 0% 0% round 50% 30% 0 0);
+    clip-path: inset(10% 20% 0% 0% round 30rem 0 0 0);
     z-index: -1;
-  }
-
-  @media (min-width: 1000px) {
-    .container {
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: var(--space-l);
-    }
   }
 </style>
