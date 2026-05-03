@@ -36,6 +36,8 @@ const { faqContent } = Astro.props;
     .faq-wrapper {
         margin: 0 auto;
         margin-bottom: var(--space-m);
+        max-width: 75ch;
+        width: 100%;
     }
 
     .faq-item {
@@ -64,6 +66,11 @@ const { faqContent } = Astro.props;
 
     .faq-item .toggle.active {
         transform: rotate(45deg);
+    }
+
+    .faq-item header h3 {
+        max-width: 40ch;
+        text-wrap: balance;
     }
 
     .faq-item main {
