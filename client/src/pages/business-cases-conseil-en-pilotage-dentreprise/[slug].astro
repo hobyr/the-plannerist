@@ -1,27 +1,27 @@
 ---
-import { StrapiBlocks } from '@sensinum/astro-strapi-blocks';
-import Layout from '../../layouts/Layout.astro';
-import fetchApi from '../../lib/strapi';
-import { Image } from 'astro:assets';
-import Head from '../../components/Head.astro';
+import { StrapiBlocks } from "@sensinum/astro-strapi-blocks";
+import Layout from "../../layouts/Layout.astro";
+import fetchApi from "../../lib/strapi";
+import { Image } from "astro:assets";
+import Head from "../../components/Head.astro";
 
 export async function getStaticPaths() {
   const cases = await fetchApi({
-    endpoint: 'business-cases',
-    wrappedByKey: 'data',
+    endpoint: "business-cases",
+    wrappedByKey: "data",
     query: {
-      'populate': '*',
-      'locale': 'en',
-    }
-    });
+      populate: "*",
+      locale: "en",
+    },
+  });
 
-    return cases.map((business_case) => ({
-      params: { slug: business_case.slug},
-      props: business_case,
-    }))
-    }
+  return cases.map((business_case) => ({
+    params: { slug: business_case.slug },
+    props: business_case,
+  }));
+}
 
-    const business_case = Astro.props;
+const business_case = Astro.props;
 
 const pageTitle = business_case.title;
 const pageDescription = business_case.description;
@@ -29,79 +29,146 @@ const pageDescription = business_case.description;
 
 <!doctype html>
 <html lang="en">
-  <Head description={pageDescription} title={`The Plannerist | Business Case | ${pageTitle}`} />
-<Layout>
-  <section class="hero">
-    <div class="container">
-      <div class="title-header">Business case</div>
-      <h1 class="page-title">{business_case.title}</h1>
-    </div>
-  </section>
+  <Head
+    description={pageDescription}
+    title={`The Plannerist | Business Case | ${pageTitle}`}
+  />
+  <Layout>
+    <Image
+      src={import.meta.env.NODE_ENV === "development"
+        ? import.meta.env.STRAPI_URL + business_case.auditCover.url
+        : business_case.auditCover.url}
+      alt=""
+      class="top-image"
+      quality="high"
+    />
+    <section class="hero">
+      <div class="container">
+        <div class="title-header">Business case</div>
+        <h1 class="page-title">{business_case.title}</h1>
+      </div>
+    </section>
 
-  <section id="contexte">
-    <div class="container">
-      <h2 class="section-title">Contexte</h2>
-      <article>
-        <StrapiBlocks data={business_case.contexte} />
-      </article>
-    </div>
-  </section>
-
-  <section id="audit">
-    <div class="container">
-      <div class="audit-wrapper">
-        <Image src={import.meta.env.NODE_ENV === "development" ? import.meta.env.STRAPI_URL + business_case.auditCover.url : business_case.auditCover.url} alt="" width={800} />
-        <div class="right">
-          <h2 class="section-title">Audit</h2>
+    <section id="contexte">
+      <div class="container">
+        <div class="contexte-wrapper">
           <article>
-            <StrapiBlocks data={business_case.auditDescription} />
+            <h2 class="section-title">Contexte</h2>
+            <StrapiBlocks data={business_case.contexte} />
           </article>
+          <Image
+            src={import.meta.env.NODE_ENV === "development"
+              ? import.meta.env.STRAPI_URL + business_case.cover.url
+              : business_case.cover.url}
+            alt=""
+            class="cover-image"
+            quality="high"
+          />
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="accompagnement">
-    <div class="container">
-      <h2 class="section-title">L'Accompagnement</h2>
-      <div class="accompagnement-wrapper">
-        <div class="column">
-          <h3 class="column-title">Type d'offre &amp; durée</h3>
-          <div class="type-offre">{business_case.accompagnement.typeOffre}</div>
-          <div class="duration">{business_case.accompagnement.duration}</div>
-        </div>
-        <div class="column">
-          <h3 class="column-title">Plan d'Action</h3>
-          <StrapiBlocks data={business_case.accompagnement.planAction} />
-        </div>
-        <div class="column">
-          <h3 class="column-title">Résultats</h3>
-          <h4>Milestones</h4>
-          <StrapiBlocks data={business_case.accompagnement.milestones} />
-          <h4>KPI</h4>
-          <StrapiBlocks data={business_case.accompagnement.KPI} />
+    <section id="audit">
+      <div class="container">
+        <div class="audit-wrapper">
+          <Image
+            src={import.meta.env.NODE_ENV === "development"
+              ? import.meta.env.STRAPI_URL + business_case.auditCover.url
+              : business_case.auditCover.url}
+            alt=""
+            class="cover-image"
+          />
+          <div class="right">
+            <h2 class="section-title">Audit</h2>
+            <article>
+              <StrapiBlocks data={business_case.auditDescription} />
+            </article>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</Layout>
+    </section>
+
+    <section id="accompagnement">
+      <div class="container">
+        <h2 class="section-title">L'Accompagnement</h2>
+        <div class="accompagnement-wrapper">
+          <div class="column">
+            <h3 class="column-title">Type d'offre &amp; durée</h3>
+            <div class="type-offre">
+              {business_case.accompagnement.typeOffre}
+            </div>
+            <div class="duration">{business_case.accompagnement.duration}</div>
+          </div>
+          <div class="column">
+            <h3 class="column-title">Plan d'Action</h3>
+            <StrapiBlocks data={business_case.accompagnement.planAction} />
+          </div>
+          <div class="column">
+            <h3 class="column-title">Résultats</h3>
+            <h4>Milestones</h4>
+            <StrapiBlocks data={business_case.accompagnement.milestones} />
+            <h4>KPI</h4>
+            <StrapiBlocks data={business_case.accompagnement.KPI} />
+          </div>
+        </div>
+      </div>
+    </section>
+  </Layout>
 </html>
 
 <style>
+  .top-image {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+  }
+
   .title-header {
     text-align: center;
   }
   /**************************************************/
+  /**************** CONTEXTE ************************/
+  /**************************************************/
+  #contexte {
+    .contexte-wrapper {
+      display: grid;
+      grid-template-columns: 65ch auto;
+      gap: var(--space-l);
+    }
+
+    .section-title {
+      padding-bottom: var(--space-m);
+      border-bottom: 1px solid var(--text);
+    }
+
+    .cover-image {
+      width: 100%;
+      max-height: 575px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+    }
+  }
+
+  /**************************************************/
   /**************** AUDIT ***************************/
   /**************************************************/
-  .audit-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-l);
+  #audit {
+    .audit-wrapper {
+      display: grid;
+      grid-template-columns: auto 65ch;
+      gap: var(--space-l);
 
-    .right {
+      .cover-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+
       .section-title {
         text-align: left;
+        padding-bottom: var(--space-m);
+        border-bottom: 1px solid var(--text);
       }
     }
   }
@@ -109,9 +176,30 @@ const pageDescription = business_case.description;
   /**************************************************/
   /*************** ACCOMPAGNEMENT *******************/
   /**************************************************/
+  #accompagnement {
+    .section-title {
+      max-width: unset;
+    }
+  }
+  
   .accompagnement-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: var(--space-l);
+    background-color: white;
+    box-shadow: 0px 0px 8px var(--border-color);
+    padding-block: var(--space-l);
+    border-radius: 24px;
+
+    .column {
+      padding-inline: var(--space-m);
+
+      .column-title {
+        text-align: center;
+      }
+    }
+
+    .column:not(:first-child) {
+      border-left: 1px solid var(--border-color);
+    }
   }
 </style>

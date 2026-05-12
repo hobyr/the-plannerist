@@ -8,7 +8,7 @@ import Head from '../../components/Head.astro';
 export const prerender = false
 
 const currentPage = !Astro.url.searchParams.get("page") ? 1 : Number(Astro.url.searchParams.get("page"));
-const pageSize = 12
+const pageSize = 12;
 
 const data = await fetchApi({
 endpoint: 'blogs',
@@ -16,8 +16,8 @@ query: {
 'populate[0]': 'cover',
 'populate[1]': 'categories',
 'sort': 'posted_at:desc',
-'pagination[page]': currentPage,
-'pagination[pageSize]': pageSize,
+'pagination[page]': String(currentPage),
+'pagination[pageSize]': String(pageSize),
 }
 });
 

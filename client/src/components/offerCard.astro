@@ -2,213 +2,179 @@
 import { marked } from 'marked';
 import OSIcon from '../assets/organization.svg';
 import BusinessIcon from '../assets/employees.svg';
+import { Image } from "astro:assets";
 
-const cardContent = {
-  title: "Le Co-pilotage",
-  subtitle: "+6 mois pour gagner des points de marge.",
-  cta: "Prendre un co-pilote",
-  tagline: "Tout _The Plannerist OS_, plus :",
-  details: [
-    {
-      heading: "Pilotage & Décisions",
-      items: [
-        "Weekly Business Review pour analyser les KPI et piloter les priorités",
-        "Arbitrage et priorisation des chantiers stratégiques",
-        "Tableau de bord de performance produit et activité",
-        "Suivi et projection de la trésorerie",
-        "Optimisation continue de la marge et de l'allocation des ressources",
-      ],
-    },
-    {
-      heading: "Optimisation & amélioration continue",
-      items: [
-        "Optimisation continue des process et automatisations",
-        "Identification et résolution des goulots d'étranglement opérationnels",
-        "Amélioration des workflows entre marketing, produit et support",
-        "Mise à jour et enrichissement de la Knowledge Base",
-        "Veille outils et méthodes pour soutenir la croissance",
-      ],
-    },
-    {
-      heading: "Délégation & Structuration de l'équipe",
-      items: [
-        "Management opérationnel d'une équipe d'assistants virtuels",
-        "Coordination des assistants spécialisés : E-commerce, Customer Care, Chef de ProduitCoordination des assistans spécialisés : E-commerce, Customer Care, Chef de Produit",
-        "Reporting structuré et contrôle qualité des missions",
-      ],
-    },
-  ],
-};
+const { cardContent } = Astro.props;
 ---
 
 <div class="card copilotage">
   <header>
     <div class="header-icon">
-      <BusinessIcon />
+      <!-- <Image src={cardContent.icon.src} format="svg" alt="" loading="lazy" /> -->
       <h3 class="card-title">{cardContent.title}</h3>
     </div>
     <div class="card-tagline">{cardContent.subtitle}</div>
     <a
-      href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="button cta"
-      >{cardContent.cta} <span><i class="fa-solid fa-arrow-right"></i></span
+    href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="button cta"
+    >{cardContent.cta} <span><i class="fa-solid fa-arrow-right"></i></span
       ></a
     >
     <div class="modality"><div class="led"></div> 2 places disponibles.</div>
   </header>
   <p set:html={marked.parse(cardContent.tagline)}></p>
   {cardContent.details.map(detail => (
-    <h4>{detail.heading}</h4>
-    <ul class="fa-ul">
-      {detail.items.map(item => (
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
+  <h4>{detail.heading}</h4>
+  <ul class="fa-ul">
+    {detail.items.map(item => (
+    <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span
       >{item}</li>
-      ))}
-    </ul>
+    ))}
+  </ul>
   ))}
 </div>
 
 <style>
-  .card {
-    flex: 1 1 400px;
-    background-color: white;
-    padding: var(--space-xl) var(--space-l) var(--space-s);
-    border-radius: 12px;
-    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
-    border: 1px solid #dadadd;
-    max-width: 35rem;
-    font-size: var(--step-0);
+.card {
+  flex: 1 1 400px;
+  background-color: white;
+  padding: var(--space-xl) var(--space-l) var(--space-s);
+  border-radius: 12px;
+  box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+  border: 1px solid #dadadd;
+  /*max-width: 35rem;*/
+  font-size: var(--step-0);
+}
+
+.card ul {
+  margin-left: var(--space-m);
+}
+
+.card header {
+  border-bottom: 1px solid #dadadd;
+  padding-bottom: var(--space-s);
+  margin-bottom: var(--space-s);
+  position: relative;
+}
+
+.card .header-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: .5rem;
+}
+
+.card svg {
+  --length: 2rem;
+  width: var(--length);
+  height: var(--length);
+  color: var(--text);
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1;
+  /* font-family: "Outfit", sans-serif; */
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.card-tagline {
+  font-size: var(--step-0);
+  font-weight: 200;
+  line-height: 1.15;
+}
+
+.card-price {
+  font-size: var(--step-2);
+  font-weight: 600;
+}
+
+.card-price span {
+  font-size: var(--step-0);
+  color: #909090;
+  font-weight: 300;
+  margin-left: .25rem;;
+}
+
+.card .button {
+  /* width: 100%; */
+  padding-right: .75rem;
+  margin-top: var(--space-s);
+}
+
+.cta i {
+  transform: rotate(-45deg);
+}
+
+.modality {
+  margin-top: var(--space-s);
+  color: #909090;
+}
+
+.copilotage {
+  border: 3px solid var(--bg-color-light);
+  /* box-shadow: 0px 0px 8px 8px var(--bg-color-light); */
+  position: relative;
+}
+
+.copilotage::after {
+  content: "Recommandé";
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: -1rem;
+  background-color: var(--bg-color-light);
+  /* color: var(--bg-color-dark); */
+  color: white;
+  font-weight: 550;
+  height: 2rem;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes glowing {
+  0% {
+    background-color: var(--text);
+    box-shadow: 0px 0px 3px var(--text);
   }
 
-  .card ul {
-    margin-left: var(--space-m);
-  }
-
-  .card header {
-    border-bottom: 1px solid #dadadd;
-    padding-bottom: var(--space-s);
-    margin-bottom: var(--space-s);
-    position: relative;
-  }
-
-  .card .header-icon {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: .5rem;
-  }
-
-  .card svg {
-    --length: 2rem;
-    width: var(--length);
-    height: var(--length);
-    color: var(--text);
-  }
-
-  .card-title {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1;
-    /* font-family: "Outfit", sans-serif; */
-    font-weight: 600;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-  }
-
-  .card-tagline {
-    font-size: var(--step-0);
-    font-weight: 200;
-    line-height: 1.15;
-  }
-
-  .card-price {
-    font-size: var(--step-2);
-    font-weight: 600;
-  }
-
-  .card-price span {
-    font-size: var(--step-0);
-    color: #909090;
-    font-weight: 300;
-    margin-left: .25rem;;
-  }
-
-  .card .button {
-    /* width: 100%; */
-    padding-right: .75rem;
-    margin-top: var(--space-s);
-  }
-
-  .cta i {
-    transform: rotate(-45deg);
-  }
-
-  .modality {
-    margin-top: var(--space-s);
-    color: #909090;
-  }
-
-  .copilotage {
-    border: 3px solid var(--bg-color-light);
-    /* box-shadow: 0px 0px 8px 8px var(--bg-color-light); */
-    position: relative;
-  }
-
-  .copilotage::after {
-    content: "Recommandé";
-    position: absolute;
-    left: 30%;
-    right: 30%;
-    top: -1rem;
+  50% {
     background-color: var(--bg-color-light);
-    /* color: var(--bg-color-dark); */
-    color: white;
-    font-weight: 550;
-    height: 2rem;
-    border-radius: 999px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0px 0px 9px var(--bg-color-light);
   }
 
-  @keyframes glowing {
-    0% {
-      background-color: var(--text);
-      box-shadow: 0px 0px 3px var(--text);
-    }
-
-    50% {
-      background-color: var(--bg-color-light);
-      box-shadow: 0px 0px 9px var(--bg-color-light);
-    }
-
-    100% {
-      background-color: var(--text);
-      box-shadow: 0px 0px 3px var(--text);
-    }
+  100% {
+    background-color: var(--text);
+    box-shadow: 0px 0px 3px var(--text);
   }
-  
-  .led {
-    --length: 12px;
-    width: var(--length);
-    height: var(--length);
-    border-radius: var(--length);
-    animation: glowing 1500ms infinite;
-    display: inline-block;
-    margin-right: var(--space-2xs);
-  }
+}
 
-  .macaron {
-    display: inline-block;
-    margin-left: 1rem;
-    font-size: var(--step--1);
-    letter-spacing: 1px;
-    font-weight: 600;
-    background-color: var(--primary-light);
-    color: var(--primary);
-    padding: .1rem .75rem;;
-    border-radius: 99px;
-  }
+.led {
+  --length: 12px;
+  width: var(--length);
+  height: var(--length);
+  border-radius: var(--length);
+  animation: glowing 1500ms infinite;
+  display: inline-block;
+  margin-right: var(--space-2xs);
+}
+
+.macaron {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: var(--step--1);
+  letter-spacing: 1px;
+  font-weight: 600;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  padding: .1rem .75rem;;
+  border-radius: 99px;
+}
 </style>

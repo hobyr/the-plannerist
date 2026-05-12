@@ -5,7 +5,7 @@ import Journey from "../components/about/Journey.astro";
 import Solution from "../components/about/Solution.astro";
 import Workflow from "../components/about/Workflow.astro";
 import { Image } from "astro:assets";
-import funFact1 from "../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_loisir_tennis.webp";
+import funFact1 from "../assets/images/PHOTOS/The_Plannerist_-_Seheno_Roland_Garros_COO_Externalisée.jpg";
 import funFact2 from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_2.webp";
 import funFact3 from "../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_Newton.webp";
 import LinkedInLogo from "../assets/LI-In-Bug.png";
@@ -57,34 +57,41 @@ const linkedInReviews = [
     <Workflow />
 
     <section id="fun-facts">
-      <div class="container">
-        <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
-        <div class="item-grid">
-          <div class="item">
-            <Image src={funFact1} alt="" width={800} class="fun-fact-image" />
-            <h3>01. J'adore le tennis</h3>
+      <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
+      <div class="item-grid">
+        <div class="item">
+          <Image src={funFact1} alt="" width={800} class="fun-fact-image" />
+          <main>
+            <div class="digit">1</div>
+            <h3>J'adore le tennis</h3>
             <p>
               C'est le seul sport qui me permet d'évacuer et me mettre dans le
-              flow. C'est un sport qui cultive l'esprit stratégique
+              flow. C'est un sport qui cultive l'esprit stratégique.
             </p>
-          </div>
-          <div class="item">
-            <Image src={funFact2} alt="" width={800} class="fun-fact-image" />
-            <h3>02. Je suis une experte en Dad Jokes</h3>
+          </main>
+        </div>
+        <div class="item">
+          <Image src={funFact2} alt="" width={800} class="fun-fact-image" />
+          <main>
+            <div class="digit">2</div>
+            <h3>Je suis une experte en Dad Jokes</h3>
             <p>
               Mon jeu favori est de faire des jeux de mots avec les stations de
               métro ou les villes. Par exemple : s'il y a Billancourt, il y a
               Billanlong ? Voilà.
             </p>
-          </div>
-          <div class="item">
-            <Image src={funFact3} alt="" width={800} class="fun-fact-image" />
-            <h3>03. Je suis la cat mom d'un petit Newton</h3>
+          </main>
+        </div>
+        <div class="item">
+          <Image src={funFact3} alt="" width={800} class="fun-fact-image" />
+          <main>
+            <div class="digit">3</div>
+            <h3>Je suis la cat mom d'un petit Newton</h3>
             <p>
               Ces yeux bleus m'ont fait tellement craquer qu'on a fait 8H de
               route pour le récupérer en Normandie. (True story)
             </p>
-          </div>
+          </main>
         </div>
       </div>
     </section>
@@ -171,46 +178,96 @@ const linkedInReviews = [
   /********************************************************/
   /******************** FUN FACTS *************************/
   /********************************************************/
-  #fun-facts .container {
+  #fun-facts {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .item-grid {
-    position: relative;
     width: 100%;
-    height: 1400px;
+    max-width: 1800px;
     margin-top: var(--space-m);
-    /* border: 2px solid orange; */
+    display: flex;
+    gap: var(--space-s);
+    justify-content: center;
+    align-items: center;
   }
 
   .item {
-    /* border: 3px solid red; */
-    max-width: 35rem;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    max-width: 25rem;
+
+    .fun-fact-image {
+      width: 100%;
+      height: 100%;
+      max-height: 600px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    main {
+      position: relative;
+      background-color: var(--bg-color-light);
+      border-radius: 24px;
+      padding: var(--space-l);
+      z-index: 1;
+
+      .digit {
+        font-size: 170px;
+        font-weight: 700;
+        position: absolute;
+        right: var(--space-l);
+        z-index: -1;
+        color: #b1cde7a0;
+        text-box-trim: trim-both;
+        text-box-edge: cap alphabetic;
+      }
+
+      h3 {
+        color: #2b5d8c;
+        font-weight: 900;
+        margin-top: 0;
+      }
+    }
   }
 
-  .item:nth-of-type(1) {
-    top: 0px;
-    left: 0px;
+  .item:nth-child(1) {
+    flex-direction: column-reverse;
+    
+    main {
+      background-color: var(--primary);
+      color: var(--primary-light);
+      
+      h3 {
+        color: var(--primary-light);
+      }
+
+      .digit {
+        color: #30734C80;
+      }
+    }
+
+    .fun-fact-image {
+      aspect-ratio: 1/1;
+    }
   }
 
-  .item:nth-of-type(2) {
-    top: 200px;
-    right: 0px;
-  }
+  .item:nth-child(3) {
+    main {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      
+      h3 {
+        color: var(--primary);
+      }
 
-  .item:nth-of-type(3) {
-    bottom: 0px;
-    left: 120px;
-  }
-
-  .fun-fact-image {
-    width: 100%;
-    height: 100%;
-    max-height: 600px;
-    object-fit: cover;
+      .digit {
+        color: #D8EAAE;
+      }
+    }
   }
 
   /********************************************************/
@@ -263,13 +320,6 @@ const linkedInReviews = [
       top: 0;
       width: fit-content;
     }
-
-    .review-text {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 5;
-      overflow: hidden;
-    }
   }
 
   /********************************************************/
@@ -288,9 +338,14 @@ const linkedInReviews = [
       align-self: center;
     }
 
+    .cta {
+      margin-top: 3rem;
+    }
+
     .collaboration-cover {
       object-fit: cover;
       width: 100%;
+      border-radius: 36px;
     }
   }
 

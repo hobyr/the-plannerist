@@ -3,7 +3,10 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import fetchApi from '../../lib/strapi';
 import { Image } from 'astro:assets';
+import googleLogo from '../../assets/google_g_icon_download.png';
+import Faq from '../../components/faq.astro';
 import Head from '../../components/Head.astro';
+import { marked } from 'marked';
 
 const structureContent = [
 {
@@ -34,6 +37,66 @@ if (import.meta.env.NODE_ENV === 'development' && item.cover) {
 item.cover.url = import.meta.env.STRAPI_URL + item.cover.url;
 }
 }
+
+const faqContent = [
+  {
+    heading: "Quels bénéfices concrets peut apporter un accompagnement stratégique quand on est solopreneur ou à la tête d’une TPE ?",
+    main: "Même sans équipe, structurer ton organisation et ton suivi change tout : tu gagnes du temps, tu prends de meilleures décisions, tu anticipes au lieu de courir après l’urgence. Ce type d’accompagnement permet de sortir de la confusion et de poser les bases d’une croissance durable.",
+  },
+  {
+    heading: "Comment savoir si mon activité manque de structure ou de direction ?",
+    main: "Tu avances au feeling, tu multiplies les projets sans vision claire, tu sens que tu t’éparpilles… Autant de signaux qui montrent que tu manques d’un vrai cadre pour te recentrer et prioriser. À ce stade, poser une méthode de gestion devient crucial.",
+  },
+  {
+    heading: "Quelle est la différence entre le conseil en pilotage d'entreprise et un coaching classique ?",
+    main: "Le coaching permet surtout de travailler les prises de conscience et le mindset. Ici, on va plus loin : on clarifie tes priorités, on t’aide à structurer concrètement ton activité, et tu repars avec un plan d’action clair. C’est un accompagnement à la fois stratégique et opérationnel, qui te remet dans le siège du pilote, avec des outils concrets et une méthode adaptée à ton business.",
+  },
+  {
+    heading: "Combien ça coûte de se faire accompagner pour mieux gérer son activité ?",
+    main: "Les tarifs varient selon la durée, la profondeur de l’accompagnement et les objectifs visés. Un format ponctuel comme le Call SOS peut déjà t’apporter des clés, tandis qu’un accompagnement sur plusieurs mois permet un vrai travail de fond.",
+  },
+  {
+    heading: "Est-ce que la stratégie commerciale et le marketing sont aussi abordés ?",
+    main: "Oui. Le pilotage efficace ne se limite pas à l’organisation interne : il englobe aussi la vision, la rentabilité, la stratégie commerciale et marketing. L’objectif, c’est d’aligner toutes les composantes de ton business dans une même direction.",
+  },
+]
+
+const googleReviews = [
+  {
+    recommender: "Gwenola Le Ray",
+    date: "2026-03-01",
+    recommendation: "Seheno vous aide à structurer l'activité votre entreprise : mise en place des process, méthodes de pilotage et cadrage projets. Elle est votre experte pour faire passer votre boite à l'étape supérieure en terme de business, rentabilité et efficacité !",
+  },
+  {
+    recommender: "Irma Eyoum",
+    date: "2025-11-01",
+    recommendation:
+    "Je suis extrêmement reconnaissante d'avoir choisi the Plannerist. Travailler avec Seheno a été une vraie révélation pour mon activité photo. Tout au long de l’accompagnement, j’ai été guidée avec clarté, précision et beaucoup de bienveillance. Nous avons construit ensemble un prévisionnel solide, clarifié mes objectifs, défini mes offres et posé les bases de ma stratégie d’entreprise pour bien débuter mon activité.\n\nLa séance m’a apporté de la structure, de la motivation et une vision beaucoup plus sereine de mon projet.\n\nJe recommande vivement son accompagnement à toute personne qui veut développer son activité de manière alignée et professionnelle !",
+  },
+  {
+    recommender: "Kaema",
+    date: "2025-09-01",
+    recommendation:
+      "Je suis absolument ravie de l'intervention de Seheno sur mon entreprise ! Via son accompagnement \"Office Hours\", je vois plus clairement mes objectifs et comment les atteindre. Seheno a été réellement investi dans cette mission et en mettant tout en place pour que se soit fluide pour moi. Hâte de reprendre un prochain créneau !",
+  },
+  {
+    recommender: "Audrey Rossi",
+    date: "2025-08-01",
+    recommendation: "Excellente collaboration avec Seheno qui est une personne très organisée, avec une communication claire et efficace. Nos échanges ont été fluides et agréables. Sa rigueur et sa réactivité ont rendu notre collaboration très plaisante. Je recommande !",
+  },
+  {
+    recommender: "Isaiah French",
+    date: "2025-07-01",
+    recommendation:
+      "Seheno is an exceptional strategist and businesswoman who played a key role in helping me fully fund my debut EP through crowdfunding. She brings a rare blend of creativity, insight, and dedication—consistently going above and beyond to ensure client satisfaction. Seheno crafts highly effective strategies tailored to the audience’s pain points, which she identifies with speed and precision. Her commitment shines through in the way she adapts to her clients' schedules and strikes a thoughtful balance between optimism and realism in her approach. Working with Seheno was a fantastic experience, and I’m confident that her work will leave clients from all walks of life feeling genuinely satisfied and empowered.",
+  },
+  {
+    recommender: "Hoby Ratefy",
+    date: "2025-06-01",
+    recommendation:
+      "Seheno m'a grandement aidé à faire naître et grandir mon entreprise de coaching tennis pour anglophones au Japon, The Rising Court. Malgré mes difficultés à identifier ma clientèle cible et définir mes offres, elle m'a guidé dans la réflexion, et on a avancé sur la planification financière très détaillée. En tant que stratégiste, elle m'a bien guidé sur les bonnes actions (meilleur ROI) à faire, qui ne m'étaient pas forcément évidentes.\n\nJe recommande fortement!",
+  },
+];
 
 const pageDescription = "Besoin de clarté et de structure ? Découvre, à travers des business cases concrets, comment le conseil en pilotage d’entreprise peut transformer ton activité.";
 const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entreprise";
@@ -66,6 +129,14 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
               </div>
             </div>
             )}
+            <div class="case">
+              <header>ET SI C’ÉTAIT VOUS ?</header>
+              <div class="case-content">
+                <h3>Parlez-moi de votre défi</h3>
+                <p>Et voyons comment écrire votre success story.</p>
+                <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">COMMENCER MA TRANSFORMATION <span><i class="fa-solid fa-arrows-rotate"></i></span></a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -104,6 +175,45 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
             </div>
           </div>
           <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Et si ton quotidien pro devenait plus fluide et plus efficace</a>
+        </div>
+      </section>
+
+      <section id="reviews">
+      <div class="container">
+        <h2 class="section-title">
+          Ce que disent les <em>solofounders &amp; les TPE</em> qui ont travaillé
+          avec moi
+        </h2>
+        <div class="reviews-grid">
+          {
+            googleReviews.map((review) => (
+              <div class="review-card">
+                <header>
+                  <h3 class="review-reviewer-name">{review.recommender}</h3>
+                  <h4 class="review-reviewer-title">{Intl.DateTimeFormat("fr-FR", {year: "numeric", month: "long"}).format(new Date(review.date))}</h4>
+                  <Image
+                    src={googleLogo}
+                    alt="LinkedIn logo"
+                    height={200}
+                    loading="lazy"
+                    class="google-logo"
+                  />
+                </header>
+                <p set:html={marked.parse(review.recommendation)}class="review-text" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+      
+      <section id="faq">
+        <div class="container">
+          <h2 class="section-title">FAQ</h2>
+          <div class="faq-wrapper">
+            <Faq faqContent={faqContent} />
+          </div>
+          <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">On commence quand ?</a>
         </div>
       </section>
     </Layout>
@@ -146,7 +256,7 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
   #business-cases {
     .case-wrapper {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
       gap: var(--space-l);
       width: 100%;
 
@@ -157,6 +267,10 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
         box-shadow: 0px 0px 8px #dadada;
         display: flex;
         flex-direction: column;
+      }
+
+      .case-cover {
+        max-height: 300px;
       }
 
       .case-content {
@@ -184,9 +298,25 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
         width: 100%;
         object-fit: cover;
       }
+
+      .case:last-child {
+        header {
+          background-color: var(--text);
+          color: white;
+          height: 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-size: var(--step-1);
+        }
+      }
     }
   }
 
+  /**********************************************************/
+  /********************** MERITS ****************************/
+  /**********************************************************/
   #merits {
     .item-wrapper {
       display: flex;
@@ -204,5 +334,77 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
       padding-inline: var(--space-m);
     }
   }
-</style>
 
+  /********************************************************/
+  /******************** REVIEWS ***************************/
+  /********************************************************/
+  #reviews .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .reviews-grid {
+      display: grid;
+      gap: var(--space-l);
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      margin-bottom: var(--space-l);
+    }
+
+    .review-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
+      padding-inline: var(--space-m);
+
+      header {
+        position: relative;
+      }
+    }
+
+    .review-reviewer-name {
+      font-family: "Outfit", sans-serif;
+      font-size: var(--step-0);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .review-reviewer-title {
+      font-size: var(--step--1);
+      font-weight: 200;
+      color: #808080;
+      margin-top: 0.15rem;
+      max-width: 70%;
+    }
+
+    .google-logo {
+      
+      height: 2.5rem;
+      object-fit: contain;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: fit-content;
+    }
+
+  }
+
+  /*******************************************************/
+  /********************** FAQ ****************************/
+  /*******************************************************/
+  #faq {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .faq-wrapper {
+      background-color: white;
+      padding: var(--space-l);
+      box-shadow: 0px 0px 8px #dadada;
+      border-radius: 24px;
+      margin-bottom: var(--space-l);
+    }
+  }
+</style>

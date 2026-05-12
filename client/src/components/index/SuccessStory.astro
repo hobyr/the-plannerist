@@ -17,8 +17,8 @@ import QuoteIcon from '../../assets/quote.svg';
     </header>
     <div class="portrait-grid">
       <Image src={florie} alt="" width={800} height={450} class="item story-portrait" />
-      <div class="item metric"><span>+130%</span>de chiffre d'affaires</div>
-      <div class="item metric"><span>8 mois</span>Atteinte de la rentabilité</div>
+      <div class="item metric">+130% <span>chiffre d'affaires</span></div>
+      <div class="item metric">8 mois <span>Atteinte de la rentabilité</span></div>
       <div class="item quote">
         <QuoteIcon />
         <p>Seheno a été bien plus qu'une simple collaboratrice, elle a été un bras droit. Très perspicace et vive d'esprit dans son travail, elle a apporté de l'efficacité dans nos process et de la clarté dans les chiffres. Ses expéreriences précédentes et sa fibre marketing sont un plus dans les stratégies commerciales. C'est une leader en qui on peut avoir confiance à 1000% et qui donne le meilleur d'elle même. Elle est for sure un point fort dans une équipe.</p>
@@ -122,11 +122,15 @@ import QuoteIcon from '../../assets/quote.svg';
     flex-direction: column;
     align-items: flex-start;
     padding: var(--space-m);
+    font-size: var(--step-5);
+    font-weight: 600;
   }
 
   .metric span {
-    font-size: var(--step-5);
-    font-weight: 600;
+    font-size: var(--step-2);
+    font-weight: 400;
+    line-height: 95%;
+    margin-top: 1.2rem;
   }
 
   .quote {
