@@ -386,35 +386,82 @@ const faqContent = [
       <div class="livrables">
         <div>
           <h2>Les Livrables</h2>
-          <h3>Operations</h3>
-          <ul>
+          <h3>Opérations</h3>
+          <ul class="fa-ul">
             <li>
-              Tableaux Asana par département Marketing, Commercial, Finance,
-              RH…)
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >
+              Tableaux Asana par département Marketing, Commercial, Finance, RH…)
             </li>
-            <li>Templates de process et checklists prêts à l'emploi</li>
             <li>
-              Automatisations de tâches et workflows (leads entrants, relances,
-              assignations...)
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Templates de process et checklists prêts à l'emploi
             </li>
-            <li>Base de connaissances par département centralisée sur Asana</li>
-            <li>Création & Mise à jour d’une Knowledge Base</li>
-            <li>Installation, connexion et synchronisation des outils</li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >
+              Automatisations de tâches et workflows (leads entrants, relances, assignations...)
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Base de connaissances par département centralisée sur Asana
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Création & Mise à jour d’une Knowledge Base
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Installation, connexion et synchronisation des outils
+            </li>
           </ul>
           <h3>Pilotage</h3>
-          <ul>
-            <li>Weekly Recap des avancées</li>
-            <li>Suivi des priorisations et échéances</li>
-            <li>Process d'escalade et gestion des urgences</li>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Weekly Recap des avancées
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Suivi des priorisations et échéances
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Process d'escalade et gestion des urgences
+            </li>
           </ul>
           <h3>Performance</h3>
-          <ul>
-            <li>Mise en place des OKR et de la roadmap dans Asana</li>
-            <li>Monthly Performance recap</li>
+          <ul class="fa-ul">
             <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Mise en place des OKR et de la roadmap dans Asana
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Monthly Performance recap
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >
               Construction et suivi de tableaux de bord dans Looker Studio
             </li>
-            <li>Construction et suivi d’un budget prévisionnel</li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Construction et suivi d’un budget prévisionnel
+            </li>
           </ul>
         </div>
         <Image src="" alt="" />
@@ -617,8 +664,13 @@ const faqContent = [
     <style>
       .section-heading {
         font-size: var(--step--1);
+        font-family: var(--font-google-sans-flex);
         text-transform: uppercase;
-        font-weight: 680;
+        font-weight: 600;
+      }
+
+      h3 {
+        font-family: var(--font-instrument-serif);
       }
 
       .container {
@@ -721,6 +773,7 @@ const faqContent = [
         .timeline {
           position: relative;
           width: 100%;
+          margin-block: var(--space-m);
 
           .background {
             position: absolute;
@@ -755,7 +808,7 @@ const faqContent = [
               border: 1px solid var(--text);
               border-radius: 300px;
               padding-block: 0.5rem;
-              background-color: var(--neutral);
+              background-color: white;
               text-align: center;
               display: flex;
               justify-content: center;

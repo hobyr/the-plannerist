@@ -162,24 +162,24 @@ body {
 }
 
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-outfit);
   font-weight: 300;
   font-size: var(--step-0);
   letter-spacing: -0.2px;
-  background-color: var(--neutral);
   color: var(--text);
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Ivy Presto", serif;
-  font-weight: 100;
+  font-family: var(--font-oswald);
+  font-weight: 300;
   line-height: 1;
+  margin-block: var(--space-xs);
 }
 
 h1 {
@@ -196,6 +196,7 @@ h3 {
 
 p {
   line-height: 1.35;
+  margin-block: var(--space-s);
 }
 
 
