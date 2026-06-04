@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
 
@@ -13,4 +13,24 @@ export default defineConfig({
   adapter: netlify(),
   site: "https://theplannerist.com",
   integrations: [partytown({ config: { forward: ['dataLayer.push'] } }), sitemap()],
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "Google Sans Flex",
+      cssVariable: "--font-google-sans-flex",
+      weights: [400, 500, 600],
+    }, 
+    {
+      provider: fontProviders.fontsource(),
+      name: "Instrument Serif",
+      cssVariable: "--font-instrument-serif",
+      weights: [200, 300, 400, 500, 600],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Outfit",
+      cssVariable: "--font-outfit",
+      weights: [200, 300, 400, 500]
+    },
+  ],
 });
