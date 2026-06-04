@@ -1,35 +1,712 @@
 ---
-import Welcome from '../components/index/Welcome.astro';
-import Identification from '../components/index/Identification.astro';
-import Explainer from '../components/index/Explainer.astro';
-import Offers from '../components/index/Offers.astro';
-import Profile from '../components/index/Profile.astro';
-import Tools from '../components/index/Tools.astro';
-import SuccessStory from '../components/index/SuccessStory.astro';
-import Blog from '../components/index/Blog.astro';
-import Contact from '../components/index/Contact.astro';
-import Layout from '../layouts/Layout.astro';
-import '../styles/global.css';
-import Head from '../components/Head.astro';
-const pageDescription = "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
+import Welcome from "../components/index/Welcome.astro";
+import Identification from "../components/index/Identification.astro";
+import Explainer from "../components/index/Explainer.astro";
+import Offers from "../components/index/Offers.astro";
+import Profile from "../components/index/Profile.astro";
+import Tools from "../components/index/Tools.astro";
+import SuccessStory from "../components/index/SuccessStory.astro";
+import Blog from "../components/index/Blog.astro";
+import Contact from "../components/index/Contact.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import Head from "../components/Head.astro";
+import { Image } from "astro:assets";
+import visual_1 from "../assets/images/Visuel_1_-_Aspiration_client.png";
+import visual_2 from "../assets/images/Visuel_2_-_Aspiration_client.png";
+import visual_3 from "../assets/images/Visuel_3_-_Aspiration_client.png";
+const pageDescription =
+  "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
 const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
+
+const locale = "fr-FR";
+const currency = "EUR";
+const price = Intl.NumberFormat(locale, {
+  style: "currency",
+  currency: currency,
+  maximumFractionDigits: 0,
+}).format(2950);
+const price_2 = Intl.NumberFormat(locale, {
+  style: "currency",
+  currency: currency,
+  maximumFractionDigits: 0,
+}).format(4500);
+import OSIcon from "../assets/organization.svg";
+import BusinessIcon from "../assets/employees.svg";
+import Faq from "../components/faq.astro";
+const faqContent = [
+  {
+    heading: "Qu'est-ce qu'une Chief Operating Officer externalisée ?",
+    main: "Le COO (Chief Operating Officer), ou Directeur des Opérations, est responsable du bon fonctionnement quotidien de l'entreprise. Là où le dirigeant définit la vision, les objectifs et la direction à suivre, le COO s'assure que l'organisation est capable de les atteindre concrètement.\n\nSon rôle consiste notamment à :\n- Structurer les opérations pour que l'activité ne repose pas uniquement sur le dirigeant.\n- S'assurer que chaque collaborateur dispose des bonnes informations, des bons outils et des bons processus pour travailler efficacement.\n- Aider les managers à piloter leur équipe grâce à des indicateurs pertinents plutôt qu'au micro-management.\n- Fluidifier la circulation de l'information entre les équipes afin d'éviter les erreurs, les doublons et les pertes de temps.\n- Identifier les points de friction qui ralentissent l'entreprise et mettre en place des solutions adaptées.\n- Prioriser les projets et veiller à leur bonne exécution.\n- Suivre les indicateurs clés pour permettre une prise de décision rapide et éclairée.\n\nL'objectif n'est pas simplement que l'entreprise \"tourne\". Un bon COO s'assure que les opérations contribuent réellement à la rentabilité de l'entreprise : moins de temps perdu, moins d'erreurs, de meilleures décisions et une organisation capable de soutenir la croissance tout en préservant les marges."
+  },
+  {
+    heading: "Quelle est la différence entre un COO et un OBM ?",
+    main: "Un OBM (Online Business Manager) intervient généralement sur la coordination opérationnelle d'une activité. Son rôle est souvent centré sur l'organisation quotidienne, le suivi des projets, la coordination des prestataires et la mise en œuvre des actions décidées par le dirigeant.\n\nLe COO (Chief Operating Officer) intervient à un niveau plus global et plus stratégique.\nAu-delà de la gestion opérationnelle, il s'assure que l'ensemble de l'entreprise est structuré pour atteindre ses objectifs de croissance et de rentabilité. Il travaille sur l'organisation des équipes, les processus, les indicateurs de performance, l'allocation des ressources, les responsabilités, la prise de décision et les priorités de l'entreprise.\n\nConcrètement :\n- Un OBM aide l'entreprise à mieux exécuter.\n- Un COO s'assure que l'entreprise exécute les bonnes choses, de la bonne manière, avec la bonne structure pour soutenir sa croissance.\n\nLà où un OBM est souvent impliqué dans la coordination quotidienne des opérations, un COO agit davantage comme un bras droit du dirigeant. Il apporte une vision transversale de l'entreprise et veille à ce que les équipes, les processus, les outils et les indicateurs fonctionnent ensemble pour atteindre les objectifs de l'entreprise.\n\nDans certaines structures, les missions peuvent se recouper. La principale différence réside généralement dans le niveau de responsabilité, le périmètre d'intervention et l'implication dans les décisions de pilotage de l'entreprise."
+  },
+  {
+    heading: "Mon entreprise a-t-elle vraiment besoin d'un COO à temps partagé ?",
+    main: "Tout dépend le stade de maturité de ton entreprise.\n\nMais si vous avez l'impression que votre entreprise dépend encore fortement de vous pour avancer, un COO peut devenir un véritable levier de croissance.\n\nC'est souvent le cas lorsque :\n- Vous êtes impliqué dans la majorité des décisions importantes.\n- Votre équipe attend régulièrement votre validation pour avancer.\n- Vous partez en vacances, mais passez les semaines précédentes à tout anticiper.\n- Vous revenez systématiquement avec une accumulation de sujets en attente.\n- Les projets ralentissent dès que votre attention est mobilisée ailleurs.\n- Vous manquez de visibilité sur les priorités ou les performances de l'entreprise.\n- Vous avez le sentiment de porter une grande partie de la charge mentale de l'activité.\n- Le problème n'est pas nécessairement que l'entreprise ne peut pas fonctionner sans vous. Le problème est qu'elle continue à dépendre de vous pour arbitrer, prioriser, débloquer et coordonner.\n- Le rôle du COO est de mettre en place l'organisation, les responsabilités, les processus et les outils de pilotage qui permettent à l'entreprise d'avancer de manière plus autonome.\n\nL'objectif n'est pas d'écarter le dirigeant des opérations, mais de faire en sorte que son temps soit consacré aux décisions qui créent réellement de la valeur, plutôt qu'à gérer en permanence les urgences du quotidien."
+  },
+  {
+    heading: "Pourquoi faire appel à une COO externalisée ?",
+    main: "À mesure qu'une entreprise se développe, son fonctionnement se complexifie naturellement : davantage de clients, plus de projets, plus d'outils, parfois une équipe qui s'agrandit et des décisions de plus en plus nombreuses à prendre.\n\nPour autant, toutes les entreprises n'ont pas besoin d'un COO à temps plein. Recruter un profil senior représente un investissement important qui n'est pas toujours justifié pour une TPE, une PME ou une marque en croissance. Dans bien des cas, le besoin principal est d'abord de structurer l'organisation, clarifier les responsabilités, améliorer les processus et mettre en place les bons outils de pilotage.\n\nC'est précisément là qu'intervient un COO externalisé.\n\nSon rôle est d'aider l'entreprise à gagner en efficacité, en visibilité et en sérénité, sans alourdir inutilement sa structure de coûts. Il accompagne la mise en place d'une organisation capable de soutenir l'activité aujourd'hui, mais aussi sa croissance future.\nChez The Plannerist, nous sommes convaincus qu'une entreprise n'a pas besoin de devenir un groupe de 500 collaborateurs pour mériter une organisation solide. Une TPE ou une PME peut parfaitement se développer, améliorer sa rentabilité et offrir un meilleur cadre de travail à ses équipes grâce à une structure adaptée à sa réalité.\n\nL'objectif n'est pas de créer de la complexité. Au contraire : il s'agit de construire une entreprise plus fluide, plus autonome et plus rentable, avec le niveau d'organisation dont elle a réellement besoin."
+  },
+  {
+    heading: "Qu'est-ce qu'une Chief Operating Officer externalisée ?",
+    main: "Une COO externalisée intervient sur l’ensemble des sujets qui permettent à une entreprise de mieux fonctionner au quotidien, de gagner en clarté et de soutenir sa croissance sans désorganisation.\n\nSon rôle n’est pas d’ajouter des couches de complexité, mais de rendre l’entreprise plus fluide, plus lisible et plus efficace.\nConcrètement, ses missions couvrent généralement :\n\n### 1. Structuration de l’organisation\nClarification des rôles, des responsabilités et du fonctionnement interne pour éviter les zones grises, les doublons et la dépendance systématique au dirigeant.\n\n### 2. Pilotage des opérations\nSuivi du quotidien opérationnel pour s’assurer que les projets avancent, que les priorités sont respectées et que les ressources sont correctement utilisées.\n\n### 3. Optimisation des processus\nMise en place ou amélioration des processus internes pour réduire les pertes de temps, les erreurs et les frictions entre équipes ou prestataires.\n\n### 4. Gestion de projet et coordination\nOrganisation et suivi des projets clés de l’entreprise afin de garantir leur bonne exécution, dans les délais et avec un niveau de qualité cohérent.\n\n### 5. Outils et circulation de l’information\nStructuration des outils (gestion de projet, CRM, reporting, communication interne) pour que chacun dispose des bonnes informations au bon moment.\n\n### 6. Suivi des indicateurs de performance\nMise en place de KPI simples et utiles pour piloter l’activité et permettre une prise de décision basée sur des données concrètes, et non sur l’intuition seule.\n\n### 7. Fluidité entre vision et exécution\nTraduction des décisions du dirigeant en actions concrètes pour éviter le décalage entre stratégie et réalité terrain.\n\nL’objectif final est simple : faire en sorte que l’entreprise fonctionne mieux sans dépendre en permanence du dirigeant, tout en améliorant la rentabilité et la capacité de croissance."
+  },
+  {
+    heading: "Comment se déroule l’accompagnement au sein de l'entreprise ?",
+    main: "L’accompagnement commence par une phase de diagnostic approfondi de votre entreprise : organisation, offres, acquisition, fonctionnement interne, indicateurs de performance et points de friction.\n\nL’objectif est d’obtenir une vision claire de ce qui freine la croissance et de ce qui peut être optimisé rapidement ou structurellement.\n\nÀ partir de cette analyse, nous définissons ensemble les priorités et une feuille de route opérationnelle.\nSelon le format choisi, l’accompagnement peut ensuite prendre plusieurs formes :\n\n- des weekly checkup avec le dirigeant\n- mise en place d’outils et d’automatisations\n- un suivi des projets clés et de leur mise en œuvre dans Asana\n- mise en place de formations & knowledge base pour faciliter la mise en place des ajustements en continu selon l’évolution de l’activité.\n\nVous avancez avec un cadre clair, des décisions priorisées et un pilotage qui vous permet de sortir de l’opérationnel submergent pour vous recentrer sur la direction de votre entreprise."
+  },
+  {
+    heading: "Que se passe-t-il à la fin de l'accompagnement ?",
+    main: "L'objectif d'une mission de COO externalisé n'est pas de rester indéfiniment dans l'entreprise.\n\nTout au long de l'accompagnement, les processus, outils, méthodes de pilotage et responsabilités sont documentés et intégrés aux habitudes de travail de l'équipe. L'objectif est que l'organisation continue de fonctionner efficacement sans dépendre de ma présence au quotidien.\n\nÀ la fin de la mission, l'entreprise dispose généralement :\n- D'une organisation plus claire et mieux structurée.\n- De processus documentés et adoptés par les équipes.\n- D'outils de pilotage adaptés à ses besoins.\n- D'indicateurs permettant de suivre la performance et de prendre des décisions éclairées.\n- D'une meilleure répartition des responsabilités et d'une plus grande autonomie des équipes.\n\nPour les entreprises qui le souhaitent, un suivi mensuel peut également être mis en place après la mission. Ces rendez-vous permettent de prendre du recul, suivre les indicateurs clés, ajuster certains processus si nécessaire et s'assurer que l'entreprise reste sur la bonne trajectoire à mesure qu'elle évolue. Ce format de suivi est proposé à des conditions préférentielles aux entreprises ayant déjà bénéficié d'un accompagnement.\n\nLe succès d'une mission ne se mesure pas à la durée de l'accompagnement, mais à la capacité de l'entreprise à continuer d'avancer efficacement après celui-ci."
+  },
+  {
+    heading: "Est-ce que le COO fait de l'opérationnel ?",
+    main: "Oui, mais son rôle n'est pas d'exécuter les tâches opérationnelles à la place des équipes.\n\nLe COO intervient principalement pour structurer, coordonner et améliorer les opérations afin qu'elles fonctionnent de manière plus fluide et plus efficace.\n\nConcrètement, il peut participer à la mise en place d'un nouvel outil, définir un processus, coordonner un projet transverse, animer des réunions de pilotage ou accompagner les équipes dans l'adoption de nouvelles méthodes de travail.\n\nEn revanche, il n'a pas vocation à devenir gestionnaire de commandes, responsable du service client, traffic manager ou chef de projet permanent au sein de l'entreprise.\n\nSon objectif est de construire un fonctionnement durable, pas de remplacer les équipes existantes.\n\nChez The Plannerist, l'accompagnement est centré sur le pilotage, l'organisation et l'amélioration continue. L'objectif est d'aider l'entreprise à gagner en autonomie, en efficacité et en rentabilité, tout en permettant au dirigeant de se concentrer davantage sur les sujets à forte valeur ajoutée."
+  },
+  {
+    heading: "Y a-t-il un engagement minimum ?",
+    main: "Oui, mais son rôle n'est pas d'exécuter les tâches opérationnelles à la place des équipes.\n\nLe COO intervient principalement pour structurer, coordonner et améliorer les opérations afin qu'elles fonctionnent de manière plus fluide et plus efficace.\n\nConcrètement, il peut participer à la mise en place d'un nouvel outil, définir un processus, coordonner un projet transverse, animer des réunions de pilotage ou accompagner les équipes dans l'adoption de nouvelles méthodes de travail.\n\nEn revanche, il n'a pas vocation à devenir gestionnaire de commandes, responsable du service client, traffic manager ou chef de projet permanent au sein de l'entreprise.\n\nSon objectif est de construire un fonctionnement durable, pas de remplacer les équipes existantes.\n\nChez The Plannerist, l'accompagnement est centré sur le pilotage, l'organisation et l'amélioration continue. L'objectif est d'aider l'entreprise à gagner en autonomie, en efficacité et en rentabilité, tout en permettant au dirigeant de se concentrer davantage sur les sujets à forte valeur ajoutée."
+  },
+  {
+    heading: "Est-ce que vous intervenez en présentiel ?",
+    main: "Oui, lorsque cela apporte une réelle valeur à la mission.\n\nLa majorité des échanges et du suivi sont réalisés à distance, ce qui permet d'accompagner efficacement des entreprises partout en France.\n\nDes journées ou demi-journées en présentiel peuvent être organisées pour certaines étapes clés : immersion dans l'entreprise, ateliers de travail, réunions d'équipe, séminaires ou lancement de projets.\nCes interventions sur site font l'objet d'une prestation complémentaire et d'un devis adapté en fonction de la localisation, du temps d'intervention et des éventuels frais de déplacement.\n\nL'objectif est de proposer le format le plus pertinent pour l'entreprise, sans imposer de coûts supplémentaires lorsque le distanciel est suffisant."
+  }
+]
 ---
 
 <!doctype html>
 <html lang="en">
   <Head description={pageDescription} title={pageTitle} />
   <Layout>
-    <Welcome />
-    <Identification />
-    <Explainer />
-    <Offers />
-    <Profile />
-    <Tools />
-    <SuccessStory />
-    <Blog />
-    <Contact />
-  </Layout>
-</html>
+    <section class="container index-intro">
+      <h2 class="section-heading">Accompagnement pilotage d'entreprise</h2>
+      <h3>
+        90 jours pour transformer ton organisation en levier de rentabilité avec
+        un COO externalisé
+      </h3>
+      <p>
+        On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et
+        fluidifier ton "day-to-day".
+      </p>
+    </section>
 
-<style>
-</style>
+    <section class="container index-methodology">
+      <h2 class="section-heading">La méthodologie</h2>
+      <h3>3 mois pour reprendre le contrôle de ta boîte.</h3>
+      <p>
+        On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et
+        fluidifier ton "day-to-day".
+      </p>
+      <div class="timeline">
+        <div class="background">
+          <div class="boxes">S1</div>
+          <div class="boxes">S2</div>
+          <div class="boxes">S3</div>
+          <div class="boxes">S4</div>
+          <div class="boxes">S5</div>
+          <div class="boxes">S6</div>
+          <div class="boxes">S7</div>
+          <div class="boxes">S8</div>
+          <div class="boxes">S9</div>
+          <div class="boxes">S10</div>
+          <div class="boxes">S11</div>
+          <div class="boxes">S12</div>
+        </div>
+        <div class="steps">
+          <div class="item">
+            Audit
+            <div class="explainer">HELLO WORLD</div>
+          </div>
+          <div class="item">
+            Transformation
+            <div class="explainer">HELLO WORLD</div>
+          </div>
+          <div class="item">
+            Suivi
+            <div class="explainer">HELLO WORLD</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container index-pillars">
+      <h2 class="section-heading">Les piliers de l'accompagnement</h2>
+      <h3>Les 3 objectifs de l'accompagnement The Plannerist</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="keyword">Organisation</div>
+          <div class="number">1</div>
+          <h3>Reprends le contrôle de ton agenda</h3>
+          <p>
+            <strong>Ton rôle n'est pas d'être partout, mais de décider</strong>.
+            En structurant l'organisation et les responsabilités, ton entreprise
+            avance sans dépendre de ta présence permanente. Tu retrouves du
+            temps pour prendre du recul et diriger.
+          </p>
+          <Image src={visual_1} height={320} class="visual" alt="" />
+        </div>
+        <div class="card">
+          <div class="keyword">Responsabilisation</div>
+          <div class="number">2</div>
+          <h3>Pilotes l'activité sans micro-management</h3>
+          <p>
+            <strong
+              >Gardes une vision claire des priorités, des projets et de
+              l'avancement des équipes</strong
+            >. Les rôles sont définis, les informations circulent et chacun sait
+            ce qu'il doit livrer, sans que tu aies à vérifier chaque détail.
+          </p>
+          <Image src={visual_2} height={320} class="visual" alt="" />
+        </div>
+        <div class="card">
+          <div class="keyword">Visibilité</div>
+          <div class="number">3</div>
+          <h3>Décides avec des chiffres, pas des intuitions</h3>
+          <p>
+            <strong
+              >Accèdes aux bons indicateurs pour comprendre ce qui fonctionne
+              réellement dans ton entreprise</strong
+            >. Chiffre d'affaires, rentabilité, performance commerciale : tu
+            disposes d'une lecture claire pour orienter tes décisions et
+            sécuriser ta croissance.
+          </p>
+          <Image src={visual_3} height={320} class="visual" alt="" />
+        </div>
+      </div>
+      <a
+        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button cta"
+        >Discuter de tes besoins avec moi<span
+          ><i class="fa-solid fa-user-check"></i></span
+        ></a
+      >
+    </section>
+
+    <section class="container index-formats">
+      <h2 class="section-heading">Les Formats</h2>
+      <h3>Des formats adaptés en fonction de tes objectifs</h3>
+      <p>
+        Deux approches selon que l'enjeu principal soit l'organisation
+        opérationnelle ou l'optimisation de la performance.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <header>
+            <div class="header-icon">
+              <OSIcon />
+              <h3 class="card-title">The Plannerist OS</h3>
+            </div>
+            <div class="card-tagline">
+              3 mois pour remettre de l'ordre dans ton activité.
+            </div>
+            <a
+              href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button cta"
+              >Mettre en place mon OS <span
+                ><i class="fa-solid fa-arrow-right"></i></span
+              ></a
+            >
+            <div class="modality">Paiement en 3 fois possible.</div>
+          </header>
+          <p>L'indispensable pour la gestion de projet :</p>
+          <h4>Structuration de votre organisation</h4>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Workspace Asana organisé par pôles (Finance, Marketing, Produit,
+              etc.)
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Roadmap Asana avec objectifs clairs et priorités définies
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Répartition des responsabilités et deadlines
+            </li>
+          </ul>
+          <h4>Standardisation &amp; optimisation opérationnelle</h4>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Process clés templarisés sur Asana
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Checklists pour réduire erreurs et pertes de temps
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Automatisations (logistique, reporting, post-achat, leads, etc.)
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Mise à jour et enrichissement de la Knowledge Base<div
+                class="macaron"
+              >
+                OFFERT
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card copilotage">
+          <header>
+            <div class="header-icon">
+              <BusinessIcon />
+              <h3 class="card-title">Le Co-pilotage</h3>
+            </div>
+            <div class="card-tagline">
+              +6 mois pour gagner des points de marge.
+            </div>
+            <a
+              href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button cta"
+              >Prendre un co-pilote <span
+                ><i class="fa-solid fa-arrow-right"></i></span
+              ></a
+            >
+            <div class="modality">
+              <div class="led"></div> 2 places disponibles.
+            </div>
+          </header>
+          <!-- <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p> -->
+          <p>Tout The Plannerist OS, plus :</p>
+          <h4>Pilotage &amp; Décisions</h4>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Weekly Business Review pour analyser les KPI et piloter les
+              priorités
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Arbitrage et priorisation des chantiers stratégiques
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Tableau de bord de performance produit et activité
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Suivi et projection de la trésorerie
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Optimisation continue de la marge et de l'allocation des
+              ressources
+            </li>
+          </ul>
+          <h4>Optimisation &amp; amélioration continue</h4>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Optimisation continue des process et automatisations
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Identification et résolution des goulots d'étranglement
+              opérationnels
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Amélioration des workflows entre marketing, produit et support
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Mise à jour et enrichissement de la Knowledge Base<div
+                class="macaron"
+              >
+                OFFERT
+              </div>
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Veille outils et méthodes pour soutenir la croissance
+            </li>
+          </ul>
+          <h4>Délégation &amp; Structuration de l'équipe</h4>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Management opérationnel d'une équipe d'assistants virtuels
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Coordination des assistans spécialisés : E-commerce, Customer
+              Care, Chef de Produit
+            </li>
+            <li>
+              <span class="fa-li"
+                ><i class="fa-regular fa-circle-check"></i></span
+              >Reporting structuré et contrôle qualité des missions
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container index-vision">
+      <h2 class="section-heading">Notre petit plus</h2>
+      <h3>Une vision transverse de l'activité</h3>
+      <p>
+        Des opérations efficaces ne se construisent pas sans prendre en compte
+        l’intégralité de l’entreprise (enjeux financiers, marketing, RH, etc.)
+      </p>
+      <div class="livrables">
+        <div>
+          <h2>Les Livrables</h2>
+          <h3>Operations</h3>
+          <ul>
+            <li>
+              Tableaux Asana par département Marketing, Commercial, Finance,
+              RH…)
+            </li>
+            <li>Templates de process et checklists prêts à l'emploi</li>
+            <li>
+              Automatisations de tâches et workflows (leads entrants, relances,
+              assignations...)
+            </li>
+            <li>Base de connaissances par département centralisée sur Asana</li>
+            <li>Création & Mise à jour d’une Knowledge Base</li>
+            <li>Installation, connexion et synchronisation des outils</li>
+          </ul>
+          <h3>Pilotage</h3>
+          <ul>
+            <li>Weekly Recap des avancées</li>
+            <li>Suivi des priorisations et échéances</li>
+            <li>Process d'escalade et gestion des urgences</li>
+          </ul>
+          <h3>Performance</h3>
+          <ul>
+            <li>Mise en place des OKR et de la roadmap dans Asana</li>
+            <li>Monthly Performance recap</li>
+            <li>
+              Construction et suivi de tableaux de bord dans Looker Studio
+            </li>
+            <li>Construction et suivi d’un budget prévisionnel</li>
+          </ul>
+        </div>
+        <Image src="" alt="" />
+      </div>
+    </section>
+
+    <section class="container index-successes">
+      <h2 class="section-heading">ils nous ont fait confiance</h2>
+      <h3>Ils ont transformé leur entreprise avec The Plannerist</h3>
+      <div class="carousel">
+        <div class="success-card">
+          <Image src="" alt="" />
+          <p>
+            Florie de MyBlueprintVF a débloqué sa croissance en <b
+              >structurant son activité</b
+            >, <b>en déléguant efficacement</b> et en mettant en place des <b
+              >process clairs</b
+            >.
+          </p>
+          <div class="metric">
+            <header>+20% YTD</header>
+            <main>Marge (2025 vs. 2026)</main>
+          </div>
+          <div class="metric">
+            <header>Année 1</header>
+            <main>Atteinte de la rentabilité</main>
+          </div>
+          <div class="review">
+            <blockquote>
+              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+              bras droit. Très perspicace et vive d'esprit dans son travail,
+              elle a apporté de l'efficacité dans nos process et de la clarté
+              dans les chiffres. Ses expéreriences précédentes et sa fibre
+              marketing sont un plus dans les stratégies commerciales. C'est une
+              leader en qui on peut avoir confiance à 1000% et qui donne le
+              meilleur d'elle même. Elle est for sure un point fort dans une
+              équipe.
+            </blockquote>
+            <p>Hoby Ratefy, fondateur de The Rising Court</p>
+          </div>
+          <a href="">Voir l’étude de cas</a>
+        </div>
+        <div class="success-card">
+          <Image src="" alt="" />
+          <p>
+            Florie de MyBlueprintVF a débloqué sa croissance en <b
+              >structurant son activité</b
+            >, <b>en déléguant efficacement</b> et en mettant en place des <b
+              >process clairs</b
+            >.
+          </p>
+          <div class="metric">
+            <header>+20% YTD</header>
+            <main>Marge (2025 vs. 2026)</main>
+          </div>
+          <div class="metric">
+            <header>Année 1</header>
+            <main>Atteinte de la rentabilité</main>
+          </div>
+          <div class="review">
+            <blockquote>
+              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+              bras droit. Très perspicace et vive d'esprit dans son travail,
+              elle a apporté de l'efficacité dans nos process et de la clarté
+              dans les chiffres. Ses expéreriences précédentes et sa fibre
+              marketing sont un plus dans les stratégies commerciales. C'est une
+              leader en qui on peut avoir confiance à 1000% et qui donne le
+              meilleur d'elle même. Elle est for sure un point fort dans une
+              équipe.
+            </blockquote>
+            <p>Hoby Ratefy, fondateur de The Rising Court</p>
+          </div>
+          <a href="">Voir l’étude de cas</a>
+        </div>
+        <div class="success-card">
+          <Image src="" alt="" />
+          <p>
+            Florie de MyBlueprintVF a débloqué sa croissance en <b
+              >structurant son activité</b
+            >, <b>en déléguant efficacement</b> et en mettant en place des <b
+              >process clairs</b
+            >.
+          </p>
+          <div class="metric">
+            <header>+20% YTD</header>
+            <main>Marge (2025 vs. 2026)</main>
+          </div>
+          <div class="metric">
+            <header>Année 1</header>
+            <main>Atteinte de la rentabilité</main>
+          </div>
+          <div class="review">
+            <blockquote>
+              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+              bras droit. Très perspicace et vive d'esprit dans son travail,
+              elle a apporté de l'efficacité dans nos process et de la clarté
+              dans les chiffres. Ses expéreriences précédentes et sa fibre
+              marketing sont un plus dans les stratégies commerciales. C'est une
+              leader en qui on peut avoir confiance à 1000% et qui donne le
+              meilleur d'elle même. Elle est for sure un point fort dans une
+              équipe.
+            </blockquote>
+            <p>Hoby Ratefy, fondateur de The Rising Court</p>
+          </div>
+          <a href="">Voir l’étude de cas</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container index-reviews">
+      <h2 class="section-heading">ils en parlent le mieux</h2>
+      <h3>Ils ont optimisé leurs opérations pour scaler</h3>
+      <div class="carousel">
+        <div class="review">
+          <header>
+            <Image src="" alt="" />
+            <div>
+              <span class="name">John Doe</span>
+              <span class="date">Mars 2026</span>
+            </div>
+          </header>
+          <main>
+            Seheno vous aide à structurer l'activité votre entreprise : mise en place des process, méthodes de pilotage et cadrage projets. Elle est votre experte pour faire passer votre boite à l'étape supérieure en terme de business, rentabilité et efficacité !
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src="" alt="" />
+            <div>
+              <span class="name">John Doe</span>
+              <span class="date">Mars 2026</span>
+            </div>
+          </header>
+          <main>
+            Seheno vous aide à structurer l'activité votre entreprise : mise en place des process, méthodes de pilotage et cadrage projets. Elle est votre experte pour faire passer votre boite à l'étape supérieure en terme de business, rentabilité et efficacité !
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src="" alt="" />
+            <div>
+              <span class="name">John Doe</span>
+              <span class="date">Mars 2026</span>
+            </div>
+          </header>
+          <main>
+            Seheno vous aide à structurer l'activité votre entreprise : mise en place des process, méthodes de pilotage et cadrage projets. Elle est votre experte pour faire passer votre boite à l'étape supérieure en terme de business, rentabilité et efficacité !
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src="" alt="" />
+            <div>
+              <span class="name">John Doe</span>
+              <span class="date">Mars 2026</span>
+            </div>
+          </header>
+          <main>
+            Seheno vous aide à structurer l'activité votre entreprise : mise en place des process, méthodes de pilotage et cadrage projets. Elle est votre experte pour faire passer votre boite à l'étape supérieure en terme de business, rentabilité et efficacité !
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <section class="container index-faq">
+      <h2 class="section-heading">FAQ</h2>
+      <h3>Les questions qui reviennent souvent</h3>
+      <Faq faqContent={faqContent}>
+    </section>
+  </Layout>
+
+  <script>
+    const items = document.querySelectorAll(".steps .item");
+    const explainers = document.querySelectorAll(".steps .items .explainer");
+
+    items.forEach((item) => {
+      item.addEventListener("mouseover", () => {
+        item.querySelector(".explainer").style.opacity = "1";
+        item.querySelector(".explainer").style.visibility = "visible";
+      });
+
+      item.addEventListener("mouseleave", () => {
+        item.querySelector(".explainer").style.opacity = "0";
+        item.querySelector(".explainer").style.visibility = "hidden";
+      });
+    });
+  </script>
+
+  <style>
+    .section-heading {
+      font-size: var(--step--1);
+      text-transform: uppercase;
+      font-weight: 680;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .index-methodology {
+      .timeline {
+        position: relative;
+        width: 100%;
+
+        .background {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          z-index: -1;
+          opacity: 0.65;
+
+          .boxes {
+            border-left: 1px solid var(--border-color);
+            flex: 1;
+            text-align: center;
+            z-index: -1;
+          }
+
+          .boxes:last-child {
+            border-right: 1px solid var(--border-color);
+          }
+        }
+
+        .steps {
+          --height: 10rem;
+          display: flex;
+          justify-content: flex-start;
+          height: calc(var(--height) + 7rem);
+          padding-top: 5rem;
+          padding-bottom: 2rem;
+          z-index: 0;
+
+          .item {
+            flex-basis: calc(100% / 12 * 2);
+            border: 1px solid var(--text);
+            border-radius: 300px;
+            padding-block: 0.5rem;
+            background-color: var(--neutral);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition-property: background-color, color;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+
+            .explainer {
+              position: absolute;
+              top: 3rem;
+              background-color: var(--primary);
+              color: var(--neutral);
+              padding: var(--space-m);
+              visibility: hidden;
+              opacity: 0;
+
+              transition-property: opacity;
+              transition-duration: 300ms;
+              transition-timing-function: ease-in-out;
+            }
+          }
+
+          .item:nth-of-type(1) {
+            align-self: start;
+          }
+
+          .item:nth-of-type(2) {
+            flex: 1;
+            align-self: center;
+            background-color: var(--text);
+            color: var(--neutral);
+
+            &:hover {
+              background-color: var(--primary-light);
+              border-color: var(--primary);
+              color: var(--primary);
+            }
+          }
+
+          .item:nth-of-type(3) {
+            align-self: end;
+          }
+
+          .item:hover {
+            background-color: var(--primary);
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+          }
+        }
+      }
+    }
+  </style>
+
+</html>
