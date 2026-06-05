@@ -175,9 +175,10 @@ strong {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--font-oswald);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1;
   margin-block: var(--space-xs);
 }
