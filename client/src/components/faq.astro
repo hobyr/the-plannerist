@@ -36,10 +36,15 @@ const { faqContent } = Astro.props;
     .faq-wrapper {
         margin: 0 auto;
         margin-bottom: var(--space-m);
+        width: 85ch;
+        border: 1px solid var(--border-color);
+        padding: var(--space-xl);
+        border-radius: 36px;
     }
 
     .faq-item {
         border-bottom: 1px solid var(--text);
+        padding-block: var(--space-m);
     }
 
     .faq-item:first-of-type {
@@ -51,6 +56,7 @@ const { faqContent } = Astro.props;
         justify-content: space-between;
         gap: var(--space-m);
         align-items: center;
+        font-family: var(--font-instrument-serif);
     }
 
     .faq-item .toggle {
@@ -68,7 +74,7 @@ const { faqContent } = Astro.props;
 
     .faq-item main {
         display: none;
-        max-width: 75ch;
+        width: 75ch;
     }
 
     .faq-item main.active {
