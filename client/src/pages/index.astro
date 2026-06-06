@@ -20,6 +20,8 @@ const pageDescription =
   "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
 const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
 
+const questionnaireContent = [];
+
 const locale = "fr-FR";
 const currency = "EUR";
 const price = Intl.NumberFormat(locale, {
@@ -100,37 +102,102 @@ const faqContent = [
       <h3>Ces situations te parlent ?</h3>
       <div class="questionnaire">
         <div class="card">
-          <Image src="" alt="" class="question-cover"></Image>
+          <Image src="" alt="" class="question-cover" />
           <h4>Tu es partout... sauf là où tu apportes vraiment de la valeur</h4>
-          <p>Ton quotidien est absorbé par l'opérationnel : validations, SAV, gestion d'imprévus, micro-décisions.</p>
+          <p>
+            Ton quotidien est absorbé par l'opérationnel : validations, SAV,
+            gestion d'imprévus, micro-décisions.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover"></Image>
+          <Image src="" alt="" class="question-cover" />
           <h4>Ton activité dépend encore trop de toi</h4>
-          <p>Ton entreprise tourne, mais beaucoup de choses avancent uniquement grâce à ta présence et tes validations.</p>
+          <p>
+            Ton entreprise tourne, mais beaucoup de choses avancent uniquement
+            grâce à ta présence et tes validations.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover"></Image>
+          <Image src="" alt="" class="question-cover" />
           <h4>Tu pilotes sans réelle visibilité</h4>
-          <p>Tu manques de données fiables pour prendre des décisions sereinement. Les chiffres existent, mais ils ne sont ni centralisés, ni réellement exploités pour piloter la croissance.</p>
+          <p>
+            Tu manques de données fiables pour prendre des décisions
+            sereinement. Les chiffres existent, mais ils ne sont ni centralisés,
+            ni réellement exploités pour piloter la croissance.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover"></Image>
+          <Image src="" alt="" class="question-cover" />
           <h4>Ton activité est rentable… mais avec beaucoup de chaos</h4>
-          <p>Le volume augmente, mais les fondations ne suivent pas : organisation, rentabilité, priorisation, capacité d’exécution. Tu avances avec une sensation constante de tension interne.</p>
+          <p>
+            Le volume augmente, mais les fondations ne suivent pas :
+            organisation, rentabilité, priorisation, capacité d’exécution. Tu
+            avances avec une sensation constante de tension interne.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover"></Image>
+          <Image src="" alt="" class="question-cover" />
           <h4>Tu n’as plus le temps de développer l’entreprise</h4>
-          <p>Tu es absorbé par la gestion quotidienne au détriment du développement, de l’optimisation et de la vision long terme. Le pilotage passe toujours après l’urgence opérationnelle.</p>
+          <p>
+            Tu es absorbé par la gestion quotidienne au détriment du
+            développement, de l’optimisation et de la vision long terme. Le
+            pilotage passe toujours après l’urgence opérationnelle.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover"></Image>
+          <Image src="" alt="" class="question-cover" />
           <h4>Tu aimerais que tout soit plus fluide</h4>
-          <p>Au lieu de gagner en clarté avec la croissance, tu as l’impression que tout devient plus lourd à gérer. Les décisions ralentissent, l’organisation se complexifie et ta présence reste indispensable partout.</p>
+          <p>
+            Au lieu de gagner en clarté avec la croissance, tu as l’impression
+            que tout devient plus lourd à gérer. Les décisions ralentissent,
+            l’organisation se complexifie et ta présence reste indispensable
+            partout.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
         </div>
       </div>
     </section>
+
+    <script>
+      const cards = document.querySelectorAll(".questionnaire .card");
+      cards.forEach((card) => {
+        const yesBtn = card.querySelector(".yes");
+        const noBtn = card.querySelector(".no");
+
+        yesBtn?.addEventListener("click", function() {
+          console.log("clicked yes");
+          gsap.to(card, { rotation: 27, opacity: 0, xPercent: 200, ease: "back.in(1.5)", duration: .5 });
+        });
+        
+        noBtn?.addEventListener("click", () => {
+          console.log("clicked no");
+          gsap.to(card, { rotation: -27, opacity: 0, xPercent: -200, ease: "back.in(1.5)", duration: .5 });
+        });
+      });
+    </script>
 
     <section class="container index-methodology">
       <h2 class="section-heading">La méthodologie</h2>
@@ -501,7 +568,7 @@ const faqContent = [
             </li>
           </ul>
         </div>
-        <Image src={vision_stack} alt="" class="vision-diagram"/>
+        <Image src={vision_stack} alt="" class="vision-diagram" />
       </div>
     </section>
 
@@ -698,6 +765,9 @@ const faqContent = [
       });
     </script>
 
+    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"
+    ></script>
+
     <style>
       .section-heading {
         font-size: var(--step--1);
@@ -721,14 +791,25 @@ const faqContent = [
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
+          align-items: center;
           gap: 20px;
+          overflow: hidden;
+          position: relative;
+          height: 850px;
+          width: 100%;
 
           .card {
+            position: absolute;
+            width: 500px;
+            height: 800px;
+            background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 24px;
             max-width: 500px;
             box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
             padding: var(--space-m);
+            display: flex;
+            flex-direction: column;
 
             .question-cover {
               width: 100%;
@@ -737,6 +818,57 @@ const faqContent = [
               border-radius: 12px;
               margin-bottom: var(--space-s);
             }
+
+            p {
+              flex: 1;
+            }
+
+            .buttons {
+              display: flex;
+              justify-content: center;
+              gap: var(--space-xl);
+
+              & > div {
+                --size: 4rem;
+                width: var(--size);
+                aspect-ratio: 1/1;
+                background-color: var(--text);
+                border-radius: 999px;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: calc(var(--size) * 0.5);
+              }
+
+              & > div:hover {
+                background-color: var(--bg-color-light);
+              }
+            }
+          }
+
+          .card:nth-of-type(1) {
+            z-index: 5;
+          }
+          .card:nth-of-type(2) {
+            z-index: 4;
+            transform: rotate(-2deg);
+          }
+          .card:nth-of-type(3) {
+            z-index: 3;
+            transform: rotate(2deg);
+          }
+          .card:nth-of-type(4) {
+            z-index: 2;
+            transform: rotate(-3deg) translateY(12px);
+          }
+          .card:nth-of-type(5) {
+            z-index: 1;          
+            transform: rotate(3deg);
+          }
+          .card:nth-of-type(6) {
+            z-index: 0;
+            transform: rotate(4deg) translateY(10px) translateX(13px);
           }
         }
       }
@@ -1134,7 +1266,7 @@ const faqContent = [
           background-color: var(--primary-light);
           color: var(--primary);
         }
-        
+
         .item:nth-child(4) {
           grid-area: metric2;
           background-color: var(--bg-color-light);
@@ -1250,7 +1382,6 @@ const faqContent = [
           align-items: center;
           gap: var(--space-l);
           width: 100%;
-          
 
           .description {
             width: 75ch;
@@ -1258,7 +1389,7 @@ const faqContent = [
             padding: var(--space-m);
             border-radius: 24px;
           }
-          
+
           .vision-diagram {
             max-width: 700px;
             height: 100%;
