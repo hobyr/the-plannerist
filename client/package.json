@@ -14,6 +14,7 @@
     "@astrojs/sitemap": "^3.7.1",
     "@sensinum/astro-strapi-blocks": "^1.2.7",
     "astro": "^6.0.4",
+    "gsap": "^3.15.0",
     "marked": "^17.0.5"
   }
 }
