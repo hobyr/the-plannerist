@@ -1,13 +1,4 @@
 ---
-import Welcome from "../components/index/Welcome.astro";
-import Identification from "../components/index/Identification.astro";
-import Explainer from "../components/index/Explainer.astro";
-import Offers from "../components/index/Offers.astro";
-import Profile from "../components/index/Profile.astro";
-import Tools from "../components/index/Tools.astro";
-import SuccessStory from "../components/index/SuccessStory.astro";
-import Blog from "../components/index/Blog.astro";
-import Contact from "../components/index/Contact.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import Head from "../components/Head.astro";
@@ -178,26 +169,13 @@ const faqContent = [
             <div class="yes"><i class="fa-solid fa-check"></i></div>
           </div>
         </div>
+        <div class="card">
+          <Image src="" alt="" class="question-cover" />
+          <h4>Merci d'avoir répondu au questionnaire !</h4>
+        </div>
       </div>
+      <div class="questionnaire_reponse"></div>
     </section>
-
-    <script>
-      const cards = document.querySelectorAll(".questionnaire .card");
-      cards.forEach((card) => {
-        const yesBtn = card.querySelector(".yes");
-        const noBtn = card.querySelector(".no");
-
-        yesBtn?.addEventListener("click", function() {
-          console.log("clicked yes");
-          gsap.to(card, { rotation: 27, opacity: 0, xPercent: 200, ease: "back.in(1.5)", duration: .5 });
-        });
-        
-        noBtn?.addEventListener("click", () => {
-          console.log("clicked no");
-          gsap.to(card, { rotation: -27, opacity: 0, xPercent: -200, ease: "back.in(1.5)", duration: .5 });
-        });
-      });
-    </script>
 
     <section class="container index-methodology">
       <h2 class="section-heading">La méthodologie</h2>
@@ -224,15 +202,71 @@ const faqContent = [
         <div class="steps">
           <div class="item">
             Audit
-            <div class="explainer">HELLO WORLD</div>
+            <div class="explainer">
+              <h4>Découverte de l'activité</h4>
+              <ul>
+                <li>Analyse des outils et des processus existants</li>
+                <li>Immersion auprès de l'équipe</li>
+                <li>
+                  Identification des points de friction et opportunités
+                  d'amélioration
+                </li>
+              </ul>
+              <p>
+                <b>Livrable :</b> Une feuille de route de transformation priorisée
+                et directement exploitable dans Asana.
+              </p>
+            </div>
           </div>
           <div class="item">
             Transformation
-            <div class="explainer">HELLO WORLD</div>
+            <div class="explainer">
+              <h4>Conception et déploiement</h4>
+              <ul>
+                <li>Proposition de la nouvelle organisation</li>
+                <li>Optimisation des processus</li>
+                <li>Mise en place des tableaux de bord</li>
+                <li>Création des routines d'équipe</li>
+              </ul>
+              <h4>Après validation</h4>
+              <ul>
+                <li>
+                  Création des templates de processus et checklists dans Asana
+                </li>
+                <li>Attribution des responsables et échéances</li>
+                <li>
+                  Planification des routines avec trames et outils associés
+                </li>
+                <li>Déploiement des tableaux de bord</li>
+                <li>Création des supports de diffusion et d'adoption</li>
+              </ul>
+              <p>
+                <b>Livrable :</b> Une organisation structurée, des processus documentés,
+                des indicateurs de pilotage et des routines d'équipe opérationnelles.
+              </p>
+            </div>
           </div>
           <div class="item">
             Suivi
-            <div class="explainer">HELLO WORLD</div>
+            <div class="explainer">
+              <h4>Transmission et autonomisation</h4>
+              <ul>
+                <li>Formation des équipes aux nouveaux processus</li>
+                <li>Accompagnement à la prise en main des outils</li>
+                <li>Ajustements finaux suite aux retours terrain</li>
+                <li>Validation de l'autonomie des équipes</li>
+              </ul>
+              <p>
+                <b>Livrables :</b>
+                <ul>
+                  <li>Bibliothèque de processus et checklists finalisée</li>
+                  <li>Tableaux de bord opérationnels</li>
+                  <li>Routines d'équipe autonomes</li>
+                  <li>Documentation centralisée et accessible</li>
+                </ul>
+              </p>
+              <p><b>Objectif :</b> Assurer la continuité des bonnes pratiques et permettre à l'équipe de faire vivre l'organisation sans dépendre d'un accompagnement externe.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -765,8 +799,71 @@ const faqContent = [
       });
     </script>
 
-    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"
-    ></script>
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+    <script>
+      let questionnaireScore = 0;
+      let remaining = 6;
+      const questionnaireField = document.querySelector(".questionnaire");
+      const cards = document.querySelectorAll(".questionnaire .card");
+      cards.forEach((card) => {
+        const yesBtn = card.querySelector(".yes");
+        const noBtn = card.querySelector(".no");
+
+        yesBtn?.addEventListener("click", function () {
+          console.log("clicked yes");
+          questionnaireScore++;
+          gsap.to(card, {
+            rotation: 27,
+            opacity: 0,
+            xPercent: 200,
+            ease: "back.in(1.5)",
+            duration: 0.5,
+          });
+          remaining--;
+          evaluateQuestionnaire(remaining);
+        });
+
+        noBtn?.addEventListener("click", () => {
+          console.log("clicked no");
+          gsap.to(card, {
+            rotation: -27,
+            opacity: 0,
+            xPercent: -200,
+            ease: "back.in(1.5)",
+            duration: 0.5,
+          });
+          remaining--;
+          evaluateQuestionnaire(remaining);
+        });
+      });
+
+      const evaluateQuestionnaire = (remainder) => {
+        if (!remainder) {
+          const questionnaireResponseField = document.querySelector(
+            ".questionnaire_reponse",
+          );
+
+          const finalAnswer = document.createElement("p");
+          if (questionnaireScore >= 5) {
+            finalAnswer.innerHTML =
+              "Ton organisation freine probablement davantage ta croissance qu'elle ne la soutient. Réserve un rendez-vous pour identifier les priorités à mettre en place.";
+          } else if (questionnaireScore >= 3) {
+            finalAnswer.innerHTML =
+              "Certains points méritent probablement d'être optimisés pour gagner en efficacité et en sérénité. Réserve un rendez-vous pour faire le point.";
+          } else if (questionnaireScore >= 0) {
+            finalAnswer.innerHTML =
+              "Ton organisation semble adaptée à ton activité actuelle. Une question ou un doute ? Prenons 30 minutes pour en discuter.";
+          } else {
+            console.error("Erreur de questionnaire");
+          }
+
+          questionnaireResponseField?.appendChild(finalAnswer);
+        }
+      };
+    </script>
 
     <style>
       .section-heading {
@@ -848,28 +945,35 @@ const faqContent = [
           }
 
           .card:nth-of-type(1) {
-            z-index: 5;
+            z-index: 6;
           }
           .card:nth-of-type(2) {
-            z-index: 4;
+            z-index: 5;
             transform: rotate(-2deg);
           }
           .card:nth-of-type(3) {
-            z-index: 3;
+            z-index: 4;
             transform: rotate(2deg);
           }
           .card:nth-of-type(4) {
-            z-index: 2;
+            z-index: 3;
             transform: rotate(-3deg) translateY(12px);
           }
           .card:nth-of-type(5) {
-            z-index: 1;          
+            z-index: 2;
             transform: rotate(3deg);
           }
           .card:nth-of-type(6) {
-            z-index: 0;
+            z-index: 1;
             transform: rotate(4deg) translateY(10px) translateX(13px);
           }
+          .card:nth-of-type(7) {
+            z-index: 0;
+          }
+        }
+
+        .questionnaire.invisible {
+          display: none;
         }
       }
 
@@ -1003,7 +1107,6 @@ const faqContent = [
               border-radius: 300px;
               padding-block: 0.5rem;
               background-color: white;
-              text-align: center;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -1015,11 +1118,15 @@ const faqContent = [
               .explainer {
                 position: absolute;
                 top: 3rem;
-                background-color: var(--primary);
-                color: var(--neutral);
+                background-color: white;
+                color: var(--text);
+                border: 1px solid var(--border-color);
+                border-radius: 24px;
                 padding: var(--space-m);
                 visibility: hidden;
                 opacity: 0;
+                z-index: 10;
+                min-width: 50vw;
 
                 transition-property: opacity;
                 transition-duration: 300ms;
@@ -1029,6 +1136,10 @@ const faqContent = [
 
             .item:nth-of-type(1) {
               align-self: start;
+
+              .explainer {
+                left: 0;
+              }
             }
 
             .item:nth-of-type(2) {
@@ -1036,22 +1147,20 @@ const faqContent = [
               align-self: center;
               background-color: var(--text);
               color: var(--neutral);
-
-              &:hover {
-                background-color: var(--primary-light);
-                border-color: var(--primary);
-                color: var(--primary);
-              }
             }
 
             .item:nth-of-type(3) {
               align-self: end;
+
+              .explainer {
+                right: 0;
+              }
             }
 
             .item:hover {
-              background-color: var(--primary);
-              border-color: var(--primary-light);
-              color: var(--primary-light);
+              background-color: var(--bg-color-light);
+              border-color: var(--text);
+              color: var(--text);
             }
           }
         }
