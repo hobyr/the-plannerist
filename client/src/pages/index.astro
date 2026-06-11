@@ -103,7 +103,7 @@ const faqContent = [
   <Layout>
     <section class="container index-intro">
       <h2 class="section-heading">Accompagnement pilotage d'entreprise</h2>
-      <h3>
+      <h3 class="section-subheading">
         90 jours pour transformer ton organisation en levier de rentabilité avec
         un COO externalisé
       </h3>
@@ -123,7 +123,7 @@ const faqContent = [
     </section>
 
     <section class="container index-questionnaire">
-      <h3>Ces situations te parlent ?</h3>
+      <h3 class="section-subheading">Ces situations te parlent ?</h3>
       <div class="questionnaire">
         <div class="card">
           <Image src={questionnaire_img_1} alt="" class="question-cover" />
@@ -231,7 +231,7 @@ const faqContent = [
 
     <section class="container index-methodology">
       <h2 class="section-heading">La méthodologie</h2>
-      <h3>3 mois pour reprendre le contrôle de ta boîte.</h3>
+      <h3 class="section-subheading">3 mois pour reprendre le contrôle de ta boîte.</h3>
       <p>
         On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et
         fluidifier ton "day-to-day".
@@ -339,7 +339,7 @@ const faqContent = [
 
     <section class="container index-pillars">
       <h2 class="section-heading">Les piliers de l'accompagnement</h2>
-      <h3>Les 3 objectifs de l'accompagnement The Plannerist</h3>
+      <h3 class="section-subheading">Les 3 objectifs de l'accompagnement The Plannerist</h3>
       <div class="cards">
         <div class="card">
           <div class="keyword">Organisation</div>
@@ -394,7 +394,7 @@ const faqContent = [
 
     <section class="container index-formats">
       <h2 class="section-heading">Les Formats</h2>
-      <h3>Des formats adaptés en fonction de tes objectifs</h3>
+      <h3 class="section-subheading">Des formats adaptés en fonction de tes objectifs</h3>
       <p>
         Deux approches selon que l'enjeu principal soit l'organisation
         opérationnelle ou l'optimisation de la performance.
@@ -581,7 +581,7 @@ const faqContent = [
 
     <section class="container index-vision">
       <h2 class="section-heading">Notre petit plus</h2>
-      <h3>Une vision transverse de l'activité</h3>
+      <h3 class="section-subheading">Une vision transverse de l'activité</h3>
       <p>
         Des opérations efficaces ne se construisent pas sans prendre en compte
         l’intégralité de l’entreprise (enjeux financiers, marketing, RH, etc.)
@@ -673,7 +673,7 @@ const faqContent = [
 
     <section class="container index-successes">
       <h2 class="section-heading">ils nous ont fait confiance</h2>
-      <h3>Ils ont transformé leur entreprise avec The Plannerist</h3>
+      <h3 class="section-subheading">Ils ont transformé leur entreprise avec The Plannerist</h3>
       <div class="carousel">
         <div class="success-card">
           <Image src={florie_portrait.src} alt="" class="story-portrait item" />
@@ -776,7 +776,7 @@ const faqContent = [
 
     <section class="container index-reviews">
       <h2 class="section-heading">ils en parlent le mieux</h2>
-      <h3>Ils ont optimisé leurs opérations pour scaler</h3>
+      <h3 class="section-subheading">Ils ont optimisé leurs opérations pour scaler</h3>
       <div class="carousel">
         <div class="review">
           <header>
@@ -843,7 +843,7 @@ const faqContent = [
 
     <section class="container index-faq">
       <h2 class="section-heading">FAQ</h2>
-      <h3>Les questions qui reviennent souvent</h3>
+      <h3 class="section-subheading">Les questions qui reviennent souvent</h3>
       <Faq faqContent={faqContent} />
     </section>
 
@@ -939,6 +939,15 @@ const faqContent = [
         font-family: var(--font-google-sans-flex);
         text-transform: uppercase;
         font-weight: 600;
+        margin: 0;
+        margin-block: var(--space-s);
+      }
+
+      .section-subheading {
+        font-size: var(--step-4);
+        text-align: center;
+        margin: 0;
+        margin-bottom: var(--space-s);
       }
 
       h3 {
