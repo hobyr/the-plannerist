@@ -6,12 +6,35 @@ import { Image } from "astro:assets";
 import visual_1 from "../assets/images/Visuel_1_-_Aspiration_client.png";
 import visual_2 from "../assets/images/Visuel_2_-_Aspiration_client.png";
 import visual_3 from "../assets/images/Visuel_3_-_Aspiration_client.png";
+import questionnaire_img_1 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_1.webp";
+import questionnaire_img_2 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_2.webp";
+import questionnaire_img_3 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_3.webp";
+import questionnaire_img_4 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_4.webp";
+import questionnaire_img_5 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_5.webp";
+import questionnaire_img_6 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_6.webp";
+import questionnaire_img_cta from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_CTA.webp";
 import vision_stack from "../assets/images/vision-stack.png";
 const pageDescription =
   "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
 const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
 
-const questionnaireContent = [];
+const questionnaireContent = [
+  {
+    image: questionnaire_img_1,
+  },
+  {
+    image: questionnaire_img_2,
+  },
+  {
+    image: questionnaire_img_3,
+  },
+  {
+    image: questionnaire_img_4,
+  },
+  {
+    image: questionnaire_img_5,
+  },
+];
 
 const locale = "fr-FR";
 const currency = "EUR";
@@ -87,13 +110,22 @@ const faqContent = [
         On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et
         fluidifier ton "day-to-day".
       </p>
+      <a
+        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button cta"
+        >Je veux améliorer ma marge<span
+          ><i class="fa-solid fa-money-bill-trend-up"></i></span
+        >
+      </a>
     </section>
 
     <section class="container index-questionnaire">
       <h3>Ces situations te parlent ?</h3>
       <div class="questionnaire">
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_1} alt="" class="question-cover" />
           <h4>Tu es partout... sauf là où tu apportes vraiment de la valeur</h4>
           <p>
             Ton quotidien est absorbé par l'opérationnel : validations, SAV,
@@ -105,7 +137,7 @@ const faqContent = [
           </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_2} alt="" class="question-cover" />
           <h4>Ton activité dépend encore trop de toi</h4>
           <p>
             Ton entreprise tourne, mais beaucoup de choses avancent uniquement
@@ -117,7 +149,7 @@ const faqContent = [
           </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_3} alt="" class="question-cover" />
           <h4>Tu pilotes sans réelle visibilité</h4>
           <p>
             Tu manques de données fiables pour prendre des décisions
@@ -130,7 +162,7 @@ const faqContent = [
           </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_4} alt="" class="question-cover" />
           <h4>Ton activité est rentable… mais avec beaucoup de chaos</h4>
           <p>
             Le volume augmente, mais les fondations ne suivent pas :
@@ -143,7 +175,7 @@ const faqContent = [
           </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_5} alt="" class="question-cover" />
           <h4>Tu n’as plus le temps de développer l’entreprise</h4>
           <p>
             Tu es absorbé par la gestion quotidienne au détriment du
@@ -156,7 +188,7 @@ const faqContent = [
           </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_6} alt="" class="question-cover" />
           <h4>Tu aimerais que tout soit plus fluide</h4>
           <p>
             Au lieu de gagner en clarté avec la croissance, tu as l’impression
@@ -170,11 +202,30 @@ const faqContent = [
           </div>
         </div>
         <div class="card">
-          <Image src="" alt="" class="question-cover" />
+          <Image src={questionnaire_img_1} alt="" class="question-cover" />
+          <h4>Ton entreprise empiète sur ta vie perso</h4>
+          <p>
+           Tu as construit une activité qui fonctionne, mais elle prend trop de place au quotidien. Tu commences un peu plus tôt et tu finis un peu plus tard. Tu déconnectes difficilement quand tu es au repos et ton équilibre personnel passe souvent après l’entreprise.
+          </p>
+          <div class="buttons">
+            <div class="no"><i class="fa-solid fa-xmark"></i></div>
+            <div class="yes"><i class="fa-solid fa-check"></i></div>
+          </div>
+        </div>
+        <div class="card">
+          <Image src={questionnaire_img_cta} alt="" class="question-cover" />
           <h4>Merci d'avoir répondu au questionnaire !</h4>
+          <a
+            href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button cta invisible"
+            >Discuter des résultats avec moi<span
+              ><i class="fa-solid fa-user-check"></i></span
+            >
         </div>
       </div>
-      <div class="questionnaire_reponse"></div>
+      </a>
     </section>
 
     <section class="container index-methodology">
@@ -265,11 +316,24 @@ const faqContent = [
                   <li>Documentation centralisée et accessible</li>
                 </ul>
               </p>
-              <p><b>Objectif :</b> Assurer la continuité des bonnes pratiques et permettre à l'équipe de faire vivre l'organisation sans dépendre d'un accompagnement externe.</p>
+              <p>
+                <b>Objectif :</b> Assurer la continuité des bonnes pratiques et permettre
+                à l'équipe de faire vivre l'organisation sans dépendre d'un accompagnement
+                externe.
+              </p>
             </div>
           </div>
         </div>
       </div>
+      <a
+        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button cta"
+        >Découvrir nos accompagnements<span
+          ><i class="fa-solid fa-arrow-right"></i></span
+        ></a
+      >
     </section>
 
     <section class="container index-pillars">
@@ -805,9 +869,8 @@ const faqContent = [
 
     <script>
       let questionnaireScore = 0;
-      let remaining = 6;
-      const questionnaireField = document.querySelector(".questionnaire");
       const cards = document.querySelectorAll(".questionnaire .card");
+      let remaining = cards.length - 1;
       cards.forEach((card) => {
         const yesBtn = card.querySelector(".yes");
         const noBtn = card.querySelector(".no");
@@ -842,9 +905,13 @@ const faqContent = [
 
       const evaluateQuestionnaire = (remainder) => {
         if (!remainder) {
+          
           const questionnaireResponseField = document.querySelector(
-            ".questionnaire_reponse",
+            ".questionnaire .card:last-of-type",
           );
+
+          const cta = questionnaireResponseField?.querySelector(".cta");
+          cta?.classList.toggle("invisible");
 
           const finalAnswer = document.createElement("p");
           if (questionnaireScore >= 5) {
@@ -860,7 +927,7 @@ const faqContent = [
             console.error("Erreur de questionnaire");
           }
 
-          questionnaireResponseField?.appendChild(finalAnswer);
+          questionnaireResponseField?.insertBefore(finalAnswer, cta);
         }
       };
     </script>
@@ -883,6 +950,15 @@ const faqContent = [
         align-items: center;
       }
 
+      .invisible {
+        display: none;
+      }
+
+      .cta {
+        margin-top: var(--space-s);
+        padding-right: 0.75rem;
+      }
+
       .index-questionnaire {
         .questionnaire {
           display: flex;
@@ -892,13 +968,13 @@ const faqContent = [
           gap: 20px;
           overflow: hidden;
           position: relative;
-          height: 850px;
+          height: 820px;
           width: 100%;
 
           .card {
             position: absolute;
             width: 500px;
-            height: 800px;
+            height: 750px;
             background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 24px;
@@ -910,10 +986,10 @@ const faqContent = [
 
             .question-cover {
               width: 100%;
-              aspect-ratio: 1/1;
-              background-color: #f0f0f0;
+              max-height: 420px;
               border-radius: 12px;
               margin-bottom: var(--space-s);
+              object-fit: cover;
             }
 
             p {
@@ -945,30 +1021,39 @@ const faqContent = [
           }
 
           .card:nth-of-type(1) {
-            z-index: 6;
+            z-index: 7;
+            transform: translateY(12px);
           }
           .card:nth-of-type(2) {
-            z-index: 5;
-            transform: rotate(-2deg);
+            z-index: 6;
+            transform: translateY(8px);
           }
           .card:nth-of-type(3) {
-            z-index: 4;
-            transform: rotate(2deg);
+            z-index: 5;
+            /* transform: rotate(2deg); */
+            transform: translateY(4px);
           }
           .card:nth-of-type(4) {
-            z-index: 3;
-            transform: rotate(-3deg) translateY(12px);
+            z-index: 4;
+            /* transform: rotate(-3deg) translateY(12px); */
           }
           .card:nth-of-type(5) {
-            z-index: 2;
-            transform: rotate(3deg);
+            z-index: 3;
+            transform: translateY(-4px);
+            /* transform: rotate(3deg); */
           }
           .card:nth-of-type(6) {
-            z-index: 1;
-            transform: rotate(4deg) translateY(10px) translateX(13px);
+            z-index: 2;
+            /* transform: rotate(4deg) translateY(10px) translateX(13px); */
+            transform: translateY(-8px);
           }
           .card:nth-of-type(7) {
+            z-index: 1;
+          }
+          .card:nth-of-type(8) {
             z-index: 0;
+            border-width: 3px;
+            box-shadow: unset;
           }
         }
 
@@ -1051,11 +1136,6 @@ const faqContent = [
 
         .card p {
           margin-bottom: auto;
-        }
-
-        .cta {
-          margin-top: var(--space-s);
-          padding-right: 0.75rem;
         }
 
         @media (min-width: 1000px) {
