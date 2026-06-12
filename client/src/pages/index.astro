@@ -1670,13 +1670,14 @@ const faqContent = [
           display: flex;
           justify-content: flex-start;
           gap: var(--space-m);
-          max-width: 100%;
+          width: 100vw;
+          padding-inline: 2rem;
           overflow-x: scroll;
 
           .review {
             border: 1px solid var(--border-color);
             padding: var(--space-m);
-            /* width: 35rem; */
+            min-width: 35rem;
             border-radius: 16px;
 
             header {
@@ -1700,10 +1701,6 @@ const faqContent = [
                   font-weight: 200;
                 }
               }
-            }
-
-            main {
-              width: 55ch;
             }
           }
         }
