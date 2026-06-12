@@ -1678,15 +1678,15 @@ const faqContent = [
         .carousel {
           display: flex;
           justify-content: flex-start;
-          gap: var(--space-m);
+          gap: var(--space-xl);
           width: 100vw;
-          padding-inline: 2rem;
+          padding-inline: 15vw;
           overflow-x: scroll;
 
           .review {
             border: 1px solid var(--border-color);
             padding: var(--space-m);
-            min-width: calc(100vw/3.5);
+            min-width: calc(100vw/5.5);
             border-radius: 16px;
 
             header {
@@ -1727,12 +1727,13 @@ const faqContent = [
       .index-vision {
         .livrables {
           display: flex;
+          justify-content: center;
           align-items: center;
-          gap: var(--space-l);
+          gap: 10vw;
           width: 100%;
 
           .description {
-            width: 75ch;
+            max-width: 75ch;
             border: 1px solid var(--border-color);
             padding: var(--space-m);
             border-radius: 24px;
