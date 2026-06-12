@@ -813,6 +813,7 @@ const faqContent = [
             <Image src={review_muller.src} alt="" class="profile-img" />
             <div>
               <span class="name">Gilles Charles Muller</span>
+              <span class="date">Directeur Général Associé Groupe Giraphes</span>
             </div>
           </header>
           <main>
@@ -829,6 +830,7 @@ const faqContent = [
             <Image src={review_tardio.src} alt="" class="profile-img" />
             <div>
               <span class="name">Raphaël Tardio</span>
+              <span class="date">Entrepreneur & Co-fondateur Groupe Giraphes | CTO</span>
             </div>
           </header>
           <main>
@@ -843,6 +845,7 @@ const faqContent = [
             <Image src={review_nancy.src} alt="" class="profile-img" />
             <div>
               <span class="name">Nancy Shulunugu</span>
+              <span class="date">Fondatrice Legal Team Management</span>
             </div>
           </header>
           <main>
@@ -859,6 +862,7 @@ const faqContent = [
             <Image src={review_florie.src} alt="" class="profile-img" />
             <div>
               <span class="name">Florie Gatet</span>
+              <span class="date">Fondatrice & CEO MyBluePrintVF</span>
             </div>
           </header>
           <main>
@@ -876,6 +880,7 @@ const faqContent = [
             <Image src={review_irma.src} alt="" class="profile-img" />
             <div>
               <span class="name">Irma Eyoum</span>
+              <span class="date">Fondatrice MARLENE JO.EY PHOTOGRAPHY</span>
             </div>
           </header>
           <main>
@@ -904,6 +909,7 @@ const faqContent = [
             <Image src={review_gwenola.src} alt="" class="profile-img" />
             <div>
               <span class="name">Gwenola Le Ray</span>
+              <span class="date">Directrice Commerciale Externalisée Félicité Consulting</span>
             </div>
           </header>
           <main>
@@ -922,6 +928,7 @@ const faqContent = [
             />
             <div>
               <span class="name">Hoby Ratefy</span>
+              <span class="date">Fondateur & CEO The Rising Court</span>
             </div>
           </header>
           <main>
@@ -1669,7 +1676,7 @@ const faqContent = [
           .review {
             border: 1px solid var(--border-color);
             padding: var(--space-m);
-            min-width: 35rem;
+            /* width: 35rem; */
             border-radius: 16px;
 
             header {
@@ -1693,6 +1700,10 @@ const faqContent = [
                   font-weight: 200;
                 }
               }
+            }
+
+            main {
+              width: 55ch;
             }
           }
         }
