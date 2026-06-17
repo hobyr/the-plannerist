@@ -361,7 +361,7 @@ const faqContent = [
       >
     </section>
 
-    <section class="container index-pillars">
+    <section class="index-pillars">
       <h2 class="section-heading">Les piliers de l'accompagnement</h2>
       <h3 class="section-subheading">
         Les 3 objectifs de l'accompagnement The Plannerist
@@ -418,7 +418,7 @@ const faqContent = [
       >
     </section>
 
-    <section class="container index-formats">
+    <section class="index-formats">
       <h2 class="section-heading">Les Formats</h2>
       <h3 class="section-subheading">
         Des formats adaptés en fonction de tes objectifs
@@ -815,7 +815,8 @@ const faqContent = [
             <Image src={review_muller.src} alt="" class="profile-img" />
             <div>
               <span class="name">Gilles Charles Muller</span>
-              <span class="date">Directeur Général Associé Groupe Giraphes</span>
+              <span class="date">Directeur Général Associé Groupe Giraphes</span
+              >
             </div>
             <Image src={linkedin_logo.src} alt="" class="review-logo" />
           </header>
@@ -833,7 +834,9 @@ const faqContent = [
             <Image src={review_tardio.src} alt="" class="profile-img" />
             <div>
               <span class="name">Raphaël Tardio</span>
-              <span class="date">Entrepreneur & Co-fondateur Groupe Giraphes | CTO</span>
+              <span class="date"
+                >Entrepreneur & Co-fondateur Groupe Giraphes | CTO</span
+              >
             </div>
             <Image src={linkedin_logo.src} alt="" class="review-logo" />
           </header>
@@ -916,7 +919,9 @@ const faqContent = [
             <Image src={review_gwenola.src} alt="" class="profile-img" />
             <div>
               <span class="name">Gwenola Le Ray</span>
-              <span class="date">Directrice Commerciale Externalisée Félicité Consulting</span>
+              <span class="date"
+                >Directrice Commerciale Externalisée Félicité Consulting</span
+              >
             </div>
             <Image src={google_logo.src} alt="" class="review-logo" />
           </header>
@@ -929,11 +934,7 @@ const faqContent = [
         </div>
         <div class="review">
           <header>
-            <Image
-            src={review_rising_court.src}
-            alt=""
-            class="profile-img"
-            />
+            <Image src={review_rising_court.src} alt="" class="profile-img" />
             <div>
               <span class="name">Hoby Ratefy</span>
               <span class="date">Fondateur & CEO The Rising Court</span>
@@ -1048,21 +1049,22 @@ const faqContent = [
     </script>
 
     <style>
+      .section-heading,
+      .section-subheading {
+        text-align: center;
+        /* margin: 0; */
+      }
+
       .section-heading {
         font-size: var(--step--1);
         font-family: var(--font-google-sans-flex);
         text-transform: uppercase;
         font-weight: 600;
-        margin: 0;
-        margin-block: var(--space-s);
       }
 
       .section-subheading {
         font-size: var(--step-5);
         font-weight: 300;
-        text-align: center;
-        margin: 0;
-        margin-bottom: var(--space-s);
       }
 
       h3 {
@@ -1077,6 +1079,10 @@ const faqContent = [
 
       .invisible {
         display: none;
+      }
+
+      .button {
+        margin-inline: auto;
       }
 
       .cta {
@@ -1203,16 +1209,10 @@ const faqContent = [
       }
 
       .index-pillars {
-        .tagline {
-          margin-bottom: var(--space-l);
-          font-size: var(--step-1);
-          font-weight: 400;
-          letter-spacing: -0.5px;
-        }
-
         .cards {
           display: flex;
           flex-direction: column;
+          align-items: center;
           gap: var(--space-s);
         }
 
@@ -1221,30 +1221,29 @@ const faqContent = [
           background-color: white;
           padding: var(--space-l);
           border-radius: 12px;
-          /* box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%); */
           border: 1px solid var(--border-color);
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
           position: relative;
           z-index: 1;
+          max-width: 650px;
 
           .keyword {
             font-size: var(--step-0);
             color: #bababa;
-            /* font-family: "AH Ernie"; */
             text-transform: uppercase;
             font-weight: 500;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: var(--space-l);
           }
 
           .number {
             position: absolute;
             right: var(--space-l);
-            font-size: 15rem;
+            font-size: 12rem;
             font-weight: 600;
-            color: #bababa40;
+            color: #bababa29;
             z-index: -1;
             text-box-trim: trim-both;
             text-box-edge: cap alphabetic;
@@ -1254,7 +1253,6 @@ const faqContent = [
         .card .visual {
           object-fit: contain;
           width: 100%;
-          margin-top: var(--space-m);
         }
 
         .card h3 {
@@ -1269,23 +1267,25 @@ const faqContent = [
         .card h3::after {
           content: "";
           position: absolute;
-          top: 1.5rem;
+          top: 1rem;
           left: 0;
-          height: 8px;
-          width: 50%;
+          height: 6px;
+          width: min(50%, 15ch);
           opacity: 0.6;
           background-color: var(--primary-light);
           z-index: -1;
         }
 
         .card p {
-          margin-bottom: auto;
+          flex: 1;
         }
 
         @media (min-width: 1000px) {
           .cards {
             flex-direction: row;
-            gap: var(--space-l);
+            align-items: stretch;
+            gap: var(--space-m);
+            margin-inline: auto;
             margin-bottom: var(--space-l);
           }
         }
@@ -1683,14 +1683,14 @@ const faqContent = [
           display: flex;
           justify-content: flex-start;
           gap: var(--space-xl);
-          width: 100vw;
+          width: 100%;
           padding-inline: 15vw;
           overflow-x: scroll;
 
           .review {
             border: 1px solid var(--border-color);
             padding: var(--space-m);
-            min-width: calc(100vw/5.5);
+            min-width: calc(100vw / 5.5);
             border-radius: 16px;
 
             header {
@@ -1746,6 +1746,7 @@ const faqContent = [
           .vision-diagram {
             max-width: 700px;
             height: 100%;
+            width: 100%;
             object-fit: contain;
           }
         }
