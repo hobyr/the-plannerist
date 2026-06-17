@@ -5,79 +5,93 @@ const { faqContent } = Astro.props;
 ---
 
 <div class="faq-wrapper">
-    {
-        faqContent.map((item: any) => (
-            <div class="faq-item">
-                <header>
-                    <h3>{item.heading}</h3>
-                    <PlusSign class="toggle" />
-                </header>
-                <main>
-                    <div set:html={marked.parse(item.main)} />
-                </main>
-            </div>
-        ))
-    }
+  {
+    faqContent.map((item: any) => (
+      <div class="faq-item">
+        <header>
+          <h3>{item.heading}</h3>
+          <PlusSign class="toggle" />
+          {/* <span><i class="fa-li fa-chevron-down"></i></span> */}
+        </header>
+        <main>
+          <div set:html={marked.parse(item.main)} />
+        </main>
+      </div>
+    ))
+  }
 </div>
 
 <script>
-    const faqHeaders = document.querySelectorAll(".faq-item header");
-    faqHeaders.forEach((header) => {
-        header.addEventListener("click", () => {
-            const content = header.nextElementSibling;
-            const toggle = header.querySelector(".toggle");
-            toggle?.classList.toggle("active");
-            content?.classList.toggle("active");
-        });
+  const faqHeaders = document.querySelectorAll(".faq-item header");
+  faqHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      const toggle = header.querySelector(".toggle");
+      toggle?.classList.toggle("active");
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
     });
+  });
 </script>
 
 <style>
+  .faq-wrapper {
+    margin: 0 auto;
+    margin-bottom: var(--space-m);
+    border: 1px solid var(--border-color);
+    padding: var(--space-xl);
+    border-radius: 36px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--text);
+    padding-block: var(--space-m);
+  }
+
+  .faq-item:first-of-type {
+    border-top: 1px solid var(--text);
+  }
+
+  .faq-item header {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-m);
+    align-items: center;
+    font-family: var(--font-instrument-serif);
+  }
+
+  .faq-item .toggle {
+    width: 2rem;
+    height: 2rem;
+
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  .faq-item .toggle.active {
+    transform: rotate(45deg);
+  }
+
+  .faq-item main {
+    max-height: 0;
+    overflow: hidden;
+    max-width: 75ch;
+    width: 100%;
+
+    transition-property: max-height;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+  }
+
+  @media (width <= 650px) {
     .faq-wrapper {
-        margin: 0 auto;
-        margin-bottom: var(--space-m);
-        width: 85ch;
-        border: 1px solid var(--border-color);
-        padding: var(--space-xl);
-        border-radius: 36px;
+      border: unset;
+      padding-inline: 1rem;
     }
-
-    .faq-item {
-        border-bottom: 1px solid var(--text);
-        padding-block: var(--space-m);
-    }
-
-    .faq-item:first-of-type {
-        border-top: 1px solid var(--text);
-    }
-
-    .faq-item header {
-        display: flex;
-        justify-content: space-between;
-        gap: var(--space-m);
-        align-items: center;
-        font-family: var(--font-instrument-serif);
-    }
-
-    .faq-item .toggle {
-        width: 2rem;
-        height: 2rem;
-
-        transition-property: transform;
-        transition-duration: 300ms;
-        transition-timing-function: ease-out;
-    }
-
-    .faq-item .toggle.active {
-        transform: rotate(45deg);
-    }
-
-    .faq-item main {
-        display: none;
-        width: 75ch;
-    }
-
-    .faq-item main.active {
-        display: block;
-    }
+  }
 </style>
