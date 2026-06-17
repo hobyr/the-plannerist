@@ -423,7 +423,7 @@ const faqContent = [
       <h3 class="section-subheading">
         Des formats adaptés en fonction de tes objectifs
       </h3>
-      <p>
+      <p class="tagline">
         Deux approches selon que l'enjeu principal soit l'organisation
         opérationnelle ou l'optimisation de la performance.
       </p>
@@ -1391,6 +1391,12 @@ const faqContent = [
       }
 
       .index-formats {
+        .tagline {
+          text-align: center;
+          text-wrap: balance;
+          margin-bottom: var(--space-m);
+        }
+
         .cards {
           display: flex;
           justify-content: center;
@@ -1425,12 +1431,12 @@ const faqContent = [
         .card .header-icon {
           display: flex;
           align-items: center;
-          gap: 1rem;
+          gap: var(--space-s);
           margin-bottom: 0.5rem;
         }
 
         .card svg {
-          --length: 2rem;
+          --length: 1.5rem;
           width: var(--length);
           height: var(--length);
           color: var(--text);
@@ -1439,11 +1445,7 @@ const faqContent = [
         .card-title {
           margin-top: 0;
           margin-bottom: 0;
-          line-height: 1;
-          /* font-family: "Outfit", sans-serif; */
-          font-weight: 600;
           font-size: 1.5rem;
-          letter-spacing: 1px;
         }
 
         .card-tagline {
@@ -1468,6 +1470,7 @@ const faqContent = [
           /* width: 100%; */
           padding-right: 0.75rem;
           margin-top: var(--space-s);
+          margin-inline: unset;
         }
 
         .cta i {
