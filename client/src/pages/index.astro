@@ -1129,25 +1129,26 @@ const faqContent = [
           gap: 20px;
           overflow: hidden;
           position: relative;
-          height: 820px;
+          height: 730px;
           width: 100%;
 
           .card {
             position: absolute;
-            width: 500px;
-            height: 750px;
+            max-width: 400px;
+            width: 100%;
+            height: 680px;
             background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 24px;
-            max-width: 500px;
-            box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+            /* box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%); */
             padding: var(--space-m);
             display: flex;
             flex-direction: column;
 
             .question-cover {
-              width: 100%;
-              max-height: 420px;
+              /* width: 100%; */
+              /* max-height: 420px; */
+              height: 100%;
               border-radius: 12px;
               margin-bottom: var(--space-s);
               object-fit: cover;
@@ -1214,7 +1215,14 @@ const faqContent = [
           .card:nth-of-type(8) {
             z-index: 0;
             border-width: 3px;
-            box-shadow: unset;
+            
+            .question-cover {
+              max-height: 400px;
+            }
+
+            .cta {
+              margin-top: auto;
+            }
           }
         }
 
@@ -1227,7 +1235,6 @@ const faqContent = [
         .cards {
           display: flex;
           flex-direction: row;
-          flex-wrap: wrap;
           align-items: stretch;
           justify-content: center;
           gap: var(--space-s);
@@ -1245,7 +1252,7 @@ const faqContent = [
           position: relative;
           z-index: 1;
           max-width: 650px;
-          min-width: 350px;
+          /* min-width: 350px; */
 
           .keyword {
             font-size: var(--step-0);
@@ -1761,6 +1768,17 @@ const faqContent = [
         .index-intro {
           footer {
             flex-direction: column-reverse;
+          }
+        }
+
+        .index-questionnaire {
+
+        }
+
+        .index-pillars {
+          .cards {
+            flex-direction: column;
+            align-items: center;
           }
         }
 
