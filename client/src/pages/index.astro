@@ -804,7 +804,7 @@ const faqContent = [
       </div>
     </section>
 
-    <section class="container index-reviews">
+    <section class="index-reviews">
       <h2 class="section-heading">ils en parlent le mieux</h2>
       <h3 class="section-subheading">
         Ils ont optimisé leurs opérations pour scaler
@@ -1726,6 +1726,17 @@ const faqContent = [
                 object-fit: contain;
                 margin-left: auto;
               }
+            }
+          }
+        }
+
+        @media (width <= 900px) {
+          .carousel {
+            padding: 0;
+            gap: var(--space-s);
+
+            .review {
+              min-width: 90%;
             }
           }
         }
