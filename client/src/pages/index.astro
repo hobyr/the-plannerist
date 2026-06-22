@@ -607,10 +607,10 @@ const faqContent = [
       </div>
     </section>
 
-    <section class="container index-vision">
+    <section class="index-vision">
       <h2 class="section-heading">Notre petit plus</h2>
       <h3 class="section-subheading">Une vision transverse de l'activité</h3>
-      <p>
+      <p class="tagline">
         Des opérations efficaces ne se construisent pas sans prendre en compte
         l’intégralité de l’entreprise (enjeux financiers, marketing, RH, etc.)
       </p>
@@ -695,7 +695,7 @@ const faqContent = [
             </li>
           </ul>
         </div>
-        <Image src={vision_stack} alt="" class="vision-diagram" />
+        <Image src={vision_stack} alt="" layout="none" class="vision-diagram" />
       </div>
     </section>
 
@@ -1067,6 +1067,12 @@ const faqContent = [
         font-weight: 300;
       }
 
+      .tagline {
+        text-align: center;
+        text-wrap: balance;
+        margin-bottom: var(--space-m);
+      }
+
       h3 {
         font-family: var(--font-instrument-serif);
       }
@@ -1391,12 +1397,6 @@ const faqContent = [
       }
 
       .index-formats {
-        .tagline {
-          text-align: center;
-          text-wrap: balance;
-          margin-bottom: var(--space-m);
-        }
-
         .cards {
           display: flex;
           justify-content: center;
@@ -1736,21 +1736,31 @@ const faqContent = [
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 10vw;
-          width: 100%;
+          gap: var(--space-xl);
+          /* width: 100%; */
 
           .description {
-            max-width: 75ch;
             border: 1px solid var(--border-color);
             padding: var(--space-m);
             border-radius: 24px;
           }
 
-          .vision-diagram {
-            max-width: 700px;
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
+          h2 {
+            margin-bottom: 2rem;
+          }
+
+          ul {
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        @media(width <= 900px) {
+          .livrables {
+            display: block;
+
+            .description {
+              margin-bottom: var(--space-m);
+            }
           }
         }
       }
