@@ -117,13 +117,13 @@ const faqContent = [
 <html lang="en">
   <Head description={pageDescription} title={pageTitle} />
   <Layout>
-    <section class="container index-intro">
+    <section class="index-intro">
       <h2 class="section-heading">Accompagnement pilotage d'entreprise</h2>
       <h3 class="section-subheading">
         90 jours pour transformer ton organisation en levier de rentabilité avec
         un COO externalisé
       </h3>
-      <p>
+      <p class="tagline">
         On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et
         fluidifier ton "day-to-day".
       </p>
@@ -141,7 +141,7 @@ const faqContent = [
       </footer>
     </section>
 
-    <section class="container index-questionnaire">
+    <section class="index-questionnaire">
       <h3 class="section-subheading">Ces situations te parlent ?</h3>
       <div class="questionnaire">
         <div class="card">
@@ -251,7 +251,7 @@ const faqContent = [
       </div>
     </section>
 
-    <section class="container index-methodology">
+    <section class="index-methodology">
       <h2 class="section-heading">La méthodologie</h2>
       <h3 class="section-subheading">
         3 mois pour reprendre le contrôle de ta boîte.
@@ -699,7 +699,7 @@ const faqContent = [
       </div>
     </section>
 
-    <section class="container index-successes">
+    <section class="index-successes">
       <h2 class="section-heading">ils nous ont fait confiance</h2>
       <h3 class="section-subheading">
         Ils ont transformé leur entreprise avec The Plannerist
@@ -1097,16 +1097,25 @@ const faqContent = [
       }
 
       .index-intro {
+        .tagline {
+          text-wrap: balance;
+        }
+
         footer {
           display: flex;
           flex-direction: row;
           justify-content: center;
-          align-items: flex-start;
+          align-items: center;
           gap: var(--space-m);
           padding: 0;
 
+          .button {
+            margin: unset;
+
+          }
+
           img {
-            max-height: 6.5rem;
+            max-width: 12rem;
           }
         }
       }
@@ -1217,8 +1226,10 @@ const faqContent = [
       .index-pillars {
         .cards {
           display: flex;
-          flex-direction: column;
-          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: stretch;
+          justify-content: center;
           gap: var(--space-s);
         }
 
@@ -1234,6 +1245,7 @@ const faqContent = [
           position: relative;
           z-index: 1;
           max-width: 650px;
+          min-width: 350px;
 
           .keyword {
             font-size: var(--step-0);
@@ -1284,16 +1296,6 @@ const faqContent = [
 
         .card p {
           flex: 1;
-        }
-
-        @media (min-width: 1000px) {
-          .cards {
-            flex-direction: row;
-            align-items: stretch;
-            gap: var(--space-m);
-            margin-inline: auto;
-            margin-bottom: var(--space-l);
-          }
         }
       }
 
@@ -1729,17 +1731,6 @@ const faqContent = [
             }
           }
         }
-
-        @media (width <= 900px) {
-          .carousel {
-            padding: 0;
-            gap: var(--space-s);
-
-            .review {
-              min-width: 90%;
-            }
-          }
-        }
       }
 
       .index-vision {
@@ -1764,13 +1755,32 @@ const faqContent = [
             margin-bottom: 1.5rem;
           }
         }
+      }
 
-        @media(width <= 900px) {
+      @media (width <= 900px) {
+        .index-intro {
+          footer {
+            flex-direction: column-reverse;
+          }
+        }
+
+        .index-vision {
           .livrables {
             display: block;
 
             .description {
               margin-bottom: var(--space-m);
+            }
+          }
+        }
+
+        .index-reviews {
+          .carousel {
+            padding: 0;
+            gap: var(--space-s);
+
+            .review {
+              min-width: 90%;
             }
           }
         }
