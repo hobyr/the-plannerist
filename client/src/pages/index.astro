@@ -616,84 +616,31 @@ const faqContent = [
       </p>
       <div class="livrables">
         <div class="description">
-          <h2>Les Livrables</h2>
-          <h3>Opérations</h3>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >
-              Tableaux Asana par département Marketing, Commercial, Finance, RH…)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Templates de process et checklists prêts à l'emploi
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >
-              Automatisations de tâches et workflows (leads entrants, relances, assignations...)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Base de connaissances par département centralisée sur Asana
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Création & Mise à jour d’une Knowledge Base
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Installation, connexion et synchronisation des outils
-            </li>
-          </ul>
-          <h3>Pilotage</h3>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Weekly Recap des avancées
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Suivi des priorisations et échéances
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Process d'escalade et gestion des urgences
-            </li>
-          </ul>
-          <h3>Performance</h3>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Mise en place des OKR et de la roadmap dans Asana
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Monthly Performance recap
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >
-              Construction et suivi de tableaux de bord dans Looker Studio
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Construction et suivi d’un budget prévisionnel
-            </li>
-          </ul>
+          <h2>Objectif : une autonomie durable</h2>
+          <p>
+            L'objectif n'est pas de devenir indispensable à votre activité. Nous
+            construisons des systèmes, des process et des routines que votre
+            équipe peut s'approprier afin que l'entreprise continue à
+            fonctionner efficacement sans dépendre en permanence d'un
+            accompagnement externe.
+          </p>
+          <h2>Le petit + : Une approche orientée rentabilité</h2>
+          <p>
+            Chaque recommandation doit avoir un impact concret sur la
+            performance de l'entreprise.<br /><br />Au-delà de l'organisation,
+            nous cherchons à améliorer la rentabilité, réduire les coûts cachés
+            et optimiser l'utilisation des ressources afin que les résultats
+            soient visibles sur le compte de résultat.
+          </p>
+          <h2>L’atout : + : Une vision globale de l'entreprise</h2>
+          <p>
+            Une entreprise n'est pas une somme de départements.<br /><br
+            />Marketing, commercial, finance, RH et opérations sont
+            interdépendants. The Plannerist aide à construire des systèmes où
+            les informations circulent, les équipes collaborent plus
+            efficacement et les décisions sont prises avec une vision globale de
+            l'activité.
+          </p>
         </div>
         <Image src={vision_stack} alt="" layout="none" class="vision-diagram" />
       </div>
@@ -708,19 +655,17 @@ const faqContent = [
         <div class="success-card">
           <Image src={florie_portrait.src} alt="" class="story-portrait item" />
           <p class="description item">
-            Florie de MyBlueprintVF a débloqué sa croissance en <b
-              >structurant son activité</b
-            >, <b>en déléguant efficacement</b> et en mettant en place des <b
-              >process clairs</b
-            >.
+            Entreprise MyBlueprintVF (e-commerce, B2B, B2C)
           </p>
-          <div class="metric item">
-            <header>+130%</header>
-            <main>Chiffre d'affaires</main>
-          </div>
-          <div class="metric item">
-            <header>8 mois</header>
-            <main>Atteinte de la rentabilité</main>
+          <div class="metrics item">
+            <div class="metric">
+              <header>+130%</header>
+              <main>Chiffre d'affaires</main>
+            </div>
+            <div class="metric">
+              <header>8 mois</header>
+              <main>Atteinte de la rentabilité</main>
+            </div>
           </div>
           <div class="review item">
             <blockquote>
@@ -735,7 +680,7 @@ const faqContent = [
             </blockquote>
             <p>Florie Gatet, fondatrice MyBlueprintVF</p>
           </div>
-          <a href="" class="button cta item">Voir l’étude de cas</a>
+          <a href="" class="button cta item">Voir l’étude de cas <i class="fa-solid fa-eye"></i></a>
         </div>
         <!-- <div class="success-card">
           <Image src="" alt="" />
@@ -1111,7 +1056,6 @@ const faqContent = [
 
           .button {
             margin: unset;
-
           }
 
           img {
@@ -1215,7 +1159,7 @@ const faqContent = [
           .card:nth-of-type(8) {
             z-index: 0;
             border-width: 3px;
-            
+
             .question-cover {
               max-height: 400px;
             }
@@ -1571,17 +1515,38 @@ const faqContent = [
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: auto;
           grid-template-areas:
-            "portrait portrait portrait portrait metric1 metric1 metric2 metric2"
-            "portrait portrait portrait portrait metric1 metric1 metric2 metric2"
-            "portrait portrait portrait portrait review review review review"
+            "portrait portrait portrait portrait metric metric metric metric"
+            "portrait portrait portrait portrait metric metric metric metric"
             "portrait portrait portrait portrait review review review review"
             "description description description description review review review review"
-            "cta cta cta cta cta cta cta cta";
+            "cta cta cta cta review review review review";
           gap: var(--space-m);
           width: 100%;
+          max-width: 1000px;
+          margin-inline: auto;
           border: 1px solid var(--border-color);
           border-radius: 36px;
           padding: var(--space-l);
+
+          .item:nth-child(1) {
+            grid-area: portrait;
+          }
+
+          .item:nth-child(2) {
+            grid-area: description;
+          }
+
+          .item:nth-child(3) {
+            grid-area: metric;
+          }
+
+          .item:nth-child(4) {
+            grid-area: review;
+          }
+
+          .item:nth-child(5) {
+            grid-area: cta;
+          }
         }
 
         blockquote {
@@ -1592,58 +1557,44 @@ const faqContent = [
           object-fit: cover;
           grid-area: portrait;
           width: 100%;
-          aspect-ratio: 3/2;
-          max-height: 350px;
-        }
-
-        .item {
-          border-radius: var(--space-s);
-        }
-
-        .item:nth-child(1) {
-          grid-area: portrait;
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-        }
-
-        .item:nth-child(2) {
-          grid-area: description;
-        }
-
-        .item:nth-child(3) {
-          grid-area: metric1;
-          background-color: var(--primary-light);
-          color: var(--primary);
-        }
-
-        .item:nth-child(4) {
-          grid-area: metric2;
-          background-color: var(--bg-color-light);
-          color: var(--text);
-        }
-
-        .item:nth-child(5) {
-          grid-area: review;
-        }
-
-        .item:nth-child(6) {
-          grid-area: cta;
         }
 
         .description {
-          margin-top: var(--space-m);
+          font-size: var(--step-1);
+          font-weight: 500;
+          text-align: left;
+          margin: 0;
+        }
+
+        .metrics {
+          display: flex;
+          flex-direction: row;
+          gap: var(--space-m);
         }
 
         .metric {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: var(--space-m);
+          justify-content: center;
+          padding: var(--space-xl) var(--space-m);
+          margin-bottom: var(--space-m);
+          height: 100%;
+          width: 100%;
+
+          &:nth-of-type(1) {
+            background-color: var(--primary-light);
+            color: var(--primary);
+          }
+
+          &:nth-of-type(2) {
+            background-color: var(--bg-color-light);
+            color: var(--text);
+          }
         }
 
         .metric header {
-          font-size: var(--step-3);
+          font-size: var(--step-4);
           font-weight: 600;
         }
 
@@ -1651,13 +1602,13 @@ const faqContent = [
           font-size: var(--step-0);
           font-weight: 400;
           line-height: 95%;
-          margin-top: 1.2rem;
+          margin-top: .5rem;
         }
 
         .review {
           position: relative;
           border: 1px solid var(--border-color);
-          padding: 2rem;
+          padding: var(--space-m);
         }
 
         .review svg {
@@ -1671,22 +1622,16 @@ const faqContent = [
           z-index: 1;
         }
 
-        @media (max-width: 1100px) {
-          .container {
-            flex-direction: column;
-          }
-
-          .portrait-grid {
-            width: 100%;
-          }
+        .metric,
+        .review,
+        .story-portrait,
+        .description {
+          border-radius: 12px;
         }
 
-        @container card (width < 580px) {
-          .portrait-grid {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-s);
-          }
+        .cta {
+          margin-top: 0;
+          margin-left: 0;
         }
       }
 
@@ -1702,7 +1647,7 @@ const faqContent = [
           .review {
             border: 1px solid var(--border-color);
             padding: var(--space-m);
-            min-width: calc(100vw / 5.5);
+            min-width: max(370px, calc(100vw / 5.5));
             border-radius: 16px;
 
             header {
@@ -1742,11 +1687,12 @@ const faqContent = [
 
       .index-vision {
         .livrables {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
           gap: var(--space-xl);
-          /* width: 100%; */
+          max-width: 1300px;
+          margin-inline: auto;
+          padding-inline: var(--space-xl);
 
           .description {
             border: 1px solid var(--border-color);
@@ -1772,7 +1718,6 @@ const faqContent = [
         }
 
         .index-questionnaire {
-
         }
 
         .index-pillars {
@@ -1784,7 +1729,9 @@ const faqContent = [
 
         .index-vision {
           .livrables {
-            display: block;
+            display: flex;
+            flex-direction: column-reverse;
+            padding-inline: unset;
 
             .description {
               margin-bottom: var(--space-m);
@@ -1798,7 +1745,27 @@ const faqContent = [
             gap: var(--space-s);
 
             .review {
-              min-width: 90%;
+              min-width: 250px;
+              max-width: 450px;
+            }
+          }
+        }
+
+        .index-successes {
+          .success-card {
+            display: block;
+            padding: var(--space-m);
+            border-radius: 24px;
+            max-width: 600px;
+            margin-inline: auto;
+
+            .metrics {
+              display: flex;
+              justify-content: center;
+              gap: var(--space-m);
+              * {
+                flex: 1;
+              }
             }
           }
         }
