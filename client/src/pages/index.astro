@@ -256,7 +256,7 @@ const faqContent = [
       <h3 class="section-subheading">
         3 mois pour reprendre le contrôle de ta boîte.
       </h3>
-      <p>
+      <p class="tagline">
         On repense le pilotage de ta boîte en 3 mois pour optimiser ta marge et
         fluidifier ton "day-to-day".
       </p>
@@ -680,7 +680,7 @@ const faqContent = [
             </blockquote>
             <p>Florie Gatet, fondatrice MyBlueprintVF</p>
           </div>
-          <a href="" class="button cta item">Voir l’étude de cas <i class="fa-solid fa-eye"></i></a>
+          <a href="business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf" class="button cta item">Voir l’étude de cas <i class="fa-solid fa-eye"></i></a>
         </div>
         <!-- <div class="success-card">
           <Image src="" alt="" />
@@ -900,12 +900,30 @@ const faqContent = [
           </main>
         </div>
       </div>
+      <a
+        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button cta"
+        >Prendre RDV <span
+          ><i class="fa-solid fa-arrow-right"></i></span
+        ></a
+      >
     </section>
 
     <section class="index-faq">
       <h2 class="section-heading">FAQ</h2>
       <h3 class="section-subheading">Les questions qui reviennent souvent</h3>
       <Faq faqContent={faqContent} />
+      <a
+        href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button cta"
+        >Prendre RDV <span
+          ><i class="fa-solid fa-arrow-right"></i></span
+        ></a
+      >
     </section>
 
     <script>
@@ -1254,6 +1272,9 @@ const faqContent = [
         .timeline {
           position: relative;
           width: 100%;
+          max-width: 1440px;
+          margin-inline: auto;
+          padding-inline: var(--space-l);
           margin-block: var(--space-m);
 
           .background {
