@@ -1013,9 +1013,10 @@ const faqContent = [
 
     <style>
       .section-heading,
-      .section-subheading {
+      .section-subheading,
+      .tagline {
         text-align: center;
-        /* margin: 0; */
+        margin-block: var(--space-m);
       }
 
       .section-heading {
@@ -1026,14 +1027,13 @@ const faqContent = [
       }
 
       .section-subheading {
-        font-size: var(--step-5);
+        font-size: var(--step-6);
         font-weight: 300;
       }
 
       .tagline {
         text-align: center;
         text-wrap: balance;
-        margin-bottom: var(--space-m);
       }
 
       h3 {
@@ -1055,7 +1055,7 @@ const faqContent = [
       }
 
       .cta {
-        margin-top: var(--space-s);
+        margin-top: var(--space-2xl);
         padding-right: 0.15rem;
       }
 
@@ -1199,8 +1199,9 @@ const faqContent = [
           flex-direction: row;
           align-items: stretch;
           justify-content: center;
-          gap: var(--space-2xl);
+          gap: var(--space-l);
           padding-inline: var(--space-5xl);
+          margin-top: var(--space-xl);
         }
 
         .card {
@@ -1379,6 +1380,7 @@ const faqContent = [
           gap: var(--space-2xl);
           padding-inline: var(--space-5xl);
           margin-bottom: var(--space-l);
+          margin-top: var(--space-xl);
           width: 100%;
         }
 
@@ -1710,14 +1712,15 @@ const faqContent = [
         .livrables {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: var(--space-xl);
+          align-items: center;
+          gap: var(--space-2xl);
           max-width: 1300px;
           margin-inline: auto;
           padding-inline: var(--space-xl);
 
           .description {
             border: 1px solid var(--border-color);
-            padding: var(--space-m);
+            padding: var(--space-xl);
             border-radius: 24px;
           }
 
