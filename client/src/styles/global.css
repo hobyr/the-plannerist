@@ -86,7 +86,7 @@
   font-display: swap;
 }
 
-/* @link https://utopia.fyi/type/calculator?c=360,16,1.2,2560,20,1.25,5,2,1440 s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=360,16,1.2,2560,20,1.25,5,2,1440 s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 
 :root {
   --step--2: clamp(0.6944rem, 0.6772rem + 0.0768vw, 0.8rem);
@@ -97,9 +97,9 @@
   --step-3: clamp(1.728rem, 1.6113rem + 0.5188vw, 2.4414rem);
   --step-4: clamp(2.0736rem, 1.9135rem + 0.7114vw, 3.0518rem);
   --step-5: clamp(2.4883rem, 2.2713rem + 0.9646vw, 3.8147rem);
-}
+} */
 
-/* @link https://utopia.fyi/type/calculator?c=360,11,1.2,2560,16,1.25,5,2,1920-1440&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+/* @link https://utopia.fyi/type/calculator?c=360,11,1.2,2560,16,1.25,5,2,1920-1440&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
   --step--2: clamp(0.4774rem, 0.4508rem + 0.1182vw, 0.64rem);
@@ -110,7 +110,7 @@
   --step-3: clamp(1.188rem, 1.0628rem + 0.5565vw, 1.9531rem);
   --step-4: clamp(1.4256rem, 1.2594rem + 0.7388vw, 2.4414rem);
   --step-5: clamp(1.7107rem, 1.4913rem + 0.9753vw, 3.0518rem);
-} */
+}
 
 /* @link https://utopia.fyi/space/calculator?c=360,18,1.2,2560,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 
@@ -224,15 +224,15 @@ h4 {
 }
 
 h1 {
-  font-size: var(--step-4);
+  font-size: var(--step-5);
 }
 
 h2 {
-  font-size: var(--step-3);
+  font-size: var(--step-4);
 }
 
 h3 {
-  font-size: var(--step-2);
+  font-size: var(--step-3);
 }
 
 p {
