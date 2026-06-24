@@ -278,6 +278,7 @@ const faqContent = [
         <div class="steps">
           <div class="item">
             Audit
+            <span class="logo"><i class="fa-solid fa-question"></i></span>
             <div class="explainer">
               <h4>Découverte de l'activité</h4>
               <ul>
@@ -296,6 +297,7 @@ const faqContent = [
           </div>
           <div class="item">
             Transformation
+            <span class="logo"><i class="fa-solid fa-question"></i></span>
             <div class="explainer">
               <h4>Conception et déploiement</h4>
               <ul>
@@ -324,6 +326,7 @@ const faqContent = [
           </div>
           <div class="item">
             Suivi
+            <span class="logo"><i class="fa-solid fa-question"></i></span>
             <div class="explainer">
               <h4>Transmission et autonomisation</h4>
               <ul>
@@ -1348,6 +1351,20 @@ const faqContent = [
               transition-property: background-color, color;
               transition-duration: 300ms;
               transition-timing-function: ease-in-out;
+
+              .logo {
+                position: absolute;
+                right: 6px;
+                border: 1px solid var(--text);
+                background-color: var(--text);
+                color: white;
+                aspect-ratio: 1/1;
+                height: 1.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 999px;
+              }
 
               .explainer {
                 position: absolute;
