@@ -1692,19 +1692,31 @@ const faqContent = [
           flex-direction: row;
           align-items: center;
           gap: var(--space-s);
+          padding-inline: var(--space-2xl);
         }
 
         .left-scroller,
         .right-scroller {
-          --length: 6rem;
+          --length: 4rem;
           width: var(--length);
           aspect-ratio: 1/1;
-          border: 3px solid var(--text);
+          border: 2px solid var(--border-color);
+          color: var(--border-color);
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: var(--step-4);
+          font-size: var(--step-2);
           border-radius: 999px;
+
+          transition-property: color, border-color;
+          transition-duration: 150ms;
+          transition-timing-function: ease-in-out;
+        }
+
+        .left-scroller:hover,
+        .right-scroller:hover {
+          color: var(--text);
+          border-color: var(--text);
         }
 
         .carousel {
