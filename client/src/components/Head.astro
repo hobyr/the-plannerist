@@ -1,5 +1,6 @@
 ---
 const { description, title } = Astro.props;
+import { Font } from "astro:assets";
 ---
 
 <head>
@@ -9,6 +10,9 @@ const { description, title } = Astro.props;
   <link rel="icon" type="image/png" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" href="/favicon-16x16.png" />
   <link rel="icon" href="/favicon.ico" />
+  <Font cssVariable="--font-instrument-serif" />
+  <Font cssVariable="--font-google-sans-flex" />
+  <Font cssVariable="--font-outfit" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
