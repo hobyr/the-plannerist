@@ -1839,6 +1839,13 @@ const faqContent = [
           .cards {
             flex-direction: column;
             align-items: center;
+            padding-inline: unset;
+          }
+        }
+
+        .index-formats {
+          .cards {
+            padding-inline: unset;
           }
         }
 
@@ -1879,6 +1886,10 @@ const faqContent = [
             max-width: 600px;
             margin-inline: auto;
 
+            .description {
+              margin-block: var(--space-s);
+            }
+
             .metrics {
               display: flex;
               justify-content: center;
@@ -1886,6 +1897,10 @@ const faqContent = [
               * {
                 flex: 1;
               }
+            }
+
+            .review {
+              margin-bottom: var(--space-s);
             }
           }
         }
