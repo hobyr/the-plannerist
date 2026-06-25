@@ -108,15 +108,15 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
     <Layout>
       <section id="presentation">
         <div class="container">
-          <div class="title-header">Des stratégies qui font la différence</div>
-          <h1 class="page-title">Des examples de conseil en pilotage d'entreprise</h1>
+          <div class="section-heading">Des stratégies qui font la différence</div>
+          <h1 class="page-heading">Des examples de conseil en pilotage d'entreprise</h1>
           <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre un appel découverte</a>
         </div>
       </section>
 
       <section id="business-cases">
         <div class="container">
-          <h2 class="section-title">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
+          <h2 class="section-subheading">Conseil en pilotage d'entreprise : poser un cadre solide pour faire évoluer ton activité</h2>
           <p class="tagline">Découvre quelques exemples concrets d’entrepreneurs accompagnés. Derrière chaque projet, il y avait <strong>le même besoin</strong> : reprendre le contrôle, structurer l’activité, et poser un cadre solide pour passer un cap. C’est précisément l’objectif d’un accompagnement en conseil en pilotage d’entreprise : t’aider à faire le tri, à prioriser, à t’organiser, sans t’imposer un modèle figé. Ici, on parle d’un accompagnement stratégique et opérationnel, au service de ton business (pas l’inverse).</p>
           <div class="case-wrapper">
             {business_cases.map(item => 
@@ -143,7 +143,7 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
 
       <section id="structure">
         <div class="container">
-          <h2 class="section-title">Conseil en pilotage d'entreprise : bien plus qu'un regard extérieur de notre équipe</h2>
+          <h2 class="section-subheading">Conseil en pilotage d'entreprise : bien plus qu'un regard extérieur de notre équipe</h2>
           <div class="card-grid">
             {structureContent.map(item => (
             <div class="card">
@@ -158,7 +158,7 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
 
       <section id="merits">
         <div class="container">
-          <h2 class="section-title">Ce que peut t'apporter un accompagnement en pilotage d'entreprise</h2>
+          <h2 class="section-subheading">Ce que peut t'apporter un accompagnement en pilotage d'entreprise</h2>
           <p class="tagline">Les business cases parlent d’eux-mêmes : chaque entrepreneur a ses objectifs, ses blocages, sa façon de fonctionner. Mais tous, à un moment, ont ressenti le besoin d’un cadre plus solide pour avancer sereinement. C’est exactement ce qu’apporte le conseil en pilotage d’entreprise : des ajustements ciblés, une vision plus claire, et des leviers concrets pour faire évoluer ton activité dans la bonne direction.</p>
           <div class="item-wrapper">
             <div class="item">
@@ -180,7 +180,7 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
 
       <section id="reviews">
       <div class="container">
-        <h2 class="section-title">
+        <h2 class="section-subheading">
           Ce que disent les <em>solofounders &amp; les TPE</em> qui ont travaillé
           avec moi
         </h2>
@@ -209,10 +209,8 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
       
       <section id="faq">
         <div class="container">
-          <h2 class="section-title">FAQ</h2>
-          <div class="faq-wrapper">
+          <h2 class="section-subheading">FAQ</h2>
             <Faq faqContent={faqContent} />
-          </div>
           <a class="button cta" href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank" rel="noopener noreferrer">On commence quand ?</a>
         </div>
       </section>
@@ -220,6 +218,28 @@ const pageTitle = "The Plannerist | Business Cases | Conseil en pilotage d'entre
 </html>
 
 <style>
+  .page-heading {
+        font-size: var(--step-8);
+        font-family: var(--font-instrument-serif);
+        font-weight: 300;
+        text-align: center;
+      }
+
+      .section-heading {
+        font-size: var(--step--1);
+        font-family: var(--font-google-sans-flex);
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      
+      .section-subheading {
+        font-size: var(--step-7);
+        font-family: var(--font-instrument-serif);
+        font-weight: 300;
+        text-align: center;
+        text-wrap: balance;
+      }
+
   #merits .container,
   #business-cases .container,
   #presentation .container,
