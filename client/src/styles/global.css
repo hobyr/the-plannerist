@@ -350,6 +350,14 @@ table {
   color: var(--neutral);
 }
 
+.cta.has-right-icon {
+  padding-right: .15rem;
+}
+
+.cta.has-left-icon {
+  padding-left: .15rem;
+}
+
 li {
   margin-block: var(--space-2xs);
 }

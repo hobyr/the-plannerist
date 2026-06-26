@@ -42,6 +42,12 @@ const linkedInReviews = [
       "Cela fait maintenant 1 année que je travaille avec Seheno dans le cadre de nos activités respectives. Elle est professionnelle, investie dans son travail et très à l'écoute des aspirations et attentes de ses clients. Elle est continuellement dans une démarche de bien faire les choses. C'est un plaisir de collaborer avec elle. Je la recommande sans aucune hésitation !",
   },
 ];
+
+import SehenoPortraitWelcome from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_4.webp";
+import SehenoPortraitJourney from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_1.webp";
+import WorkingDuoWorkflow from "../assets/images/PHOTOS/The Plannerist - Chief Operating Officer travaille en binome dirigeant.webp";
+import SehenoPortraitWorkflow from "../assets/images/PHOTOS/The Plannerist - Portrait Seheno COO Externalisé 5.jpg";
+import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workflow Specialist.png";
 ---
 
 <!doctype html>
@@ -51,10 +57,189 @@ const linkedInReviews = [
     title="The Plannerist | Seheno, COO pour TPE et entrepreneurs"
   />
   <Layout>
-    <Introduction />
-    <Journey />
-    <Solution />
-    <Workflow />
+    <section id="about-welcome">
+      <article>
+        <div class="section-supheading">Faisons connaissance</div>
+        <h1 class="page-heading">
+          Hello! Moi c'est Seheno Maitre, <span>ta COO pour PME et TPE</span>
+        </h1>
+        <p>
+          Ce qui m'anime depuis toujours, c'est la curiosité : comprendre
+          comment les choses fonctionnent, pourquoi elles coincent parfois, et
+          comment les faire évoluer.
+        </p>
+        <p>
+          C'est cette logique qui m'a menée, au fil des expériences, à devenir
+          COO (Chief Operating Officer) pour PME et TPE : un rôle où je peux
+          allier recul stratégique et mise en ordre concrète.
+        </p>
+        <p>
+          Structuration, organisation, pilotage &ndash; je mets mon expérience
+          de bras droit stratégique au service de ton développement.
+        </p>
+        <a
+          href="https://tally.so/r/wzGVok"
+          class="button cta has-right-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ton approche m'inspire <span
+            ><i class="fa-solid fa-comments"></i></span
+          >
+        </a>
+      </article>
+      <Image src={SehenoPortraitWelcome} alt="" class="portrait" />
+    </section>
+
+    <section id="about-journey">
+      <div class="card-wrapper">
+        <Image src={SehenoPortraitJourney} alt="" class="portrait" />
+        <article>
+          <div class="section-supheading">
+            La curiosité comme fil conducteur
+          </div>
+          <h2 class="section-subheading">
+            Mon parcours de COO pour PME et TPE
+          </h2>
+          <p>
+            Après une classe préparatoire et une école de commerce, j'ai fait
+            mes premières armes dans l'univers du prêt-à-porter et du luxe. Des
+            secteurs exigeants, où <strong>
+              j'ai appris à concilier vision stratégique, rigueur opérationnelle
+              et attention au détail</strong
+            >.
+          </p>
+          <p>
+            C'est en lançant ma première entreprise, Embrace Planner, que tout
+            s'est aligné. J'ai pris conscience de <strong>
+              l'importance d'un système bien pensé pour faire tourner une
+              activité sans s'y épuiser
+            </strong>. J'ai structuré, testé, itéré. Résultat ? La rentabilité
+            atteinte en un peu plus d'un an, et une activité capable de tourner
+            en solo.
+          </p>
+          <p>
+            Forte de cette expérience, j'ai commencé à accompagner d'autres
+            entrepreneurs : des fondateurs ambitieux, souvent très engagés dans
+            leur activité, mais sans cadre clair pour la faire évoluer
+            sereinement.
+          </p>
+          <p>
+            Aujourd'hui, en tant que COO externalisée, j'interviens auprès de
+            PME et d'entrepreneurs pour leur apporter ce cadre et cette
+            expérience terrain.
+          </p>
+          <a
+            href="https://tally.so/r/wzGVok"
+            class="button cta has-right-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Je veux collaborer avec toi <span
+              ><i class="fa-solid fa-people-arrows"></i></span
+            >
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about-solution">
+      <h2 class="section-subheading">
+        Basée à Boulogne-Billancourt, j'accompagne les dirigeants de PME/TPE
+        partout en France.
+      </h2>
+      <article>
+        <p>
+          Je suis installée à Boulogne-Billancourt, aux portes de Paris, et je
+          me déplace ponctuellement dans la capitale ainsi que dans tout le 92.
+        </p>
+        <p>
+          La majorité de mes accompagnements se fait toutefois à distance. Que
+          tu sois à Lyon, Marseille, Bordeaux ou ailleurs, on travaille en
+          visio, avec la même exigence de clarté, d'efficacité et de résultats.
+        </p>
+        <p>
+          Que ce soit pour une structuration d'équipe, une organisation des flux
+          opérationnels ou un besoin de pilotage d'activité, mon approche
+          s'adapte à ton rythme, à ton environnement et à la réalité de ton
+          quotidien d'entrepreneur.
+        </p>
+        <a
+          href="https://tally.so/r/wzGVok"
+          class="button cta has-right-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Discutons ensemble de tes défis business <span
+            ><i class="fa-solid fa-mug-hot"></i></span
+          ></a
+        >
+      </article>
+    </section>
+
+    <section id="about-workflow">
+      <div class="image-wrapper">
+        <Image
+          src={WorkingDuoWorkflow}
+          alt="The Plannerist - Working woman with laptop sitting at desk"
+          height={800}
+          class="image-layer layer-1"
+        />
+        <Image
+          src={SehenoPortraitWorkflow}
+          alt="The Plannerist - Working woman with laptop sitting at desk"
+          height={800}
+          class="image-layer layer-2"
+        />
+        <Image
+          src={AsanaWorkflow}
+          alt="The Plannerist - Working woman with laptop sitting at desk"
+          height={800}
+          class="image-layer layer-3"
+        />
+      </div>
+      <article>
+        <div class="section-supheading">Le workflow The Plannerist</div>
+        <h2 class="section-subheading">
+          Ma façon de travailler, en tant que <span>COO externalisée</span>
+        </h2>
+        <p>
+          Mon approche s’appuie avant tout sur l’expérience terrain : des années
+          passées à accompagner des entrepreneurs aux profils, aux ambitions et
+          aux secteurs d’activité très différents. J’ai travaillé avec des
+          indépendants qui lançaient leur premier service, des TPE en pleine
+          croissance, et des entreprises déjà structurées qui voulaient
+          retrouver plus de fluidité.
+        </p>
+        <p>
+          Ce parcours m’a appris une chose essentielle : il n’existe pas de
+          méthode unique qui marche pour tout le monde. Chaque projet, chaque
+          dirigeant·e arrive avec sa réalité : un rythme, des contraintes, une
+          vision, parfois même des façons de travailler qui leur sont propres
+          depuis des années.
+        </p>
+        <p>
+          C’est pour ça que je refuse les modèles figés. Chaque accompagnement
+          est cousu main, adapté à ton stade d’avancement, à ta personnalité et
+          à ce que tu veux construire.
+        </p>
+        <p>
+          Mon rôle ? Traduire ta vision en un fonctionnement clair et durable.
+        </p>
+        <p>
+          Mon objectif ? Trouver le système que tu pourras faire vivre au
+          quotidien.
+        </p>
+        <a
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          class="button cta has-right-icon"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Je veux en savoir plus <span
+            ><i class="fa-solid fa-arrow-right"></i></span
+          ></a
+        >
+      </article>
+    </section>
 
     <section id="fun-facts">
       <h2 class="section-subheading">Fun <i>facts</i> à propos de moi</h2>
@@ -171,11 +356,17 @@ const linkedInReviews = [
 </html>
 
 <style>
-  h2 span {
-    font-style: italic;
+  .page-heading {
+    font-size: var(--step-8);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
+
+    & span {
+      font-style: italic;
+    }
   }
 
-  .section-heading {
+  .section-supheading {
     font-size: var(--step--1);
     font-family: var(--font-google-sans-flex);
     text-transform: uppercase;
@@ -280,6 +471,188 @@ const linkedInReviews = [
 
       .digit {
         color: #d8eaae;
+      }
+    }
+  }
+
+  /********************************************************/
+  /******************** WELCOME ***************************/
+  /********************************************************/
+  #about-welcome {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-l);
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: var(--space-5xl);
+
+    article {
+      align-self: center;
+    }
+
+    .portrait {
+      max-width: 550px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+  }
+
+  @media (width <= 900px) {
+    #about-welcome {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding-inline: var(--space-m);
+
+      article {
+        max-width: 75ch;
+      }
+
+      .portrait {
+        border-radius: 16px;
+      }
+    }
+  }
+
+  /********************************************************/
+  /******************** JOURNEY ***************************/
+  /********************************************************/
+
+  #about-journey {
+    padding-inline: var(--space-2xl);
+
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: 45% auto;
+      background: linear-gradient(225deg, #084776, #265d75);
+      max-width: 1500px;
+      margin-inline: auto;
+      border-radius: 24px;
+      overflow: hidden;
+
+      article {
+        color: white;
+        padding: var(--space-xl);
+        margin-block: auto;
+      }
+
+      .portrait {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @media (width <= 750px) {
+    #about-journey {
+      padding-inline: var(--space-m);
+
+      .card-wrapper {
+        display: block;
+
+        .portrait {
+          max-height: 650px;
+          /* object-position: 0px -80px; */
+        }
+      }
+    }
+  }
+
+  /********************************************************/
+  /******************** SOLUTION **************************/
+  /********************************************************/
+  #about-solution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    padding-inline: var(--space-m);
+
+    .section-subheading {
+      text-align: center;
+      max-width: 60ch;
+    }
+
+    p {
+      max-width: 75ch;
+    }
+
+    .cta {
+      margin-inline: auto;
+    }
+  }
+
+  /********************************************************/
+  /******************** WORKFLOW **************************/
+  /********************************************************/
+  #about-workflow {
+    display: grid;
+    grid-template-columns: 40% auto;
+    gap: var(--space-l);
+    max-width: 1440px;
+    padding-inline: var(--space-3xl);
+    margin-inline: auto;
+
+    article {
+      margin-block: var(--space-4xl);
+      border: 1px solid var(--primary-light);
+      border-radius: 24px;
+      padding: var(--space-l);
+      box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    }
+
+    .image-wrapper {
+      position: relative;
+
+      .image-layer {
+        border-radius: 16px;
+        object-fit: cover;
+      }
+
+      .layer-1,
+      .layer-3 {
+        position: absolute;
+        width: 35%;
+        aspect-ratio: 1 / 1;
+        z-index: 1;
+        box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+      }
+
+      .layer-1 {
+        top: 8%;
+        right: 0;
+      }
+
+      .layer-2 {
+        position: absolute;
+        height: 100%;
+        width: 80%;
+        left: 10%;
+      }
+
+      .layer-3 {
+        bottom: 8%;
+        left: 0;
+        border-radius: unset;
+      }
+    }
+  }
+
+  @media (width <= 900px) {
+    #about-workflow {
+      display: block;
+      padding-inline: var(--space-m);
+
+      .image-wrapper {
+        height: 600px;
+        max-width: 450px;
+        margin-inline: auto;
+      }
+
+      article {
+        margin-block: unset;
+        margin-top: var(--space-m);
       }
     }
   }
