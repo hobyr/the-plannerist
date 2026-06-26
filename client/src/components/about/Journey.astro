@@ -8,26 +8,24 @@ import SehenoPortrait from "../../assets/images/PHOTOS/The_Plannerist_-_Portrait
   <div class="content-card">
     <Image src={SehenoPortrait} height={1000} alt="" class="portrait" />
     <article>
-      <div class="title-header">La curiosité comme fil conducteur</div>
-      <h2 class="section-title">
-        Mon parcours de COO pour PME et TPE
-      </h2>
+      <div class="section-heading">La curiosité comme fil conducteur</div>
+      <h2 class="section-subheading">Mon parcours de COO pour PME et TPE</h2>
       <p>
         Après une classe préparatoire et une école de commerce, j'ai fait mes
         premières armes dans l'univers du prêt-à-porter et du luxe. Des secteurs
         exigeants, où <strong>
-          j'ai appris à concilier vision stratégique, rigueur
-          opérationnelle et attention au détail
+          j'ai appris à concilier vision stratégique, rigueur opérationnelle et
+          attention au détail
         </strong>.
       </p>
       <p>
         C'est en lançant ma première entreprise, Embrace Planner, que tout s'est
         aligné. J'ai pris conscience de <strong>
-          l'importance d'un système bien pensé
-          pour faire tourner une activité sans s'y épuiser
-        </strong>. J'ai structuré, testé,
-        itéré. Résultat ? La rentabilité atteinte en un peu plus d'un an, et une
-        activité capable de tourner en solo.
+          l'importance d'un système bien pensé pour faire tourner une activité
+          sans s'y épuiser
+        </strong>. J'ai structuré, testé, itéré. Résultat ? La rentabilité
+        atteinte en un peu plus d'un an, et une activité capable de tourner en
+        solo.
       </p>
       <p>
         Forte de cette expérience, j'ai commencé à accompagner d'autres
@@ -69,8 +67,17 @@ import SehenoPortrait from "../../assets/images/PHOTOS/The_Plannerist_-_Portrait
     }
   }
 
-  .title-header {
-    color: var(--bg-color-light);
+  .section-heading {
+    font-size: var(--step--1);
+    font-family: var(--font-google-sans-flex);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .section-subheading {
+    font-size: var(--step-7);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
   }
 
   .portrait {

@@ -211,7 +211,7 @@ const pageDescription = article.description;
 
   .article {
     display: grid;
-    grid-template-columns: 1fr 70ch;
+    grid-template-columns: 1fr 2fr;
     column-gap: var(--space-xl);
     position: relative;
     margin-top: 2rem;
@@ -264,13 +264,12 @@ const pageDescription = article.description;
   }
 
   article {
-    max-width: 70ch;
-    margin: 0 auto;
+    max-width: 75ch;
     padding-left: var(--space-xl);
     border-left: 1px solid var(--bg-color-light);
   }
 
-  @media (max-width: 1135px) {
+  @media (max-width: 720px) {
     .article {
       display: block;
     }
