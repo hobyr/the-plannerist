@@ -180,7 +180,7 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
       <div class="image-wrapper">
         <Image
           src={WorkingDuoWorkflow}
-          alt="The Plannerist - Working woman with laptop sitting at desk"
+          alt="The Plannerist - Duo working with laptops"
           height={800}
           class="image-layer layer-1"
         />
@@ -192,7 +192,7 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
         />
         <Image
           src={AsanaWorkflow}
-          alt="The Plannerist - Working woman with laptop sitting at desk"
+          alt="The Plannerist - Asana Workflow Specialist Certificate Mark"
           height={800}
           class="image-layer layer-3"
         />
@@ -245,7 +245,12 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
       <h2 class="section-subheading">Fun <i>facts</i> à propos de moi</h2>
       <div class="item-grid">
         <div class="item">
-          <Image src={funFact1} alt="" width={800} class="fun-fact-image" />
+          <Image
+            src={funFact1}
+            alt="The Plannerist - Woman attending the tennis French Open Grand Slam Roland-Garros"
+            width={800}
+            class="fun-fact-image"
+          />
           <main>
             <div class="digit">1</div>
             <h3>J'adore le tennis</h3>
@@ -256,7 +261,12 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
           </main>
         </div>
         <div class="item">
-          <Image src={funFact2} alt="" width={800} class="fun-fact-image" />
+          <Image
+            src={funFact2}
+            alt="The Plannerist - Woman slmiling while sitting on a couch"
+            width={800}
+            class="fun-fact-image"
+          />
           <main>
             <div class="digit">2</div>
             <h3>Je suis une experte en Dad Jokes</h3>
@@ -268,7 +278,12 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
           </main>
         </div>
         <div class="item">
-          <Image src={funFact3} alt="" width={800} class="fun-fact-image" />
+          <Image
+            src={funFact3}
+            alt="The Plannerist - Portrait of a cat with vibrant blue eyes"
+            width={800}
+            class="fun-fact-image"
+          />
           <main>
             <div class="digit">3</div>
             <h3>Je suis la cat mom d'un petit Newton</h3>
@@ -282,74 +297,70 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
     </section>
 
     <section id="reviews">
-      <div class="container">
-        <h2 class="section-subheading">
-          Ce que disent les <em>solofounders &amp; les TPE</em> qui ont travaillé
-          avec moi
-        </h2>
-        <div class="reviews-grid">
-          {
-            linkedInReviews.map((review) => (
-              <div class="review-card">
-                <header>
-                  <h3 class="review-reviewer-name">{review.recommender}</h3>
-                  <h4 class="review-reviewer-title">{review.title}</h4>
-                  <Image
-                    src={LinkedInLogo}
-                    alt="LinkedIn logo"
-                    height={200}
-                    loading="lazy"
-                    class="linked-in-logo"
-                  />
-                </header>
-                <p class="review-text">{review.recommendation}</p>
-              </div>
-            ))
-          }
-        </div>
-        <a
-          class="button cta"
-          href="https://www.linkedin.com/in/seheno-ratefimandimby/"
-          target="_blank"
-          rel="noopener noreferrer">Voir le profil LinkedIn</a
-        >
+      <h2 class="section-subheading">
+        Ce que disent les <em>solofounders &amp; les TPE</em> qui ont travaillé avec
+        moi
+      </h2>
+      <div class="reviews-grid">
+        {
+          linkedInReviews.map((review) => (
+            <div class="review-card">
+              <header>
+                <h3 class="review-reviewer-name">{review.recommender}</h3>
+                <h4 class="review-reviewer-title">{review.title}</h4>
+                <Image
+                  src={LinkedInLogo}
+                  alt="LinkedIn logo"
+                  height={200}
+                  loading="lazy"
+                  class="linked-in-logo"
+                />
+              </header>
+              <p class="review-text">{review.recommendation}</p>
+            </div>
+          ))
+        }
       </div>
+      <a
+        class="button cta"
+        href="https://www.linkedin.com/in/seheno-ratefimandimby/"
+        target="_blank"
+        rel="noopener noreferrer">Voir le profil LinkedIn</a
+      >
     </section>
 
     <section id="collaboration">
-      <div class="container">
-        <div class="content">
-          <Image
-            src={collaborationCover}
-            width={800}
-            height={800}
-            class="collaboration-cover"
-            alt=""
-          />
-          <article>
-            <h2 class="section-subheading">Envie de collaborer avec moi ?</h2>
-            <p>
-              Tu avances, ton activité se développe, mais tu sens qu'un peu plus
-              de structure ne ferait pas de mal ?
-            </p>
-            <p>
-              En tant que COO pour TPE et entrepreneurs, je peux t'aider à y
-              voir plus clair, à remettre du cadre là où c'est flou, à poser les
-              premières briques d'une organisation performante et alignée qui
-              tient la route.
-            </p>
-            <p>
-              On peut simplement commencer par une conversation pour comprendre
-              où tu en es, et voir si je suis la bonne personne pour t'épauler.
-            </p>
-            <a
-              class="button cta"
-              href="https://tally.so/r/wzGVok"
-              target="_blank"
-              rel="noopener noreferrer">Programmer un café Zoom</a
-            >
-          </article>
-        </div>
+      <div class="content">
+        <Image
+          src={collaborationCover}
+          width={800}
+          height={800}
+          class="collaboration-cover"
+          alt=""
+        />
+        <article>
+          <h2 class="section-subheading">Envie de collaborer avec moi ?</h2>
+          <p>
+            Tu avances, ton activité se développe, mais tu sens qu'un peu plus
+            de structure ne ferait pas de mal ?
+          </p>
+          <p>
+            En tant que COO pour TPE et entrepreneurs, je peux t'aider à y voir
+            plus clair, à remettre du cadre là où c'est flou, à poser les
+            premières briques d'une organisation performante et alignée qui
+            tient la route.
+          </p>
+          <p>
+            On peut simplement commencer par une conversation pour comprendre où
+            tu en es, et voir si je suis la bonne personne pour t'épauler.
+          </p>
+          <a
+            class="button cta"
+            href="https://tally.so/r/wzGVok"
+            target="_blank"
+            rel="noopener noreferrer">Programmer un café Zoom</a
+          >
+        </article>
       </div>
     </section>
   </Layout>
@@ -660,14 +671,20 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
   /********************************************************/
   /******************** REVIEWS ***************************/
   /********************************************************/
-  #reviews .container {
+  #reviews {
+    .section-subheading {
+      text-align: center;
+    }
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1440px;
+    margin-inline: auto;
 
     .reviews-grid {
       display: grid;
-      gap: var(--space-l);
+      gap: var(--space-m);
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       margin-bottom: var(--space-l);
     }
@@ -677,10 +694,11 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
       border-radius: 8px;
       background-color: white;
       box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
-      padding-inline: var(--space-m);
+      padding: var(--space-m);
 
       header {
         position: relative;
+        margin-top: 0;
       }
     }
 
@@ -689,6 +707,7 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
       font-size: var(--step-0);
       font-weight: 500;
       margin-bottom: 0;
+      margin-top: 0;
     }
 
     .review-reviewer-title {
@@ -712,27 +731,32 @@ import AsanaWorkflow from "../assets/images/PHOTOS/The Plannerist -  Asana Workf
   /********************************************************/
   /******************** COLLABORATION *********************/
   /********************************************************/
-  #collaboration .content {
-    display: grid;
-    grid-template-columns: 50% 1fr;
-    gap: var(--space-l);
+  #collaboration {
+    max-width: 1280px;
+    margin-inline: auto;
+    
+    .content {
+      display: grid;
+      grid-template-columns: 50% 1fr;
+      gap: var(--space-l);
 
-    .section-title {
-      text-align: left;
-    }
+      .section-title {
+        text-align: left;
+      }
 
-    article {
-      align-self: center;
-    }
+      article {
+        align-self: center;
+      }
 
-    .cta {
-      margin-top: 3rem;
-    }
+      .cta {
+        margin-top: 3rem;
+      }
 
-    .collaboration-cover {
-      object-fit: cover;
-      width: 100%;
-      border-radius: 36px;
+      .collaboration-cover {
+        object-fit: cover;
+        width: 100%;
+        border-radius: 36px;
+      }
     }
   }
 
