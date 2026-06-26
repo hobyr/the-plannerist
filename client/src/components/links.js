@@ -17,7 +17,7 @@ export const links = [
       {
         name: "The Plannerist OS",
         tagline: "3 mois pour remettre de l'ordre dans ton activité.",
-        description: "Ton organisation n’est pas un détail, c’est le moteur invisible de ton business. Quand les process sont flous, les priorités mal définies, tout devient compliqué. The Plannerist OS est un accompagnement designé pour remttre de l’ordre et de la fluidité dans ton organisation interne en 90 jours. ",
+        description: "Ton organisation n’est pas un détail, c’est le moteur invisible de ton business. Quand les process sont flous, les priorités mal définies, tout devient compliqué. The Plannerist OS est un accompagnement designé pour remettre de l’ordre et de la fluidité dans ton organisation interne en 90 jours. ",
         url: "/the-plannerist-os-coo-a-temps-partage",
       },
       {

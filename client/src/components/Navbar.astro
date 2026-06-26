@@ -8,62 +8,65 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="top-navbar-wrapper">
-  <div class="container top-navbar">
-    <Image src={logo} width={300} alt="" class="top-logo" />
+  <div class="top-navbar">
+    <!-- <Image src={logo} width={300} alt="" class="top-logo" /> -->
     <nav>
       <header>
-        <Image src={logo} width={300} height={140} alt="" class="mobile-logo" />
+        <Image src={logo} alt="The Plannerist Logo" class="logo" />
         <div class="toggle-button">
           <span><i class="fa-solid fa-xmark"></i></span>
         </div>
       </header>
-      {
-        links.map((link) => {
-          if (!link.submenu) {
-            return (
-              <a
-                href={link.url}
-                class={`nav-link${currentPath === link.url ? " active" : ""}`}
-              >
-                {link.name}
-              </a>
-            );
-          } else {
-            return (
-              <nav class="has-submenu accompagnements">
-                {link.name} <i class="fa-solid fa-chevron-down" />
-                <nav class="submenu">
-                  <div class="submenu-column">
-                    {link.submenu.map((sublink) => (
-                      <div class="submenu--item">
-                        <h3>{sublink.name}</h3>
-                        <p>{sublink.tagline}</p>
-                        <p>{sublink.description}</p>
-                        <a href={sublink.url} class="button cta">
-                          Découvrir
-                        </a>
-                      </div>
-                    ))}
-                  </div>
-                  <Image
-                    src={illustration.src}
-                    alt=""
-                    class="submenu-illustration"
-                  />
-                </nav>
-              </nav>
-            );
-          }
-        })
-      }
-      <a
-        href="https://tinyurl.com/TPLEA"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="button cta exclusive"
-        ><span><i class="fa-solid fa-file-arrow-down"></i></span> +30 process à mettre
-        en place</a
-      >
+      <main>
+        <ul>
+          <li>
+            <a href="/">Accueil</a>
+          </li>
+          <li>
+            <a href="/a-propos-coo-pour-tpe-et-solopreneurs">À propos</a>
+          </li>
+          <li>
+            <a href="/bibliotheque">La Bibliothèque</a>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Accompagnements <span><i class="fa-solid fa-chevron-down"></i></span></a>
+            <ul class="submenu submenu--accompagnements">
+              <div class="links">
+                <li class="submenu--item">
+                  <a href="/the-plannerist-os-coo-a-temps-partage">
+                    <h3>The Plannerist OS</h3>
+                    <p class="tagline">3 mois pour remettre de l'ordre dans ton activité.</p>
+                    <p class="description">Ton organisation n’est pas un détail, c’est le moteur invisible de ton business. Quand les process sont flous, les priorités mal définies, tout devient compliqué. The Plannerist OS est un accompagnement designé pour remettre de l’ordre et de la fluidité dans ton organisation interne en 90 jours.</p>
+                  </a>
+                </li>
+                <li class="submenu--item">
+                  <a href="/copilotage-chief-operating-officer-externalise">
+                    <h3>Le Co-pilotage</h3>
+                    <p class="tagline">+6 mois pour gagner des points de marge.</p>
+                    <p class="description">Le Co-pilotage t’aide à améliorer l’efficacité opérationnelle de ton activité pour dégager davantage de performance : optimiser ce qui existe déjà, simplifier ce qui ralentit et concentrer les efforts là où le ROI est le plus intéressant. L’objectif : convertir une meilleure exécution en gains de marge durables.</p>
+                  </a>
+                </li>
+              </div>
+              <Image src={illustration.src} alt="" />
+            </ul>
+          </li>
+          <li>
+            <a href="/business-cases-conseil-en-pilotage-dentreprise">Business Cases</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+          <a
+            href="https://tinyurl.com/TPLEA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button cta exclusive"
+          >
+            <span><i class="fa-solid fa-file-arrow-down"></i></span> +30 process à
+            mettre en place
+          </a>
+        </ul>
+      </main>
     </nav>
     <div class="toggle-button-main">
       <span><i class="fa-solid fa-bars"></i></span>
@@ -101,139 +104,123 @@ const currentPath = Astro.url.pathname;
     position: sticky;
     top: 0;
     margin: 0 auto;
-    border-radius: 999px;
     z-index: 10;
-    width: min(97%, 1500px);
+    width: min(95%, 1440px);
 
     transition-property: padding, background-image, top, box-shadow;
     transition-duration: 300ms;
     transition-timing-function: ease;
   }
 
-  .top-navbar {
+  .top-navbar nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  .top-logo {
-    object-fit: contain;
-    width: 180px;
-    height: 40px;
-  }
-
-  nav {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     gap: var(--space-m);
-    padding: var(--space-m);
-    height: 100vh;
-    background-color: white;
-  }
-
-  nav.active {
-    visibility: visible;
-  }
-
-  nav header {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-bottom: var(--space-m);
-    margin-bottom: var(--space-m);
-    border-bottom: 1px solid black;
-    width: 100%;
-  }
-
-  .nav-link {
-    display: inline-block;
-    color: var(--bg-color-dark);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: var(--step--1);
-    position: relative;
-    width: fit-content;
-    padding-block: var(--space-xs);
-    z-index: 1;
-  }
-
-  nav.has-submenu {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-    .fa-chevron-down {
-      font-size: var(--step--2);
-    }
-  }
-
-  .has-submenu.accompagnements {
-    display: flex;
-    gap: 1rem;
-  }
-
-  nav.submenu {
-    position: absolute;
-    top: 2rem;
-    left: -20rem;
-    background-color: white;
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    height: fit-content;
-    width: 60vw;
-    max-width: 1000px;
-    height: 650px;
-    padding: var(--space-xs);
-    display: none;
-    z-index: 100;
-  }
-
-  nav.has-submenu:hover nav.submenu {
-    display: flex;
-  }
-
-  .submenu-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-
-  nav.submenu .submenu--item {
-    border: 1px solid var(--border-color);
-    background-color: white;
     padding: 1rem;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
 
-    * {
-        margin: 0;
+    header {
+      border-bottom: unset;
+      margin-bottom: unset;
+      padding: unset;
+      width: fit-content;
+
+      .logo {
+        max-width: 150px;
+      }
+    }
+
+    main > ul {
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+      margin: 0;
+
+      li {
+        flex: 1;
+        text-align: center;
+        white-space: nowrap;
+      }
     }
   }
 
-  nav.submenu .submenu-illustration {
-    flex: 1;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 12px;
+  .toggle-button,
+  .toggle-button-main {
+    display: none;
   }
 
-  .mobile-logo {
-    width: 50%;
-    height: 55px;
-    object-fit: contain;
+  ul {
+    padding-left: 0;
+  }
+
+  ul li {
+    list-style-type: none;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .has-submenu {
+    position: relative;
+  }
+  
+  .submenu {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: -100%;
+    width: 50vw;
+    max-width: 950px;
+    background-color: white;
+    border: 1px solid var(--border-color);
+
+  }
+
+  .submenu--accompagnements {
+    display: grid;
+    grid-template-columns: 65% auto;
+    gap: var(--space-s);
+    padding: var(--space-s);
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-s);
+    }
+  }
+
+  .submenu--item {
+    /* padding: var(--space-s); */
+    text-decoration: none;
+    color: var(--text);
+    border-radius: 8px;
+    position: static;
+    
+    a {
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      text-transform: none;
+      align-items: flex-start;
+      width: 100%;
+      padding: var(--space-s);
+
+      .description {
+        text-wrap: wrap;
+        text-align: left;
+      }
+    }
   }
 
   .after-scroll {
@@ -243,18 +230,9 @@ const currentPath = Astro.url.pathname;
     backdrop-filter: blur(6px);
   }
 
-  .nav-link.active {
-    /* border-bottom: 2px solid var(--text); */
-  }
-
-  .nav-link:hover {
-    color: var(--bg-color-light);
-  }
-
   .cta.exclusive {
     color: white;
     background-color: var(--text);
-    border: 2px solid var(--text);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -267,7 +245,6 @@ const currentPath = Astro.url.pathname;
   .cta.exclusive:hover {
     background-color: var(--primary-light);
     color: var(--primary);
-    border-color: var(--primary);
   }
 
   .cta.exclusive i {
@@ -290,159 +267,72 @@ const currentPath = Astro.url.pathname;
     background-color: var(--primary);
   }
 
-  @media (min-width: 1000px) {
-    .top-navbar {
-      padding: 1rem 0;
+  @media (width <= 900px) {
+    .top-navbar-wrapper {
+      height: fit-content;
+      width: 95%;
     }
 
-    nav {
-      visibility: visible;
-      position: relative;
-      width: fit-content;
-      flex-direction: row;
-      align-items: center;
-      gap: var(--space-xs);
-      height: 100%;
-      padding: 0;
-      background-color: transparent;
-    }
+    .top-navbar nav {
+      display: block;
+      height: fit-content;
 
-    nav.active {
-        visibility: visible;
-    }
-
-    nav header {
+      header {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        padding-bottom: var(--space-m);
-        margin-bottom: var(--space-m);
-        border-bottom: 1px solid black;
+        padding-bottom: var(--space-s);
+        margin-bottom: 0;
+        border-bottom: 1px solid var(--text);
         width: 100%;
-    }
+      }
 
-    .nav-link {
-        display: inline-block;
-        color: var(--bg-color-dark);
-        text-decoration: none;
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: var(--step--1);
-        position: relative;
-        width: fit-content;
-        padding-block: var(--space-xs);
-        z-index: 1;
-    }
-
-    nav.has-submenu {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-        .fa-chevron-down {
-            font-size: var(--step--2);
-        }
-    }
-
-    nav.submenu {
-        position: absolute;
-        background-color: white;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        height: fit-content;
-        width: 12rem;
-        padding: var(--space-xs);
-        top: 3rem;
-        display: none;
-    }
-
-    nav.has-submenu:hover nav.submenu {
-        display: flex;
+      main > ul {
         flex-direction: column;
-        align-items: flex-start;
+      }
     }
 
-    .mobile-logo {
-        width: 50%;
-        height: 55px;
-        object-fit: contain;
+    .toggle-button {
+      display: block;
     }
 
-    .after-scroll {
-        top: 14px;
-        background-image: linear-gradient(0deg, #ffffffc3 0%, #ffffff93 100%);
-        box-shadow: 0px 4px 8px #33333380;
-        backdrop-filter: blur(6px);
+    .logo {
+      max-width: 40vw;
+      height: fit-content;
+      object-fit: contain;
     }
 
-    .nav-link.active {
-        /* border-bottom: 2px solid var(--text); */
+    .has-submenu {
+      position: static;
     }
 
-    .nav-link:hover {
-        color: var(--bg-color-light);
+    .submenu {
+      position: static;
+      max-width: unset;
+      width: 100%;
     }
 
-    .cta {
-        color: white;
-        background-color: var(--text);
-        border: 2px solid var(--text);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: var(--space-2xs);
-        width: fit-content;
-        padding: 0.25rem 0.75rem 0.25rem 0.25rem;
-    }
-
-    .cta:hover {
-        background-color: var(--primary-light);
-        color: var(--primary);
-        border-color: var(--primary);
-    }
-
-    .cta i {
-        width: 2rem;
-        aspect-ratio: 1/1;
-        border-radius: 999px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: var(--text);
-
-        transition-property: background-color, color;
-        transition-duration: 150ms;
-        transition-timing-function: ease-in;
-    }
-
-    .cta:hover i {
-        color: var(--primary-light);
-        background-color: var(--primary);
-    }
-
-    @media (min-width: 1000px) {
-        nav {
-            visibility: visible;
-            position: relative;
-            width: fit-content;
-            flex-direction: row;
-            align-items: center;
-            gap: var(--space-xs);
-            height: 100%;
-            padding: 0;
-            background-color: transparent;
-        }
-
-        nav header,
-        .toggle-button-main {
-            display: none;
-        }
-    nav header,
-    .toggle-button-main {
+    .submenu-illustration,
+    .submenu--item .description {
       display: none;
+    }
+
+    .submenu--item {
+      pointer-events: auto;
+      display: block;
+      border: 1px solid var(--border-color);
+      padding: var(--space-s);
+      text-decoration: none;
+      text-transform: none;
+      color: var(--text);
+      border-radius: 8px;
+
+      h3 {
+        font-size: var(--step-1);
+      }
+
+      .button {
+        color: var(--primary);
+      }
     }
   }
 </style>
