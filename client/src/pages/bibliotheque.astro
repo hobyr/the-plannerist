@@ -15,7 +15,7 @@ const pageTitle = "The Plannerist | La Bibliothèque";
   <Layout>
   <section>
     <div class="container">
-      <h1 class="page-title">La Bibliothèque</h1>
+      <h1 class="page-heading">La Bibliothèque</h1>
       <p class="tagline">Tu es solopreneur ou une petite équipe avec une activité en B2C ? <strong>Accède à une bibliothèque de ressources pensées pour t'aider à mieux piloter ton entreprise au quotidien.</strong> Des outils concrets pour structurer, optimiser et faire évoluer ton activité avec clarté et efficacité.</p>
     </div>
   </section>
@@ -24,7 +24,7 @@ const pageTitle = "The Plannerist | La Bibliothèque";
       <div class="grid">
         <div class="card">
           <Image src={workbookImg} alt="The Plannerist - Flatlay worksheets business auditing workbook" height={600} /> 
-            <h2>The Plannerist Workbook</h2>
+            <h2 class="card-heading">The Plannerist Workbook</h2>
             <div class="q-and-a">
               <header>
                 <div>Pour qui ?</div>
@@ -69,7 +69,7 @@ const pageTitle = "The Plannerist | La Bibliothèque";
         </div>
         <div class="card">
           <img src={auditImg.src} alt="The Plannerist - Scrolling animation digital auditing tool" height={600} /> 
-          <h2>The Plannerist Auto-Audit</h2>
+          <h2 class="card-heading">The Plannerist Auto-Audit</h2>
           <div class="q-and-a">
             <header>
               <div>Pour qui ?</div>
@@ -126,6 +126,28 @@ const pageTitle = "The Plannerist | La Bibliothèque";
 </script>
 
 <style>
+  .section-heading {
+    font-size: var(--step--1);
+    font-family: var(--font-google-sans-flex);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .card-heading {
+    font-size: var(--step-4);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .page-heading {
+    font-size: var(--step-8);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
+    text-align: center;
+  }
+
   .tagline {
     text-wrap: balance;
     text-align: center;

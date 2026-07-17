@@ -60,8 +60,8 @@ const faqContent = [
   <Layout>
     <section class="hero">
       <div class="container">
-        <div class="title-header">Atteindre l'excellence opérationnelle</div>
-        <h1 class="page-title">
+        <div class="section-heading">Atteindre l'excellence opérationnelle</div>
+        <h1 class="page-heading">
           Arrêter de se noyer dans l’opérationnel avec un COO à temps partagé
         </h1>
         <article>
@@ -88,7 +88,7 @@ const faqContent = [
 
     <section class="why">
       <div class="container">
-        <h2 class="section-title">
+        <h2 class="section-subheading">
           Les bénéfices à travailler avec <em>un COO à temps partagé</em>
         </h2>
         <article>
@@ -118,7 +118,7 @@ const faqContent = [
     <section id="offers">
       <div class="content">
         <article>
-          <h2 class="section-title">
+          <h2 class="section-subheading">
             Reprendre le contrôle et sécuriser ton business
           </h2>
           <p>
@@ -131,8 +131,8 @@ const faqContent = [
           <p>
             Avec des outils comme <strong>Asana</strong> ou des systèmes de gestion
             de projet adaptés, tu peux <strong>
-                standardiser tes workflows, automatiser les
-                tâches répétitives et réduire drastiquement les erreurs
+              standardiser tes workflows, automatiser les tâches répétitives et
+              réduire drastiquement les erreurs
             </strong>.
           </p>
           <p>
@@ -140,8 +140,10 @@ const faqContent = [
             friction ou un accompagnement complet avec The Plannerist OS pour
             mettre en place un système opérationnel complet, chaque démarche
             vise à optimiser ta marge, améliorer la productivité de tes équipes
-            et garantir une expérience client constante et satisfaisante.</p>
-            <p class="priority-text">Structurer son entreprise devient ainsi un levier direct de
+            et garantir une expérience client constante et satisfaisante.
+          </p>
+          <p class="priority-text">
+            Structurer son entreprise devient ainsi un levier direct de
             croissance et de rentabilité, et pas seulement un “plus”
             organisationnel.
           </p>
@@ -220,7 +222,7 @@ const faqContent = [
 
     <section class="who">
       <div class="container">
-        <h2 class="section-title">
+        <h2 class="section-subheading">
           Hello, je suis Seheno, ta COO à temps partagé attitrée
         </h2>
         <p>
@@ -261,7 +263,7 @@ const faqContent = [
 
     <section class="where">
       <div class="container">
-        <h2 class="section-title">
+        <h2 class="section-subheading">
           Faire appel à un COO Externalisé où que tu sois
         </h2>
         <p>
@@ -277,7 +279,7 @@ const faqContent = [
 
     <section class="success">
       <div class="container">
-        <h2 class="section-title">
+        <h2 class="section-subheading">
           Hoby a fluidifié ses opérations avec The Plannerist
         </h2>
         <p>
@@ -300,7 +302,7 @@ const faqContent = [
 
     <section class="faq">
       <div class="container">
-        <h2 class="section-title">FAQ</h2>
+        <h2 class="section-subheading">FAQ</h2>
         <p class="tagline">
           Tu te poses encore des questions sur l’organisation de ton entreprise,
           la gestion de tes process ou l’impact sur ta rentabilité ? Cette FAQ
@@ -308,9 +310,7 @@ const faqContent = [
           t’aider à mieux comprendre comment structurer ton activité, gagner en
           efficacité et améliorer durablement ton expérience client.
         </p>
-        <div class="faq-wrapper">
-          <Faq faqContent={faqContent} />
-        </div>
+        <Faq faqContent={faqContent} />
         <a
           class="button cta"
           href="https://calendly.com/seheno-theplannerist/appel-decouverte"
@@ -322,6 +322,27 @@ const faqContent = [
 </html>
 
 <style>
+  .page-heading {
+    font-size: var(--step-8);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
+    text-align: center;
+    margin-inline: 15vw;
+  }
+
+  .section-heading {
+    font-size: var(--step--1);
+    font-family: var(--font-google-sans-flex);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .section-subheading {
+    font-size: var(--step-7);
+    font-weight: 300;
+    font-family: var(--font-instrument-serif);
+  }
+
   section .container {
     display: flex;
     flex-direction: column;
@@ -403,7 +424,7 @@ const faqContent = [
       margin-top: 0;
       margin-bottom: 0;
       line-height: 1;
-      /* font-family: "Outfit", sans-serif; */
+      font-family: var(--font-instrument-serif);
       font-weight: 600;
       font-size: 1.5rem;
       letter-spacing: 1px;

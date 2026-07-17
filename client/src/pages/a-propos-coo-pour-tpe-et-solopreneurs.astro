@@ -144,7 +144,7 @@ const linkedInReviews = [
     </section>
 
     <section id="fun-facts">
-      <h2 class="section-title">Fun <i>facts</i> à propos de moi</h2>
+      <h2 class="section-subheading">Fun <i>facts</i> à propos de moi</h2>
       <div class="item-grid">
         <div class="item">
           <Image src={funFact1} alt="" width={800} class="fun-fact-image" />
@@ -184,8 +184,13 @@ const linkedInReviews = [
     </section>
 
     <section id="reviews">
+<<<<<<< HEAD
       <div class="container about-reviews">
         <h2 class="section-title">
+=======
+      <div class="container">
+        <h2 class="section-subheading">
+>>>>>>> bb7b5459f5bde9ab145050813a18142b8890918b
           Ce que disent les <em>solofounders &amp; les TPE</em> qui ont travaillé
           avec moi
         </h2>
@@ -229,7 +234,7 @@ const linkedInReviews = [
             alt=""
           />
           <article>
-            <h2 class="section-title">Envie de collaborer avec moi ?</h2>
+            <h2 class="section-subheading">Envie de collaborer avec moi ?</h2>
             <p>
               Tu avances, ton activité se développe, mais tu sens qu'un peu plus
               de structure ne ferait pas de mal ?
@@ -260,6 +265,20 @@ const linkedInReviews = [
 <style>
   h2 span {
     font-style: italic;
+  }
+
+  .section-heading {
+    font-size: var(--step--1);
+    font-family: var(--font-google-sans-flex);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .section-subheading {
+    font-size: var(--step-7);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
+    text-wrap: balance;
   }
 
   /********************************************************/
@@ -480,6 +499,7 @@ const linkedInReviews = [
 
   .item:nth-child(1) {
     flex-direction: column-reverse;
+<<<<<<< HEAD
   }
 
   .item:nth-child(1) main {
@@ -510,6 +530,40 @@ const linkedInReviews = [
 
   .item:nth-child(3) main .digit {
     color: #D8EAAE;
+=======
+
+    main {
+      background-color: var(--primary);
+      color: var(--primary-light);
+
+      h3 {
+        color: var(--primary-light);
+      }
+
+      .digit {
+        color: #30734c80;
+      }
+    }
+
+    .fun-fact-image {
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .item:nth-child(3) {
+    main {
+      background-color: var(--primary-light);
+      color: var(--primary);
+
+      h3 {
+        color: var(--primary);
+      }
+
+      .digit {
+        color: #d8eaae;
+      }
+    }
+>>>>>>> bb7b5459f5bde9ab145050813a18142b8890918b
   }
 
   /********************************************************/

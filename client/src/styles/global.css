@@ -1,6 +1,6 @@
 @font-face {
   font-family: "AH Ernie";
-  src: url('/fonts/AdobeHandwriting-Ernie.ttf') format('truetype');
+  src: url("/fonts/AdobeHandwriting-Ernie.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Ivy Presto";
-  src: url('/fonts/Ivy-Presto-Headline-Thin.otf') format('opentype');
+  src: url("/fonts/Ivy-Presto-Headline-Thin.otf") format("opentype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -86,7 +86,7 @@
   font-display: swap;
 }
 
-/* @link https://utopia.fyi/type/calculator?c=360,16,1.2,2560,20,1.25,5,2,1440&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=360,16,1.2,2560,20,1.25,5,2,1440 s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 
 :root {
   --step--2: clamp(0.6944rem, 0.6772rem + 0.0768vw, 0.8rem);
@@ -97,9 +97,26 @@
   --step-3: clamp(1.728rem, 1.6113rem + 0.5188vw, 2.4414rem);
   --step-4: clamp(2.0736rem, 1.9135rem + 0.7114vw, 3.0518rem);
   --step-5: clamp(2.4883rem, 2.2713rem + 0.9646vw, 3.8147rem);
+} */
+
+/* @link https://utopia.fyi/type/calculator?c=360,11,1.2,2560,16,1.25,5,2,1920-1440&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --step--2: clamp(0.4774rem, 0.4508rem + 0.1182vw, 0.64rem);
+  --step--1: clamp(0.5729rem, 0.5358rem + 0.1652vw, 0.8rem);
+  --step-0: clamp(0.6875rem, 0.6364rem + 0.2273vw, 1rem);
+  --step-1: clamp(0.825rem, 0.7555rem + 0.3091vw, 1.25rem);
+  --step-2: clamp(0.99rem, 0.8963rem + 0.4164vw, 1.5625rem);
+  --step-3: clamp(1.188rem, 1.0628rem + 0.5565vw, 1.9531rem);
+  --step-4: clamp(1.4256rem, 1.2594rem + 0.7388vw, 2.4414rem);
+  --step-5: clamp(1.7107rem, 1.4913rem + 0.9753vw, 3.0518rem);
+  --step-6: clamp(2.2395rem, 1.9817rem + 1.1456vw, 3.8147rem);
+  --step-7: clamp(2.6874rem, 2.3469rem + 1.5134vw, 4.7684rem);
+  --step-8: clamp(3.2249rem, 2.7772rem + 1.9895vw, 5.9605rem);
+  --step-9: clamp(3.8698rem, 3.2839rem + 2.6042vw, 7.4506rem);
 }
 
-/* @link https://utopia.fyi/space/calculator?c=360,18,1.2,2560,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=360,18,1.2,2560,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 
 :root {
   --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
@@ -112,7 +129,7 @@
   --space-2xl: clamp(4.5rem, 4.4182rem + 0.3636vw, 5rem);
   --space-3xl: clamp(6.75rem, 6.6273rem + 0.5455vw, 7.5rem);
 
-  /* One-up pairs */
+  /* One-up pairs *
   --space-3xs-2xs: clamp(0.3125rem, 0.2614rem + 0.2273vw, 0.625rem);
   --space-2xs-xs: clamp(0.5625rem, 0.5011rem + 0.2727vw, 0.9375rem);
   --space-xs-s: clamp(0.875rem, 0.8136rem + 0.2727vw, 1.25rem);
@@ -122,27 +139,58 @@
   --space-xl-2xl: clamp(3.375rem, 3.1091rem + 1.1818vw, 5rem);
   --space-2xl-3xl: clamp(4.5rem, 4.0091rem + 2.1818vw, 7.5rem);
 
-  /* Custom pairs */
+  /* Custom pairs *
   --space-s-l: clamp(1.125rem, 0.9rem + 1vw, 2.5rem);
+} */
+
+/* @link https://utopia.fyi/space/calculator?c=360,12,1.2,2560,16,1.25,5,2,1440&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --space-3xs: clamp(0.1875rem, 0.1773rem + 0.0455vw, 0.25rem);
+  --space-2xs: clamp(0.375rem, 0.3545rem + 0.0909vw, 0.5rem);
+  --space-xs: clamp(0.5625rem, 0.5318rem + 0.1364vw, 0.75rem);
+  --space-s: clamp(0.75rem, 0.7091rem + 0.1818vw, 1rem);
+  --space-m: clamp(1.125rem, 1.0636rem + 0.2727vw, 1.5rem);
+  --space-l: clamp(1.5rem, 1.4182rem + 0.3636vw, 2rem);
+  --space-xl: clamp(2.25rem, 2.1273rem + 0.5455vw, 3rem);
+  --space-2xl: clamp(3rem, 2.8364rem + 0.7273vw, 4rem);
+  --space-3xl: clamp(4.5rem, 4.2545rem + 1.0909vw, 6rem);
+  --space-4xl: clamp(5rem, 4.5909rem + 1.8182vw, 7.5rem);
+  --space-5xl: clamp(7.5rem, 6.8864rem + 2.7273vw, 11.25rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.1875rem, 0.1364rem + 0.2273vw, 0.5rem);
+  --space-2xs-xs: clamp(0.375rem, 0.3136rem + 0.2727vw, 0.75rem);
+  --space-xs-s: clamp(0.5625rem, 0.4909rem + 0.3182vw, 1rem);
+  --space-s-m: clamp(0.75rem, 0.6273rem + 0.5455vw, 1.5rem);
+  --space-m-l: clamp(1.125rem, 0.9818rem + 0.6364vw, 2rem);
+  --space-l-xl: clamp(1.5rem, 1.2545rem + 1.0909vw, 3rem);
+  --space-xl-2xl: clamp(2.25rem, 1.9636rem + 1.2727vw, 4rem);
+  --space-2xl-3xl: clamp(3rem, 2.5091rem + 2.1818vw, 6rem);
+  --space-3xl-4xl: clamp(3.75rem, 3.1364rem + 2.7273vw, 7.5rem);
+  --space-4xl-5xl: clamp(5rem, 3.9773rem + 4.5455vw, 11.25rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(0.75rem, 0.5455rem + 0.9091vw, 2rem);
 }
 
 :root {
-  --bg-color-light: #8EB6DC;
-  --bg-color: #1470AF;
+  --bg-color-light: #8eb6dc;
+  --bg-color: #1470af;
   --bg-color-dark: #044776;
   --border-color: #dadadd;
 
   /****************************************************************/
   /*********************** COLORS *********************************/
   /****************************************************************/
-  --neutral: #FFFFF9;
+  --neutral: #fffff9;
   /* --text: #0E106C; */
   --text: #044776;
-  --primary: #214E34;
-  --primary-light: #CEE397;
-  --primary-xtra-light: #EFF6DF;
-  --secondary: #F57200;
-  --accent: #FF7F11;
+  --primary: #214e34;
+  --primary-light: #cee397;
+  --primary-xtra-light: #eff6df;
+  --secondary: #f57200;
+  --accent: #ff7f11;
 }
 
 * {
@@ -155,53 +203,55 @@ body {
   padding: 0;
 }
 
-.container {
-  width: 95%;
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-outfit);
   font-weight: 300;
   font-size: var(--step-0);
   letter-spacing: -0.2px;
-  background-color: var(--neutral);
   color: var(--text);
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 h1,
 h2,
-h3 {
-  font-family: "Ivy Presto", serif;
-  font-weight: 100;
+h3,
+h4 {
+  font-family: var(--font-oswald);
+  font-weight: 500;
   line-height: 1;
+  margin-block: var(--space-xs);
 }
 
 h1 {
-  font-size: var(--step-4);
+  font-size: var(--step-5);
 }
 
 h2 {
-  font-size: var(--step-3);
+  font-size: var(--step-4);
 }
 
 h3 {
-  font-size: var(--step-2);
+  font-size: var(--step-3);
 }
 
 p {
   line-height: 1.35;
+  margin-block: var(--space-s);
 }
-
 
 footer,
 section {
-  padding: 4rem 0;
+  padding-block: min(10%, 4rem);
+  padding-inline: min(3%, 2rem);
 }
 
 a {
@@ -246,7 +296,7 @@ table {
 .button {
   display: inline-block;
   text-decoration: none;
-  padding: .75rem 1.5rem;
+  padding: 0.15rem 0.75rem;
   border-radius: 999px;
   border: 2px solid transparent;
   font-size: var(--step--1);
@@ -265,7 +315,7 @@ table {
 
 .cta i {
   background-color: var(--primary-xtra-light);
-  width: 2rem;
+  width: 1.5rem;
   aspect-ratio: 1/1;
   border-radius: 999px;
   display: flex;
@@ -278,7 +328,7 @@ table {
 }
 
 .cta:hover i {
-  background-color: #647F24;
+  background-color: #647f24;
 }
 
 .cta {
@@ -299,7 +349,6 @@ table {
   background-color: var(--primary);
   color: var(--neutral);
 }
-
 
 li {
   margin-block: var(--space-2xs);
