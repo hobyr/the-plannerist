@@ -4,6 +4,7 @@ import Head from "../components/Head.astro";
 import { Image } from "astro:assets";
 import OSIcon from "../assets/organization.svg";
 import BusinessIcon from "../assets/employees.svg";
+import PlanneristLogo from "../assets/logos/logo-dark.png"
 
 const pageDescription =
   "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
@@ -12,6 +13,9 @@ const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
 <!doctype html>
 <html lang="en">
   <Head description={pageDescription} title={pageTitle} />
+  <header>
+    <Image src={PlanneristLogo.src} alt="The Plannerist Logo - Top Header" class="logo">
+  </header>
     <section id="landing-hero">
       <div class="introduction">
         <span class="pill">Audit Gratuit &ndash; 10 minutes</span>
@@ -250,7 +254,41 @@ const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
         </div>
       </div>
     </section>
+
+    <footer>
+      <div class="container">
+        <Image src={PlanneristLogo.src} alt="The Plannerist Logo - Footer" class="logo"/>
+        <span class="copyright">Copyright &copy; 2026 &ndash; The Plannerist.</span>
+        <a href="/mentions-legales" class="">Mentions légales</a>
+      </div>
+    </footer>
 </html>
+
+<style>
+  header {
+    max-width: 350px;
+    padding-block: var(--space-m);
+    margin-inline: auto;
+  }
+  footer {
+    border-top: 1px solid var(--border-color);
+    padding: var(--space-m);
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      & > * {
+        justify-self: center;
+        align-self: center;
+      }
+    }
+
+    .logo {
+      max-width: 250px;
+    }
+  }
+</style>
 
 <style is:global>
   /* ── Global overrides ── */
