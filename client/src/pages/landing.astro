@@ -7,8 +7,22 @@ import BusinessIcon from "../assets/employees.svg";
 import PlanneristLogo from "../assets/logos/logo-dark.png"
 
 const pageDescription =
-  "Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
+"Accompagnement en stratégie et pilotage d'entreprise pour dirigeants de TPE & PME en tant que COO Externalisé";
 const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
+
+import google_reviews from "../assets/Google_reviews.png";
+import google_logo from "../assets/google_g_icon_download.png";
+import linkedin_logo from "../assets/LI-In-Bug.png";
+import florie_portrait from "../assets/images/florie.jpg";
+
+// images reviews
+import review_muller from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Gilles_Muller.jpeg";
+import review_tardio from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Raphael_Tardio.jpeg";
+import review_gwenola from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Gwenola_Le_Ray.jpg";
+import review_irma from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Irma_Eyoum.jpeg";
+import review_rising_court from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_The_Rising_Court.webp";
+import review_nancy from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Nancy_Ntubu.jpeg";
+import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Florie_Gatet.jpeg";
 ---
 <!doctype html>
 <html lang="en">
@@ -16,279 +30,454 @@ const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
   <header>
     <Image src={PlanneristLogo.src} alt="The Plannerist Logo - Top Header" class="logo">
   </header>
-    <section id="landing-hero">
-      <div class="introduction">
-        <span class="pill">Audit Gratuit &ndash; 10 minutes</span>
-        <h1 class="page-heading">Ton activité tourne-t-elle <span>vraiment</span> sans toi ?</h1>
-        <p class="tagline">Découvre en 10 minutes combien d'heures tu perds chaque semaine &mdash; et combien ça te coûte de rester le goulot d'étranglement de ta propre entreprise.</p>
-        <a class="button cta" href="">Faire l'audit gratuit</a>
+  <section id="landing-hero">
+    <div class="introduction">
+      <span class="pill">Audit Gratuit &ndash; 10 minutes</span>
+      <h1 class="page-heading">Ton activité tourne-t-elle <span>vraiment</span> sans toi ?</h1>
+      <p class="tagline">Découvre en 10 minutes combien d'heures tu perds chaque semaine &mdash; et combien ça te coûte de rester le goulot d'étranglement de ta propre entreprise.</p>
+      <a class="button cta" href="">Faire l'audit gratuit</a>
+    </div>
+    <div class="pain-points">
+      <section>
+        <span>12h</span>
+        <span>perdues en moyenne par semaine sur des tâches délégables.</span>
+      </section>
+      <section>
+        <span>5</span>
+        <span>critères manquants en moyenne pour qu'un process soit vraiment délégué.</span>
+      </section>
+      <section>
+        <span>3 mois</span>
+        <span>pour remettre de l'ordre et récupérer ton temps.</span>
+      </section>
+    </div>
+  </section>
+
+  <section id="landing-problem">
+    <h2 class="section-heading">Tu te reconnais ?</h2>
+    <h3 class="section-subheading">Le problème n'est pas le travail. C'est que tout passe par toi.</h3>
+    <p class="tagline">Dans une TPE ou PME, le dirigeant est souvent le dernier rempart de tout &mdash; sans jamais avoir mesuré ce que ça lui coûte vraiment.</p>
+
+    <div class="points">
+      <div class="item">
+        <h4>Tu réponds à tout</h4>
+        <p>Clients, fournisseurs, équipe &mdash; tous les messages finissent par arriver jusqu'à toi, même les plus simples.</p>
       </div>
-      <div class="pain-points">
-        <section>
-          <span>12h</span>
-          <span>perdues en moyenne par semaine sur des tâches délégables.</span>
-        </section>
-        <section>
-          <span>5</span>
-          <span>critères manquants en moyenne pour qu'un process soit vraiment délégué.</span>
-        </section>
-        <section>
-          <span>3 mois</span>
-          <span>pour remettre de l'ordre et récupérer ton temps.</span>
-        </section>
+      <div class="item">
+        <h4>Tu réexpliques en boucle</h4>
+        <p>Chaque nouvelle tâche demande une explication. Pas de process écrit, pas de formation &mdash; tout est dans ta tête.</p>
       </div>
-    </section>
-
-    <section id="landing-problem">
-      <h2 class="section-heading">Tu te reconnais ?</h2>
-      <h3 class="section-subheading">Le problème n'est pas le travail. C'est que tout passe par toi.</h3>
-      <p class="tagline">Dans une TPE ou PME, le dirigeant est souvent le dernier rempart de tout &mdash; sans jamais avoir mesuré ce que ça lui coûte vraiment.</p>
-
-      <div class="points">
-        <div class="item">
-          <h4>Tu réponds à tout</h4>
-          <p>Clients, fournisseurs, équipe &mdash; tous les messages finissent par arriver jusqu'à toi, même les plus simples.</p>
-        </div>
-        <div class="item">
-          <h4>Tu réexpliques en boucle</h4>
-          <p>Chaque nouvelle tâche demande une explication. Pas de process écrit, pas de formation &mdash; tout est dans ta tête.</p>
-        </div>
-        <div class="item">
-          <h4>Partir 2 semaines est un risque</h4>
-          <p>Si tu disparais, tout ralentit ou s'arrête. Ton activité dépend de ta présence physique et mentale.</p>
-        </div>
-        <div class="item">
-          <h4>Tu laisses du CA sur la table</h4>
-          <p>Des deals non relancés, des clients perdus, des marges grignotées &mdash; faute d'organisation, pas de talent.</p>
-        </div>
+      <div class="item">
+        <h4>Partir 2 semaines est un risque</h4>
+        <p>Si tu disparais, tout ralentit ou s'arrête. Ton activité dépend de ta présence physique et mentale.</p>
       </div>
-    </section>
+      <div class="item">
+        <h4>Tu laisses du CA sur la table</h4>
+        <p>Des deals non relancés, des clients perdus, des marges grignotées &mdash; faute d'organisation, pas de talent.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="audit">
-      <h2 class="section-heading">Audit d'autonomie &middot; gratuit</h2>
-      <h3 class="section-subheading">Mesure exactement où tu en es</h3>
-      <p class="tagline">8 questions par pôle. Résultat immédiat : heures perdues, impact estimé en €, et les 5 critères qui manquent pour déléguer pour de vrai.</p>
-      <div id="audit-app"></div>
-    </section>
+  <section id="audit">
+    <h2 class="section-heading">Audit d'autonomie &middot; gratuit</h2>
+    <h3 class="section-subheading">Mesure exactement où tu en es</h3>
+    <p class="tagline">8 questions par pôle. Résultat immédiat : heures perdues, impact estimé en €, et les 5 critères qui manquent pour déléguer pour de vrai.</p>
+    <div id="audit-app"></div>
+  </section>
 
-    <section id="landing-offers">
-      <h2 class="section-heading">Les offres</h2>
-      <h3 class="section-subheading">De l'audit au pilotage</h3>
-      <p class="tagline">Deux niveaux d'accompagnement selon où tu en es &mdash; et où tu veux aller.</p>
-      <div class="cards">
-        <div class="card">
-          <header>
-            <div class="header-icon">
-              <OSIcon />
-              <h3 class="card-title">The Plannerist OS</h3>
-            </div>
-            <div class="card-tagline">
-              3 mois pour remettre de l'ordre dans ton activité.
-            </div>
-            <a
+  <section id="landing-offers">
+    <h2 class="section-heading">Les offres</h2>
+    <h3 class="section-subheading">De l'audit au pilotage</h3>
+    <p class="tagline">Deux niveaux d'accompagnement selon où tu en es &mdash; et où tu veux aller.</p>
+    <div class="cards">
+      <div class="card">
+        <header>
+          <div class="header-icon">
+            <OSIcon />
+            <h3 class="card-title">The Plannerist OS</h3>
+          </div>
+          <div class="card-tagline">
+            3 mois pour remettre de l'ordre dans ton activité.
+          </div>
+          <a
               href="https://calendly.com/seheno-theplannerist/appel-decouverte"
               target="_blank"
               rel="noopener noreferrer"
               class="button cta"
               >Mettre en place mon OS <span
-                ><i class="fa-solid fa-arrow-right"></i></span
-              ></a
-            >
-            <div class="modality">Paiement en 3 fois possible.</div>
-          </header>
-          <p>L'indispensable pour la gestion de projet :</p>
-          <h4>Structuration de votre organisation</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Workspace Asana organisé par pôles (Finance, Marketing, Produit,
-              etc.)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Roadmap Asana avec objectifs clairs et priorités définies
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Répartition des responsabilités et deadlines
-            </li>
-          </ul>
-          <h4>Standardisation &amp; optimisation opérationnelle</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Process clés templarisés sur Asana
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Checklists pour réduire erreurs et pertes de temps
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Automatisations (logistique, reporting, post-achat, leads, etc.)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Mise à jour et enrichissement de la Knowledge Base<div
-                class="macaron"
-              >
-                OFFERT
-              </div>
-            </li>
-          </ul>
-        </div>
+                                          ><i class="fa-solid fa-arrow-right"></i></span
+                                        ></a
+                                      >
+                                      <div class="modality">Paiement en 3 fois possible.</div>
+        </header>
+        <p>L'indispensable pour la gestion de projet :</p>
+        <h4>Structuration de votre organisation</h4>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Workspace Asana organisé par pôles (Finance, Marketing, Produit,
+                etc.)
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Roadmap Asana avec objectifs clairs et priorités définies
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Répartition des responsabilités et deadlines
+          </li>
+        </ul>
+        <h4>Standardisation &amp; optimisation opérationnelle</h4>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Process clés templarisés sur Asana
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Checklists pour réduire erreurs et pertes de temps
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Automatisations (logistique, reporting, post-achat, leads, etc.)
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Mise à jour et enrichissement de la Knowledge Base<div
+                                                                       class="macaron"
+                                                                       >
+                                                                       OFFERT
+                  </div>
+          </li>
+        </ul>
+      </div>
 
-        <div class="card copilotage">
-          <header>
-            <div class="header-icon">
-              <BusinessIcon />
-              <h3 class="card-title">Le Co-pilotage</h3>
-            </div>
-            <div class="card-tagline">
-              +6 mois pour gagner des points de marge.
-            </div>
-            <a
+      <div class="card copilotage">
+        <header>
+          <div class="header-icon">
+            <BusinessIcon />
+            <h3 class="card-title">Le Co-pilotage</h3>
+          </div>
+          <div class="card-tagline">
+            +6 mois pour gagner des points de marge.
+          </div>
+          <a
               href="https://calendly.com/seheno-theplannerist/appel-decouverte"
               target="_blank"
               rel="noopener noreferrer"
               class="button cta"
               >Prendre un co-pilote <span
-                ><i class="fa-solid fa-arrow-right"></i></span
-              ></a
-            >
-            <div class="modality">
-              <div class="led"></div> 2 places disponibles.
-            </div>
-          </header>
-          <!-- <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p> -->
-          <p>Tout The Plannerist OS, plus :</p>
-          <h4>Pilotage &amp; Décisions</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Weekly Business Review pour analyser les KPI et piloter les
-              priorités
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Arbitrage et priorisation des chantiers stratégiques
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Tableau de bord de performance produit et activité
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Suivi et projection de la trésorerie
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Optimisation continue de la marge et de l'allocation des
-              ressources
-            </li>
-          </ul>
-          <h4>Optimisation &amp; amélioration continue</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Optimisation continue des process et automatisations
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Identification et résolution des goulots d'étranglement
-              opérationnels
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Amélioration des workflows entre marketing, produit et support
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Mise à jour et enrichissement de la Knowledge Base<div
-                class="macaron"
-              >
-                OFFERT
-              </div>
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Veille outils et méthodes pour soutenir la croissance
-            </li>
-          </ul>
-          <h4>Délégation &amp; Structuration de l'équipe</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Management opérationnel d'une équipe d'assistants virtuels
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Coordination des assistans spécialisés : E-commerce, Customer
-              Care, Chef de Produit
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Reporting structuré et contrôle qualité des missions
-            </li>
-          </ul>
+                                        ><i class="fa-solid fa-arrow-right"></i></span
+                                      ></a
+                                    >
+                                    <div class="modality">
+                                      <div class="led"></div> 2 places disponibles.
+                                    </div>
+        </header>
+        <!-- <p>On travaille ensemble sur la durée avec pour objectif d'améliorer la rentabilité. Accompagnement 360&deg; comme un co-fondateur.</p> -->
+        <p>Tout The Plannerist OS, plus :</p>
+        <h4>Pilotage &amp; Décisions</h4>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Weekly Business Review pour analyser les KPI et piloter les
+                priorités
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Arbitrage et priorisation des chantiers stratégiques
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Tableau de bord de performance produit et activité
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Suivi et projection de la trésorerie
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Optimisation continue de la marge et de l'allocation des
+                ressources
+          </li>
+        </ul>
+        <h4>Optimisation &amp; amélioration continue</h4>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Optimisation continue des process et automatisations
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Identification et résolution des goulots d'étranglement
+                opérationnels
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Amélioration des workflows entre marketing, produit et support
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Mise à jour et enrichissement de la Knowledge Base<div
+                                                                       class="macaron"
+                                                                       >
+                                                                       OFFERT
+                  </div>
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Veille outils et méthodes pour soutenir la croissance
+          </li>
+        </ul>
+        <h4>Délégation &amp; Structuration de l'équipe</h4>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Management opérationnel d'une équipe d'assistants virtuels
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Coordination des assistans spécialisés : E-commerce, Customer
+                Care, Chef de Produit
+          </li>
+          <li>
+            <span class="fa-li"
+                  ><i class="fa-regular fa-circle-check"></i></span
+                >Reporting structuré et contrôle qualité des missions
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="index-successes">
+    <h2 class="section-heading">ils nous ont fait confiance</h2>
+    <h3 class="section-subheading">
+      Ils ont transformé leur entreprise avec The Plannerist
+    </h3>
+    <div class="carousel">
+      <div class="success-card">
+        <Image src={florie_portrait.src} alt="" class="story-portrait item" />
+        <p class="description item">
+        [ Entreprise MyBlueprintVF ]
+        </p>
+        <div class="metrics item">
+          <div class="metric">
+            <header>+130%</header>
+            <main>Chiffre d'affaires</main>
+          </div>
+          <div class="metric">
+            <header>8 mois</header>
+            <main>Atteinte de la rentabilité</main>
+          </div>
+        </div>
+        <div class="review item">
+          <blockquote>
+             Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+             bras droit. Très perspicace et vive d'esprit dans son travail,
+             elle a apporté de l'efficacité dans nos process et de la clarté
+             dans les chiffres. Ses expéreriences précédentes et sa fibre
+             marketing sont un plus dans les stratégies commerciales. C'est une
+             leader en qui on peut avoir confiance à 1000% et qui donne le
+             meilleur d'elle même. Elle est for sure un point fort dans une
+             équipe.
+          </blockquote>
+          <p>Florie Gatet, fondatrice MyBlueprintVF</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <div class="container">
-        <Image src={PlanneristLogo.src} alt="The Plannerist Logo - Footer" class="logo"/>
-        <span class="copyright">Copyright &copy; 2026 &ndash; The Plannerist.</span>
-        <a href="/mentions-legales" class="">Mentions légales</a>
+  <section class="index-reviews">
+    <h2 class="section-heading">ils en parlent le mieux</h2>
+    <h3 class="section-subheading">
+      Ils ont optimisé leurs opérations pour scaler
+    </h3>
+    <div class="review-wrapper">
+      <div class="left-scroller"><i class="fa-solid fa-arrow-left"></i></div>
+      <div class="carousel">
+        <div class="review">
+          <header>
+            <Image src={review_muller.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Gilles Charles Muller</span>
+              <span class="date"
+                    >Directeur Général Associé Groupe Giraphes</span
+                  >
+            </div>
+                <Image src={linkedin_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            J'ai grandement apprécié travailler avec Seheno. En effet, au
+            cours de nos collaborations (Embrace Planner puis MyBluePrintVF),
+            Seheno s'est avérée être une interlocutrice très constructive.
+            Pragmatique, elle sait faire la part des choses et se concentre
+            sur les bons sujets. Je la recommande vivement pour des postes
+            relatifs à de la gestion de projet.
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src={review_tardio.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Raphaël Tardio</span>
+              <span class="date"
+                    >Entrepreneur & Co-fondateur Groupe Giraphes | CTO</span
+                  >
+            </div>
+                <Image src={linkedin_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            Seheno est une cheffe de projet remarquable, sérieuse et
+            professionnelle. Elle est sensibles aux enjeux business de par ses
+            expériences en entrepreneuriat et sait également entrer dans des
+            détails lorsque cela est nécessaire.
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src={review_nancy.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Nancy Shulunugu</span>
+              <span class="date">Fondatrice Legal Team Management</span>
+            </div>
+            <Image src={linkedin_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            Cela fait maintenant 1 année que je travaille avec Seheno dans le
+            cadre de nos activités respectives. Elle est professionnelle,
+            investie dans son travail et très à l'écoute des aspirations et
+            attentes de ses clients. Elle est continuellement dans une
+            démarche de bien faire les choses. C'est un plaisir de collaborer
+            avec elle. Je la recommande sans aucune hésitation !
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src={review_florie.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Florie Gatet</span>
+              <span class="date">Fondatrice & CEO MyBluePrintVF</span>
+            </div>
+            <Image src={linkedin_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+            bras droit. Très perspicace et vive d'esprit dans son travail,
+            elle a apporté de l'efficacité dans nos process et de la clarté
+            dans les chiffres. Ses expéreriences précédentes et sa fibre
+            marketing sont un plus dans les stratégies commerciales. C'est une
+            leader en qui on peut avoir confiance à 1000% et qui donne le
+            meilleur d'elle même. Elle est for sure un point fort dans une
+            équipe.
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src={review_irma.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Irma Eyoum</span>
+              <span class="date">Fondatrice MARLENE JO.EY PHOTOGRAPHY</span>
+            </div>
+            <Image src={google_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            <p>
+                                                Je suis extrêmement reconnaissante d'avoir choisi the
+                                                Plannerist. Travailler avec Seheno a été une vraie révélation
+                                                pour mon activité photo. Tout au long de l’accompagnement, j’ai
+                                                été guidée avec clarté, précision et beaucoup de bienveillance.
+                                                Nous avons construit ensemble un prévisionnel solide, clarifié
+                                                mes objectifs, défini mes offres et posé les bases de ma
+                                                stratégie d’entreprise pour bien débuter mon activité.
+            </p>
+            <p>
+            La séance m’a apporté de la structure, de la motivation et une
+            vision beaucoup plus sereine de mon projet.
+            </p>
+            <p>
+            Je recommande vivement son accompagnement à toute personne qui
+            veut développer son activité de manière alignée et
+            professionnelle !
+            </p>
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src={review_gwenola.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Gwenola Le Ray</span>
+              <span class="date"
+                    >Directrice Commerciale Externalisée Félicité Consulting</span
+                  >
+            </div>
+                <Image src={google_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            Seheno vous aide à structurer l'activité votre entreprise : mise
+            en place des process, méthodes de pilotage et cadrage projets.
+            Elle est votre experte pour faire passer votre boite à l'étape
+            supérieure en terme de business, rentabilité et efficacité !
+          </main>
+        </div>
+        <div class="review">
+          <header>
+            <Image src={review_rising_court.src} alt="" class="profile-img" />
+            <div>
+              <span class="name">Hoby Ratefy</span>
+              <span class="date">Fondateur & CEO The Rising Court</span>
+            </div>
+            <Image src={google_logo.src} alt="" class="review-logo" />
+          </header>
+          <main>
+            <p>
+            Seheno m'a grandement aidé à faire naître et grandir mon
+            entreprise de coaching tennis pour anglophones au Japon, The
+            Rising Court. Malgré mes difficultés à identifier ma clientèle
+            cible et définir mes offres, elle m'a guidé dans la réflexion,
+            et on a avancé sur la planification financière très détaillée.
+            En tant que stratégiste, elle m'a bien guidé sur les bonnes
+            actions (meilleur ROI) à faire, qui ne m'étaient pas forcément
+            évidentes.
+            </p>
+            <p>Je recommande fortement!</p>
+          </main>
+        </div>
       </div>
-    </footer>
+      <div class="right-scroller">
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <Image src={PlanneristLogo.src} alt="The Plannerist Logo - Footer" class="logo"/>
+      <span class="copyright">Copyright &copy; 2026 &ndash; The Plannerist.</span>
+      <a href="/mentions-legales" class="">Mentions légales</a>
+    </div>
+  </footer>
 </html>
 
-<style>
-  header {
-    max-width: 350px;
-    padding-block: var(--space-m);
-    margin-inline: auto;
-  }
-  footer {
-    border-top: 1px solid var(--border-color);
-    padding: var(--space-m);
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-      & > * {
-        justify-self: center;
-        align-self: center;
-      }
-    }
-
-    .logo {
-      max-width: 250px;
-    }
-  }
-</style>
 
 <style is:global>
   /* ── Global overrides ── */
@@ -1004,6 +1193,8 @@ const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
       padding-bottom: var(--space-s);
       margin-bottom: var(--space-s);
       position: relative;
+      margin-inline: unset;
+      max-width: unset;
     }
 
     .card .header-icon {
@@ -1151,168 +1342,474 @@ const pageTitle = "The Plannerist | Double ton CA sans doubler tes heures";
   }
 </style>
 
+<style>
+  header {
+    max-width: 350px;
+    padding-block: var(--space-m);
+    margin-inline: auto;
+  }
+  footer {
+    border-top: 1px solid var(--border-color);
+    padding: var(--space-m);
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      & > * {
+        justify-self: center;
+        align-self: center;
+      }
+    }
+
+    .logo {
+      max-width: 250px;
+    }
+  }
+
+  .index-reviews {
+    .section-heading,
+    .section-subheading {
+      text-align: center;
+    }
+
+    .section-subheading {
+      max-width: unset;
+    }
+
+    .review-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-s);
+      padding-inline: var(--space-2xl);
+    }
+
+    .left-scroller,
+    .right-scroller {
+      --length: 4rem;
+      width: var(--length);
+      aspect-ratio: 1/1;
+      border: 2px solid var(--border-color);
+      color: var(--border-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--step-2);
+      border-radius: 999px;
+
+      transition-property: color, border-color;
+      transition-duration: 150ms;
+      transition-timing-function: ease-in-out;
+    }
+
+    .left-scroller:hover,
+    .right-scroller:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .carousel {
+      display: flex;
+      justify-content: flex-start;
+      gap: var(--space-m);
+      width: 100%;
+      padding-inline: 15vw;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 0) 100%
+          );
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .review {
+            border: 1px solid var(--border-color);
+            padding: var(--space-m);
+            min-width: max(370px, calc(100vw / 5.5));
+            border-radius: 16px;
+
+            header {
+              display: flex;
+              margin-bottom: var(--space-s);
+            }
+
+            .profile-img {
+              border: 1px solid var(--border-color);
+              aspect-ratio: 1/1;
+              width: 48px;
+              height: 48px;
+              border-radius: 48px;
+              margin-right: var(--space-s);
+            }
+
+            div span {
+              display: block;
+              margin-right: var(--space-m);
+
+              &.date {
+                font-size: var(--step--1);
+                color: #808080;
+                font-weight: 200;
+              }
+            }
+
+            .review-logo {
+              max-width: 32px;
+              max-height: 32px;
+              object-fit: contain;
+              margin-left: auto;
+            }
+          }
+    }
+  }
+
+  .index-successes {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--space-xl);
+
+    .carousel {
+      display: flex;
+    }
+
+    .buttons {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-s);
+    }
+
+    .success-card {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        "portrait portrait portrait portrait metric metric metric metric"
+      "portrait portrait portrait portrait metric metric metric metric"
+      "portrait portrait portrait portrait review review review review"
+      "description description description description review review review review"
+      "cta cta cta cta review review review review";
+      gap: var(--space-m);
+      width: 100%;
+      margin-inline: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 36px;
+      padding: var(--space-l);
+
+      .item:nth-child(1) {
+        grid-area: portrait;
+      }
+
+      .item:nth-child(2) {
+        grid-area: description;
+      }
+
+      .item:nth-child(3) {
+        grid-area: metric;
+      }
+
+      .item:nth-child(4) {
+        grid-area: review;
+      }
+
+      .item:nth-child(5) {
+        grid-area: cta;
+      }
+    }
+
+    blockquote {
+      margin: 0;
+    }
+
+    .story-portrait {
+      object-fit: cover;
+      grid-area: portrait;
+      width: 100%;
+    }
+
+    .description {
+      font-size: var(--step-1);
+      font-weight: 500;
+      text-align: left;
+      margin: 0;
+      color: var(--border-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .metrics {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-m);
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl) var(--space-m);
+      margin-bottom: var(--space-m);
+      height: 100%;
+      width: 100%;
+
+      &:nth-of-type(1) {
+        background-color: var(--primary-light);
+        color: var(--primary);
+      }
+
+      &:nth-of-type(2) {
+        background-color: var(--bg-color-light);
+        color: var(--text);
+      }
+    }
+
+    .metric header {
+      font-size: var(--step-4);
+      font-weight: 600;
+    }
+
+    .metric main {
+      font-size: var(--step-0);
+      font-weight: 400;
+      line-height: 95%;
+      margin-top: 0.5rem;
+    }
+
+    .review {
+      position: relative;
+      border: 1px solid var(--border-color);
+      padding: var(--space-m);
+    }
+
+    .review svg {
+      position: absolute;
+      top: var(--space-xs);
+      left: var(--space-xs);
+      width: 6rem;
+      height: 6rem;
+      color: var(--text);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .metric,
+    .review,
+    .story-portrait,
+    .description {
+      border-radius: 12px;
+    }
+
+    .cta {
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+</style>
+
 <script>
-/* ─── DATA ─── */
-const DOMS=[
-  {id:'com',name:'Commercial',desc:'Pipeline, devis, relances, closing'},
-  {id:'mkt',name:'Marketing',desc:'Contenu, campagnes, acquisition'},
-  {id:'sav',name:'Customer Care',desc:'Réclamations, suivi client, fidélisation'},
-  {id:'prod',name:'Produit',desc:'Sourcing, développement, qualité'},
-  {id:'log',name:'Logistique',desc:'Stocks, expéditions, transporteurs'},
-  {id:'fin',name:'Finance',desc:'Facturation, tréso, relances, reporting'},
-  {id:'rh',name:'RH & équipe',desc:'Recrutement, onboarding, management'},
-  {id:'ach',name:'Achats',desc:'Fournisseurs, négociations, commandes'},
-  {id:'proj',name:'Gestion de projet',desc:'Suivi, priorisation, coordination'},
-];
-const CRITERIA=[
-  {id:'workflow',label:'Workflow écrit',test:'Quelqu\'un l\'exécute sans demander « et après ? »'},
-  {id:'outil',label:'Outil fixe',test:'Le travail a un endroit défini — pas de bricole'},
-  {id:'doc',label:'Docs de référence',test:'L\'équipe repart d\'un modèle, pas d\'une page blanche'},
-  {id:'formation',label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
-  {id:'kpi',label:'Indicateurs',test:'Tu vois un problème en moins d\'une heure'},
-];
-const AX_LABELS=['Dépendance','Workflow','Outils','Docs de réf.','Formation','Indicateurs','Impact CA','Temps passé'];
-const HOURS_VAL=[0.5,2,5,11,20];
-const CA_COST=[0,500,2000,6000,15000];
+      // Reviews interactive code
+      const leftClicker = document.querySelector(
+        ".index-reviews .left-scroller",
+      );
+      const rightClicker = document.querySelector(
+        ".index-reviews .right-scroller",
+      );
+      const reviewCarousel = document.querySelector(".index-reviews .carousel");
+      const reviewCard = reviewCarousel?.querySelector(".review");
 
-const Q={
-  com:[
-    ['Ce pôle peut-il tourner si tu disparais 2 semaines ?',['Oui — l\'équipe est 100% autonome','Oui avec quelques frictions','Difficilement — plusieurs blocages','Non — les deals s\'arrêtent','Non — tout passe par moi'],'dep'],
-    ['Le process de vente est-il écrit étape par étape ?',['Oui, documenté et suivi par tous','Partiellement documenté','Non — chacun fait à sa façon'],'cri'],
-    ['Utilisez-vous un CRM structuré pour chaque deal ?',['Oui — CRM structuré et utilisé','CRM en place mais mal utilisé','Fichier Excel ou emails uniquement','Rien — tout est de tête'],'cri'],
-    ['Avez-vous des templates de devis, scripts, relances ?',['Oui — réutilisés systématiquement','Quelques modèles, pas systématiques','Non — on repart de zéro à chaque fois'],'cri'],
-    ['Un commercial peut-il apprendre le process seul ?',['Oui — ressources disponibles','Partiellement — besoin d\'aide','Non — ça demande plusieurs sessions avec moi'],'cri'],
-    ['Vois-tu si le pipeline est en danger en moins d\'une heure ?',['Oui — dashboard clair','Partiellement visible','Non — il faut chercher et recalculer'],'cri'],
-    ['Des deals ont-ils été perdus faute de suivi organisé ?',['Jamais','Rarement — quelques cas','Parfois — impact estimé','Souvent — impact réel sur le CA','Très souvent — c\'est structurel'],'ca'],
-    ['Heures/semaine sur le commercial (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  mkt:[
-    ['Le marketing peut-il tourner sans toi pendant 1 mois ?',['Oui — délégué et planifié','Oui avec quelques validations','Difficilement — je dois intervenir régulièrement','Non — ça ralentit fortement','Non — c\'est moi qui fais tout'],'dep'],
-    ['Votre process de création et publication est-il documenté ?',['Oui, suivi systématiquement','Partiellement documenté','Non — ad hoc à chaque fois'],'cri'],
-    ['La création a-t-elle un espace de travail fixe ?',['Oui — outil unique et structuré','Partiellement outillé','Non — ça change à chaque fois'],'cri'],
-    ['Avez-vous des templates de contenu réutilisables ?',['Oui — librairie complète','Quelques templates','Non — page blanche à chaque fois'],'cri'],
-    ['Un prestataire peut-il produire du contenu sans briefing ?',['Oui — tout est documenté','Avec un peu d\'aide de ma part','Non — ça demande beaucoup de mon temps'],'cri'],
-    ['Sais-tu en moins d\'une heure si ta visibilité baisse ?',['Oui — alertes et KPI actifs','Partiellement','Non — je m\'en rends compte trop tard'],'cri'],
-    ['Un marketing mieux structuré générerait-il plus de CA ?',['Non — déjà optimal','Légèrement','Probablement — on laisse du CA','Certainement — fort potentiel inexploité','Énorme — l\'acquisition est quasi absente'],'ca'],
-    ['Heures/semaine sur le marketing (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  sav:[
-    ['Le service client tourne-t-il normalement sans toi 2 semaines ?',['Oui — process clair, équipe autonome','Oui avec quelques sollicitations','Avec des difficultés','Non — les clients demandent à te parler','Non — c\'est moi qui gère tout'],'dep'],
-    ['Le traitement d\'une réclamation est-il écrit étape par étape ?',['Oui, protocole documenté','Partiellement','Non — chaque cas géré au feeling'],'cri'],
-    ['Les réclamations arrivent-elles dans un outil centralisé ?',['Oui — ticketing structuré','Boîte partagée basique','Email perso ou WhatsApp'],'cri'],
-    ['Avez-vous des réponses types pour les demandes récurrentes ?',['Oui — base de réponses complète','Quelques templates','Non — tout est rédigé de zéro'],'cri'],
-    ['Un nouvel agent peut-il gérer les cas courants seul ?',['Oui — autonomie complète','Pour les cas simples seulement','Non — tout remonte à moi'],'cri'],
-    ['Vois-tu le volume et statut des réclamations en moins d\'une heure ?',['Oui — dashboard en temps réel','Partiellement','Non — il faut fouiller'],'cri'],
-    ['As-tu perdu des clients faute d\'un SAV insuffisant ?',['Jamais','Très rarement','Quelques cas identifiés','Régulièrement — impact réel','Souvent — problème structurel'],'ca'],
-    ['Heures/semaine sur le customer care (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  prod:[
-    ['Le développement produit peut-il avancer sans toi 3 semaines ?',['Oui — équipe et process en place','Oui avec quelques validations','Avec des frictions importantes','Difficilement — je suis dans tout','Non — c\'est moi le chef de produit'],'dep'],
-    ['Les étapes de développement/sourcing sont-elles documentées ?',['Oui, process clair et suivi','Partiellement','Non — tout est dans ma tête'],'cri'],
-    ['Le suivi produit se fait-il dans un outil structuré ?',['Oui — outil dédié et organisé','Partiellement','Non — emails et fichiers épars'],'cri'],
-    ['Avez-vous des briefs produit ou check-lists qualité réutilisables ?',['Oui — templates complets','Quelques modèles','Non — de zéro à chaque fois'],'cri'],
-    ['Un collaborateur peut-il gérer un lancement produit sans toi ?',['Oui avec les ressources en place','Partiellement','Non — ça demande beaucoup de mon temps'],'cri'],
-    ['Vois-tu les blocages produit en moins d\'une heure ?',['Oui — tableau de bord clair','Partiellement','Non — je le découvre trop tard'],'cri'],
-    ['Des problèmes produit ont-ils impacté ton CA ou ta marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement — impact chiffré','Souvent — impact structurel sur la marge'],'ca'],
-    ['Heures/semaine sur le produit (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  log:[
-    ['La logistique tourne-t-elle sans toi pendant 2 semaines ?',['Oui — équipe autonome','Avec quelques frictions','Avec des difficultés réelles','Non — des problèmes surgissent vite','Non — c\'est moi qui pilote tout'],'dep'],
-    ['Les process d\'expédition et litiges sont-ils écrits ?',['Oui, process documenté','Partiellement','Non — chacun fait à sa façon'],'cri'],
-    ['La logistique se pilote-t-elle depuis un outil unique ?',['Oui — outil intégré','Partiellement outillé','Non — plusieurs fichiers épars'],'cri'],
-    ['Avez-vous des check-lists d\'expédition réutilisables ?',['Oui — check-lists actives','Quelques-unes','Non — improvisation à chaque fois'],'cri'],
-    ['Un nouveau préparateur peut-il opérer seul dès le premier jour ?',['Oui — onboarding structuré','Avec quelques explications','Non — ça prend plusieurs jours avec moi'],'cri'],
-    ['Vois-tu le taux de service et les retards en moins d\'une heure ?',['Oui — KPI visibles','Partiellement','Non — je l\'apprends des clients'],'cri'],
-    ['Des problèmes logistiques ont-ils coûté des clients ou de la marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact structurel'],'ca'],
-    ['Heures/semaine sur la logistique (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  fin:[
-    ['La finance opérationnelle tourne-t-elle sans toi 3 semaines ?',['Oui — déléguée ou externalisée','Avec quelques sollicitations','Avec des difficultés','Non — les paiements et factures attendent','Non — tout passe par moi'],'dep'],
-    ['Le process de facturation et relance est-il documenté ?',['Oui, process clair','Partiellement','Non — tout est dans ma tête'],'cri'],
-    ['La finance se gère-t-elle depuis un outil unique ?',['Oui — logiciel structuré','Partiellement outillé','Non — Excel et emails'],'cri'],
-    ['Avez-vous des modèles de factures et relances réutilisables ?',['Oui — templates complets','Quelques modèles','Non — on refait à chaque fois'],'cri'],
-    ['Un comptable externe peut-il reprendre sans que tu expliques tout ?',['Oui — documentation complète','Avec quelques échanges','Non — c\'est très long à transmettre'],'cri'],
-    ['Vois-tu l\'état de ta trésorerie en moins d\'une heure ?',['Oui — dashboard temps réel','Partiellement','Non — il faut recalculer'],'cri'],
-    ['Des impayés ont-ils impacté ta trésorerie ?',['Jamais','Très rarement','Quelques cas','Régulièrement — impact réel','Souvent — problème structurel'],'ca'],
-    ['Heures/semaine sur la finance (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  rh:[
-    ['L\'équipe fonctionne-t-elle normalement sans toi 3 semaines ?',['Oui — autonomie complète','Avec quelques questions','Avec des frictions','Non — tensions ou blocages surgissent','Non — tout passe par moi'],'dep'],
-    ['Le process de recrutement et d\'onboarding est-il documenté ?',['Oui — process complet','Partiellement','Non — improvisé à chaque fois'],'cri'],
-    ['L\'onboarding se déroule-t-il dans un espace structuré ?',['Oui — parcours dédié','Partiellement','Non — chaque arrivée est différente'],'cri'],
-    ['Avez-vous des fiches de poste et guides d\'intégration ?',['Oui — documentation complète','Quelques éléments','Non — tout est oral'],'cri'],
-    ['Un nouveau peut-il monter en compétence sans bloquer ton agenda ?',['Oui — ressources disponibles','Partiellement','Non — ça demande beaucoup de mon temps'],'cri'],
-    ['Vois-tu la performance de ton équipe en moins d\'une heure ?',['Oui — KPI et reporting clairs','Partiellement','Non — je n\'ai pas de visibilité'],'cri'],
-    ['Des problèmes RH ont-ils coûté des talents ou ralenti la croissance ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — frein structurel à la croissance'],'ca'],
-    ['Heures/semaine sur le management et les RH (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  ach:[
-    ['Les achats tournent-ils sans toi 3 semaines ?',['Oui — déléguées et structurées','Avec quelques validations','Avec des difficultés','Non — des ruptures risquent de surgir','Non — les fournisseurs ne connaissent que moi'],'dep'],
-    ['Le process de commande et sélection fournisseur est-il documenté ?',['Oui — process clair','Partiellement','Non — tout est dans ma tête'],'cri'],
-    ['La gestion des achats se fait-elle dans un outil centralisé ?',['Oui — outil ou ERP structuré','Partiellement','Non — emails et fichiers épars'],'cri'],
-    ['Avez-vous des grilles de sélection ou contrats types ?',['Oui — templates et grilles actifs','Quelques-uns','Non — de zéro à chaque fois'],'cri'],
-    ['Quelqu\'un peut-il gérer un fournisseur courant sans te solliciter ?',['Oui — procédures en place','Pour les cas simples','Non — tout remonte à moi'],'cri'],
-    ['Vois-tu les niveaux de stock critique en moins d\'une heure ?',['Oui — alertes automatiques','Partiellement','Non — je l\'apprends quand c\'est trop tard'],'cri'],
-    ['Des ruptures ou mauvaises conditions ont-elles impacté ton CA ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact direct et structurel'],'ca'],
-    ['Heures/semaine sur les achats (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-  proj:[
-    ['Les projets avancent-ils normalement sans toi 3 semaines ?',['Oui — pilotés en autonomie','Avec quelques sollicitations','Avec des frictions','Non — des blocages surgissent vite','Non — tout passe par moi'],'dep'],
-    ['Chaque projet démarre-t-il avec un brief et un plan documentés ?',['Oui — systématique','Partiellement','Non — briefs oraux, tout change en route'],'cri'],
-    ['Les projets se pilotent-ils depuis un outil de suivi structuré ?',['Oui — outil clair et utilisé par tous','Partiellement','Non — emails et réunions'],'cri'],
-    ['Avez-vous des templates de brief, plan projet, CR de réunion ?',['Oui — librairie de templates','Quelques-uns','Non — de zéro à chaque fois'],'cri'],
-    ['Un chef de projet peut-il reprendre un projet sans te briefer longuement ?',['Oui — documentation suffisante','Avec quelques échanges','Non — ça demande beaucoup de mon temps'],'cri'],
-    ['Vois-tu les retards et blocages de tous les projets en moins d\'une heure ?',['Oui — vue d\'ensemble claire','Partiellement','Non — je dois demander ou fouiller'],'cri'],
-    ['Des projets ont-ils dérapé en délais ou budget ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel'],'ca'],
-    ['Heures/semaine sur le pilotage de projets (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-  ],
-};
+      leftClicker.addEventListener("click", () => {
+        reviewCarousel.scrollLeft -= reviewCard.scrollWidth;
+      });
 
-/* ─── STATE ─── */
-let ST={screen:'home',sel:[],di:0,qi:0,allAns:{},curAns:{}};
+      rightClicker.addEventListener("click", () => {
+        reviewCarousel.scrollLeft += reviewCard.scrollWidth;
+      });
 
-/* ─── CALC ─── */
-function calcDomain(id,ans){
-  const g=i=>ans[i]??0;
-  const qs=Q[id];
-  const dep=g(0);
-  const criScores=[1,2,3,4,5].map(qi=>{
-    const opts=qs[qi][1];
-    const v=g(qi);
-    if(opts.length===2)return v===0?'ok':'missing';
-    if(opts.length===3)return v===0?'ok':v===1?'partial':'missing';
-    if(opts.length===4)return v<=1?'ok':v===2?'partial':'missing';
-    return v===0?'ok':v===1?'partial':'missing';
-  });
-  const missing=criScores.filter(s=>s==='missing').length;
-  const partial=criScores.filter(s=>s==='partial').length;
-  const caImpact=g(6);
-  const caLost=CA_COST[caImpact]||0;
-  const hoursIdx=g(7);
-  const hoursWeek=HOURS_VAL[hoursIdx];
-  const depFactor=dep/4;
-  const critFactor=(missing+partial*0.5)/5;
-  const hoursWasted=Math.round(hoursWeek*Math.max(depFactor,critFactor)*10)/10;
-  const delegScore=criScores.filter(s=>s==='ok').length;
-  return{dep,criScores,missing,partial,caLost,hoursWeek,hoursWasted,delegScore};
-}
-function getVerdict(sc){
-  if(sc.dep>=3&&sc.missing>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',pri:3};
-  if(sc.dep>=3||sc.missing>=3)return{lbl:'À structurer en priorité',c:'var(--warn)',bg:'var(--warn-bg)',pri:2};
-  if(sc.missing>=1||sc.dep>=2)return{lbl:'Améliorable',c:'var(--mid)',bg:'#F5F4F2',pri:1};
-  return{lbl:'Bien structuré',c:'var(--ok)',bg:'var(--ok-bg)',pri:0};
-}
+      // FAQ interactive code
+      const items = document.querySelectorAll(".steps .item");
 
-/* ─── RENDER ─── */
-const app=document.getElementById('audit-app');
-function render(){
-  if(ST.screen==='home')renderHome();
-  else if(ST.screen==='audit')renderAudit();
-  else renderResults();
-}
+      items.forEach((item) => {
+        item.addEventListener("mouseover", () => {
+          item.querySelector(".explainer").style.opacity = "1";
+          item.querySelector(".explainer").style.visibility = "visible";
+        });
 
-function renderHome(){
-  app.innerHTML=`<div class="a-home">
+        item.addEventListener("mouseleave", () => {
+          item.querySelector(".explainer").style.opacity = "0";
+          item.querySelector(".explainer").style.visibility = "hidden";
+        });
+      });
+
+
+  /* ─── DATA ─── */
+  const DOMS=[
+    {id:'com',name:'Commercial',desc:'Pipeline, devis, relances, closing'},
+    {id:'mkt',name:'Marketing',desc:'Contenu, campagnes, acquisition'},
+    {id:'sav',name:'Customer Care',desc:'Réclamations, suivi client, fidélisation'},
+    {id:'prod',name:'Produit',desc:'Sourcing, développement, qualité'},
+    {id:'log',name:'Logistique',desc:'Stocks, expéditions, transporteurs'},
+    {id:'fin',name:'Finance',desc:'Facturation, tréso, relances, reporting'},
+    {id:'rh',name:'RH & équipe',desc:'Recrutement, onboarding, management'},
+    {id:'ach',name:'Achats',desc:'Fournisseurs, négociations, commandes'},
+    {id:'proj',name:'Gestion de projet',desc:'Suivi, priorisation, coordination'},
+  ];
+  const CRITERIA=[
+    {id:'workflow',label:'Workflow écrit',test:'Quelqu\'un l\'exécute sans demander « et après ? »'},
+    {id:'outil',label:'Outil fixe',test:'Le travail a un endroit défini — pas de bricole'},
+    {id:'doc',label:'Docs de référence',test:'L\'équipe repart d\'un modèle, pas d\'une page blanche'},
+    {id:'formation',label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
+    {id:'kpi',label:'Indicateurs',test:'Tu vois un problème en moins d\'une heure'},
+  ];
+  const AX_LABELS=['Dépendance','Workflow','Outils','Docs de réf.','Formation','Indicateurs','Impact CA','Temps passé'];
+  const HOURS_VAL=[0.5,2,5,11,20];
+  const CA_COST=[0,500,2000,6000,15000];
+
+  const Q={
+    com:[
+      ['Ce pôle peut-il tourner si tu disparais 2 semaines ?',['Oui — l\'équipe est 100% autonome','Oui avec quelques frictions','Difficilement — plusieurs blocages','Non — les deals s\'arrêtent','Non — tout passe par moi'],'dep'],
+      ['Le process de vente est-il écrit étape par étape ?',['Oui, documenté et suivi par tous','Partiellement documenté','Non — chacun fait à sa façon'],'cri'],
+      ['Utilisez-vous un CRM structuré pour chaque deal ?',['Oui — CRM structuré et utilisé','CRM en place mais mal utilisé','Fichier Excel ou emails uniquement','Rien — tout est de tête'],'cri'],
+      ['Avez-vous des templates de devis, scripts, relances ?',['Oui — réutilisés systématiquement','Quelques modèles, pas systématiques','Non — on repart de zéro à chaque fois'],'cri'],
+      ['Un commercial peut-il apprendre le process seul ?',['Oui — ressources disponibles','Partiellement — besoin d\'aide','Non — ça demande plusieurs sessions avec moi'],'cri'],
+      ['Vois-tu si le pipeline est en danger en moins d\'une heure ?',['Oui — dashboard clair','Partiellement visible','Non — il faut chercher et recalculer'],'cri'],
+      ['Des deals ont-ils été perdus faute de suivi organisé ?',['Jamais','Rarement — quelques cas','Parfois — impact estimé','Souvent — impact réel sur le CA','Très souvent — c\'est structurel'],'ca'],
+      ['Heures/semaine sur le commercial (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    mkt:[
+      ['Le marketing peut-il tourner sans toi pendant 1 mois ?',['Oui — délégué et planifié','Oui avec quelques validations','Difficilement — je dois intervenir régulièrement','Non — ça ralentit fortement','Non — c\'est moi qui fais tout'],'dep'],
+      ['Votre process de création et publication est-il documenté ?',['Oui, suivi systématiquement','Partiellement documenté','Non — ad hoc à chaque fois'],'cri'],
+      ['La création a-t-elle un espace de travail fixe ?',['Oui — outil unique et structuré','Partiellement outillé','Non — ça change à chaque fois'],'cri'],
+      ['Avez-vous des templates de contenu réutilisables ?',['Oui — librairie complète','Quelques templates','Non — page blanche à chaque fois'],'cri'],
+      ['Un prestataire peut-il produire du contenu sans briefing ?',['Oui — tout est documenté','Avec un peu d\'aide de ma part','Non — ça demande beaucoup de mon temps'],'cri'],
+      ['Sais-tu en moins d\'une heure si ta visibilité baisse ?',['Oui — alertes et KPI actifs','Partiellement','Non — je m\'en rends compte trop tard'],'cri'],
+      ['Un marketing mieux structuré générerait-il plus de CA ?',['Non — déjà optimal','Légèrement','Probablement — on laisse du CA','Certainement — fort potentiel inexploité','Énorme — l\'acquisition est quasi absente'],'ca'],
+      ['Heures/semaine sur le marketing (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    sav:[
+      ['Le service client tourne-t-il normalement sans toi 2 semaines ?',['Oui — process clair, équipe autonome','Oui avec quelques sollicitations','Avec des difficultés','Non — les clients demandent à te parler','Non — c\'est moi qui gère tout'],'dep'],
+      ['Le traitement d\'une réclamation est-il écrit étape par étape ?',['Oui, protocole documenté','Partiellement','Non — chaque cas géré au feeling'],'cri'],
+      ['Les réclamations arrivent-elles dans un outil centralisé ?',['Oui — ticketing structuré','Boîte partagée basique','Email perso ou WhatsApp'],'cri'],
+      ['Avez-vous des réponses types pour les demandes récurrentes ?',['Oui — base de réponses complète','Quelques templates','Non — tout est rédigé de zéro'],'cri'],
+      ['Un nouvel agent peut-il gérer les cas courants seul ?',['Oui — autonomie complète','Pour les cas simples seulement','Non — tout remonte à moi'],'cri'],
+      ['Vois-tu le volume et statut des réclamations en moins d\'une heure ?',['Oui — dashboard en temps réel','Partiellement','Non — il faut fouiller'],'cri'],
+      ['As-tu perdu des clients faute d\'un SAV insuffisant ?',['Jamais','Très rarement','Quelques cas identifiés','Régulièrement — impact réel','Souvent — problème structurel'],'ca'],
+      ['Heures/semaine sur le customer care (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    prod:[
+      ['Le développement produit peut-il avancer sans toi 3 semaines ?',['Oui — équipe et process en place','Oui avec quelques validations','Avec des frictions importantes','Difficilement — je suis dans tout','Non — c\'est moi le chef de produit'],'dep'],
+      ['Les étapes de développement/sourcing sont-elles documentées ?',['Oui, process clair et suivi','Partiellement','Non — tout est dans ma tête'],'cri'],
+      ['Le suivi produit se fait-il dans un outil structuré ?',['Oui — outil dédié et organisé','Partiellement','Non — emails et fichiers épars'],'cri'],
+      ['Avez-vous des briefs produit ou check-lists qualité réutilisables ?',['Oui — templates complets','Quelques modèles','Non — de zéro à chaque fois'],'cri'],
+      ['Un collaborateur peut-il gérer un lancement produit sans toi ?',['Oui avec les ressources en place','Partiellement','Non — ça demande beaucoup de mon temps'],'cri'],
+      ['Vois-tu les blocages produit en moins d\'une heure ?',['Oui — tableau de bord clair','Partiellement','Non — je le découvre trop tard'],'cri'],
+      ['Des problèmes produit ont-ils impacté ton CA ou ta marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement — impact chiffré','Souvent — impact structurel sur la marge'],'ca'],
+      ['Heures/semaine sur le produit (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    log:[
+      ['La logistique tourne-t-elle sans toi pendant 2 semaines ?',['Oui — équipe autonome','Avec quelques frictions','Avec des difficultés réelles','Non — des problèmes surgissent vite','Non — c\'est moi qui pilote tout'],'dep'],
+      ['Les process d\'expédition et litiges sont-ils écrits ?',['Oui, process documenté','Partiellement','Non — chacun fait à sa façon'],'cri'],
+      ['La logistique se pilote-t-elle depuis un outil unique ?',['Oui — outil intégré','Partiellement outillé','Non — plusieurs fichiers épars'],'cri'],
+      ['Avez-vous des check-lists d\'expédition réutilisables ?',['Oui — check-lists actives','Quelques-unes','Non — improvisation à chaque fois'],'cri'],
+      ['Un nouveau préparateur peut-il opérer seul dès le premier jour ?',['Oui — onboarding structuré','Avec quelques explications','Non — ça prend plusieurs jours avec moi'],'cri'],
+      ['Vois-tu le taux de service et les retards en moins d\'une heure ?',['Oui — KPI visibles','Partiellement','Non — je l\'apprends des clients'],'cri'],
+      ['Des problèmes logistiques ont-ils coûté des clients ou de la marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact structurel'],'ca'],
+      ['Heures/semaine sur la logistique (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    fin:[
+      ['La finance opérationnelle tourne-t-elle sans toi 3 semaines ?',['Oui — déléguée ou externalisée','Avec quelques sollicitations','Avec des difficultés','Non — les paiements et factures attendent','Non — tout passe par moi'],'dep'],
+      ['Le process de facturation et relance est-il documenté ?',['Oui, process clair','Partiellement','Non — tout est dans ma tête'],'cri'],
+      ['La finance se gère-t-elle depuis un outil unique ?',['Oui — logiciel structuré','Partiellement outillé','Non — Excel et emails'],'cri'],
+      ['Avez-vous des modèles de factures et relances réutilisables ?',['Oui — templates complets','Quelques modèles','Non — on refait à chaque fois'],'cri'],
+      ['Un comptable externe peut-il reprendre sans que tu expliques tout ?',['Oui — documentation complète','Avec quelques échanges','Non — c\'est très long à transmettre'],'cri'],
+      ['Vois-tu l\'état de ta trésorerie en moins d\'une heure ?',['Oui — dashboard temps réel','Partiellement','Non — il faut recalculer'],'cri'],
+      ['Des impayés ont-ils impacté ta trésorerie ?',['Jamais','Très rarement','Quelques cas','Régulièrement — impact réel','Souvent — problème structurel'],'ca'],
+      ['Heures/semaine sur la finance (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    rh:[
+      ['L\'équipe fonctionne-t-elle normalement sans toi 3 semaines ?',['Oui — autonomie complète','Avec quelques questions','Avec des frictions','Non — tensions ou blocages surgissent','Non — tout passe par moi'],'dep'],
+      ['Le process de recrutement et d\'onboarding est-il documenté ?',['Oui — process complet','Partiellement','Non — improvisé à chaque fois'],'cri'],
+      ['L\'onboarding se déroule-t-il dans un espace structuré ?',['Oui — parcours dédié','Partiellement','Non — chaque arrivée est différente'],'cri'],
+      ['Avez-vous des fiches de poste et guides d\'intégration ?',['Oui — documentation complète','Quelques éléments','Non — tout est oral'],'cri'],
+      ['Un nouveau peut-il monter en compétence sans bloquer ton agenda ?',['Oui — ressources disponibles','Partiellement','Non — ça demande beaucoup de mon temps'],'cri'],
+      ['Vois-tu la performance de ton équipe en moins d\'une heure ?',['Oui — KPI et reporting clairs','Partiellement','Non — je n\'ai pas de visibilité'],'cri'],
+      ['Des problèmes RH ont-ils coûté des talents ou ralenti la croissance ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — frein structurel à la croissance'],'ca'],
+      ['Heures/semaine sur le management et les RH (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    ach:[
+      ['Les achats tournent-ils sans toi 3 semaines ?',['Oui — déléguées et structurées','Avec quelques validations','Avec des difficultés','Non — des ruptures risquent de surgir','Non — les fournisseurs ne connaissent que moi'],'dep'],
+      ['Le process de commande et sélection fournisseur est-il documenté ?',['Oui — process clair','Partiellement','Non — tout est dans ma tête'],'cri'],
+      ['La gestion des achats se fait-elle dans un outil centralisé ?',['Oui — outil ou ERP structuré','Partiellement','Non — emails et fichiers épars'],'cri'],
+      ['Avez-vous des grilles de sélection ou contrats types ?',['Oui — templates et grilles actifs','Quelques-uns','Non — de zéro à chaque fois'],'cri'],
+      ['Quelqu\'un peut-il gérer un fournisseur courant sans te solliciter ?',['Oui — procédures en place','Pour les cas simples','Non — tout remonte à moi'],'cri'],
+      ['Vois-tu les niveaux de stock critique en moins d\'une heure ?',['Oui — alertes automatiques','Partiellement','Non — je l\'apprends quand c\'est trop tard'],'cri'],
+      ['Des ruptures ou mauvaises conditions ont-elles impacté ton CA ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact direct et structurel'],'ca'],
+      ['Heures/semaine sur les achats (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+    proj:[
+      ['Les projets avancent-ils normalement sans toi 3 semaines ?',['Oui — pilotés en autonomie','Avec quelques sollicitations','Avec des frictions','Non — des blocages surgissent vite','Non — tout passe par moi'],'dep'],
+      ['Chaque projet démarre-t-il avec un brief et un plan documentés ?',['Oui — systématique','Partiellement','Non — briefs oraux, tout change en route'],'cri'],
+      ['Les projets se pilotent-ils depuis un outil de suivi structuré ?',['Oui — outil clair et utilisé par tous','Partiellement','Non — emails et réunions'],'cri'],
+      ['Avez-vous des templates de brief, plan projet, CR de réunion ?',['Oui — librairie de templates','Quelques-uns','Non — de zéro à chaque fois'],'cri'],
+      ['Un chef de projet peut-il reprendre un projet sans te briefer longuement ?',['Oui — documentation suffisante','Avec quelques échanges','Non — ça demande beaucoup de mon temps'],'cri'],
+      ['Vois-tu les retards et blocages de tous les projets en moins d\'une heure ?',['Oui — vue d\'ensemble claire','Partiellement','Non — je dois demander ou fouiller'],'cri'],
+      ['Des projets ont-ils dérapé en délais ou budget ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel'],'ca'],
+      ['Heures/semaine sur le pilotage de projets (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
+    ],
+  };
+
+  /* ─── STATE ─── */
+  let ST={screen:'home',sel:[],di:0,qi:0,allAns:{},curAns:{}};
+
+  /* ─── CALC ─── */
+  function calcDomain(id,ans){
+    const g=i=>ans[i]??0;
+    const qs=Q[id];
+    const dep=g(0);
+    const criScores=[1,2,3,4,5].map(qi=>{
+      const opts=qs[qi][1];
+      const v=g(qi);
+      if(opts.length===2)return v===0?'ok':'missing';
+      if(opts.length===3)return v===0?'ok':v===1?'partial':'missing';
+      if(opts.length===4)return v<=1?'ok':v===2?'partial':'missing';
+      return v===0?'ok':v===1?'partial':'missing';
+    });
+    const missing=criScores.filter(s=>s==='missing').length;
+    const partial=criScores.filter(s=>s==='partial').length;
+    const caImpact=g(6);
+    const caLost=CA_COST[caImpact]||0;
+    const hoursIdx=g(7);
+    const hoursWeek=HOURS_VAL[hoursIdx];
+    const depFactor=dep/4;
+    const critFactor=(missing+partial*0.5)/5;
+    const hoursWasted=Math.round(hoursWeek*Math.max(depFactor,critFactor)*10)/10;
+    const delegScore=criScores.filter(s=>s==='ok').length;
+    return{dep,criScores,missing,partial,caLost,hoursWeek,hoursWasted,delegScore};
+  }
+  function getVerdict(sc){
+    if(sc.dep>=3&&sc.missing>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',pri:3};
+    if(sc.dep>=3||sc.missing>=3)return{lbl:'À structurer en priorité',c:'var(--warn)',bg:'var(--warn-bg)',pri:2};
+    if(sc.missing>=1||sc.dep>=2)return{lbl:'Améliorable',c:'var(--mid)',bg:'#F5F4F2',pri:1};
+    return{lbl:'Bien structuré',c:'var(--ok)',bg:'var(--ok-bg)',pri:0};
+  }
+
+  /* ─── RENDER ─── */
+  const app=document.getElementById('audit-app');
+  function render(){
+    if(ST.screen==='home')renderHome();
+    else if(ST.screen==='audit')renderAudit();
+    else renderResults();
+  }
+
+  function renderHome(){
+    app.innerHTML=`<div class="a-home">
     <p class="a-home-intro">Sélectionne les pôles à auditer <strong>(min. 2)</strong>. 8 questions par pôle — résultat immédiat : heures perdues, impact en €, et les 5 critères de délégabilité qui manquent.</p>
     <div class="dom-grid">${DOMS.map((d,i)=>{
       const on=ST.sel.includes(d.id);
@@ -1326,17 +1823,17 @@ function renderHome(){
       <span class="a-hint">${ST.sel.length<2?'Sélectionne au moins 2 pôles':`${ST.sel.length} pôle${ST.sel.length>1?'s':''} · ${ST.sel.length*8} questions`}</span>
     </div>
   </div>`;
-}
+    }
 
-function renderAudit(){
-  const id=ST.sel[ST.di];
-  const dom=DOMS.find(d=>d.id===id);
-  const qs=Q[id];
-  const[qText,opts]=qs[ST.qi];
-  const pct=Math.round((ST.di*8+ST.qi)/(ST.sel.length*8)*100);
-  const ch=ST.curAns[ST.qi];
-  const isLast=ST.qi===7&&ST.di===ST.sel.length-1;
-  app.innerHTML=`<div class="a-audit">
+    function renderAudit(){
+      const id=ST.sel[ST.di];
+      const dom=DOMS.find(d=>d.id===id);
+      const qs=Q[id];
+      const[qText,opts]=qs[ST.qi];
+      const pct=Math.round((ST.di*8+ST.qi)/(ST.sel.length*8)*100);
+      const ch=ST.curAns[ST.qi];
+      const isLast=ST.qi===7&&ST.di===ST.sel.length-1;
+      app.innerHTML=`<div class="a-audit">
     <div class="a-progress">
       <div class="a-progress-top"><span>${dom.name} — question ${ST.qi+1}/8</span><span>${pct}%</span></div>
       <div class="a-prog-bar"><div class="a-prog-fill" style="width:${pct}%"></div></div>
@@ -1354,22 +1851,22 @@ function renderAudit(){
       ${ch!==undefined?`<button class="btn-next" data-action="next-question">${isLast?'Voir mon diagnostic →':'Suivant →'}</button>`:`<span class="a-hint">Sélectionne une réponse</span>`}
     </div>
   </div>`;
-}
+    }
 
-function renderResults(){
-  const results=ST.sel.map(id=>{
-    const dom=DOMS.find(d=>d.id===id);
-    const sc=calcDomain(id,ST.allAns[id]||{});
-    return{...dom,sc,v:getVerdict(sc)};
-  });
-  const sorted=[...results].sort((a,b)=>b.v.pri-a.v.pri);
-  const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hoursWasted,0)*10)/10;
-  const totalCA=results.reduce((s,d)=>s+d.sc.caLost,0);
-  const totalMissing=results.reduce((s,d)=>s+d.sc.missing,0);
-  const annualH=Math.round(totalH*48);
-  const critN=results.filter(d=>d.v.pri===3).length;
+    function renderResults(){
+      const results=ST.sel.map(id=>{
+        const dom=DOMS.find(d=>d.id===id);
+        const sc=calcDomain(id,ST.allAns[id]||{});
+        return{...dom,sc,v:getVerdict(sc)};
+      });
+      const sorted=[...results].sort((a,b)=>b.v.pri-a.v.pri);
+      const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hoursWasted,0)*10)/10;
+      const totalCA=results.reduce((s,d)=>s+d.sc.caLost,0);
+      const totalMissing=results.reduce((s,d)=>s+d.sc.missing,0);
+      const annualH=Math.round(totalH*48);
+      const critN=results.filter(d=>d.v.pri===3).length;
 
-  app.innerHTML=`<div class="a-results">
+      app.innerHTML=`<div class="a-results">
     <div class="a-hero-result">
       <div class="a-hero-label">Heures perdues chaque semaine</div>
       <div class="a-hero-val">${totalH}<span>h</span></div>
@@ -1409,11 +1906,11 @@ function renderResults(){
       const criStatus=sc.criScores;
       return`<div class="dom-result-card">
         <div class="dom-result-head">
-          <div>
-            <div class="dom-result-name">${d.name}</div>
-            <div class="dom-result-desc">${d.desc}</div>
-          </div>
-          <div class="verd-badge" style="color:${v.c};background:${v.bg}">${v.lbl}</div>
+        <div>
+        <div class="dom-result-name">${d.name}</div>
+        <div class="dom-result-desc">${d.desc}</div>
+        </div>
+        <div class="verd-badge" style="color:${v.c};background:${v.bg}">${v.lbl}</div>
         </div>
         <div class="cri-grid">${CRITERIA.map((cr,i)=>{
           const st=criStatus[i];
@@ -1426,10 +1923,10 @@ function renderResults(){
           </div>`;
         }).join('')}</div>
         <div class="dom-result-foot">
-          <div class="dom-hours">⏱ <strong>${sc.hoursWeek}h/semaine</strong> sur ce pôle${sc.hoursWasted>0?` · <span class="dom-hours-danger">${sc.hoursWasted}h récupérables</span>`:''}</div>
-          ${sc.caLost>0?`<div class="dom-ca">~${sc.caLost.toLocaleString('fr-FR')} €/an impactés</div>`:''}
+        <div class="dom-hours">⏱ <strong>${sc.hoursWeek}h/semaine</strong> sur ce pôle${sc.hoursWasted>0?` · <span class="dom-hours-danger">${sc.hoursWasted}h récupérables</span>`:''}</div>
+        ${sc.caLost>0?`<div class="dom-ca">~${sc.caLost.toLocaleString('fr-FR')} €/an impactés</div>`:''}
         </div>
-      </div>`;
+        </div>`;
     }).join('')}
     <div class="cta-box">
       <h3>${critN>0?`${critN} pôle${critN>1?'s critique':' critique'} — c'est exactement là qu'on commence.`:'Des bases solides — passons à la vitesse supérieure.'}</h3>
@@ -1439,95 +1936,95 @@ function renderResults(){
     </div>
   </div>`;
 
-  const canvas=document.getElementById('spider-canvas');
-  if(canvas&&results.length>=2){
-    const dpr=window.devicePixelRatio||1;
-    const W=canvas.parentElement.clientWidth-48;
-    const H=Math.round(W*0.65);
-    canvas.width=W*dpr; canvas.height=H*dpr;
-    canvas.style.width=W+'px'; canvas.style.height=H+'px';
-    const ctx=canvas.getContext('2d');
-    ctx.scale(dpr,dpr);
-    const cx=W/2,cy=H/2,R=Math.min(W,H)/2-52;
-    const n=results.length;
-    const ang=i=>(Math.PI*2*i)/n-Math.PI/2;
-    const pt=(i,r)=>[cx+r*Math.cos(ang(i)),cy+r*Math.sin(ang(i))];
-    [1,2,3,4,5].forEach(v=>{
-      ctx.beginPath();
-      for(let i=0;i<n;i++){const[x,y]=pt(i,(R*v)/5);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
-      ctx.closePath();
-      ctx.strokeStyle=v===5?'rgba(0,0,0,.1)':'rgba(0,0,0,.04)';
-      ctx.lineWidth=1;ctx.stroke();
-    });
-    for(let i=0;i<n;i++){const[x,y]=pt(i,R);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle='rgba(0,0,0,.05)';ctx.lineWidth=1;ctx.stroke();}
-    ctx.beginPath();
-    results.forEach((d,i)=>{const v=d.sc.missing/5;const[x,y]=pt(i,R*v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-    ctx.closePath();ctx.fillStyle='rgba(216,90,48,.12)';ctx.fill();ctx.strokeStyle='#D85A30';ctx.lineWidth=2;ctx.stroke();
-    ctx.beginPath();
-    results.forEach((d,i)=>{const v=d.sc.delegScore/5;const[x,y]=pt(i,R*v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-    ctx.closePath();ctx.fillStyle='rgba(42,157,124,.1)';ctx.fill();ctx.strokeStyle='#2A9D7C';ctx.lineWidth=2;ctx.stroke();
-    results.forEach((d,i)=>{
-      [[d.sc.missing/5,'#D85A30'],[d.sc.delegScore/5,'#2A9D7C']].forEach(([v,col])=>{
-        const[x,y]=pt(i,R*v);
-        ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();
+      const canvas=document.getElementById('spider-canvas');
+      if(canvas&&results.length>=2){
+        const dpr=window.devicePixelRatio||1;
+        const W=canvas.parentElement.clientWidth-48;
+        const H=Math.round(W*0.65);
+        canvas.width=W*dpr; canvas.height=H*dpr;
+        canvas.style.width=W+'px'; canvas.style.height=H+'px';
+        const ctx=canvas.getContext('2d');
+        ctx.scale(dpr,dpr);
+        const cx=W/2,cy=H/2,R=Math.min(W,H)/2-52;
+        const n=results.length;
+        const ang=i=>(Math.PI*2*i)/n-Math.PI/2;
+        const pt=(i,r)=>[cx+r*Math.cos(ang(i)),cy+r*Math.sin(ang(i))];
+        [1,2,3,4,5].forEach(v=>{
+          ctx.beginPath();
+          for(let i=0;i<n;i++){const[x,y]=pt(i,(R*v)/5);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+          ctx.closePath();
+          ctx.strokeStyle=v===5?'rgba(0,0,0,.1)':'rgba(0,0,0,.04)';
+          ctx.lineWidth=1;ctx.stroke();
+        });
+        for(let i=0;i<n;i++){const[x,y]=pt(i,R);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle='rgba(0,0,0,.05)';ctx.lineWidth=1;ctx.stroke();}
+        ctx.beginPath();
+        results.forEach((d,i)=>{const v=d.sc.missing/5;const[x,y]=pt(i,R*v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+        ctx.closePath();ctx.fillStyle='rgba(216,90,48,.12)';ctx.fill();ctx.strokeStyle='#D85A30';ctx.lineWidth=2;ctx.stroke();
+        ctx.beginPath();
+        results.forEach((d,i)=>{const v=d.sc.delegScore/5;const[x,y]=pt(i,R*v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+        ctx.closePath();ctx.fillStyle='rgba(42,157,124,.1)';ctx.fill();ctx.strokeStyle='#2A9D7C';ctx.lineWidth=2;ctx.stroke();
+        results.forEach((d,i)=>{
+          [[d.sc.missing/5,'#D85A30'],[d.sc.delegScore/5,'#2A9D7C']].forEach(([v,col])=>{
+            const[x,y]=pt(i,R*v);
+            ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();
+          });
+          const[lx,ly]=pt(i,R+28);
+          ctx.font=`600 11px 'Outfit',sans-serif`;
+          ctx.fillStyle='#1C1C1C';ctx.textAlign='center';
+          ctx.fillText(d.name,lx,ly+4);
+        });
+      }
+    }
+
+      /* ─── ACTIONS ─── */
+      function toggleDom(id){
+        if(ST.sel.includes(id))ST.sel=ST.sel.filter(x=>x!==id);
+        else ST.sel=[...ST.sel,id];
+        renderHome();
+      }
+      function startAudit(){
+        if(ST.sel.length<2)return;
+        ST.screen='audit';ST.di=0;ST.qi=0;ST.allAns={};ST.curAns={};
+        render();
+        document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      function pickAns(v){
+        ST.curAns={...ST.curAns,[ST.qi]:v};renderAudit();
+      }
+      function nextQ(){
+        if(ST.curAns[ST.qi]===undefined)return;
+        if(ST.qi<7){ST.qi++;renderAudit();return;}
+        ST.allAns={...ST.allAns,[ST.sel[ST.di]]:{...ST.curAns}};
+        if(ST.di<ST.sel.length-1){ST.di++;ST.qi=0;ST.curAns={};renderAudit();}
+        else{ST.screen='results';render();}
+      }
+      function goBack(){
+        if(ST.qi>0){ST.qi--;renderAudit();return;}
+        if(ST.di>0){
+          const prevId=ST.sel[ST.di-1];
+          ST.di--;ST.qi=7;ST.curAns={...ST.allAns[prevId]||{}};renderAudit();
+        }else{ST.screen='home';renderHome();}
+      }
+      function restartAudit(){
+        ST={screen:'home',sel:[],di:0,qi:0,allAns:{},curAns:{}};
+        renderHome();
+        document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});
+      }
+
+      /* ─── INIT ─── */
+      app.addEventListener('click', (e) => {
+        const el = e.target.closest('[data-action]');
+        if (!el) return;
+
+        switch (el.dataset.action) {
+          case 'toggle-dom':    toggleDom(el.dataset.id); break;
+          case 'start-audit':   startAudit(); break;
+          case 'pick-answer':   pickAns(Number(el.dataset.index)); break;
+          case 'go-back':       goBack(); break;
+          case 'next-question': nextQ(); break;
+          case 'restart-audit': restartAudit(); break;
+        }
       });
-      const[lx,ly]=pt(i,R+28);
-      ctx.font=`600 11px 'Outfit',sans-serif`;
-      ctx.fillStyle='#1C1C1C';ctx.textAlign='center';
-      ctx.fillText(d.name,lx,ly+4);
-    });
-  }
-}
 
-/* ─── ACTIONS ─── */
-function toggleDom(id){
-  if(ST.sel.includes(id))ST.sel=ST.sel.filter(x=>x!==id);
-  else ST.sel=[...ST.sel,id];
-  renderHome();
-}
-function startAudit(){
-  if(ST.sel.length<2)return;
-  ST.screen='audit';ST.di=0;ST.qi=0;ST.allAns={};ST.curAns={};
-  render();
-  document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function pickAns(v){
-  ST.curAns={...ST.curAns,[ST.qi]:v};renderAudit();
-}
-function nextQ(){
-  if(ST.curAns[ST.qi]===undefined)return;
-  if(ST.qi<7){ST.qi++;renderAudit();return;}
-  ST.allAns={...ST.allAns,[ST.sel[ST.di]]:{...ST.curAns}};
-  if(ST.di<ST.sel.length-1){ST.di++;ST.qi=0;ST.curAns={};renderAudit();}
-  else{ST.screen='results';render();}
-}
-function goBack(){
-  if(ST.qi>0){ST.qi--;renderAudit();return;}
-  if(ST.di>0){
-    const prevId=ST.sel[ST.di-1];
-    ST.di--;ST.qi=7;ST.curAns={...ST.allAns[prevId]||{}};renderAudit();
-  }else{ST.screen='home';renderHome();}
-}
-function restartAudit(){
-  ST={screen:'home',sel:[],di:0,qi:0,allAns:{},curAns:{}};
-  renderHome();
-  document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-/* ─── INIT ─── */
-app.addEventListener('click', (e) => {
-  const el = e.target.closest('[data-action]');
-  if (!el) return;
-
-  switch (el.dataset.action) {
-    case 'toggle-dom':    toggleDom(el.dataset.id); break;
-    case 'start-audit':   startAudit(); break;
-    case 'pick-answer':   pickAns(Number(el.dataset.index)); break;
-    case 'go-back':       goBack(); break;
-    case 'next-question': nextQ(); break;
-    case 'restart-audit': restartAudit(); break;
-  }
-});
-
-render();
+      render();
 </script>
