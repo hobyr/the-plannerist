@@ -1042,6 +1042,8 @@ const faqContent = [
     </script>
 
     <style>
+      /* ── Global overrides ── */
+
       .page-heading,
       .section-heading,
       .section-subheading,
@@ -1071,7 +1073,6 @@ const faqContent = [
       }
 
       .tagline {
-        text-align: center;
         text-wrap: balance;
       }
 
@@ -1092,11 +1093,9 @@ const faqContent = [
         padding-right: 0.15rem;
       }
 
-      .index-intro {
-        .tagline {
-          text-wrap: balance;
-        }
+      /* ── Intro ── */
 
+      .index-intro {
         footer {
           display: flex;
           flex-direction: row;
@@ -1114,6 +1113,8 @@ const faqContent = [
           }
         }
       }
+
+      /* ── Questionnaire ── */
 
       .index-questionnaire {
         .questionnaire {
@@ -1135,14 +1136,11 @@ const faqContent = [
             background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 24px;
-            /* box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%); */
             padding: var(--space-m);
             display: flex;
             flex-direction: column;
 
             .question-cover {
-              /* width: 100%; */
-              /* max-height: 420px; */
               height: 100%;
               border-radius: 12px;
               margin-bottom: var(--space-s);
@@ -1187,21 +1185,17 @@ const faqContent = [
           }
           .card:nth-of-type(3) {
             z-index: 5;
-            /* transform: rotate(2deg); */
             transform: translateY(4px);
           }
           .card:nth-of-type(4) {
             z-index: 4;
-            /* transform: rotate(-3deg) translateY(12px); */
           }
           .card:nth-of-type(5) {
             z-index: 3;
             transform: translateY(-4px);
-            /* transform: rotate(3deg); */
           }
           .card:nth-of-type(6) {
             z-index: 2;
-            /* transform: rotate(4deg) translateY(10px) translateX(13px); */
             transform: translateY(-8px);
           }
           .card:nth-of-type(7) {
@@ -1226,6 +1220,8 @@ const faqContent = [
         }
       }
 
+      /* ── Pillars ── */
+
       .index-pillars {
         .cards {
           display: flex;
@@ -1249,7 +1245,6 @@ const faqContent = [
           position: relative;
           z-index: 1;
           max-width: 650px;
-          /* min-width: 350px; */
 
           .keyword {
             font-size: var(--step-0);
@@ -1303,6 +1298,8 @@ const faqContent = [
         }
       }
 
+      /* ── Methodology ── */
+
       .index-methodology {
         .timeline {
           position: relative;
@@ -1317,17 +1314,17 @@ const faqContent = [
             display: flex;
             z-index: -1;
             opacity: 0.65;
+          }
 
-            .boxes {
-              border-left: 1px solid var(--border-color);
-              flex: 1;
-              text-align: center;
-              z-index: -1;
-            }
+          .boxes {
+            border-left: 1px solid var(--border-color);
+            flex: 1;
+            text-align: center;
+            z-index: -1;
+          }
 
-            .boxes:last-child {
-              border-right: 1px solid var(--border-color);
-            }
+          .boxes:last-child {
+            border-right: 1px solid var(--border-color);
           }
 
           .steps {
@@ -1418,6 +1415,8 @@ const faqContent = [
         }
       }
 
+      /* ── Formats ── */
+
       .index-formats {
         .cards {
           display: flex;
@@ -1478,18 +1477,6 @@ const faqContent = [
           line-height: 1.15;
         }
 
-        .card-price {
-          font-size: var(--step-2);
-          font-weight: 600;
-        }
-
-        .card-price span {
-          font-size: var(--step-0);
-          color: #909090;
-          font-weight: 300;
-          margin-left: 0.25rem;
-        }
-
         .card .button {
           margin-top: var(--space-s);
           margin-inline: unset;
@@ -1506,7 +1493,6 @@ const faqContent = [
 
         .copilotage {
           border: 3px solid var(--bg-color-light);
-          /* box-shadow: 0px 0px 8px 8px var(--bg-color-light); */
           position: relative;
         }
 
@@ -1517,7 +1503,6 @@ const faqContent = [
           right: 30%;
           top: -1rem;
           background-color: var(--bg-color-light);
-          /* color: var(--bg-color-dark); */
           color: white;
           font-weight: 550;
           height: 2rem;
@@ -1566,6 +1551,8 @@ const faqContent = [
           border-radius: 99px;
         }
       }
+
+      /* ── Success stories ── */
 
       .index-successes {
         .carousel {
@@ -1707,6 +1694,8 @@ const faqContent = [
         }
       }
 
+      /* ── Reviews ── */
+
       .index-reviews {
         .review-wrapper {
           display: flex;
@@ -1769,37 +1758,39 @@ const faqContent = [
             header {
               display: flex;
               margin-bottom: var(--space-s);
+            }
 
-              .profile-img {
-                border: 1px solid var(--border-color);
-                aspect-ratio: 1/1;
-                width: 48px;
-                height: 48px;
-                border-radius: 48px;
-                margin-right: var(--space-s);
+            .profile-img {
+              border: 1px solid var(--border-color);
+              aspect-ratio: 1/1;
+              width: 48px;
+              height: 48px;
+              border-radius: 48px;
+              margin-right: var(--space-s);
+            }
+
+            div span {
+              display: block;
+              margin-right: var(--space-m);
+
+              &.date {
+                font-size: var(--step--1);
+                color: #808080;
+                font-weight: 200;
               }
+            }
 
-              div span {
-                display: block;
-                margin-right: var(--space-m);
-
-                &.date {
-                  font-size: var(--step--1);
-                  color: #808080;
-                  font-weight: 200;
-                }
-              }
-
-              .review-logo {
-                max-width: 32px;
-                max-height: 32px;
-                object-fit: contain;
-                margin-left: auto;
-              }
+            .review-logo {
+              max-width: 32px;
+              max-height: 32px;
+              object-fit: contain;
+              margin-left: auto;
             }
           }
         }
       }
+
+      /* ── Vision ── */
 
       .index-vision {
         .livrables {
@@ -1831,6 +1822,8 @@ const faqContent = [
           }
         }
       }
+
+      /* ── Responsive ── */
 
       @media (width <= 900px) {
         .index-intro {
@@ -1875,12 +1868,12 @@ const faqContent = [
             padding-inline: 0rem;
             gap: var(--space-s);
             mask-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 1) 10%,
-            rgba(0, 0, 0, 1) 90%,
-            rgba(0, 0, 0, 0) 100%
-          );
+              to right,
+              rgba(0, 0, 0, 0) 0%,
+              rgba(0, 0, 0, 1) 10%,
+              rgba(0, 0, 0, 1) 90%,
+              rgba(0, 0, 0, 0) 100%
+            );
 
             .review {
               min-width: 250px;
