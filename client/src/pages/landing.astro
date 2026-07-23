@@ -1752,7 +1752,11 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
 
 
   /* ─── DATA ─── */
+  // Calendly booking URL used in CTA links throughout the widget
   const CAL='https://calendly.com/seheno-theplannerist/appel-decouverte';
+
+  // The 9 business domains the user can audit. Each has an id (used as key in Q),
+  // a display name, and a short description shown on the selection cards.
   const DOMS=[
     {id:'com',name:'Commercial',desc:'Pipeline, devis, relances, closing'},
     {id:'mkt',name:'Marketing',desc:'Contenu, campagnes, acquisition'},
@@ -1764,6 +1768,9 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     {id:'ach',name:'Achats',desc:'Fournisseurs, négociations, commandes'},
     {id:'proj',name:'Gestion projet',desc:'Suivi, priorisation, coordination'},
   ];
+
+  // The 5 delegation criteria evaluated for each domain (workflow, tool, docs, training, KPIs).
+  // Questions 1–5 in each domain map to these criteria.
   const CRIT=[
     {id:'workflow',label:'Workflow écrit',test:'Quelqu\'un l\'exécute sans demander « et après ? »'},
     {id:'outil',label:'Outil fixe',test:'Le travail a un endroit défini — pas de bricole'},
@@ -1771,10 +1778,23 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     {id:'training',label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
     {id:'kpi',label:'Indicateurs',test:'Tu vois un problème en moins d\'une heure'},
   ];
+
+  // Labels for each of the 8 question axes (shown above the question text)
   const AXL=['Dépendance','Workflow','Outils','Docs','Formation','Indicateurs','Impact CA','Temps passé'];
+
+  // Maps answer index (0–4) to estimated weekly hours spent on the domain
+  // Index 0=0.5h, 1=2h, 2=5h, 3=11h, 4=20h
   const HV=[.5,2,5,11,20];
+
+  // Maps answer index (0–4) to estimated annual revenue impact in €
+  // Index 0=0€, 1=500€, 2=2000€, 3=6000€, 4=15000€
   const CAC=[0,500,2000,6000,15000];
 
+  // Questions per domain. Each domain has exactly 8 questions:
+  //   Q[domain][0] = Dependency (5 options: can the pole run without you?)
+  //   Q[domain][1–5] = Delegation criteria (2–4 options each)
+  //   Q[domain][6] = CA/revenue impact (5 options)
+  //   Q[domain][7] = Hours/week spent personally (5 options)
   const Q={
     com:[['Ce pôle peut-il tourner si tu disparais 2 semaines ?',['Oui — l\'équipe est 100% autonome','Oui avec quelques frictions','Difficilement — plusieurs blocages','Non — les deals s\'arrêtent','Non — tout passe par moi']],['Le process de vente est-il écrit étape par étape ?',['Oui, documenté et suivi par tous','Partiellement documenté','Non — chacun fait à sa façon']],['Utilisez-vous un CRM structuré pour chaque deal ?',['Oui — CRM structuré et utilisé','CRM en place mais mal utilisé','Fichier Excel ou emails','Rien — tout est de tête']],['Avez-vous des templates de devis, scripts, relances ?',['Oui — réutilisés systématiquement','Quelques modèles, pas systématiques','Non — on repart de zéro à chaque fois']],['Un commercial peut-il apprendre le process seul ?',['Oui — ressources disponibles','Partiellement — besoin d\'aide','Non — ça demande plusieurs sessions avec moi']],['Vois-tu si le pipeline est en danger en moins d\'une heure ?',['Oui — dashboard clair','Partiellement visible','Non — il faut chercher']],['Des deals ont-ils été perdus faute de suivi organisé ?',['Jamais','Rarement','Parfois — impact estimé','Souvent — impact réel','Très souvent — c\'est structurel']],['Heures/semaine sur le commercial (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
     mkt:[['Le marketing peut-il tourner sans toi pendant 1 mois ?',['Oui — délégué et planifié','Oui avec quelques validations','Difficilement','Non — ça ralentit fortement','Non — c\'est moi qui fais tout']],['Le process de création et publication est-il documenté ?',['Oui, suivi systématiquement','Partiellement','Non — ad hoc à chaque fois']],['La création a-t-elle un espace de travail fixe ?',['Oui — outil unique et structuré','Partiellement outillé','Non — ça change à chaque fois']],['Avez-vous des templates de contenu réutilisables ?',['Oui — librairie complète','Quelques templates','Non — page blanche à chaque fois']],['Un prestataire peut-il produire du contenu sans briefing ?',['Oui — tout est documenté','Avec un peu d\'aide','Non — ça demande beaucoup de mon temps']],['Sais-tu en moins d\'une heure si ta visibilité baisse ?',['Oui — alertes et KPI actifs','Partiellement','Non — je m\'en rends compte trop tard']],['Un marketing mieux structuré générerait-il plus de CA ?',['Non — déjà optimal','Légèrement','Probablement','Certainement — fort potentiel inexploité','Énorme — l\'acquisition est quasi absente']],['Heures/semaine sur le marketing ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
@@ -1784,10 +1804,24 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     fin:[['La finance opérationnelle tourne-t-elle sans toi 3 semaines ?',['Oui — déléguée ou externalisée','Avec quelques sollicitations','Avec des difficultés','Non — les paiements attendent','Non — tout passe par moi']],['Le process de facturation et relance est-il documenté ?',['Oui, process clair','Partiellement','Non — tout est dans ma tête']],['La finance se gère-t-elle depuis un outil unique ?',['Oui — logiciel structuré','Partiellement outillé','Non — Excel et emails']],['Avez-vous des modèles de factures et relances réutilisables ?',['Oui — templates complets','Quelques modèles','Non — on refait à chaque fois']],['Un comptable externe peut-il reprendre sans que tu expliques tout ?',['Oui — documentation complète','Avec quelques échanges','Non — c\'est très long']],['Vois-tu l\'état de ta trésorerie en moins d\'une heure ?',['Oui — dashboard temps réel','Partiellement','Non — il faut recalculer']],['Des impayés ont-ils impacté ta trésorerie ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel']],['Heures/semaine sur la finance ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
     rh:[['L\'équipe fonctionne-t-elle normalement sans toi 3 semaines ?',['Oui — autonomie complète','Avec quelques questions','Avec des frictions','Non — tensions ou blocages surgissent','Non — tout passe par moi']],['Le process de recrutement et d\'onboarding est-il documenté ?',['Oui — process complet','Partiellement','Non — improvisé à chaque fois']],['L\'onboarding se déroule-t-il dans un espace structuré ?',['Oui — parcours dédié','Partiellement','Non — chaque arrivée est différente']],['Avez-vous des fiches de poste et guides d\'intégration ?',['Oui — documentation complète','Quelques éléments','Non — tout est oral']],['Un nouveau peut-il monter en compétence sans bloquer ton agenda ?',['Oui — ressources disponibles','Partiellement','Non — ça demande beaucoup de mon temps']],['Vois-tu la performance de ton équipe en moins d\'une heure ?',['Oui — KPI et reporting clairs','Partiellement','Non — je n\'ai pas de visibilité']],['Des problèmes RH ont-ils coûté des talents ou ralenti la croissance ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — frein structurel']],['Heures/semaine sur le management et les RH ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
     ach:[['Les achats tournent-ils sans toi 3 semaines ?',['Oui — déléguées et structurées','Avec quelques validations','Avec des difficultés','Non — des ruptures risquent de surgir','Non — les fournisseurs ne connaissent que moi']],['Le process de commande et sélection fournisseur est-il documenté ?',['Oui — process clair','Partiellement','Non — tout est dans ma tête']],['La gestion des achats se fait-elle dans un outil centralisé ?',['Oui — outil ou ERP structuré','Partiellement','Non — emails et fichiers épars']],['Avez-vous des grilles de sélection ou contrats types ?',['Oui — templates et grilles actifs','Quelques-uns','Non — de zéro à chaque fois']],['Quelqu\'un peut-il gérer un fournisseur courant sans te solliciter ?',['Oui — procédures en place','Pour les cas simples','Non — tout remonte à moi']],['Vois-tu les niveaux de stock critique en moins d\'une heure ?',['Oui — alertes automatiques','Partiellement','Non — je l\'apprends trop tard']],['Des ruptures ou mauvaises conditions ont-elles impacté ton CA ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact direct']],['Heures/semaine sur les achats ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
-    proj:[['Les projets avancent-ils normalement sans toi 3 semaines ?',['Oui — pilotés en autonomie','Avec quelques sollicitations','Avec des frictions','Non — des blocages surgissent','Non — tout passe par moi']],['Chaque projet démarre-t-il avec un brief et un plan documentés ?',['Oui — systématique','Partiellement','Non — briefs oraux, tout change en route']],['Les projets se pilotent-ils depuis un outil de suivi structuré ?',['Oui — outil clair et utilisé par tous','Partiellement','Non — emails et réunions']],['Avez-vous des templates de brief, plan projet, CR de réunion ?',['Oui — librairie de templates','Quelques-uns','Non — de zéro à chaque fois']],['Un chef de projet peut-il reprendre sans te briefer longuement ?',['Oui — documentation suffisante','Avec quelques échanges','Non — ça demande beaucoup de mon temps']],['Vois-tu les retards et blocages de tous les projets en moins d\'une heure ?',['Oui — vue d\'ensemble claire','Partiellement','Non — je dois demander ou fouiller']],['Des projets ont-ils dérapé en délais ou budget ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel']],['Heures/semaine sur le pilotage de projets ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]]
+    proj:[['Les projets avancent-ils normalement sans toi 3 semaines ?',['Oui — pilotés en autonomie','Avec quelques sollicitations','Avec des frictions','Non — des blocages surgissent','Non — tout passe par moi']],['Chaque projet démarre-t-il avec un brief et un plan documentés ?',['Oui — systématique','Partiellement','Non — briefs oraux, tout change en route']],['Les projets se pilotent-ils depuis un outil de suivi structuré ?',['Oui — outil clair et utilisé par tous','Partiellement','Non — emails et réunions']],['Avez-vous des templates de brief, plan projet, CR de réunion ?',['Oui — librairie de templates','Quelques-uns','Non — de zéro à chaque fois']],['Un chef de projet peut-il reprendre sans te briefer longuement ?',['Oui — documentation suffisante','Avec quelques échanges','Non — ça demande beaucoup de mon temps']],['Vois-tu les retards et blocages de tous les projets en moins d\'une heure ?',['Oui — vue d\'ensemble claire','Partiellement','Non — je dois demander ou fouiller']],['Des projets ont-ils dérapé en délais ou budget ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel']],['Heures/semaine sur le pilotage de projets ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]}
   };
 
   /* ─── CALC ─── */
+  // Evaluates a single domain's answers and returns scoring metrics.
+  // Called by rResults() for each selected domain.
+  //
+  // Input:  id = domain id (e.g. 'com'), ans = {questionIndex: answerIndex}
+  // Output: {
+  //   dep   — dependency score (0–4, from Q[0] answer)
+  //   cs    — criteria status array: 'ok'|'partial'|'missing' for each of the 5 criteria
+  //   miss  — number of criteria with status 'missing'
+  //   part  — number of criteria with status 'partial'
+  //   caL   — estimated annual CA lost (€, from CAC lookup)
+  //   hw    — self-reported hours/week on this domain (from HV lookup)
+  //   hW    — estimated recoverable hours/week (hw × max(dependency factor, criteria factor))
+  //   ds    — delegation score: count of criteria with status 'ok' (0–5)
+  // }
   function calcD(id,ans){
     const g=i=>ans[i]??0,qs=Q[id];
     const dep=g(0);
@@ -1801,12 +1835,22 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   }
 
   /* ─── AUTONOMY SCORE ─── */
+  // Computes a 0–100 autonomy score for one domain.
+  // Formula: 50% weight on dependency (lower dep = higher score) + 50% on delegation criteria met.
+  // Score ranges: 70–100 = Autonome (green), 40–69 = En cours (amber), 0–39 = Critique (red).
+  // Called by drawSpider() for each domain.
   function autoScore(sc){return Math.round(((4-sc.dep)/4*.5+sc.ds/5*.5)*100);}
+
+  // Returns the text color, background color, and border color for a given score.
+  // Used by drawSpider() for canvas dots and by rResults() for score tag styling.
   function autoColor(s){return s>=70?'#2A9D7C':s>=40?'#C8A96E':'#D85A30';}
   function autoBg(s){return s>=70?'rgba(42,157,124,.1)':s>=40?'rgba(200,169,110,.1)':'rgba(216,90,48,.1)';}
   function autoBorder(s){return s>=70?'rgba(42,157,124,.35)':s>=40?'rgba(200,169,110,.35)':'rgba(216,90,48,.35)';}
   function autoLabel(s){return s>=70?'Autonome':s>=40?'En cours':'Critique';}
 
+  // Assigns a verdict label + priority to a domain based on its scores.
+  // Priority 3 (red) = critical, 2 (amber) = needs structure, 1 (grey) = improvable, 0 (green) = well structured.
+  // Used by rResults() to sort domains and color-code the result cards.
   function getVerdict(sc){
     if(sc.dep>=3&&sc.miss>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',pri:3};
     if(sc.dep>=3||sc.miss>=3)return{lbl:'À structurer en priorité',c:'var(--warn)',bg:'var(--warn-bg)',pri:2};
@@ -1814,6 +1858,13 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     return{lbl:'Bien structuré',c:'var(--ok)',bg:'var(--ok-bg)',pri:0};
   }
 
+  // Generates the personalized recommendation based on aggregate results across all audited domains.
+  // Decision logic:
+  //   If 2+ domains have CA impact ≥2000€ OR total CA ≥6000€, AND average dependency ≥2.5
+  //     → Recommends "Co-pilotage" (COO externalisé, 6 months, 3900€/month)
+  //   Otherwise
+  //     → Recommends "The Plannerist OS" (organisation, 3 months, 2500€/month)
+  // Called by rResults(). Returns {icon, tag, title, pitch, reasons[]}.
   function getReco(results){
     const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hW,0)*10)/10;
     const totalCA=results.reduce((s,d)=>s+d.sc.caL,0);
@@ -1826,6 +1877,13 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   }
 
   /* ─── SPIDER ─── */
+  // Draws the radar/spider chart on a <canvas> element and renders score tags below it.
+  // Each axis = one audited domain. The polygon area represents overall autonomy.
+  //   - Uses autoScore() to get 0–100 score per domain
+  //   - Uses autoColor() to color-code each axis dot
+  //   - Renders concentric guide rings at 25%, 50%, 75%, 100%
+  //   - Also populates the #sptags container with score tag badges
+  // Called by rResults() after the HTML is rendered.
   function drawSpider(results){
     const canvas=document.getElementById('sp');
     if(!canvas||results.length<2)return;
@@ -1862,12 +1920,24 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   }
 
   /* ─── STATE ─── */
+  // Global widget state. Fields:
+  //   sc   — current screen: 'home' | 'audit' | 'results'
+  //   sel  — array of selected domain ids (e.g. ['com','fin'])
+  //   di   — current domain index within sel (0-based)
+  //   qi   — current question index within the domain (0–7)
+  //   allA — completed answers keyed by domain id: { com: {0:2, 1:0, ...}, fin: {...} }
+  //   curA — answers for the current domain being audited: {0:2, 1:1, ...}
   let ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{}};
   const app=document.getElementById('app');
 
+  // Main render router — delegates to rHome(), rAudit(), or rResults() based on ST.sc.
   function render(){if(ST.sc==='home')rHome();else if(ST.sc==='audit')rAudit();else rResults();}
 
   /* ─── HOME ─── */
+  // Renders the domain selection screen: grid of 9 toggleable domain buttons + start button.
+  // Each button uses data-action="toggle-dom" for event delegation.
+  // Start button is disabled until ≥2 domains are selected.
+  // Calls: toggleDom() on button clicks, startAudit() on start.
   function rHome(){
     app.innerHTML=`<div class="pad">
     <p class="intro">Sélectionne les pôles à auditer <strong>(min. 2)</strong>. 8 questions par pôle — résultat immédiat : heures perdues, impact en €, les 5 critères manquants et ta recommandation personnalisée.</p>
@@ -1879,6 +1949,10 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   </div>`;}
 
   /* ─── AUDIT ─── */
+  // Renders the current question: progress bar, question text, answer options, back/next buttons.
+  // Shows which domain/question we're on (e.g. "Commercial — q.3/8").
+  // On the last question of the last domain, shows "Voir mon diagnostic →" instead of "Suivant →".
+  // Calls: pickAns() when an answer is clicked.
   function rAudit(){
     const id=ST.sel[ST.di],dom=DOMS.find(d=>d.id===id);
     const[qt,opts]=Q[id][ST.qi];
@@ -1900,6 +1974,10 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   </div>`;}
 
   /* ─── RESULTS ─── */
+  // Renders the full results page: hero stat, spider chart, recommendation, domain detail cards.
+  // Calls calcD() for each domain, getVerdict() for sorting, getReco() for recommendation,
+  // and drawSpider() for the canvas chart.
+  // The domain cards are sorted by priority (most critical first).
   function rResults(){
     const results=ST.sel.map(id=>{const dom=DOMS.find(d=>d.id===id);const sc=calcD(id,ST.allA[id]||{});return{...dom,sc,v:getVerdict(sc)};});
     const sorted=[...results].sort((a,b)=>b.v.pri-a.v.pri);
@@ -1950,9 +2028,19 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   }
 
   /* ─── ACTIONS ─── */
+  // Toggles a domain in/out of the selection. Re-renders the home screen.
+  // Called by event delegation when user clicks a domain button.
   function toggleDom(id){ST.sel=ST.sel.includes(id)?ST.sel.filter(x=>x!==id):[...ST.sel,id];rHome();}
+
+  // Validates ≥2 domains selected, then transitions state from 'home' to 'audit'.
+  // Resets question indices and answers. Scrolls to the #audit section.
+  // Called by event delegation on start button click.
   function startAudit(){if(ST.sel.length<2)return;ST.sc='audit';ST.di=0;ST.qi=0;ST.allA={};ST.curA={};render();document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});}
 
+  // Records the user's answer for the current question, re-renders the question
+  // to show the selection, then auto-advances to the next question after 380ms.
+  // On the last question, does NOT auto-advance (user must click the CTA button).
+  // Called by event delegation on answer option click.
   function pickAns(v){
     ST.curA={...ST.curA,[ST.qi]:v};
     rAudit();
@@ -1960,6 +2048,10 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     if(!isLast) setTimeout(()=>nextQ(), 380);
   }
 
+  // Advances to the next question. If within a domain (qi<7), increments qi.
+  // If at the end of a domain, saves answers to allA and moves to next domain.
+  // If at the end of the last domain, transitions to 'results' screen.
+  // Called by pickAns() (auto-advance) and event delegation (manual next).
   function nextQ(){
     if(ST.curA[ST.qi]===undefined)return;
     if(ST.qi<7){ST.qi++;rAudit();return;}
@@ -1967,14 +2059,23 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     if(ST.di<ST.sel.length-1){ST.di++;ST.qi=0;ST.curA={};rAudit();}
     else{ST.sc='results';render();}
   }
+  // Goes back one question. If within a domain (qi>0), decrements qi.
+  // If at the start of a domain (qi=0), goes to the previous domain's last question.
+  // If at the very start, returns to the home screen.
+  // Called by event delegation on back button click.
   function goBack(){
     if(ST.qi>0){ST.qi--;rAudit();return;}
     if(ST.di>0){const p=ST.sel[ST.di-1];ST.di--;ST.qi=7;ST.curA={...ST.allA[p]||{}};rAudit();}
     else{ST.sc='home';rHome();}
   }
+  // Full reset: clears all state back to initial values, returns to home screen.
+  // Called by event delegation on restart button click.
   function restartAudit(){ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{}};rHome();document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});}
 
   /* ─── INIT ─── */
+  // Event delegation: single click listener on the app container.
+  // Routes clicks to the appropriate action based on data-action attribute.
+  // This pattern avoids inline onclick handlers and works with Astro's CSP.
   app.addEventListener('click', (e) => {
     const el = e.target.closest('[data-action]');
     if (!el) return;
@@ -1989,5 +2090,6 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     }
   });
 
+  // Initial render on page load
   render();
 </script>
