@@ -82,7 +82,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     <h2 class="section-heading">Audit d'autonomie &middot; gratuit</h2>
     <h3 class="section-subheading">Mesure exactement où tu en es</h3>
     <p class="tagline">8 questions par pôle. Résultat immédiat : heures perdues, impact estimé en €, et les 5 critères qui manquent pour déléguer pour de vrai.</p>
-    <div id="audit-app"></div>
+    <div id="app"></div>
   </section>
 
   <section id="landing-offers">
@@ -613,14 +613,18 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     padding-inline: var(--space-l);
   }
 
-  #audit-app {
+  #app {
     border: 1px solid var(--border-color);
     padding: var(--space-l);
     border-radius: 16px;
     overflow: hidden;
   }
 
-  .a-home-intro {
+  .pad {
+    padding: var(--space-m) 0;
+  }
+
+  .intro {
     text-align: center;
     max-width: 60ch;
     margin-inline: auto;
@@ -629,14 +633,14 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     line-height: 1.5;
   }
 
-  .dom-grid {
+  .dgrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: var(--space-s);
     margin-bottom: var(--space-xl);
   }
 
-  .dom-btn {
+  .db {
     display: flex;
     align-items: center;
     gap: var(--space-s);
@@ -652,16 +656,16 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     color: inherit;
   }
 
-  .dom-btn:hover {
+  .db:hover {
     border-color: var(--dark);
   }
 
-  .dom-btn.active {
+  .db.on {
     border-color: var(--ok);
     background-color: var(--ok-bg);
   }
 
-  .dom-btn-num {
+  .db-num {
     width: 2rem;
     height: 2rem;
     border-radius: 999px;
@@ -674,23 +678,23 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     flex-shrink: 0;
   }
 
-  .dom-btn.active .dom-btn-num {
+  .db.on .db-num {
     background: var(--ok);
     color: white;
   }
 
-  .dom-btn-name {
+  .db-name {
     font-weight: 500;
     font-size: var(--step-0);
   }
 
-  .dom-btn-desc {
+  .db-desc {
     font-size: var(--step--1);
     color: var(--mid);
     margin-top: 0.15rem;
   }
 
-  .a-home-footer {
+  .hf {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -698,7 +702,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     flex-wrap: wrap;
   }
 
-  .btn-start {
+  .btn-go {
     padding: var(--space-s) var(--space-xl);
     border-radius: 999px;
     border: none;
@@ -711,28 +715,28 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     transition: background-color 150ms, color 150ms;
   }
 
-  .btn-start:hover:not(:disabled) {
+  .btn-go:hover:not(:disabled) {
     background: var(--primary);
     color: white;
   }
 
-  .btn-start:disabled {
+  .btn-go:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
 
-  .a-hint {
+  .hint {
     font-size: var(--step--1);
     color: var(--mid);
   }
 
   /* ── Audit flow ── */
 
-  .a-progress {
+  .prog {
     margin-bottom: var(--space-l);
   }
 
-  .a-progress-top {
+  .prog-top {
     display: flex;
     justify-content: space-between;
     font-size: var(--step--1);
@@ -741,7 +745,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     color: var(--dark);
   }
 
-  .a-prog-bar {
+  .pbar {
     height: 6px;
     background: var(--border-color);
     border-radius: 999px;
@@ -749,25 +753,25 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     margin-bottom: var(--space-2xs);
   }
 
-  .a-prog-fill {
+  .pfill {
     height: 100%;
     background: var(--ok);
     border-radius: 999px;
     transition: width 300ms ease;
   }
 
-  .a-segs {
+  .segs {
     display: flex;
     gap: 3px;
   }
 
-  .a-seg {
+  .seg {
     flex: 1;
     height: 3px;
     border-radius: 999px;
   }
 
-  .a-ax-tag {
+  .ax {
     display: inline-block;
     font-size: var(--step--1);
     font-weight: 600;
@@ -777,7 +781,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     margin-bottom: var(--space-s);
   }
 
-  .a-q-title {
+  .qt {
     font-family: var(--font-instrument-serif);
     font-size: var(--step-3);
     font-weight: 300;
@@ -786,14 +790,14 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     text-wrap: balance;
   }
 
-  .a-opts {
+  .opts {
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
     margin-bottom: var(--space-xl);
   }
 
-  .a-opt {
+  .opt {
     display: flex;
     align-items: center;
     gap: var(--space-m);
@@ -809,16 +813,16 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     color: inherit;
   }
 
-  .a-opt:hover {
+  .opt:hover {
     border-color: var(--dark);
   }
 
-  .a-opt.active {
+  .opt.on {
     border-color: var(--ok);
     background-color: var(--ok-bg);
   }
 
-  .a-opt-dot {
+  .opt-d {
     width: 2rem;
     height: 2rem;
     border-radius: 999px;
@@ -831,16 +835,16 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     flex-shrink: 0;
   }
 
-  .a-opt.active .a-opt-dot {
+  .opt.on .opt-d {
     background: var(--ok);
     color: white;
   }
 
-  .a-opt-label {
+  .opt-l {
     line-height: 1.35;
   }
 
-  .a-foot {
+  .qfoot {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -885,7 +889,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
 
   /* ── Results ── */
 
-  .a-hero-result {
+  .res-hero {
     text-align: center;
     padding: var(--space-2xl) var(--space-l);
     border: 1px solid var(--border-color);
@@ -893,7 +897,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     margin-bottom: var(--space-xl);
   }
 
-  .a-hero-label {
+  .rl {
     font-size: var(--step--1);
     font-weight: 600;
     text-transform: uppercase;
@@ -902,7 +906,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     margin-bottom: var(--space-s);
   }
 
-  .a-hero-val {
+  .rv {
     font-family: var(--font-instrument-serif);
     font-size: var(--step-8);
     font-weight: 300;
@@ -910,12 +914,12 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     color: var(--danger);
   }
 
-  .a-hero-val span {
+  .rv span {
     font-size: var(--step-4);
     color: var(--mid);
   }
 
-  .a-hero-sub {
+  .rsub {
     margin-top: var(--space-m);
     font-size: var(--step-0);
     color: var(--mid);
@@ -924,51 +928,51 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     line-height: 1.5;
   }
 
-  .a-stat-grid {
+  .sgrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-m);
     margin-bottom: var(--space-xl);
   }
 
-  .a-stat {
+  .sc {
     text-align: center;
     padding: var(--space-l) var(--space-m);
     border: 1px solid var(--border-color);
     border-radius: 12px;
   }
 
-  .a-stat.danger {
+  .sc.d {
     border-color: var(--danger-border);
     background: var(--danger-bg);
   }
 
-  .a-stat-label {
+  .scl {
     font-size: var(--step--1);
     font-weight: 500;
     color: var(--mid);
     margin-bottom: var(--space-2xs);
   }
 
-  .a-stat-val {
+  .scv {
     font-family: var(--font-instrument-serif);
     font-size: var(--step-5);
     font-weight: 300;
     line-height: 1;
   }
 
-  .a-stat-val span {
+  .scv span {
     font-size: var(--step-2);
     color: var(--mid);
   }
 
-  .a-stat-sub {
+  .scsub {
     font-size: var(--step--1);
     color: var(--mid);
     margin-top: var(--space-2xs);
   }
 
-  .btn-restart {
+  .btn-rst {
     background: none;
     border: none;
     cursor: pointer;
@@ -979,7 +983,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     text-decoration: underline;
   }
 
-  .a-section-label {
+  .slabel {
     display: block;
     font-size: var(--step--1);
     font-weight: 600;
@@ -993,6 +997,16 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
 
   .spider-wrap {
     margin-bottom: var(--space-xl);
+  }
+
+  .spider-intro {
+    font-size: var(--step-0);
+    color: var(--mid);
+    max-width: 55ch;
+    margin-inline: auto;
+    margin-bottom: var(--space-l);
+    text-align: center;
+    line-height: 1.5;
   }
 
   .spider-legend {
@@ -1010,22 +1024,147 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     color: var(--mid);
   }
 
-  .spider-legend-dot {
+  .spider-dot {
     width: 10px;
     height: 10px;
     border-radius: 999px;
   }
 
+  .spider-scores {
+    display: flex;
+    gap: var(--space-s);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-l);
+  }
+
+  .score-tag {
+    text-align: center;
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid;
+    border-radius: 12px;
+    min-width: 80px;
+  }
+
+  .score-tag-val {
+    font-family: var(--font-instrument-serif);
+    font-size: var(--step-4);
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .score-tag-name {
+    font-size: var(--step--1);
+    font-weight: 500;
+    color: var(--dark);
+    margin-top: var(--space-2xs);
+  }
+
+  /* ── Recommendation ── */
+
+  .reco {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: var(--space-l);
+    margin-bottom: var(--space-xl);
+  }
+
+  .reco-head {
+    display: flex;
+    gap: var(--space-m);
+    margin-bottom: var(--space-l);
+  }
+
+  .reco-icon {
+    font-size: var(--step-5);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .reco-tag {
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .reco-title {
+    font-family: var(--font-instrument-serif);
+    font-size: var(--step-3);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: var(--space-s);
+  }
+
+  .reco-pitch {
+    font-size: var(--step-0);
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .reco-body {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-l);
+  }
+
+  .reco-reasons {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-l) 0;
+  }
+
+  .reco-reason {
+    position: relative;
+    padding-left: var(--space-l);
+    margin-bottom: var(--space-s);
+    font-size: var(--step-0);
+    line-height: 1.5;
+    color: var(--dark);
+  }
+
+  .reco-reason::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--ok);
+    font-weight: 600;
+  }
+
+  .reco-cta {
+    display: inline-block;
+    padding: var(--space-s) var(--space-xl);
+    border-radius: 999px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 150ms, color 150ms;
+  }
+
+  .reco-cta:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  .reco-note {
+    display: block;
+    margin-top: var(--space-s);
+    font-size: var(--step--1);
+    color: var(--mid);
+  }
+
   /* ── Domain result cards ── */
 
-  .dom-result-card {
+  .dc {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: var(--space-l);
     margin-bottom: var(--space-m);
   }
 
-  .dom-result-head {
+  .dc-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1033,18 +1172,18 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     margin-bottom: var(--space-m);
   }
 
-  .dom-result-name {
+  .dc-name {
     font-weight: 500;
     font-size: var(--step-1);
   }
 
-  .dom-result-desc {
+  .dc-desc {
     font-size: var(--step--1);
     color: var(--mid);
     margin-top: 0.15rem;
   }
 
-  .verd-badge {
+  .vbadge {
     font-size: var(--step--1);
     font-weight: 600;
     padding: var(--space-2xs) var(--space-s);
@@ -1053,14 +1192,14 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     flex-shrink: 0;
   }
 
-  .cri-grid {
+  .cgrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: var(--space-s);
     margin-bottom: var(--space-m);
   }
 
-  .cri-item {
+  .ci {
     display: flex;
     align-items: flex-start;
     gap: var(--space-s);
@@ -1069,7 +1208,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     border-radius: 8px;
   }
 
-  .cri-dot {
+  .ci-dot {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 999px;
@@ -1082,19 +1221,19 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     flex-shrink: 0;
   }
 
-  .cri-name {
+  .ci-name {
     font-weight: 500;
     font-size: var(--step--1);
   }
 
-  .cri-test {
+  .ci-test {
     font-size: var(--step--2);
     color: var(--mid);
     margin-top: 0.1rem;
     line-height: 1.3;
   }
 
-  .dom-result-foot {
+  .dc-foot {
     display: flex;
     gap: var(--space-l);
     flex-wrap: wrap;
@@ -1102,63 +1241,9 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     color: var(--mid);
   }
 
-  .dom-hours-danger {
+  .dc-ca {
     color: var(--danger);
     font-weight: 500;
-  }
-
-  .dom-ca {
-    color: var(--danger);
-    font-weight: 500;
-  }
-
-  /* ── CTA box ── */
-
-  .cta-box {
-    text-align: center;
-    padding: var(--space-2xl) var(--space-l);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    margin-top: var(--space-xl);
-  }
-
-  .cta-box h3 {
-    font-family: var(--font-instrument-serif);
-    font-size: var(--step-3);
-    font-weight: 300;
-    max-width: 30ch;
-    margin-inline: auto;
-    margin-bottom: var(--space-m);
-  }
-
-  .cta-box p {
-    max-width: 50ch;
-    margin-inline: auto;
-    color: var(--mid);
-    margin-bottom: var(--space-l);
-  }
-
-  .cta-box a {
-    display: inline-block;
-    padding: var(--space-s) var(--space-xl);
-    border-radius: 999px;
-    background: var(--primary-light);
-    color: var(--primary);
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 150ms, color 150ms;
-  }
-
-  .cta-box a:hover {
-    background: var(--primary);
-    color: white;
-  }
-
-  .cta-note {
-    display: block;
-    margin-top: var(--space-s);
-    font-size: var(--step--1);
-    color: var(--mid);
   }
 
   /* ── Offers ── */
@@ -1340,15 +1425,15 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
       }
     }
 
-    .dom-grid {
+    .dgrid {
       grid-template-columns: 1fr;
     }
 
-    .a-stat-grid {
+    .sgrid {
       grid-template-columns: 1fr;
     }
 
-    .cri-grid {
+    .cgrid {
       grid-template-columns: 1fr;
     }
   }
@@ -1667,6 +1752,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
 
 
   /* ─── DATA ─── */
+  const CAL='https://calendly.com/seheno-theplannerist/appel-decouverte';
   const DOMS=[
     {id:'com',name:'Commercial',desc:'Pipeline, devis, relances, closing'},
     {id:'mkt',name:'Marketing',desc:'Contenu, campagnes, acquisition'},
@@ -1676,372 +1762,232 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     {id:'fin',name:'Finance',desc:'Facturation, tréso, relances, reporting'},
     {id:'rh',name:'RH & équipe',desc:'Recrutement, onboarding, management'},
     {id:'ach',name:'Achats',desc:'Fournisseurs, négociations, commandes'},
-    {id:'proj',name:'Gestion de projet',desc:'Suivi, priorisation, coordination'},
+    {id:'proj',name:'Gestion projet',desc:'Suivi, priorisation, coordination'},
   ];
-  const CRITERIA=[
+  const CRIT=[
     {id:'workflow',label:'Workflow écrit',test:'Quelqu\'un l\'exécute sans demander « et après ? »'},
     {id:'outil',label:'Outil fixe',test:'Le travail a un endroit défini — pas de bricole'},
     {id:'doc',label:'Docs de référence',test:'L\'équipe repart d\'un modèle, pas d\'une page blanche'},
-    {id:'formation',label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
+    {id:'training',label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
     {id:'kpi',label:'Indicateurs',test:'Tu vois un problème en moins d\'une heure'},
   ];
-  const AX_LABELS=['Dépendance','Workflow','Outils','Docs de réf.','Formation','Indicateurs','Impact CA','Temps passé'];
-  const HOURS_VAL=[0.5,2,5,11,20];
-  const CA_COST=[0,500,2000,6000,15000];
+  const AXL=['Dépendance','Workflow','Outils','Docs','Formation','Indicateurs','Impact CA','Temps passé'];
+  const HV=[.5,2,5,11,20];
+  const CAC=[0,500,2000,6000,15000];
 
   const Q={
-    com:[
-      ['Ce pôle peut-il tourner si tu disparais 2 semaines ?',['Oui — l\'équipe est 100% autonome','Oui avec quelques frictions','Difficilement — plusieurs blocages','Non — les deals s\'arrêtent','Non — tout passe par moi'],'dep'],
-      ['Le process de vente est-il écrit étape par étape ?',['Oui, documenté et suivi par tous','Partiellement documenté','Non — chacun fait à sa façon'],'cri'],
-      ['Utilisez-vous un CRM structuré pour chaque deal ?',['Oui — CRM structuré et utilisé','CRM en place mais mal utilisé','Fichier Excel ou emails uniquement','Rien — tout est de tête'],'cri'],
-      ['Avez-vous des templates de devis, scripts, relances ?',['Oui — réutilisés systématiquement','Quelques modèles, pas systématiques','Non — on repart de zéro à chaque fois'],'cri'],
-      ['Un commercial peut-il apprendre le process seul ?',['Oui — ressources disponibles','Partiellement — besoin d\'aide','Non — ça demande plusieurs sessions avec moi'],'cri'],
-      ['Vois-tu si le pipeline est en danger en moins d\'une heure ?',['Oui — dashboard clair','Partiellement visible','Non — il faut chercher et recalculer'],'cri'],
-      ['Des deals ont-ils été perdus faute de suivi organisé ?',['Jamais','Rarement — quelques cas','Parfois — impact estimé','Souvent — impact réel sur le CA','Très souvent — c\'est structurel'],'ca'],
-      ['Heures/semaine sur le commercial (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    mkt:[
-      ['Le marketing peut-il tourner sans toi pendant 1 mois ?',['Oui — délégué et planifié','Oui avec quelques validations','Difficilement — je dois intervenir régulièrement','Non — ça ralentit fortement','Non — c\'est moi qui fais tout'],'dep'],
-      ['Votre process de création et publication est-il documenté ?',['Oui, suivi systématiquement','Partiellement documenté','Non — ad hoc à chaque fois'],'cri'],
-      ['La création a-t-elle un espace de travail fixe ?',['Oui — outil unique et structuré','Partiellement outillé','Non — ça change à chaque fois'],'cri'],
-      ['Avez-vous des templates de contenu réutilisables ?',['Oui — librairie complète','Quelques templates','Non — page blanche à chaque fois'],'cri'],
-      ['Un prestataire peut-il produire du contenu sans briefing ?',['Oui — tout est documenté','Avec un peu d\'aide de ma part','Non — ça demande beaucoup de mon temps'],'cri'],
-      ['Sais-tu en moins d\'une heure si ta visibilité baisse ?',['Oui — alertes et KPI actifs','Partiellement','Non — je m\'en rends compte trop tard'],'cri'],
-      ['Un marketing mieux structuré générerait-il plus de CA ?',['Non — déjà optimal','Légèrement','Probablement — on laisse du CA','Certainement — fort potentiel inexploité','Énorme — l\'acquisition est quasi absente'],'ca'],
-      ['Heures/semaine sur le marketing (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    sav:[
-      ['Le service client tourne-t-il normalement sans toi 2 semaines ?',['Oui — process clair, équipe autonome','Oui avec quelques sollicitations','Avec des difficultés','Non — les clients demandent à te parler','Non — c\'est moi qui gère tout'],'dep'],
-      ['Le traitement d\'une réclamation est-il écrit étape par étape ?',['Oui, protocole documenté','Partiellement','Non — chaque cas géré au feeling'],'cri'],
-      ['Les réclamations arrivent-elles dans un outil centralisé ?',['Oui — ticketing structuré','Boîte partagée basique','Email perso ou WhatsApp'],'cri'],
-      ['Avez-vous des réponses types pour les demandes récurrentes ?',['Oui — base de réponses complète','Quelques templates','Non — tout est rédigé de zéro'],'cri'],
-      ['Un nouvel agent peut-il gérer les cas courants seul ?',['Oui — autonomie complète','Pour les cas simples seulement','Non — tout remonte à moi'],'cri'],
-      ['Vois-tu le volume et statut des réclamations en moins d\'une heure ?',['Oui — dashboard en temps réel','Partiellement','Non — il faut fouiller'],'cri'],
-      ['As-tu perdu des clients faute d\'un SAV insuffisant ?',['Jamais','Très rarement','Quelques cas identifiés','Régulièrement — impact réel','Souvent — problème structurel'],'ca'],
-      ['Heures/semaine sur le customer care (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    prod:[
-      ['Le développement produit peut-il avancer sans toi 3 semaines ?',['Oui — équipe et process en place','Oui avec quelques validations','Avec des frictions importantes','Difficilement — je suis dans tout','Non — c\'est moi le chef de produit'],'dep'],
-      ['Les étapes de développement/sourcing sont-elles documentées ?',['Oui, process clair et suivi','Partiellement','Non — tout est dans ma tête'],'cri'],
-      ['Le suivi produit se fait-il dans un outil structuré ?',['Oui — outil dédié et organisé','Partiellement','Non — emails et fichiers épars'],'cri'],
-      ['Avez-vous des briefs produit ou check-lists qualité réutilisables ?',['Oui — templates complets','Quelques modèles','Non — de zéro à chaque fois'],'cri'],
-      ['Un collaborateur peut-il gérer un lancement produit sans toi ?',['Oui avec les ressources en place','Partiellement','Non — ça demande beaucoup de mon temps'],'cri'],
-      ['Vois-tu les blocages produit en moins d\'une heure ?',['Oui — tableau de bord clair','Partiellement','Non — je le découvre trop tard'],'cri'],
-      ['Des problèmes produit ont-ils impacté ton CA ou ta marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement — impact chiffré','Souvent — impact structurel sur la marge'],'ca'],
-      ['Heures/semaine sur le produit (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    log:[
-      ['La logistique tourne-t-elle sans toi pendant 2 semaines ?',['Oui — équipe autonome','Avec quelques frictions','Avec des difficultés réelles','Non — des problèmes surgissent vite','Non — c\'est moi qui pilote tout'],'dep'],
-      ['Les process d\'expédition et litiges sont-ils écrits ?',['Oui, process documenté','Partiellement','Non — chacun fait à sa façon'],'cri'],
-      ['La logistique se pilote-t-elle depuis un outil unique ?',['Oui — outil intégré','Partiellement outillé','Non — plusieurs fichiers épars'],'cri'],
-      ['Avez-vous des check-lists d\'expédition réutilisables ?',['Oui — check-lists actives','Quelques-unes','Non — improvisation à chaque fois'],'cri'],
-      ['Un nouveau préparateur peut-il opérer seul dès le premier jour ?',['Oui — onboarding structuré','Avec quelques explications','Non — ça prend plusieurs jours avec moi'],'cri'],
-      ['Vois-tu le taux de service et les retards en moins d\'une heure ?',['Oui — KPI visibles','Partiellement','Non — je l\'apprends des clients'],'cri'],
-      ['Des problèmes logistiques ont-ils coûté des clients ou de la marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact structurel'],'ca'],
-      ['Heures/semaine sur la logistique (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    fin:[
-      ['La finance opérationnelle tourne-t-elle sans toi 3 semaines ?',['Oui — déléguée ou externalisée','Avec quelques sollicitations','Avec des difficultés','Non — les paiements et factures attendent','Non — tout passe par moi'],'dep'],
-      ['Le process de facturation et relance est-il documenté ?',['Oui, process clair','Partiellement','Non — tout est dans ma tête'],'cri'],
-      ['La finance se gère-t-elle depuis un outil unique ?',['Oui — logiciel structuré','Partiellement outillé','Non — Excel et emails'],'cri'],
-      ['Avez-vous des modèles de factures et relances réutilisables ?',['Oui — templates complets','Quelques modèles','Non — on refait à chaque fois'],'cri'],
-      ['Un comptable externe peut-il reprendre sans que tu expliques tout ?',['Oui — documentation complète','Avec quelques échanges','Non — c\'est très long à transmettre'],'cri'],
-      ['Vois-tu l\'état de ta trésorerie en moins d\'une heure ?',['Oui — dashboard temps réel','Partiellement','Non — il faut recalculer'],'cri'],
-      ['Des impayés ont-ils impacté ta trésorerie ?',['Jamais','Très rarement','Quelques cas','Régulièrement — impact réel','Souvent — problème structurel'],'ca'],
-      ['Heures/semaine sur la finance (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    rh:[
-      ['L\'équipe fonctionne-t-elle normalement sans toi 3 semaines ?',['Oui — autonomie complète','Avec quelques questions','Avec des frictions','Non — tensions ou blocages surgissent','Non — tout passe par moi'],'dep'],
-      ['Le process de recrutement et d\'onboarding est-il documenté ?',['Oui — process complet','Partiellement','Non — improvisé à chaque fois'],'cri'],
-      ['L\'onboarding se déroule-t-il dans un espace structuré ?',['Oui — parcours dédié','Partiellement','Non — chaque arrivée est différente'],'cri'],
-      ['Avez-vous des fiches de poste et guides d\'intégration ?',['Oui — documentation complète','Quelques éléments','Non — tout est oral'],'cri'],
-      ['Un nouveau peut-il monter en compétence sans bloquer ton agenda ?',['Oui — ressources disponibles','Partiellement','Non — ça demande beaucoup de mon temps'],'cri'],
-      ['Vois-tu la performance de ton équipe en moins d\'une heure ?',['Oui — KPI et reporting clairs','Partiellement','Non — je n\'ai pas de visibilité'],'cri'],
-      ['Des problèmes RH ont-ils coûté des talents ou ralenti la croissance ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — frein structurel à la croissance'],'ca'],
-      ['Heures/semaine sur le management et les RH (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    ach:[
-      ['Les achats tournent-ils sans toi 3 semaines ?',['Oui — déléguées et structurées','Avec quelques validations','Avec des difficultés','Non — des ruptures risquent de surgir','Non — les fournisseurs ne connaissent que moi'],'dep'],
-      ['Le process de commande et sélection fournisseur est-il documenté ?',['Oui — process clair','Partiellement','Non — tout est dans ma tête'],'cri'],
-      ['La gestion des achats se fait-elle dans un outil centralisé ?',['Oui — outil ou ERP structuré','Partiellement','Non — emails et fichiers épars'],'cri'],
-      ['Avez-vous des grilles de sélection ou contrats types ?',['Oui — templates et grilles actifs','Quelques-uns','Non — de zéro à chaque fois'],'cri'],
-      ['Quelqu\'un peut-il gérer un fournisseur courant sans te solliciter ?',['Oui — procédures en place','Pour les cas simples','Non — tout remonte à moi'],'cri'],
-      ['Vois-tu les niveaux de stock critique en moins d\'une heure ?',['Oui — alertes automatiques','Partiellement','Non — je l\'apprends quand c\'est trop tard'],'cri'],
-      ['Des ruptures ou mauvaises conditions ont-elles impacté ton CA ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact direct et structurel'],'ca'],
-      ['Heures/semaine sur les achats (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
-    proj:[
-      ['Les projets avancent-ils normalement sans toi 3 semaines ?',['Oui — pilotés en autonomie','Avec quelques sollicitations','Avec des frictions','Non — des blocages surgissent vite','Non — tout passe par moi'],'dep'],
-      ['Chaque projet démarre-t-il avec un brief et un plan documentés ?',['Oui — systématique','Partiellement','Non — briefs oraux, tout change en route'],'cri'],
-      ['Les projets se pilotent-ils depuis un outil de suivi structuré ?',['Oui — outil clair et utilisé par tous','Partiellement','Non — emails et réunions'],'cri'],
-      ['Avez-vous des templates de brief, plan projet, CR de réunion ?',['Oui — librairie de templates','Quelques-uns','Non — de zéro à chaque fois'],'cri'],
-      ['Un chef de projet peut-il reprendre un projet sans te briefer longuement ?',['Oui — documentation suffisante','Avec quelques échanges','Non — ça demande beaucoup de mon temps'],'cri'],
-      ['Vois-tu les retards et blocages de tous les projets en moins d\'une heure ?',['Oui — vue d\'ensemble claire','Partiellement','Non — je dois demander ou fouiller'],'cri'],
-      ['Des projets ont-ils dérapé en délais ou budget ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel'],'ca'],
-      ['Heures/semaine sur le pilotage de projets (toi) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h'],'hours'],
-    ],
+    com:[['Ce pôle peut-il tourner si tu disparais 2 semaines ?',['Oui — l\'équipe est 100% autonome','Oui avec quelques frictions','Difficilement — plusieurs blocages','Non — les deals s\'arrêtent','Non — tout passe par moi']],['Le process de vente est-il écrit étape par étape ?',['Oui, documenté et suivi par tous','Partiellement documenté','Non — chacun fait à sa façon']],['Utilisez-vous un CRM structuré pour chaque deal ?',['Oui — CRM structuré et utilisé','CRM en place mais mal utilisé','Fichier Excel ou emails','Rien — tout est de tête']],['Avez-vous des templates de devis, scripts, relances ?',['Oui — réutilisés systématiquement','Quelques modèles, pas systématiques','Non — on repart de zéro à chaque fois']],['Un commercial peut-il apprendre le process seul ?',['Oui — ressources disponibles','Partiellement — besoin d\'aide','Non — ça demande plusieurs sessions avec moi']],['Vois-tu si le pipeline est en danger en moins d\'une heure ?',['Oui — dashboard clair','Partiellement visible','Non — il faut chercher']],['Des deals ont-ils été perdus faute de suivi organisé ?',['Jamais','Rarement','Parfois — impact estimé','Souvent — impact réel','Très souvent — c\'est structurel']],['Heures/semaine sur le commercial (toi personnellement) ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    mkt:[['Le marketing peut-il tourner sans toi pendant 1 mois ?',['Oui — délégué et planifié','Oui avec quelques validations','Difficilement','Non — ça ralentit fortement','Non — c\'est moi qui fais tout']],['Le process de création et publication est-il documenté ?',['Oui, suivi systématiquement','Partiellement','Non — ad hoc à chaque fois']],['La création a-t-elle un espace de travail fixe ?',['Oui — outil unique et structuré','Partiellement outillé','Non — ça change à chaque fois']],['Avez-vous des templates de contenu réutilisables ?',['Oui — librairie complète','Quelques templates','Non — page blanche à chaque fois']],['Un prestataire peut-il produire du contenu sans briefing ?',['Oui — tout est documenté','Avec un peu d\'aide','Non — ça demande beaucoup de mon temps']],['Sais-tu en moins d\'une heure si ta visibilité baisse ?',['Oui — alertes et KPI actifs','Partiellement','Non — je m\'en rends compte trop tard']],['Un marketing mieux structuré générerait-il plus de CA ?',['Non — déjà optimal','Légèrement','Probablement','Certainement — fort potentiel inexploité','Énorme — l\'acquisition est quasi absente']],['Heures/semaine sur le marketing ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    sav:[['Le service client tourne-t-il normalement sans toi 2 semaines ?',['Oui — process clair, équipe autonome','Oui avec quelques sollicitations','Avec des difficultés','Non — les clients demandent à te parler','Non — c\'est moi qui gère tout']],['Le traitement d\'une réclamation est-il écrit étape par étape ?',['Oui, protocole documenté','Partiellement','Non — chaque cas géré au feeling']],['Les réclamations arrivent-elles dans un outil centralisé ?',['Oui — ticketing structuré','Boîte partagée basique','Email perso ou WhatsApp']],['Avez-vous des réponses types pour les demandes récurrentes ?',['Oui — base de réponses complète','Quelques templates','Non — tout est rédigé de zéro']],['Un nouvel agent peut-il gérer les cas courants seul ?',['Oui — autonomie complète','Pour les cas simples seulement','Non — tout remonte à moi']],['Vois-tu le volume et statut des réclamations en moins d\'une heure ?',['Oui — dashboard en temps réel','Partiellement','Non — il faut fouiller']],['As-tu perdu des clients faute d\'un SAV insuffisant ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel']],['Heures/semaine sur le customer care ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    prod:[['Le développement produit peut-il avancer sans toi 3 semaines ?',['Oui — équipe et process en place','Oui avec quelques validations','Avec des frictions importantes','Difficilement','Non — c\'est moi le chef de produit']],['Les étapes de développement ou sourcing sont-elles documentées ?',['Oui, process clair et suivi','Partiellement','Non — tout est dans ma tête']],['Le suivi produit se fait-il dans un outil structuré ?',['Oui — outil dédié et organisé','Partiellement','Non — emails et fichiers épars']],['Avez-vous des briefs produit ou check-lists qualité réutilisables ?',['Oui — templates complets','Quelques modèles','Non — de zéro à chaque fois']],['Un collaborateur peut-il gérer un lancement produit sans toi ?',['Oui avec les ressources en place','Partiellement','Non — ça demande beaucoup de mon temps']],['Vois-tu les blocages produit en moins d\'une heure ?',['Oui — tableau de bord clair','Partiellement','Non — je le découvre trop tard']],['Des problèmes produit ont-ils impacté ton CA ou ta marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact structurel']],['Heures/semaine sur le produit ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    log:[['La logistique tourne-t-elle sans toi pendant 2 semaines ?',['Oui — équipe autonome','Avec quelques frictions','Avec des difficultés réelles','Non — des problèmes surgissent','Non — c\'est moi qui pilote tout']],['Les process d\'expédition et litiges sont-ils écrits ?',['Oui, process documenté','Partiellement','Non — chacun fait à sa façon']],['La logistique se pilote-t-elle depuis un outil unique ?',['Oui — outil intégré','Partiellement outillé','Non — plusieurs fichiers épars']],['Avez-vous des check-lists d\'expédition réutilisables ?',['Oui — check-lists actives','Quelques-unes','Non — improvisation à chaque fois']],['Un nouveau préparateur peut-il opérer seul dès le premier jour ?',['Oui — onboarding structuré','Avec quelques explications','Non — ça prend plusieurs jours']],['Vois-tu le taux de service et les retards en moins d\'une heure ?',['Oui — KPI visibles','Partiellement','Non — je l\'apprends des clients']],['Des problèmes logistiques ont-ils coûté des clients ou de la marge ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact structurel']],['Heures/semaine sur la logistique ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    fin:[['La finance opérationnelle tourne-t-elle sans toi 3 semaines ?',['Oui — déléguée ou externalisée','Avec quelques sollicitations','Avec des difficultés','Non — les paiements attendent','Non — tout passe par moi']],['Le process de facturation et relance est-il documenté ?',['Oui, process clair','Partiellement','Non — tout est dans ma tête']],['La finance se gère-t-elle depuis un outil unique ?',['Oui — logiciel structuré','Partiellement outillé','Non — Excel et emails']],['Avez-vous des modèles de factures et relances réutilisables ?',['Oui — templates complets','Quelques modèles','Non — on refait à chaque fois']],['Un comptable externe peut-il reprendre sans que tu expliques tout ?',['Oui — documentation complète','Avec quelques échanges','Non — c\'est très long']],['Vois-tu l\'état de ta trésorerie en moins d\'une heure ?',['Oui — dashboard temps réel','Partiellement','Non — il faut recalculer']],['Des impayés ont-ils impacté ta trésorerie ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel']],['Heures/semaine sur la finance ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    rh:[['L\'équipe fonctionne-t-elle normalement sans toi 3 semaines ?',['Oui — autonomie complète','Avec quelques questions','Avec des frictions','Non — tensions ou blocages surgissent','Non — tout passe par moi']],['Le process de recrutement et d\'onboarding est-il documenté ?',['Oui — process complet','Partiellement','Non — improvisé à chaque fois']],['L\'onboarding se déroule-t-il dans un espace structuré ?',['Oui — parcours dédié','Partiellement','Non — chaque arrivée est différente']],['Avez-vous des fiches de poste et guides d\'intégration ?',['Oui — documentation complète','Quelques éléments','Non — tout est oral']],['Un nouveau peut-il monter en compétence sans bloquer ton agenda ?',['Oui — ressources disponibles','Partiellement','Non — ça demande beaucoup de mon temps']],['Vois-tu la performance de ton équipe en moins d\'une heure ?',['Oui — KPI et reporting clairs','Partiellement','Non — je n\'ai pas de visibilité']],['Des problèmes RH ont-ils coûté des talents ou ralenti la croissance ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — frein structurel']],['Heures/semaine sur le management et les RH ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    ach:[['Les achats tournent-ils sans toi 3 semaines ?',['Oui — déléguées et structurées','Avec quelques validations','Avec des difficultés','Non — des ruptures risquent de surgir','Non — les fournisseurs ne connaissent que moi']],['Le process de commande et sélection fournisseur est-il documenté ?',['Oui — process clair','Partiellement','Non — tout est dans ma tête']],['La gestion des achats se fait-elle dans un outil centralisé ?',['Oui — outil ou ERP structuré','Partiellement','Non — emails et fichiers épars']],['Avez-vous des grilles de sélection ou contrats types ?',['Oui — templates et grilles actifs','Quelques-uns','Non — de zéro à chaque fois']],['Quelqu\'un peut-il gérer un fournisseur courant sans te solliciter ?',['Oui — procédures en place','Pour les cas simples','Non — tout remonte à moi']],['Vois-tu les niveaux de stock critique en moins d\'une heure ?',['Oui — alertes automatiques','Partiellement','Non — je l\'apprends trop tard']],['Des ruptures ou mauvaises conditions ont-elles impacté ton CA ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — impact direct']],['Heures/semaine sur les achats ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]],
+    proj:[['Les projets avancent-ils normalement sans toi 3 semaines ?',['Oui — pilotés en autonomie','Avec quelques sollicitations','Avec des frictions','Non — des blocages surgissent','Non — tout passe par moi']],['Chaque projet démarre-t-il avec un brief et un plan documentés ?',['Oui — systématique','Partiellement','Non — briefs oraux, tout change en route']],['Les projets se pilotent-ils depuis un outil de suivi structuré ?',['Oui — outil clair et utilisé par tous','Partiellement','Non — emails et réunions']],['Avez-vous des templates de brief, plan projet, CR de réunion ?',['Oui — librairie de templates','Quelques-uns','Non — de zéro à chaque fois']],['Un chef de projet peut-il reprendre sans te briefer longuement ?',['Oui — documentation suffisante','Avec quelques échanges','Non — ça demande beaucoup de mon temps']],['Vois-tu les retards et blocages de tous les projets en moins d\'une heure ?',['Oui — vue d\'ensemble claire','Partiellement','Non — je dois demander ou fouiller']],['Des projets ont-ils dérapé en délais ou budget ?',['Jamais','Très rarement','Quelques cas','Régulièrement','Souvent — problème structurel']],['Heures/semaine sur le pilotage de projets ?',['Moins d\'1h','1 à 3h','3 à 7h','7 à 15h','Plus de 15h']]]
   };
 
-  /* ─── STATE ─── */
-  let ST={screen:'home',sel:[],di:0,qi:0,allAns:{},curAns:{}};
-
   /* ─── CALC ─── */
-  function calcDomain(id,ans){
-    const g=i=>ans[i]??0;
-    const qs=Q[id];
+  function calcD(id,ans){
+    const g=i=>ans[i]??0,qs=Q[id];
     const dep=g(0);
-    const criScores=[1,2,3,4,5].map(qi=>{
-      const opts=qs[qi][1];
-      const v=g(qi);
-      if(opts.length===2)return v===0?'ok':'missing';
-      if(opts.length===3)return v===0?'ok':v===1?'partial':'missing';
-      if(opts.length===4)return v<=1?'ok':v===2?'partial':'missing';
-      return v===0?'ok':v===1?'partial':'missing';
-    });
-    const missing=criScores.filter(s=>s==='missing').length;
-    const partial=criScores.filter(s=>s==='partial').length;
-    const caImpact=g(6);
-    const caLost=CA_COST[caImpact]||0;
-    const hoursIdx=g(7);
-    const hoursWeek=HOURS_VAL[hoursIdx];
-    const depFactor=dep/4;
-    const critFactor=(missing+partial*0.5)/5;
-    const hoursWasted=Math.round(hoursWeek*Math.max(depFactor,critFactor)*10)/10;
-    const delegScore=criScores.filter(s=>s==='ok').length;
-    return{dep,criScores,missing,partial,caLost,hoursWeek,hoursWasted,delegScore};
+    const cs=[1,2,3,4,5].map(qi=>{const v=g(qi),o=qs[qi][1];return o.length<=2?v===0?'ok':'missing':v===0?'ok':v===1?'partial':'missing';});
+    const miss=cs.filter(s=>s==='missing').length,part=cs.filter(s=>s==='partial').length;
+    const caL=CAC[g(6)]||0,hw=HV[g(7)];
+    const dF=dep/4,cF=(miss+part*.5)/5;
+    const hW=Math.round(hw*Math.max(dF,cF)*10)/10;
+    const ds=cs.filter(s=>s==='ok').length;
+    return{dep,cs,miss,part,caL,hw,hW,ds};
   }
+
+  /* ─── AUTONOMY SCORE ─── */
+  function autoScore(sc){return Math.round(((4-sc.dep)/4*.5+sc.ds/5*.5)*100);}
+  function autoColor(s){return s>=70?'#2A9D7C':s>=40?'#C8A96E':'#D85A30';}
+  function autoBg(s){return s>=70?'rgba(42,157,124,.1)':s>=40?'rgba(200,169,110,.1)':'rgba(216,90,48,.1)';}
+  function autoBorder(s){return s>=70?'rgba(42,157,124,.35)':s>=40?'rgba(200,169,110,.35)':'rgba(216,90,48,.35)';}
+  function autoLabel(s){return s>=70?'Autonome':s>=40?'En cours':'Critique';}
+
   function getVerdict(sc){
-    if(sc.dep>=3&&sc.missing>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',pri:3};
-    if(sc.dep>=3||sc.missing>=3)return{lbl:'À structurer en priorité',c:'var(--warn)',bg:'var(--warn-bg)',pri:2};
-    if(sc.missing>=1||sc.dep>=2)return{lbl:'Améliorable',c:'var(--mid)',bg:'#F5F4F2',pri:1};
+    if(sc.dep>=3&&sc.miss>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',pri:3};
+    if(sc.dep>=3||sc.miss>=3)return{lbl:'À structurer en priorité',c:'var(--warn)',bg:'var(--warn-bg)',pri:2};
+    if(sc.miss>=1||sc.dep>=2)return{lbl:'Améliorable',c:'var(--mid)',bg:'#F5F4F2',pri:1};
     return{lbl:'Bien structuré',c:'var(--ok)',bg:'var(--ok-bg)',pri:0};
   }
 
-  /* ─── RENDER ─── */
-  const app=document.getElementById('audit-app');
-  function render(){
-    if(ST.screen==='home')renderHome();
-    else if(ST.screen==='audit')renderAudit();
-    else renderResults();
+  function getReco(results){
+    const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hW,0)*10)/10;
+    const totalCA=results.reduce((s,d)=>s+d.sc.caL,0);
+    const totM=results.reduce((s,d)=>s+d.sc.miss,0);
+    const highCA=results.filter(d=>d.sc.caL>=2000).length;
+    const avgDep=results.reduce((s,d)=>s+d.sc.dep,0)/results.length;
+    const isCo=(highCA>=2||totalCA>=6000)&&avgDep>=2.5;
+    if(isCo)return{icon:'🧭',tag:'COO externalisé · 6 mois · 3 900 €/mois',title:'Tu as besoin d\'un co-pilote, pas juste d\'un process.',pitch:'Ton diagnostic révèle à la fois un manque de structure et du CA laissé sur la table. Ce n\'est pas qu\'un sujet d\'organisation — c\'est un sujet de pilotage et de marge.',reasons:[`Tu perds environ ${totalH}h/semaine — soit ${Math.round(totalH*48)}h/an — sur des opérations qui ne devraient pas arriver jusqu\'à toi.`,`${highCA} pôle${highCA>1?'s révèlent':' révèle'} un impact CA estimé à ${totalCA.toLocaleString('fr-FR')} €/an faute d\'organisation.`,'Le Co-pilotage t\'apporte un COO à temps partiel qui structure ET pilote ta marge sur 6 mois.','Weekly Business Review, optimisation de la tréso, tableau de bord — tu décides avec des chiffres, pas des intuitions.']};
+    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois · 2 500 €/mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Ton diagnostic montre que les bases ne sont pas encore en place. Avant de piloter la marge, il faut que ton activité puisse tourner sans toi.',reasons:[`${totM} critère${totM>1?'s manquants':'manquant'} sur ${results.length*5} — tes process ne sont pas encore réellement délégables.`,`Tu passes ${totalH}h/semaine sur des opérations récupérables avec les bons outils et process en place.`,'En 3 mois, on structure ton Asana, documente tes process clés et met en place les automatisations prioritaires.','À la fin, ton équipe peut travailler sans te solliciter à chaque étape.']};
   }
 
-  function renderHome(){
-    app.innerHTML=`<div class="a-home">
-    <p class="a-home-intro">Sélectionne les pôles à auditer <strong>(min. 2)</strong>. 8 questions par pôle — résultat immédiat : heures perdues, impact en €, et les 5 critères de délégabilité qui manquent.</p>
-    <div class="dom-grid">${DOMS.map((d,i)=>{
-      const on=ST.sel.includes(d.id);
-      return`<button class="dom-btn${on?' active':''}" data-action="toggle-dom" data-id="${d.id}">
-        <div class="dom-btn-num">${on?'✓':(i+1)}</div>
-        <div><div class="dom-btn-name">${d.name}</div><div class="dom-btn-desc">${d.desc}</div></div>
-      </button>`;
-    }).join('')}</div>
-    <div class="a-home-footer">
-      <button class="btn-start" data-action="start-audit" ${ST.sel.length<2?'disabled':''}>Démarrer l'audit →</button>
-      <span class="a-hint">${ST.sel.length<2?'Sélectionne au moins 2 pôles':`${ST.sel.length} pôle${ST.sel.length>1?'s':''} · ${ST.sel.length*8} questions`}</span>
-    </div>
-  </div>`;
-    }
+  /* ─── SPIDER ─── */
+  function drawSpider(results){
+    const canvas=document.getElementById('sp');
+    if(!canvas||results.length<2)return;
+    const scores=results.map(d=>({name:d.name,s:autoScore(d.sc),c:autoColor(autoScore(d.sc))}));
+    const tags=document.getElementById('sptags');
+    if(tags)tags.innerHTML=scores.map(s=>`<div class="score-tag" style="background:${autoBg(s.s)};border-color:${autoBorder(s.s)}"><div class="score-tag-val" style="color:${s.c}">${s.s}</div><div class="score-tag-name">${s.name}</div><div style="font-size:9px;color:${s.c};font-weight:700;margin-top:1px">${autoLabel(s.s)}</div></div>`).join('');
+    const dpr=window.devicePixelRatio||1;
+    const W=canvas.parentElement.clientWidth-48,H=Math.round(W*.62);
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.width=W+'px';canvas.style.height=H+'px';
+    const ctx=canvas.getContext('2d');
+    ctx.scale(dpr,dpr);
+    const cx=W/2,cy=H/2,R=Math.min(W,H)/2-56,n=scores.length;
+    const ang=i=>(Math.PI*2*i)/n-Math.PI/2;
+    const pt=(i,r)=>[cx+r*Math.cos(ang(i)),cy+r*Math.sin(ang(i))];
+    [25,50,75,100].forEach(v=>{
+      ctx.beginPath();
+      for(let i=0;i<n;i++){const[x,y]=pt(i,R*v/100);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+      ctx.closePath();ctx.strokeStyle=v===100?'rgba(0,0,0,.1)':'rgba(0,0,0,.04)';ctx.lineWidth=1;ctx.stroke();
+      if(v<100){ctx.font='10px Outfit,sans-serif';ctx.fillStyle='rgba(0,0,0,.22)';ctx.textAlign='center';ctx.fillText(v+'%',cx,cy-R*v/100-5);}
+    });
+    for(let i=0;i<n;i++){const[x,y]=pt(i,R);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=1;ctx.stroke();}
+    ctx.beginPath();
+    scores.forEach((s,i)=>{const[x,y]=pt(i,R*s.s/100);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.closePath();ctx.fillStyle='rgba(42,157,124,.08)';ctx.fill();ctx.strokeStyle='rgba(42,157,124,.4)';ctx.lineWidth=1.5;ctx.stroke();
+    scores.forEach((s,i)=>{
+      const[x,y]=pt(i,R*s.s/100);
+      ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fillStyle=s.c;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+    });
+    scores.forEach((s,i)=>{
+      const[lx,ly]=pt(i,R+30);
+      ctx.font='600 11px Outfit,sans-serif';ctx.fillStyle='#1C1C1C';ctx.textAlign='center';ctx.fillText(s.name,lx,ly+4);
+    });
+  }
 
-    function renderAudit(){
-      const id=ST.sel[ST.di];
-      const dom=DOMS.find(d=>d.id===id);
-      const qs=Q[id];
-      const[qText,opts]=qs[ST.qi];
-      const pct=Math.round((ST.di*8+ST.qi)/(ST.sel.length*8)*100);
-      const ch=ST.curAns[ST.qi];
-      const isLast=ST.qi===7&&ST.di===ST.sel.length-1;
-      app.innerHTML=`<div class="a-audit">
-    <div class="a-progress">
-      <div class="a-progress-top"><span>${dom.name} — question ${ST.qi+1}/8</span><span>${pct}%</span></div>
-      <div class="a-prog-bar"><div class="a-prog-fill" style="width:${pct}%"></div></div>
-      <div class="a-segs">${ST.sel.map((x,i)=>`<div class="a-seg" style="background:${i<ST.di?'var(--dark)':i===ST.di?'var(--lighter)':'var(--border-color)'}"></div>`).join('')}</div>
+  /* ─── STATE ─── */
+  let ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{}};
+  const app=document.getElementById('app');
+
+  function render(){if(ST.sc==='home')rHome();else if(ST.sc==='audit')rAudit();else rResults();}
+
+  /* ─── HOME ─── */
+  function rHome(){
+    app.innerHTML=`<div class="pad">
+    <p class="intro">Sélectionne les pôles à auditer <strong>(min. 2)</strong>. 8 questions par pôle — résultat immédiat : heures perdues, impact en €, les 5 critères manquants et ta recommandation personnalisée.</p>
+    <div class="dgrid">${DOMS.map((d,i)=>{const on=ST.sel.includes(d.id);return`<button class="db${on?' on':''}" data-action="toggle-dom" data-id="${d.id}"><div class="db-num">${on?'✓':(i+1)}</div><div><div class="db-name">${d.name}</div><div class="db-desc">${d.desc}</div></div></button>`;}).join('')}</div>
+    <div class="hf">
+      <button class="btn-go" data-action="start-audit" ${ST.sel.length<2?'disabled':''}>Démarrer l'audit →</button>
+      <span class="hint">${ST.sel.length<2?'Sélectionne au moins 2 pôles':`${ST.sel.length} pôle${ST.sel.length>1?'s':''} · ${ST.sel.length*8} questions`}</span>
     </div>
-    <div class="a-ax-tag">${AX_LABELS[ST.qi]}</div>
-    <div class="a-q-title">${qText}</div>
-    <div class="a-opts">${opts.map((o,i)=>`
-      <button class="a-opt${ch===i?' active':''}" data-action="pick-answer" data-index="${i}">
-        <div class="a-opt-dot">${ch===i?'✓':i}</div>
-        <div class="a-opt-label">${o}</div>
-      </button>`).join('')}</div>
-    <div class="a-foot">
+  </div>`;}
+
+  /* ─── AUDIT ─── */
+  function rAudit(){
+    const id=ST.sel[ST.di],dom=DOMS.find(d=>d.id===id);
+    const[qt,opts]=Q[id][ST.qi];
+    const pct=Math.round((ST.di*8+ST.qi)/(ST.sel.length*8)*100);
+    const ch=ST.curA[ST.qi],last=ST.qi===7&&ST.di===ST.sel.length-1;
+    app.innerHTML=`<div class="pad">
+    <div class="prog">
+      <div class="prog-top"><span>${dom.name} — q.${ST.qi+1}/8</span><span>${pct}%</span></div>
+      <div class="pbar"><div class="pfill" style="width:${pct}%"></div></div>
+      <div class="segs">${ST.sel.map((x,i)=>`<div class="seg" style="background:${i<ST.di?'var(--dark)':i===ST.di?'var(--lighter)':'var(--border-color)'}"></div>`).join('')}</div>
+    </div>
+    <div class="ax">${AXL[ST.qi]}</div>
+    <div class="qt">${qt}</div>
+    <div class="opts">${opts.map((o,i)=>`<button class="opt${ch===i?' on':''}" data-action="pick-answer" data-index="${i}"><div class="opt-d">${ch===i?'✓':i}</div><div class="opt-l">${o}</div></button>`).join('')}</div>
+    <div class="qfoot">
       <button class="btn-back" data-action="go-back">← Retour</button>
-      ${ch!==undefined?`<button class="btn-next" data-action="next-question">${isLast?'Voir mon diagnostic →':'Suivant →'}</button>`:`<span class="a-hint">Sélectionne une réponse</span>`}
+      ${last&&ch!==undefined?`<button class="btn-next" data-action="next-question">Voir mon diagnostic →</button>`:`<span></span>`}
     </div>
-  </div>`;
-    }
+  </div>`;}
 
-    function renderResults(){
-      const results=ST.sel.map(id=>{
-        const dom=DOMS.find(d=>d.id===id);
-        const sc=calcDomain(id,ST.allAns[id]||{});
-        return{...dom,sc,v:getVerdict(sc)};
-      });
-      const sorted=[...results].sort((a,b)=>b.v.pri-a.v.pri);
-      const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hoursWasted,0)*10)/10;
-      const totalCA=results.reduce((s,d)=>s+d.sc.caLost,0);
-      const totalMissing=results.reduce((s,d)=>s+d.sc.missing,0);
-      const annualH=Math.round(totalH*48);
-      const critN=results.filter(d=>d.v.pri===3).length;
-
-      app.innerHTML=`<div class="a-results">
-    <div class="a-hero-result">
-      <div class="a-hero-label">Heures perdues chaque semaine</div>
-      <div class="a-hero-val">${totalH}<span>h</span></div>
-      <div class="a-hero-sub">
-        Soit <strong>${annualH}h par an</strong> passées dans des opérations qui pourraient tourner sans toi.
-        ${totalCA>0?`Et environ <strong>${totalCA.toLocaleString('fr-FR')} €</strong> de CA ou de marge impactés par un manque d'organisation.`:''}
-      </div>
+  /* ─── RESULTS ─── */
+  function rResults(){
+    const results=ST.sel.map(id=>{const dom=DOMS.find(d=>d.id===id);const sc=calcD(id,ST.allA[id]||{});return{...dom,sc,v:getVerdict(sc)};});
+    const sorted=[...results].sort((a,b)=>b.v.pri-a.v.pri);
+    const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hW,0)*10)/10;
+    const totalCA=results.reduce((s,d)=>s+d.sc.caL,0);
+    const totM=results.reduce((s,d)=>s+d.sc.miss,0);
+    const annH=Math.round(totalH*48);
+    const critN=results.filter(d=>d.v.pri===3).length;
+    const reco=getReco(results);
+    app.innerHTML=`<div class="pad">
+    <div class="res-hero">
+      <div class="rl">Heures perdues chaque semaine</div>
+      <div class="rv">${totalH}<span>h</span></div>
+      <div class="rsub">Soit <strong>${annH}h par an</strong> passées dans des opérations qui pourraient tourner sans toi.${totalCA>0?` Et <strong>~${totalCA.toLocaleString('fr-FR')} €</strong> de CA ou de marge impactés par an.`:''}</div>
     </div>
-    <div class="a-stat-grid">
-      <div class="a-stat danger">
-        <div class="a-stat-label">Critères manquants</div>
-        <div class="a-stat-val">${totalMissing}<span>/${results.length*5}</span></div>
-        <div class="a-stat-sub">process non délégables</div>
-      </div>
-      <div class="a-stat">
-        <div class="a-stat-label">Pôles critiques</div>
-        <div class="a-stat-val">${critN}<span>/${results.length}</span></div>
-        <div class="a-stat-sub">à traiter en priorité</div>
-      </div>
-      <div class="a-stat">
-        <div class="a-stat-label">Pôles audités</div>
-        <div class="a-stat-val">${ST.sel.length}<span>/9</span></div>
-        <div class="a-stat-sub"><button class="btn-restart" data-action="restart-audit">↺ Recommencer</button></div>
-      </div>
+    <div class="sgrid">
+      <div class="sc d"><div class="scl">Critères manquants</div><div class="scv">${totM}<span>/${results.length*5}</span></div><div class="scsub">process non délégables</div></div>
+      <div class="sc"><div class="scl">Pôles critiques</div><div class="scv">${critN}<span>/${results.length}</span></div><div class="scsub">à traiter en priorité</div></div>
+      <div class="sc"><div class="scl">Pôles audités</div><div class="scv">${ST.sel.length}<span>/9</span></div><div class="scsub"><button class="btn-rst" data-action="restart-audit">↺ Recommencer</button></div></div>
     </div>
-    <span class="a-section-label">Toile d'araignée — délégabilité par pôle</span>
+    <span class="slabel">Score d'autonomie par pôle</span>
     <div class="spider-wrap">
+      <p class="spider-intro">Chaque axe = un pôle audité. Plus la surface est grande, plus ton activité tourne sans toi. Les creux sont les priorités.</p>
       <div class="spider-legend">
-        <div class="spider-legend-item"><div class="spider-legend-dot" style="background:var(--danger)"></div>Critères manquants</div>
-        <div class="spider-legend-item"><div class="spider-legend-dot" style="background:var(--ok)"></div>Critères en place</div>
+        <div class="spider-legend-item"><div class="spider-dot" style="background:#2A9D7C"></div>Autonome (70–100)</div>
+        <div class="spider-legend-item"><div class="spider-dot" style="background:#C8A96E"></div>En cours (40–69)</div>
+        <div class="spider-legend-item"><div class="spider-dot" style="background:#D85A30"></div>Critique (0–39)</div>
       </div>
-      <canvas id="spider-canvas" style="width:100%;height:auto;display:block"></canvas>
+      <canvas id="sp" style="width:100%;height:auto;display:block"></canvas>
+      <div class="spider-scores" id="sptags"></div>
     </div>
-    <span class="a-section-label">Détail par pôle — du plus critique au plus structuré</span>
-    ${sorted.map(d=>{
-      const{sc,v}=d;
-      const criStatus=sc.criScores;
-      return`<div class="dom-result-card">
-        <div class="dom-result-head">
-        <div>
-        <div class="dom-result-name">${d.name}</div>
-        <div class="dom-result-desc">${d.desc}</div>
-        </div>
-        <div class="verd-badge" style="color:${v.c};background:${v.bg}">${v.lbl}</div>
-        </div>
-        <div class="cri-grid">${CRITERIA.map((cr,i)=>{
-          const st=criStatus[i];
-          const col=st==='ok'?'var(--ok)':st==='partial'?'var(--warn)':'var(--danger)';
-          const bg=st==='ok'?'var(--ok-bg)':st==='partial'?'var(--warn-bg)':'var(--danger-bg)';
-          const bc=st==='ok'?'var(--ok-border)':st==='partial'?'var(--warn-border)':'var(--danger-border)';
-          return`<div class="cri-item" style="background:${bg};border-color:${bc}">
-            <div class="cri-dot" style="background:${col}">${st==='ok'?'✓':'!'}</div>
-            <div><div class="cri-name" style="color:${col}">${cr.label}</div><div class="cri-test">${cr.test}</div></div>
-          </div>`;
-        }).join('')}</div>
-        <div class="dom-result-foot">
-        <div class="dom-hours">⏱ <strong>${sc.hoursWeek}h/semaine</strong> sur ce pôle${sc.hoursWasted>0?` · <span class="dom-hours-danger">${sc.hoursWasted}h récupérables</span>`:''}</div>
-        ${sc.caLost>0?`<div class="dom-ca">~${sc.caLost.toLocaleString('fr-FR')} €/an impactés</div>`:''}
-        </div>
-        </div>`;
-    }).join('')}
-    <div class="cta-box">
-      <h3>${critN>0?`${critN} pôle${critN>1?'s critique':' critique'} — c'est exactement là qu'on commence.`:'Des bases solides — passons à la vitesse supérieure.'}</h3>
-      <p>En 3 mois avec The Plannerist OS, on structure tes process, on outille chaque pôle et on te sort du quotidien. Résultat : ton activité tourne sans toi.</p>
-      <a href="https://calendly.com/seheno-theplannerist/appel-decouverte" target="_blank">Réserver mon appel découverte →</a>
-      <span class="cta-note">Appel gratuit · 30 min · Sans engagement</span>
+    <span class="slabel">Ta recommandation personnalisée</span>
+    <div class="reco">
+      <div class="reco-head">
+        <div class="reco-icon">${reco.icon}</div>
+        <div><div class="reco-tag">${reco.tag}</div><div class="reco-title">${reco.title}</div><div class="reco-pitch">${reco.pitch}</div></div>
+      </div>
+      <div class="reco-body">
+        <ul class="reco-reasons">${reco.reasons.map(r=>`<li class="reco-reason">${r}</li>`).join('')}</ul>
+        <a href="${CAL}" target="_blank" class="reco-cta">Discuter de mes résultats avec Seheno →</a>
+        <div class="reco-note">Appel découverte gratuit · 30 min · Sans engagement</div>
+      </div>
     </div>
+    <span class="slabel">Détail par pôle — du plus critique au plus structuré</span>
+    ${sorted.map(d=>{const{sc,v}=d;return`<div class="dc"><div class="dc-head"><div><div class="dc-name">${d.name}</div><div class="dc-desc">${d.desc}</div></div><div class="vbadge" style="color:${v.c};background:${v.bg}">${v.lbl}</div></div><div class="cgrid">${CRIT.map((cr,i)=>{const st=sc.cs[i];const col=st==='ok'?'var(--ok)':st==='partial'?'var(--warn)':'var(--danger)';const bg=st==='ok'?'var(--ok-bg)':st==='partial'?'var(--warn-bg)':'var(--danger-bg)';const bc=st==='ok'?'var(--ok-border)':st==='partial'?'var(--warn-border)':'var(--danger-border)';return`<div class="ci" style="background:${bg};border-color:${bc}"><div class="ci-dot" style="background:${col}">${st==='ok'?'✓':'!'}</div><div><div class="ci-name" style="color:${col}">${cr.label}</div><div class="ci-test">${cr.test}</div></div></div>`;}).join('')}</div><div class="dc-foot"><div class="dc-h">⏱ <strong>${sc.hw}h/semaine</strong>${sc.hW>0?` · <span style="color:var(--danger);font-weight:600">${sc.hW}h récupérables</span>`:''}</div>${sc.caL>0?`<div class="dc-ca">~${sc.caL.toLocaleString('fr-FR')} €/an impactés</div>`:''}</div></div>`;}).join('')}
   </div>`;
+    drawSpider(results);
+  }
 
-      const canvas=document.getElementById('spider-canvas');
-      if(canvas&&results.length>=2){
-        const dpr=window.devicePixelRatio||1;
-        const W=canvas.parentElement.clientWidth-48;
-        const H=Math.round(W*0.65);
-        canvas.width=W*dpr; canvas.height=H*dpr;
-        canvas.style.width=W+'px'; canvas.style.height=H+'px';
-        const ctx=canvas.getContext('2d');
-        ctx.scale(dpr,dpr);
-        const cx=W/2,cy=H/2,R=Math.min(W,H)/2-52;
-        const n=results.length;
-        const ang=i=>(Math.PI*2*i)/n-Math.PI/2;
-        const pt=(i,r)=>[cx+r*Math.cos(ang(i)),cy+r*Math.sin(ang(i))];
-        [1,2,3,4,5].forEach(v=>{
-          ctx.beginPath();
-          for(let i=0;i<n;i++){const[x,y]=pt(i,(R*v)/5);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
-          ctx.closePath();
-          ctx.strokeStyle=v===5?'rgba(0,0,0,.1)':'rgba(0,0,0,.04)';
-          ctx.lineWidth=1;ctx.stroke();
-        });
-        for(let i=0;i<n;i++){const[x,y]=pt(i,R);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle='rgba(0,0,0,.05)';ctx.lineWidth=1;ctx.stroke();}
-        ctx.beginPath();
-        results.forEach((d,i)=>{const v=d.sc.missing/5;const[x,y]=pt(i,R*v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-        ctx.closePath();ctx.fillStyle='rgba(216,90,48,.12)';ctx.fill();ctx.strokeStyle='#D85A30';ctx.lineWidth=2;ctx.stroke();
-        ctx.beginPath();
-        results.forEach((d,i)=>{const v=d.sc.delegScore/5;const[x,y]=pt(i,R*v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-        ctx.closePath();ctx.fillStyle='rgba(42,157,124,.1)';ctx.fill();ctx.strokeStyle='#2A9D7C';ctx.lineWidth=2;ctx.stroke();
-        results.forEach((d,i)=>{
-          [[d.sc.missing/5,'#D85A30'],[d.sc.delegScore/5,'#2A9D7C']].forEach(([v,col])=>{
-            const[x,y]=pt(i,R*v);
-            ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();
-          });
-          const[lx,ly]=pt(i,R+28);
-          ctx.font=`600 11px 'Outfit',sans-serif`;
-          ctx.fillStyle='#1C1C1C';ctx.textAlign='center';
-          ctx.fillText(d.name,lx,ly+4);
-        });
-      }
+  /* ─── ACTIONS ─── */
+  function toggleDom(id){ST.sel=ST.sel.includes(id)?ST.sel.filter(x=>x!==id):[...ST.sel,id];rHome();}
+  function startAudit(){if(ST.sel.length<2)return;ST.sc='audit';ST.di=0;ST.qi=0;ST.allA={};ST.curA={};render();document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});}
+
+  function pickAns(v){
+    ST.curA={...ST.curA,[ST.qi]:v};
+    rAudit();
+    const isLast=ST.qi===7&&ST.di===ST.sel.length-1;
+    if(!isLast) setTimeout(()=>nextQ(), 380);
+  }
+
+  function nextQ(){
+    if(ST.curA[ST.qi]===undefined)return;
+    if(ST.qi<7){ST.qi++;rAudit();return;}
+    ST.allA={...ST.allA,[ST.sel[ST.di]]:{...ST.curA}};
+    if(ST.di<ST.sel.length-1){ST.di++;ST.qi=0;ST.curA={};rAudit();}
+    else{ST.sc='results';render();}
+  }
+  function goBack(){
+    if(ST.qi>0){ST.qi--;rAudit();return;}
+    if(ST.di>0){const p=ST.sel[ST.di-1];ST.di--;ST.qi=7;ST.curA={...ST.allA[p]||{}};rAudit();}
+    else{ST.sc='home';rHome();}
+  }
+  function restartAudit(){ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{}};rHome();document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});}
+
+  /* ─── INIT ─── */
+  app.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-action]');
+    if (!el) return;
+
+    switch (el.dataset.action) {
+      case 'toggle-dom':    toggleDom(el.dataset.id); break;
+      case 'start-audit':   startAudit(); break;
+      case 'pick-answer':   pickAns(Number(el.dataset.index)); break;
+      case 'go-back':       goBack(); break;
+      case 'next-question': nextQ(); break;
+      case 'restart-audit': restartAudit(); break;
     }
+  });
 
-      /* ─── ACTIONS ─── */
-      function toggleDom(id){
-        if(ST.sel.includes(id))ST.sel=ST.sel.filter(x=>x!==id);
-        else ST.sel=[...ST.sel,id];
-        renderHome();
-      }
-      function startAudit(){
-        if(ST.sel.length<2)return;
-        ST.screen='audit';ST.di=0;ST.qi=0;ST.allAns={};ST.curAns={};
-        render();
-        document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});
-      }
-      function pickAns(v){
-        ST.curAns={...ST.curAns,[ST.qi]:v};renderAudit();
-      }
-      function nextQ(){
-        if(ST.curAns[ST.qi]===undefined)return;
-        if(ST.qi<7){ST.qi++;renderAudit();return;}
-        ST.allAns={...ST.allAns,[ST.sel[ST.di]]:{...ST.curAns}};
-        if(ST.di<ST.sel.length-1){ST.di++;ST.qi=0;ST.curAns={};renderAudit();}
-        else{ST.screen='results';render();}
-      }
-      function goBack(){
-        if(ST.qi>0){ST.qi--;renderAudit();return;}
-        if(ST.di>0){
-          const prevId=ST.sel[ST.di-1];
-          ST.di--;ST.qi=7;ST.curAns={...ST.allAns[prevId]||{}};renderAudit();
-        }else{ST.screen='home';renderHome();}
-      }
-      function restartAudit(){
-        ST={screen:'home',sel:[],di:0,qi:0,allAns:{},curAns:{}};
-        renderHome();
-        document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});
-      }
-
-      /* ─── INIT ─── */
-      app.addEventListener('click', (e) => {
-        const el = e.target.closest('[data-action]');
-        if (!el) return;
-
-        switch (el.dataset.action) {
-          case 'toggle-dom':    toggleDom(el.dataset.id); break;
-          case 'start-audit':   startAudit(); break;
-          case 'pick-answer':   pickAns(Number(el.dataset.index)); break;
-          case 'go-back':       goBack(); break;
-          case 'next-question': nextQ(); break;
-          case 'restart-audit': restartAudit(); break;
-        }
-      });
-
-      render();
+  render();
 </script>
