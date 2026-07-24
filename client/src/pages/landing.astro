@@ -869,24 +869,6 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     border-color: var(--dark);
   }
 
-  .btn-next {
-    padding: var(--space-s) var(--space-l);
-    border-radius: 999px;
-    border: none;
-    background: var(--primary-light);
-    color: var(--primary);
-    cursor: pointer;
-    font-family: inherit;
-    font-size: var(--step--1);
-    font-weight: 500;
-    transition: background-color 150ms, color 150ms;
-  }
-
-  .btn-next:hover {
-    background: var(--primary);
-    color: white;
-  }
-
   /* ── Results ── */
 
   .res-hero {
@@ -1007,27 +989,6 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     margin-bottom: var(--space-l);
     text-align: center;
     line-height: 1.5;
-  }
-
-  .spider-legend {
-    display: flex;
-    gap: var(--space-l);
-    margin-bottom: var(--space-m);
-    justify-content: center;
-  }
-
-  .spider-legend-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2xs);
-    font-size: var(--step--1);
-    color: var(--mid);
-  }
-
-  .spider-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
   }
 
   .spider-scores {
@@ -1772,11 +1733,11 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   // The 5 delegation criteria evaluated for each domain (workflow, tool, docs, training, KPIs).
   // Questions 1–5 in each domain map to these criteria.
   const CRIT=[
-    {id:'workflow',label:'Workflow écrit',test:'Quelqu\'un l\'exécute sans demander « et après ? »'},
-    {id:'outil',label:'Outil fixe',test:'Le travail a un endroit défini — pas de bricole'},
-    {id:'doc',label:'Docs de référence',test:'L\'équipe repart d\'un modèle, pas d\'une page blanche'},
-    {id:'training',label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
-    {id:'kpi',label:'Indicateurs',test:'Tu vois un problème en moins d\'une heure'},
+    {label:'Workflow écrit',test:'Quelqu\'un l\'exécute sans demander « et après ? »'},
+    {label:'Outil fixe',test:'Le travail a un endroit défini — pas de bricole'},
+    {label:'Docs de référence',test:'L\'équipe repart d\'un modèle, pas d\'une page blanche'},
+    {label:'Formation autonome',test:'Un nouveau apprend sans bloquer ton agenda'},
+    {label:'Indicateurs',test:'Tu vois un problème en moins d\'une heure'},
   ];
 
   // Labels for each of the 8 question axes (shown above the question text)
@@ -1852,11 +1813,15 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   // Priority 3 (red) = critical, 2 (amber) = needs structure, 1 (grey) = improvable, 0 (green) = well structured.
   // Used by rResults() to sort domains and color-code the result cards.
   function getVerdict(sc){
-    if(sc.dep>=3&&sc.miss>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',pri:3};
-    if(sc.dep>=3||sc.miss>=3)return{lbl:'À structurer en priorité',c:'var(--warn)',bg:'var(--warn-bg)',pri:2};
-    if(sc.miss>=1||sc.dep>=2)return{lbl:'Améliorable',c:'var(--mid)',bg:'#F5F4F2',pri:1};
-    return{lbl:'Bien structuré',c:'var(--ok)',bg:'var(--ok-bg)',pri:0};
+    if(sc.dep>=3&&sc.miss>=3)return{lbl:'Point critique',c:'var(--danger)',bg:'var(--danger-bg)',bd:'var(--danger-border)',pri:3};
+    if(sc.dep>=3||sc.miss>=3)return{lbl:'À structurer',c:'var(--warn)',bg:'var(--warn-bg)',bd:'var(--warn-border)',pri:2};
+    if(sc.miss>=1||sc.dep>=2)return{lbl:'Améliorable',c:'var(--mid)',bg:'#F5F4F2',bd:'var(--border-color)',pri:1};
+    return{lbl:'Bien structuré',c:'var(--ok)',bg:'var(--ok-bg)',bd:'var(--ok-border)',pri:0};
   }
+
+  // Converts a criteria status string to a numeric score for the spider chart.
+  // Used by drawSpider() to compute average scores per criterion across all domains.
+  function cscore(st){return st==='ok'?100:st==='partial'?50:0;}
 
   // Generates the personalized recommendation based on aggregate results across all audited domains.
   // Decision logic:
@@ -1872,50 +1837,56 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     const highCA=results.filter(d=>d.sc.caL>=2000).length;
     const avgDep=results.reduce((s,d)=>s+d.sc.dep,0)/results.length;
     const isCo=(highCA>=2||totalCA>=6000)&&avgDep>=2.5;
-    if(isCo)return{icon:'🧭',tag:'COO externalisé · 6 mois · 3 900 €/mois',title:'Tu as besoin d\'un co-pilote, pas juste d\'un process.',pitch:'Ton diagnostic révèle à la fois un manque de structure et du CA laissé sur la table. Ce n\'est pas qu\'un sujet d\'organisation — c\'est un sujet de pilotage et de marge.',reasons:[`Tu perds environ ${totalH}h/semaine — soit ${Math.round(totalH*48)}h/an — sur des opérations qui ne devraient pas arriver jusqu\'à toi.`,`${highCA} pôle${highCA>1?'s révèlent':' révèle'} un impact CA estimé à ${totalCA.toLocaleString('fr-FR')} €/an faute d\'organisation.`,'Le Co-pilotage t\'apporte un COO à temps partiel qui structure ET pilote ta marge sur 6 mois.','Weekly Business Review, optimisation de la tréso, tableau de bord — tu décides avec des chiffres, pas des intuitions.']};
-    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois · 2 500 €/mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Ton diagnostic montre que les bases ne sont pas encore en place. Avant de piloter la marge, il faut que ton activité puisse tourner sans toi.',reasons:[`${totM} critère${totM>1?'s manquants':'manquant'} sur ${results.length*5} — tes process ne sont pas encore réellement délégables.`,`Tu passes ${totalH}h/semaine sur des opérations récupérables avec les bons outils et process en place.`,'En 3 mois, on structure ton Asana, documente tes process clés et met en place les automatisations prioritaires.','À la fin, ton équipe peut travailler sans te solliciter à chaque étape.']};
+    if(isCo)return{icon:'🧭',tag:'COO externalisé · 6 mois · 3 900 €/mois',title:'Tu as besoin d\'un co-pilote, pas juste d\'un process.',pitch:'Ton diagnostic révèle un manque de structure ET du CA laissé sur la table.',reasons:[`~${totalH}h perdues/semaine — ${Math.round(totalH*48)}h/an.`,`~${totalCA.toLocaleString('fr-FR')} €/an de CA ou marge impactés.`,'COO à temps partiel qui structure ET pilote ta marge sur 6 mois.','WBR hebdo, tréso, tableau de bord — décisions chiffrées.']};
+    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois · 2 500 €/mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Les bases ne sont pas encore en place pour déléguer efficacement.',reasons:[`${totM} critère${totM>1?'s':''} manquants sur ${results.length*5} — process non délégables.`,`${totalH}h/semaine récupérables avec les bons outils en place.`,'En 3 mois : Asana structuré, process documentés, automatisations.','Ton équipe travaille sans te solliciter à chaque étape.']};
   }
 
   /* ─── SPIDER ─── */
-  // Draws the radar/spider chart on a <canvas> element and renders score tags below it.
-  // Each axis = one audited domain. The polygon area represents overall autonomy.
-  //   - Uses autoScore() to get 0–100 score per domain
-  //   - Uses autoColor() to color-code each axis dot
-  //   - Renders concentric guide rings at 25%, 50%, 75%, 100%
-  //   - Also populates the #sptags container with score tag badges
+  // Draws a radar/spider chart on a <canvas> element with 5 axes = CRIT criteria.
+  // Each axis shows the average % of that criterion across all audited domains.
+  //   - Uses cscore() to map criteria status → 0/50/100
+  //   - Polygon color = global average (green ≥70%, amber ≥40%, red <40%)
+  //   - Concentric guide rings at 25%, 50%, 75%, 100%
+  //   - Also populates #sptags with per-domain score badges (using autoScore)
   // Called by rResults() after the HTML is rendered.
   function drawSpider(results){
     const canvas=document.getElementById('sp');
     if(!canvas||results.length<2)return;
-    const scores=results.map(d=>({name:d.name,s:autoScore(d.sc),c:autoColor(autoScore(d.sc))}));
+    const avgScores=CRIT.map((_,ci)=>Math.round(results.reduce((s,d)=>s+cscore(d.sc.cs[ci]),0)/results.length));
+    const dScores=results.map(d=>({name:d.name,s:autoScore(d.sc),c:autoColor(autoScore(d.sc))}));
     const tags=document.getElementById('sptags');
-    if(tags)tags.innerHTML=scores.map(s=>`<div class="score-tag" style="background:${autoBg(s.s)};border-color:${autoBorder(s.s)}"><div class="score-tag-val" style="color:${s.c}">${s.s}</div><div class="score-tag-name">${s.name}</div><div style="font-size:9px;color:${s.c};font-weight:700;margin-top:1px">${autoLabel(s.s)}</div></div>`).join('');
+    if(tags)tags.innerHTML=dScores.map(s=>`<div class="score-tag" style="background:${autoBg(s.s)};border-color:${autoBorder(s.s)}"><div class="score-tag-val" style="color:${s.c}">${s.s}</div><div class="score-tag-name">${s.name}</div><div style="font-size:9px;color:${s.c};font-weight:700;margin-top:1px">${autoLabel(s.s)}</div></div>`).join('');
     const dpr=window.devicePixelRatio||1;
     const W=canvas.parentElement.clientWidth-48,H=Math.round(W*.62);
     canvas.width=W*dpr;canvas.height=H*dpr;
     canvas.style.width=W+'px';canvas.style.height=H+'px';
     const ctx=canvas.getContext('2d');
     ctx.scale(dpr,dpr);
-    const cx=W/2,cy=H/2,R=Math.min(W,H)/2-56,n=scores.length;
+    const cx=W/2,cy=H/2,R=Math.min(W,H)/2-56,n=5;
     const ang=i=>(Math.PI*2*i)/n-Math.PI/2;
-    const pt=(i,r)=>[cx+r*Math.cos(ang(i)),cy+r*Math.sin(ang(i))];
+    const pt=(i,v)=>[cx+R*(v/100)*Math.cos(ang(i)),cy+R*(v/100)*Math.sin(ang(i))];
     [25,50,75,100].forEach(v=>{
-      ctx.beginPath();
-      for(let i=0;i<n;i++){const[x,y]=pt(i,R*v/100);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
-      ctx.closePath();ctx.strokeStyle=v===100?'rgba(0,0,0,.1)':'rgba(0,0,0,.04)';ctx.lineWidth=1;ctx.stroke();
-      if(v<100){ctx.font='10px Outfit,sans-serif';ctx.fillStyle='rgba(0,0,0,.22)';ctx.textAlign='center';ctx.fillText(v+'%',cx,cy-R*v/100-5);}
+      ctx.beginPath();for(let i=0;i<n;i++){const[x,y]=pt(i,v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+      ctx.closePath();ctx.strokeStyle=v===100?'rgba(0,0,0,.09)':'rgba(0,0,0,.04)';ctx.lineWidth=1;ctx.stroke();
+      ctx.font='9px Outfit,sans-serif';ctx.fillStyle='rgba(0,0,0,.28)';ctx.textAlign='center';
+      ctx.fillText(v+'%',cx,cy-R*v/100-5);
     });
-    for(let i=0;i<n;i++){const[x,y]=pt(i,R);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle='rgba(0,0,0,.06)';ctx.lineWidth=1;ctx.stroke();}
+    for(let i=0;i<n;i++){const[x,y]=pt(i,100);ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle='rgba(0,0,0,.05)';ctx.lineWidth=1;ctx.stroke();}
+    CRIT.forEach((cr,i)=>{
+      const[x,y]=pt(i,100+28);
+      ctx.font='500 10px Outfit,sans-serif';ctx.fillStyle='rgba(0,0,0,.45)';ctx.textAlign='center';
+      ctx.fillText(cr.label,x,y+3);
+    });
+    const globalAvg=Math.round(avgScores.reduce((s,v)=>s+v,0)/n);
+    const col=globalAvg>=70?'#2A9D7C':globalAvg>=40?'#C8A96E':'#D85A30';
     ctx.beginPath();
-    scores.forEach((s,i)=>{const[x,y]=pt(i,R*s.s/100);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-    ctx.closePath();ctx.fillStyle='rgba(42,157,124,.08)';ctx.fill();ctx.strokeStyle='rgba(42,157,124,.4)';ctx.lineWidth=1.5;ctx.stroke();
-    scores.forEach((s,i)=>{
-      const[x,y]=pt(i,R*s.s/100);
-      ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fillStyle=s.c;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
-    });
-    scores.forEach((s,i)=>{
-      const[lx,ly]=pt(i,R+30);
-      ctx.font='600 11px Outfit,sans-serif';ctx.fillStyle='#1C1C1C';ctx.textAlign='center';ctx.fillText(s.name,lx,ly+4);
+    avgScores.forEach((v,i)=>{const[x,y]=pt(i,v);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.closePath();ctx.fillStyle=col+'18';ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=2;ctx.stroke();
+    avgScores.forEach((v,i)=>{
+      const[x,y]=pt(i,v);
+      ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
+      ctx.font='500 10px Outfit,sans-serif';ctx.fillStyle=col;ctx.textAlign='center';
+      ctx.fillText(v+'%',x,y-11);
     });
   }
 
@@ -1940,8 +1911,8 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   // Calls: toggleDom() on button clicks, startAudit() on start.
   function rHome(){
     app.innerHTML=`<div class="pad">
-    <p class="intro">Sélectionne les pôles à auditer <strong>(min. 2)</strong>. 8 questions par pôle — résultat immédiat : heures perdues, impact en €, les 5 critères manquants et ta recommandation personnalisée.</p>
-    <div class="dgrid">${DOMS.map((d,i)=>{const on=ST.sel.includes(d.id);return`<button class="db${on?' on':''}" data-action="toggle-dom" data-id="${d.id}"><div class="db-num">${on?'✓':(i+1)}</div><div><div class="db-name">${d.name}</div><div class="db-desc">${d.desc}</div></div></button>`;}).join('')}</div>
+    <p class="intro">Sélectionne les pôles à auditer <strong>(min. 2)</strong>. 8 questions par pôle — résultat immédiat avec ta recommandation personnalisée.</p>
+    <div class="dgrid">${DOMS.map((d,i)=>{const on=ST.sel.includes(d.id);const ci=ST.sel.indexOf(d.id);const col=ci>=0?DC[ci%DC.length]:null;return`<button class="db${on?' on':''}" data-action="toggle-dom" data-id="${d.id}" ${on&&col?`style="border-color:${col}55;background:${col}10"`:''}><div class="db-num" ${on&&col?`style="background:${col};border-color:${col}"`:''}>  ${on?'✓':(i+1)}</div><div><div class="db-name">${d.name}</div><div class="db-desc">${d.desc}</div></div></button>`;}).join('')}</div>
     <div class="hf">
       <button class="btn-go" data-action="start-audit" ${ST.sel.length<2?'disabled':''}>Démarrer l'audit →</button>
       <span class="hint">${ST.sel.length<2?'Sélectionne au moins 2 pôles':`${ST.sel.length} pôle${ST.sel.length>1?'s':''} · ${ST.sel.length*8} questions`}</span>
@@ -1949,28 +1920,26 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   </div>`;}
 
   /* ─── AUDIT ─── */
-  // Renders the current question: progress bar, question text, answer options, back/next buttons.
-  // Shows which domain/question we're on (e.g. "Commercial — q.3/8").
-  // On the last question of the last domain, shows "Voir mon diagnostic →" instead of "Suivant →".
+  // Renders the current question: progress bar, question text, answer options, back button.
+  // Shows domain name as colored bold text and question number/percentage.
+  // Auto-advance handles all transitions — no manual next button needed.
   // Calls: pickAns() when an answer is clicked.
   function rAudit(){
     const id=ST.sel[ST.di],dom=DOMS.find(d=>d.id===id);
+    const col=DC[ST.di%DC.length];
     const[qt,opts]=Q[id][ST.qi];
     const pct=Math.round((ST.di*8+ST.qi)/(ST.sel.length*8)*100);
-    const ch=ST.curA[ST.qi],last=ST.qi===7&&ST.di===ST.sel.length-1;
+    const ch=ST.curA[ST.qi];
     app.innerHTML=`<div class="pad">
     <div class="prog">
-      <div class="prog-top"><span>${dom.name} — q.${ST.qi+1}/8</span><span>${pct}%</span></div>
-      <div class="pbar"><div class="pfill" style="width:${pct}%"></div></div>
-      <div class="segs">${ST.sel.map((x,i)=>`<div class="seg" style="background:${i<ST.di?'var(--dark)':i===ST.di?'var(--lighter)':'var(--border-color)'}"></div>`).join('')}</div>
+      <div class="prog-top"><span style="color:${col};font-weight:500">${dom.name}</span><span>${ST.qi+1}/8 · ${pct}%</span></div>
+      <div class="pbar"><div class="pfill" style="width:${pct}%;background:${col}"></div></div>
+      <div class="segs">${ST.sel.map((x,i)=>`<div class="seg" style="background:${i<ST.di?DC[i%DC.length]:i===ST.di?DC[i%DC.length]+'55':'var(--border-color)'}"></div>`).join('')}</div>
     </div>
     <div class="ax">${AXL[ST.qi]}</div>
     <div class="qt">${qt}</div>
-    <div class="opts">${opts.map((o,i)=>`<button class="opt${ch===i?' on':''}" data-action="pick-answer" data-index="${i}"><div class="opt-d">${ch===i?'✓':i}</div><div class="opt-l">${o}</div></button>`).join('')}</div>
-    <div class="qfoot">
-      <button class="btn-back" data-action="go-back">← Retour</button>
-      ${last&&ch!==undefined?`<button class="btn-next" data-action="next-question">Voir mon diagnostic →</button>`:`<span></span>`}
-    </div>
+    <div class="opts">${opts.map((o,i)=>`<button class="opt" data-action="pick-answer" data-index="${i}" style="${ch===i?`background:${col}12;border-color:${col}55`:''}"><div class="opt-d" style="${ch===i?`background:${col};border-color:${col}`:''}">  ${ch===i?'✓':i}</div><div class="opt-l" style="${ch===i?'font-weight:500':''}">${o}</div></button>`).join('')}</div>
+    <div class="qfoot"><button class="btn-back" data-action="go-back">← Retour</button><span></span></div>
   </div>`;}
 
   /* ─── RESULTS ─── */
@@ -1979,7 +1948,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   // and drawSpider() for the canvas chart.
   // The domain cards are sorted by priority (most critical first).
   function rResults(){
-    const results=ST.sel.map(id=>{const dom=DOMS.find(d=>d.id===id);const sc=calcD(id,ST.allA[id]||{});return{...dom,sc,v:getVerdict(sc)};});
+    const results=ST.sel.map((id,ri)=>{const dom=DOMS.find(d=>d.id===id);const sc=calcD(id,ST.allA[id]||{});return{...dom,sc,v:getVerdict(sc),color:DC[ri%DC.length]};});
     const sorted=[...results].sort((a,b)=>b.v.pri-a.v.pri);
     const totalH=Math.round(results.reduce((s,d)=>s+d.sc.hW,0)*10)/10;
     const totalCA=results.reduce((s,d)=>s+d.sc.caL,0);
@@ -1987,25 +1956,23 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     const annH=Math.round(totalH*48);
     const critN=results.filter(d=>d.v.pri===3).length;
     const reco=getReco(results);
+    const avgScores=CRIT.map((_,ci)=>Math.round(results.reduce((s,d)=>s+cscore(d.sc.cs[ci]),0)/results.length));
+    const globalAvg=Math.round(avgScores.reduce((s,v)=>s+v,0)/5);
+    const globalCol=globalAvg>=70?'#2A9D7C':globalAvg>=40?'#C8A96E':'#D85A30';
     app.innerHTML=`<div class="pad">
     <div class="res-hero">
       <div class="rl">Heures perdues chaque semaine</div>
       <div class="rv">${totalH}<span>h</span></div>
-      <div class="rsub">Soit <strong>${annH}h par an</strong> passées dans des opérations qui pourraient tourner sans toi.${totalCA>0?` Et <strong>~${totalCA.toLocaleString('fr-FR')} €</strong> de CA ou de marge impactés par an.`:''}</div>
+      <div class="rsub">Soit <strong>${annH}h par an</strong> sur des opérations qui pourraient tourner sans toi.${totalCA>0?` Et <strong>~${totalCA.toLocaleString('fr-FR')} €</strong> de CA ou marge impactés par an.`:''}</div>
     </div>
     <div class="sgrid">
       <div class="sc d"><div class="scl">Critères manquants</div><div class="scv">${totM}<span>/${results.length*5}</span></div><div class="scsub">process non délégables</div></div>
       <div class="sc"><div class="scl">Pôles critiques</div><div class="scv">${critN}<span>/${results.length}</span></div><div class="scsub">à traiter en priorité</div></div>
-      <div class="sc"><div class="scl">Pôles audités</div><div class="scv">${ST.sel.length}<span>/9</span></div><div class="scsub"><button class="btn-rst" data-action="restart-audit">↺ Recommencer</button></div></div>
+      <div class="sc"><div class="scl">Score global</div><div class="scv" style="color:${globalCol}">${globalAvg}<span>%</span></div><div class="scsub"><button class="btn-rst" data-action="restart-audit">↺ Recommencer</button></div></div>
     </div>
-    <span class="slabel">Score d'autonomie par pôle</span>
+    <span class="slabel">Niveau de structuration — par critère</span>
     <div class="spider-wrap">
-      <p class="spider-intro">Chaque axe = un pôle audité. Plus la surface est grande, plus ton activité tourne sans toi. Les creux sont les priorités.</p>
-      <div class="spider-legend">
-        <div class="spider-legend-item"><div class="spider-dot" style="background:#2A9D7C"></div>Autonome (70–100)</div>
-        <div class="spider-legend-item"><div class="spider-dot" style="background:#C8A96E"></div>En cours (40–69)</div>
-        <div class="spider-legend-item"><div class="spider-dot" style="background:#D85A30"></div>Critique (0–39)</div>
-      </div>
+      <p class="spider-intro">100% = critère en place sur tous tes pôles · 0% = critère absent partout. La forme de la toile révèle tes angles morts.</p>
       <canvas id="sp" style="width:100%;height:auto;display:block"></canvas>
       <div class="spider-scores" id="sptags"></div>
     </div>
@@ -2022,7 +1989,24 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
       </div>
     </div>
     <span class="slabel">Détail par pôle — du plus critique au plus structuré</span>
-    ${sorted.map(d=>{const{sc,v}=d;return`<div class="dc"><div class="dc-head"><div><div class="dc-name">${d.name}</div><div class="dc-desc">${d.desc}</div></div><div class="vbadge" style="color:${v.c};background:${v.bg}">${v.lbl}</div></div><div class="cgrid">${CRIT.map((cr,i)=>{const st=sc.cs[i];const col=st==='ok'?'var(--ok)':st==='partial'?'var(--warn)':'var(--danger)';const bg=st==='ok'?'var(--ok-bg)':st==='partial'?'var(--warn-bg)':'var(--danger-bg)';const bc=st==='ok'?'var(--ok-border)':st==='partial'?'var(--warn-border)':'var(--danger-border)';return`<div class="ci" style="background:${bg};border-color:${bc}"><div class="ci-dot" style="background:${col}">${st==='ok'?'✓':'!'}</div><div><div class="ci-name" style="color:${col}">${cr.label}</div><div class="ci-test">${cr.test}</div></div></div>`;}).join('')}</div><div class="dc-foot"><div class="dc-h">⏱ <strong>${sc.hw}h/semaine</strong>${sc.hW>0?` · <span style="color:var(--danger);font-weight:600">${sc.hW}h récupérables</span>`:''}</div>${sc.caL>0?`<div class="dc-ca">~${sc.caL.toLocaleString('fr-FR')} €/an impactés</div>`:''}</div></div>`;}).join('')}
+    ${sorted.map(d=>{const{sc,v}=d;return`
+      <div class="dc" style="border-left:3px solid ${d.color}">
+        <div class="dc-head">
+          <div><div class="dc-name" style="display:flex;align-items:center;gap:7px"><span style="width:9px;height:9px;border-radius:50%;background:${d.color};flex-shrink:0;display:inline-block"></span>${d.name}</div><div class="dc-desc">${d.desc}</div></div>
+          <div class="vbadge" style="color:${v.c};background:${v.bg};border:0.5px solid ${v.bd}">${v.lbl}</div>
+        </div>
+        <div class="cgrid">${CRIT.map((cr,i)=>{
+          const st=sc.cs[i];
+          const col=st==='ok'?'#2A9D7C':st==='partial'?'#B8860B':'#D85A30';
+          const bg=st==='ok'?'rgba(42,157,124,.08)':st==='partial'?'rgba(184,134,11,.08)':'rgba(216,90,48,.08)';
+          const bd=st==='ok'?'rgba(42,157,124,.25)':st==='partial'?'rgba(184,134,11,.25)':'rgba(216,90,48,.25)';
+          return`<div class="ci" style="background:${bg};border-color:${bd}"><div class="ci-dot" style="background:${col}">${st==='ok'?'✓':'!'}</div><div><div class="ci-name" style="color:${col}">${cr.label}</div><div class="ci-test">${cr.test}</div></div></div>`;
+        }).join('')}</div>
+        <div class="dc-foot">
+          <div class="dc-h">⏱ <strong>${sc.hw}h/semaine</strong>${sc.hW>0?` · <span style="color:var(--danger);font-weight:600">${sc.hW}h récupérables</span>`:''}</div>
+          ${sc.caL>0?`<div class="dc-ca">~${sc.caL.toLocaleString('fr-FR')} €/an impactés</div>`:''}
+        </div>
+      </div>`;}).join('')}
   </div>`;
     drawSpider(results);
   }
@@ -2039,13 +2023,12 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
 
   // Records the user's answer for the current question, re-renders the question
   // to show the selection, then auto-advances to the next question after 380ms.
-  // On the last question, does NOT auto-advance (user must click the CTA button).
+  // Auto-advances on ALL questions including the last one (shows results).
   // Called by event delegation on answer option click.
   function pickAns(v){
     ST.curA={...ST.curA,[ST.qi]:v};
     rAudit();
-    const isLast=ST.qi===7&&ST.di===ST.sel.length-1;
-    if(!isLast) setTimeout(()=>nextQ(), 380);
+    setTimeout(()=>nextQ(), 380);
   }
 
   // Advances to the next question. If within a domain (qi<7), increments qi.
@@ -2085,7 +2068,6 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
       case 'start-audit':   startAudit(); break;
       case 'pick-answer':   pickAns(Number(el.dataset.index)); break;
       case 'go-back':       goBack(); break;
-      case 'next-question': nextQ(); break;
       case 'restart-audit': restartAudit(); break;
     }
   });
