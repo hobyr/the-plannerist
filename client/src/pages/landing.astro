@@ -1751,6 +1751,10 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
   // Index 0=0€, 1=500€, 2=2000€, 3=6000€, 4=15000€
   const CAC=[0,500,2000,6000,15000];
 
+  // Domain color palette — one color per audited domain, cycled via DC[i % DC.length].
+  // Used by rHome(), rAudit(), rResults() for progress bars, segment indicators, and domain cards.
+  const DC=['#7B6FE8','#2A9D7C','#D85A30','#C8A96E','#5B8DB8','#E07B54','#4AABA0','#9B6EBF','#C75D7B'];
+
   // Questions per domain. Each domain has exactly 8 questions:
   //   Q[domain][0] = Dependency (5 options: can the pole run without you?)
   //   Q[domain][1–5] = Delegation criteria (2–4 options each)
