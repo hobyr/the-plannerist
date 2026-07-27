@@ -45,3 +45,11 @@
   to = "/business-cases-conseil-en-pilotage-dentreprise/business-case-embrace-planner"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/*"
+  to = "/landing/:splat"
+  status = 200
+  force = true
+  [redirects.conditions]
+    Host = ["landing.theplannerist.com"]
