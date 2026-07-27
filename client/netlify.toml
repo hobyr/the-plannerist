@@ -47,7 +47,9 @@
   force = false
 
 [[redirects]]
-  from = "/landing"
-  to = "https://landing.theplannerist.com"
+  from = "/*"
+  to = "/landing"
   status = 200
   force = true
+  [redirects.conditions]
+    Host = ["landing.theplannerist.com"]
