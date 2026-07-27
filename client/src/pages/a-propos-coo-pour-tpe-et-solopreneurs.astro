@@ -1,15 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Introduction from "../components/about/Introduction.astro";
-import Journey from "../components/about/Journey.astro";
-import Solution from "../components/about/Solution.astro";
-import Workflow from "../components/about/Workflow.astro";
 import { Image } from "astro:assets";
+import SehenoPortrait from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_4.webp";
+import SehenoPortrait2 from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_1.webp";
 import funFact1 from "../assets/images/PHOTOS/The_Plannerist_-_Seheno_Roland_Garros_COO_Externalisée.jpg";
 import funFact2 from "../assets/images/PHOTOS/The_Plannerist_-_Portrait_Seheno_COO_Externalisé_2.webp";
 import funFact3 from "../assets/images/PHOTOS/THE_PLANNERIST_-A_propos_Newton.webp";
 import LinkedInLogo from "../assets/LI-In-Bug.png";
 import collaborationCover from "../assets/images/PHOTOS/The_Plannerist_-_Seheno-WORKSHOP-JUDITH.webp";
+import WorkingDuo from "../assets/images/PHOTOS/The Plannerist - Chief Operating Officer travaille en binome dirigeant.webp";
+import SehenoPortrait3 from "../assets/images/PHOTOS/The Plannerist - Portrait Seheno COO Externalisé 5.jpg";
+import Asana from "../assets/images/PHOTOS/The Plannerist -  Asana Workflow Specialist.png";
 import Head from "../components/Head.astro";
 
 const linkedInReviews = [
@@ -51,10 +52,96 @@ const linkedInReviews = [
     title="The Plannerist | Seheno, COO pour TPE et entrepreneurs"
   />
   <Layout>
-    <Introduction />
-    <Journey />
-    <Solution />
-    <Workflow />
+    <section id="welcome-about">
+      <div class="container about-intro">
+        <article>
+          <div class="title-header">Faisons connaissance</div>
+          <h1 class="page-title">Hello! Moi c'est Seheno Ratefimandimby, <span>ta COO pour PME et TPE</span></h1>
+          <p>Ce qui m'anime depuis toujours, c'est la curiosité : comprendre comment les choses fonctionnent, pourquoi elles coincent parfois, et comment les faire évoluer.</p>
+          <p>C'est cette logique qui m'a menée, au fil des expériences, à devenir COO (Chief Operating Officer) pour PME et TPE : un rôle où je peux allier recul stratégique et mise en ordre concrète.</p>
+          <p>Structuration, organisation, pilotage &ndash; je mets mon expérience de bras droit stratégique au service de ton développement.</p>
+          <a href="https://tally.so/r/wzGVok" class="button cta" target="_blank" rel="noopener noreferrer">Ton approche m'inspire <span><i class="fa-solid fa-comments"></i></span></a>
+        </article>
+        <Image src={SehenoPortrait} alt="" height={1000} class="portrait"/>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="content-card">
+        <Image src={SehenoPortrait2} height={1000} alt="" class="portrait-journey" />
+        <article>
+          <div class="title-header">La curiosité comme fil conducteur</div>
+          <h2 class="section-title">
+            Mon parcours de COO pour PME et TPE
+          </h2>
+          <p>
+            Après une classe préparatoire et une école de commerce, j'ai fait mes
+            premières armes dans l'univers du prêt-à-porter et du luxe. Des secteurs
+            exigeants, où <strong>
+              j'ai appris à concilier vision stratégique, rigueur
+              opérationnelle et attention au détail
+            </strong>.
+          </p>
+          <p>
+            C'est en lançant ma première entreprise, Embrace Planner, que tout s'est
+            aligné. J'ai pris conscience de <strong>
+              l'importance d'un système bien pensé
+              pour faire tourner une activité sans s'y épuiser
+            </strong>. J'ai structuré, testé,
+            itéré. Résultat ? La rentabilité atteinte en un peu plus d'un an, et une
+            activité capable de tourner en solo.
+          </p>
+          <p>
+            Forte de cette expérience, j'ai commencé à accompagner d'autres
+            entrepreneurs : des fondateurs ambitieux, souvent très engagés dans leur
+            activité, mais sans cadre clair pour la faire évoluer sereinement.
+          </p>
+          <p>
+            Aujourd'hui, en tant que COO externalisée, j'interviens auprès de PME et
+            d'entrepreneurs pour leur apporter ce cadre et cette expérience terrain.
+          </p>
+          <a
+            href="https://tally.so/r/wzGVok"
+            class="button cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Je veux collaborer avec toi <span
+              ><i class="fa-solid fa-people-arrows"></i></span
+            ></a
+          >
+        </article>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="container about-solution">
+          <h2 class="section-title">Basée à Boulogne-Billancourt, j'accompagne les dirigeants de PME/TPE partout en France.</h2>
+          <p>Je suis installée à Boulogne-Billancourt, aux portes de Paris, et je me déplace ponctuellement dans la capitale ainsi que dans tout le 92.</p>
+          <p>La majorité de mes accompagnements se fait toutefois à distance. Que tu sois à Lyon, Marseille, Bordeaux ou ailleurs, on travaille en visio, avec la même exigence de clarté, d'efficacité et de résultats.</p>
+          <p>Que ce soit pour une structuration d'équipe, une organisation des flux opérationnels ou un besoin de pilotage d'activité, mon approche s'adapte à ton rythme, à ton environnement et à la réalité de ton quotidien d'entrepreneur.</p>
+          <a href="https://tally.so/r/wzGVok" class="button cta" target="_blank" rel="noopener noreferrer">Discutons ensemble de tes défis business <span><i class="fa-solid fa-mug-hot"></i></span></a>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container about-workflow">
+        <div class="image-wrapper">
+          <Image src={WorkingDuo} alt="The Plannerist - Working woman with laptop sitting at desk" height={800} class="image-layer layer-1"/>
+          <Image src={SehenoPortrait3} alt="The Plannerist - Working woman with laptop sitting at desk" height={800} class="image-layer layer-2"/>
+          <Image src={Asana} alt="The Plannerist - Working woman with laptop sitting at desk" height={800} class="image-layer layer-3"/>
+        </div>
+        <article>
+          <div class="title-header">Le workflow The Plannerist</div>
+          <h2 class="section-title">Ma façon de travailler, en tant que <span>COO externalisée</span></h2>
+          <p>Mon approche s'appuie avant tout sur l'expérience terrain : des années passées à accompagner des entrepreneurs aux profils, aux ambitions et aux secteurs d'activité très différents. J'ai travaillé avec des indépendants qui lançaient leur premier service, des TPE en pleine croissance, et des entreprises déjà structurées qui voulaient retrouver plus de fluidité.</p>
+          <p>Ce parcours m'a appris une chose essentielle : il n'existe pas de méthode unique qui marche pour tout le monde. Chaque projet, chaque dirigeant·e arrive avec sa réalité : un rythme, des contraintes, une vision, parfois même des façons de travailler qui leur sont propres depuis des années.</p>
+          <p>C'est pour ça que je refuse les modèles figés. Chaque accompagnement est cousu main, adapté à ton stade d'avancement, à ta personnalité et à ce que tu veux construire.</p>
+          <p>Mon rôle ? Traduire ta vision en un fonctionnement clair et durable.</p>
+          <p>Mon objectif ? Trouver le système que tu pourras faire vivre au quotidien.</p>
+          <a href="https://calendly.com/seheno-theplannerist/appel-decouverte" class="button cta" target="_blank" rel="noopener noreferrer">Je veux en savoir plus <span><i class="fa-solid fa-arrow-right"></i></span></a>
+        </article>
+      </div>
+    </section>
 
     <section id="fun-facts">
       <h2 class="section-subheading">Fun <i>facts</i> à propos de moi</h2>
@@ -190,6 +277,163 @@ const linkedInReviews = [
   }
 
   /********************************************************/
+  /******************** INTRODUCTION **********************/
+  /********************************************************/
+  .about-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-l);
+  }
+
+  .about-intro article {
+    flex: 1 1 40ch;
+    max-width: 65ch;
+  }
+
+  .about-intro .page-title {
+    text-align: left;
+  }
+
+  .portrait {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    max-height: 750px;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  /********************************************************/
+  /******************** JOURNEY ***************************/
+  /********************************************************/
+  #journey .content-card {
+    display: grid;
+    grid-template-columns: 45% auto;
+    border-radius: 48px;
+    overflow: hidden;
+    width: min(1800px, 90vw);
+    margin-inline: auto;
+    background: linear-gradient(225deg, #084776, #265d75);
+  }
+
+  #journey article {
+    color: white;
+    padding-inline: var(--space-l);
+    align-self: center;
+  }
+
+  #journey .title-header {
+    color: var(--bg-color-light);
+  }
+
+  .portrait-journey {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  #journey .section-title {
+    text-align: left;
+    max-width: unset;
+  }
+
+  /********************************************************/
+  /******************** SOLUTION **************************/
+  /********************************************************/
+  .about-solution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-m);
+  }
+
+  .about-solution * {
+    margin-block: 0;
+  }
+
+  .about-solution p {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  /********************************************************/
+  /******************** WORKFLOW **************************/
+  /********************************************************/
+  .about-workflow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+
+  .image-wrapper {
+    position: relative;
+  }
+
+  .image-wrapper .image-layer {
+    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+  }
+
+  .image-wrapper .layer-1 {
+    position: absolute;
+    right: -100px;
+    top: 110px;
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
+    border-radius: 24px;
+  }
+
+  .image-wrapper .layer-2 {
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  .image-wrapper .layer-3 {
+    position: absolute;
+    bottom: 100px;
+    left: -70px;
+    width: 200px;
+    height: 200px;
+  }
+
+  #workflow .section-title {
+    text-align: left;
+  }
+
+  #workflow article {
+    flex: 1;
+    margin-left: 6rem;
+    padding: var(--space-l);
+    border: 1px solid var(--primary-light);
+    border-radius: 24px;
+    box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+  }
+
+  #workflow article p {
+    max-width: unset;
+  }
+
+  /********************************************************/
+  /******************** SHARED CTA ************************/
+  /********************************************************/
+  .about-intro .cta,
+  #journey .cta,
+  .about-solution .cta,
+  #workflow .cta {
+    padding-right: 0.75rem;
+  }
+
+  #journey .cta {
+    margin-top: 4rem;
+  }
+
+  #workflow .cta i {
+    transform: rotate(-45deg);
+  }
+
+  /********************************************************/
   /******************** FUN FACTS *************************/
   /********************************************************/
   #fun-facts {
@@ -213,39 +457,39 @@ const linkedInReviews = [
     flex-direction: column;
     gap: var(--space-s);
     max-width: 25rem;
+  }
 
-    .fun-fact-image {
-      width: 100%;
-      height: 100%;
-      max-height: 600px;
-      object-fit: cover;
-      border-radius: 24px;
-    }
+  .item .fun-fact-image {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 24px;
+  }
 
-    main {
-      position: relative;
-      background-color: var(--bg-color-light);
-      border-radius: 24px;
-      padding: var(--space-l);
-      z-index: 1;
+  .item main {
+    position: relative;
+    background-color: var(--bg-color-light);
+    border-radius: 24px;
+    padding: var(--space-l);
+    z-index: 1;
+  }
 
-      .digit {
-        font-size: 170px;
-        font-weight: 700;
-        position: absolute;
-        right: var(--space-l);
-        z-index: -1;
-        color: #b1cde7a0;
-        text-box-trim: trim-both;
-        text-box-edge: cap alphabetic;
-      }
+  .item main .digit {
+    font-size: 170px;
+    font-weight: 700;
+    position: absolute;
+    right: var(--space-l);
+    z-index: -1;
+    color: #b1cde7a0;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
 
-      h3 {
-        color: #2b5d8c;
-        font-weight: 900;
-        margin-top: 0;
-      }
-    }
+  .item main h3 {
+    color: #2b5d8c;
+    font-weight: 900;
+    margin-top: 0;
   }
 
   .item:nth-child(1) {
@@ -287,53 +531,53 @@ const linkedInReviews = [
   /********************************************************/
   /******************** REVIEWS ***************************/
   /********************************************************/
-  #reviews .container {
+  .about-reviews {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 
-    .reviews-grid {
-      display: grid;
-      gap: var(--space-l);
-      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-      margin-bottom: var(--space-l);
-    }
+  .about-reviews .reviews-grid {
+    display: grid;
+    gap: var(--space-l);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    margin-bottom: var(--space-l);
+  }
 
-    .review-card {
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      background-color: white;
-      box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
-      padding-inline: var(--space-m);
+  .review-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 8px hsl(0deg, 0%, 70%, 30%);
+    padding-inline: var(--space-m);
+  }
 
-      header {
-        position: relative;
-      }
-    }
+  .review-card header {
+    position: relative;
+  }
 
-    .review-reviewer-name {
-      font-family: "Outfit", sans-serif;
-      font-size: var(--step-0);
-      font-weight: 500;
-      margin-bottom: 0;
-    }
+  .review-reviewer-name {
+    font-family: "Outfit", sans-serif;
+    font-size: var(--step-0);
+    font-weight: 500;
+    margin-bottom: 0;
+  }
 
-    .review-reviewer-title {
-      font-size: var(--step--1);
-      font-weight: 200;
-      color: #808080;
-      margin-top: 0.15rem;
-      max-width: 70%;
-    }
+  .review-reviewer-title {
+    font-size: var(--step--1);
+    font-weight: 200;
+    color: #808080;
+    margin-top: 0.15rem;
+    max-width: 70%;
+  }
 
-    .linked-in-logo {
-      height: 1.5rem;
-      object-fit: contain;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: fit-content;
-    }
+  .linked-in-logo {
+    height: 1.5rem;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: fit-content;
   }
 
   /********************************************************/
@@ -343,55 +587,69 @@ const linkedInReviews = [
     display: grid;
     grid-template-columns: 50% 1fr;
     gap: var(--space-l);
+  }
 
-    .section-title {
-      text-align: left;
-    }
+  #collaboration .section-title {
+    text-align: left;
+  }
 
-    article {
-      align-self: center;
-    }
+  #collaboration article {
+    align-self: center;
+  }
 
-    .cta {
-      margin-top: 3rem;
-    }
+  #collaboration .cta {
+    margin-top: 3rem;
+  }
 
-    .collaboration-cover {
-      object-fit: cover;
-      width: 100%;
-      border-radius: 36px;
+  .collaboration-cover {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 36px;
+  }
+
+  /********************************************************/
+  /******************** RESPONSIVE ************************/
+  /********************************************************/
+  @media (max-width: 1000px) {
+    .about-intro {
+      flex-direction: column-reverse;
+      height: fit-content;
     }
   }
 
   @media (max-width: 1350px) {
-    #fun-facts .container {
-      .item-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        gap: var(--space-m);
-        height: 100%;
-      }
+    .item-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      gap: var(--space-m);
+      height: 100%;
+    }
 
-      .item {
-        position: static;
-      }
+    .item {
+      position: static;
+    }
 
-      .item:nth-of-type(1) {
-        top: 0px;
-        left: 0px;
-      }
+    .item:nth-of-type(1) {
+      top: 0px;
+      left: 0px;
+    }
 
-      .item:nth-of-type(2) {
-        top: 0px;
-        right: 0px;
-      }
+    .item:nth-of-type(2) {
+      top: 0px;
+      right: 0px;
+    }
 
-      .item:nth-of-type(3) {
-        bottom: 0px;
-        left: 0px;
-      }
+    .item:nth-of-type(3) {
+      bottom: 0px;
+      left: 0px;
+    }
+  }
+
+  @media (max-width: 1070px) {
+    .about-workflow {
+      flex-direction: column;
     }
   }
 
