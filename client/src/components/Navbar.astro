@@ -165,6 +165,7 @@ const currentPath = Astro.url.pathname;
         display: flex;
         align-items: center;
         gap: 4px;
+        z-index: 3;
 
         .fa-chevron-down {
             font-size: var(--step--2);
@@ -179,7 +180,7 @@ const currentPath = Astro.url.pathname;
         height: fit-content;
         width: 12rem;
         padding: var(--space-xs);
-        top: 3rem;
+        top: 100%;
         display: none;
     }
 
