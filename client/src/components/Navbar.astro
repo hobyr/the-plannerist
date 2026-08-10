@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { links } from "./links.js";
 import { Image } from "astro:assets";
 import logo from "../assets/logos/logo-dark.png";
+import submenuPhoto from "../assets/images/PHOTOS/The Plannerist - COO explique à un dirigeant.webp?url";
 const currentPath = Astro.url.pathname;
 ---
 
@@ -35,15 +36,27 @@ const currentPath = Astro.url.pathname;
                         );
                     } else {
                         return (
-                            <nav class="nav-link has-submenu">
+                            <nav class="nav-link has-submenu" tabindex="0" aria-haspopup="true" aria-expanded="false">
                                 {link.name}{" "}
                                 <i class="fa-solid fa-chevron-down" />
                                 <nav class="submenu">
-                                    {link.submenu.map((sublink) => (
-                                        <a href={sublink.url} class="nav-link">
-                                            {sublink.name}
-                                        </a>
-                                    ))}
+                                    <div class="sub-items">
+                                        {link.submenu.map((sublink) => (
+                                            <a href={sublink.url} class={`sub-link${currentPath === sublink.url ? " active" : ""}`}>
+                                                <span class="sub-body">
+                                                    <span class="sub-name">{sublink.name}</span>
+                                                    {sublink.desc && <span class="sub-desc">{sublink.desc}</span>}
+                                                    {sublink.text && <span class="sub-text">{sublink.text}</span>}
+                                                    <span class="button cta sub-cta">Découvrir <span><i class="fa-solid fa-arrow-right"></i></span></span>
+                                                </span>
+                                            </a>
+                                        ))}
+                                    </div>
+                                    <img
+                                        src={submenuPhoto}
+                                        alt=""
+                                        class="sub-photo"
+                                    />
                                 </nav>
                             </nav>
                         );
@@ -86,6 +99,31 @@ const currentPath = Astro.url.pathname;
         toggleBtn?.addEventListener("click", () => {
             navbar?.classList.remove("active");
             document.querySelector("body").style.overflowY = "visible";
+        });
+
+        document.querySelectorAll(".top-navbar nav.has-submenu").forEach((trigger) => {
+            const toggle = () => {
+                const open = trigger.classList.toggle("open");
+                trigger.setAttribute("aria-expanded", String(open));
+            };
+            const close = () => {
+                trigger.classList.remove("open");
+                trigger.setAttribute("aria-expanded", "false");
+            };
+            trigger.addEventListener("click", (e) => {
+                if (e.target.closest("a")) return;
+                toggle();
+            });
+            trigger.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggle();
+                }
+                if (e.key === "Escape") {
+                    close();
+                    trigger.focus();
+                }
+            });
         });
     </script>
 </header>
@@ -165,28 +203,102 @@ const currentPath = Astro.url.pathname;
         display: flex;
         align-items: center;
         gap: 4px;
+        z-index: 3;
+        visibility: visible;
 
         .fa-chevron-down {
             font-size: var(--step--2);
+            transition: transform 200ms ease;
         }
     }
 
+    nav.has-submenu.open .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
     nav.submenu {
-        position: absolute;
-        background-color: white;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        height: fit-content;
-        width: 12rem;
-        padding: var(--space-xs);
-        top: 3rem;
+        visibility: visible;
+        position: static;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-2xs);
+        width: 100%;
+        height: auto;
+        padding: var(--space-2xs) 0 0;
+    }
+
+    nav.has-submenu.open nav.submenu {
+        display: flex;
+    }
+
+    .sub-items {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        width: 100%;
+        min-width: 0;
+    }
+
+    .sub-photo {
         display: none;
     }
 
-    nav.has-submenu:hover nav.submenu {
+    .sub-link {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        padding: var(--space-xs) 0;
+        border-radius: 12px;
+        text-decoration: none;
+        text-transform: none;
+        color: var(--bg-color-dark);
+        transition: background-color 150ms ease;
+    }
+
+    .sub-body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    .sub-name {
+        font-family: var(--font-instrument-serif);
+        font-size: clamp(1.125rem, 1.1rem + 0.2vw, 1.25rem);
+        font-weight: 500;
+        color: var(--bg-color-dark);
+        transition: color 150ms ease;
+    }
+
+    .sub-desc {
+        font-family: var(--font-google-sans-flex);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--bg-color);
+    }
+
+    .sub-text {
+        font-family: var(--font-google-sans-flex);
+        font-size: 0.8125rem;
+        line-height: 1.5;
+        color: var(--mid);
+    }
+
+    .sub-cta {
+        margin-top: var(--space-2xs);
+        align-self: flex-start;
+    }
+
+    .sub-link:hover,
+    .sub-link.active {
+        background: rgba(20, 112, 175, 0.08);
+    }
+
+    .sub-link:hover .sub-name,
+    .sub-link.active .sub-name {
+        color: var(--bg-color);
     }
 
     .mobile-logo {
@@ -249,6 +361,31 @@ const currentPath = Astro.url.pathname;
         background-color: var(--primary);
     }
 
+    .sub-cta {
+        gap: var(--space-s);
+        padding: 0.15rem 0.15rem 0.15rem 0.75rem;
+        background-color: var(--primary-light);
+        color: var(--primary);
+        border-color: transparent;
+    }
+
+    .sub-cta:hover {
+        background-color: var(--primary);
+        color: var(--neutral);
+        border-color: var(--primary);
+    }
+
+    .sub-cta i {
+        width: 1.5rem;
+        background-color: var(--primary-xtra-light);
+        color: var(--primary);
+    }
+
+    .sub-cta:hover i {
+        background-color: #647f24;
+        color: var(--neutral);
+    }
+
     @media (min-width: 1000px) {
         nav {
             visibility: visible;
@@ -265,6 +402,82 @@ const currentPath = Astro.url.pathname;
         nav header,
         .toggle-button-main {
             display: none;
+        }
+
+        nav.has-submenu::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        nav.submenu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            flex-direction: row;
+            align-items: stretch;
+            width: 765px;
+            height: fit-content;
+            gap: 12px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(4, 71, 118, 0.14);
+        }
+
+        nav.submenu::before {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-left: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            border-radius: 2px;
+        }
+
+        nav.has-submenu:hover nav.submenu,
+        nav.has-submenu.open nav.submenu,
+        nav.has-submenu:focus-within nav.submenu {
+            display: flex;
+            animation: submenu-in 160ms ease;
+        }
+
+        @keyframes submenu-in {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .sub-link {
+            padding: var(--space-xs);
+        }
+
+        .sub-items {
+            flex: none;
+            width: 493px;
+            min-width: 0;
+        }
+
+        .sub-photo {
+            display: block;
+            width: 240px;
+            align-self: stretch;
+            object-fit: cover;
+            border-radius: 10px;
         }
     }
 </style>

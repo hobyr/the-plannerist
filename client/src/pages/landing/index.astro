@@ -868,6 +868,115 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     border-color: var(--dark);
   }
 
+  /* ── Lead capture ── */
+
+  .capture-head {
+    text-align: center;
+    margin-bottom: var(--space-l);
+  }
+
+  .capture-icon {
+    font-size: var(--step-5);
+    line-height: 1;
+    margin-bottom: var(--space-s);
+  }
+
+  .capture-title {
+    font-family: var(--font-instrument-serif);
+    font-size: var(--step-4);
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 0 var(--space-s) 0;
+  }
+
+  .capture-sub {
+    font-size: var(--step-0);
+    color: var(--mid);
+    max-width: 48ch;
+    margin-inline: auto;
+    line-height: 1.5;
+  }
+
+  .capture-form {
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-m);
+    margin-bottom: var(--space-m);
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .field-label {
+    font-size: var(--step--1);
+    font-weight: 500;
+    color: var(--mid);
+  }
+
+  .field-input {
+    width: 100%;
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: #fff;
+    font-family: inherit;
+    font-size: var(--step-0);
+    color: var(--dark);
+    outline: none;
+    transition: border-color 150ms;
+    box-sizing: border-box;
+  }
+
+  .field-input:focus {
+    border-color: var(--primary);
+  }
+
+  .capture-err {
+    background: var(--danger-bg);
+    color: var(--danger);
+    padding: var(--space-s) var(--space-m);
+    border-radius: 10px;
+    font-size: var(--step--1);
+    margin-bottom: var(--space-m);
+    line-height: 1.4;
+  }
+
+  .capture-cta {
+    width: 100%;
+    padding: var(--space-m);
+    border: none;
+    border-radius: 999px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-family: inherit;
+    font-size: var(--step-0);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 150ms, color 150ms;
+  }
+
+  .capture-cta:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  .capture-legal {
+    display: block;
+    text-align: center;
+    font-size: var(--step--2);
+    color: var(--mid);
+    margin-top: var(--space-s);
+    line-height: 1.4;
+  }
+
   /* ── Results ── */
 
   .res-hero {
@@ -988,36 +1097,6 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     margin-bottom: var(--space-l);
     text-align: center;
     line-height: 1.5;
-  }
-
-  .spider-scores {
-    display: flex;
-    gap: var(--space-s);
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: var(--space-l);
-  }
-
-  .score-tag {
-    text-align: center;
-    padding: var(--space-s) var(--space-m);
-    border: 1px solid;
-    border-radius: 12px;
-    min-width: 80px;
-  }
-
-  .score-tag-val {
-    font-family: var(--font-instrument-serif);
-    font-size: var(--step-4);
-    font-weight: 300;
-    line-height: 1;
-  }
-
-  .score-tag-name {
-    font-size: var(--step--1);
-    font-weight: 500;
-    color: var(--dark);
-    margin-top: var(--space-2xs);
   }
 
   /* ── Recommendation ── */
@@ -1394,6 +1473,10 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     }
 
     .cgrid {
+      grid-template-columns: 1fr;
+    }
+
+    .field-row {
       grid-template-columns: 1fr;
     }
   }
@@ -1798,20 +1881,6 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     return{dep,cs,miss,part,caL,hw,hW,ds};
   }
 
-  /* ─── AUTONOMY SCORE ─── */
-  // Computes a 0–100 autonomy score for one domain.
-  // Formula: 50% weight on dependency (lower dep = higher score) + 50% on delegation criteria met.
-  // Score ranges: 70–100 = Autonome (green), 40–69 = En cours (amber), 0–39 = Critique (red).
-  // Called by drawSpider() for each domain.
-  function autoScore(sc){return Math.round(((4-sc.dep)/4*.5+sc.ds/5*.5)*100);}
-
-  // Returns the text color, background color, and border color for a given score.
-  // Used by drawSpider() for canvas dots and by rResults() for score tag styling.
-  function autoColor(s){return s>=70?'#2A9D7C':s>=40?'#C8A96E':'#D85A30';}
-  function autoBg(s){return s>=70?'rgba(42,157,124,.1)':s>=40?'rgba(200,169,110,.1)':'rgba(216,90,48,.1)';}
-  function autoBorder(s){return s>=70?'rgba(42,157,124,.35)':s>=40?'rgba(200,169,110,.35)':'rgba(216,90,48,.35)';}
-  function autoLabel(s){return s>=70?'Autonome':s>=40?'En cours':'Critique';}
-
   // Assigns a verdict label + priority to a domain based on its scores.
   // Priority 3 (red) = critical, 2 (amber) = needs structure, 1 (grey) = improvable, 0 (green) = well structured.
   // Used by rResults() to sort domains and color-code the result cards.
@@ -1850,15 +1919,11 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
   //   - Uses cscore() to map criteria status → 0/50/100
   //   - Polygon color = global average (green ≥70%, amber ≥40%, red <40%)
   //   - Concentric guide rings at 25%, 50%, 75%, 100%
-  //   - Also populates #sptags with per-domain score badges (using autoScore)
   // Called by rResults() after the HTML is rendered.
   function drawSpider(results){
     const canvas=document.getElementById('sp');
     if(!canvas||results.length<2)return;
     const avgScores=CRIT.map((_,ci)=>Math.round(results.reduce((s,d)=>s+cscore(d.sc.cs[ci]),0)/results.length));
-    const dScores=results.map(d=>({name:d.name,s:autoScore(d.sc),c:autoColor(autoScore(d.sc))}));
-    const tags=document.getElementById('sptags');
-    if(tags)tags.innerHTML=dScores.map(s=>`<div class="score-tag" style="background:${autoBg(s.s)};border-color:${autoBorder(s.s)}"><div class="score-tag-val" style="color:${s.c}">${s.s}</div><div class="score-tag-name">${s.name}</div><div style="font-size:9px;color:${s.c};font-weight:700;margin-top:1px">${autoLabel(s.s)}</div></div>`).join('');
     const dpr=window.devicePixelRatio||1;
     const W=canvas.parentElement.clientWidth-48,H=Math.round(W*.62);
     canvas.width=W*dpr;canvas.height=H*dpr;
@@ -1901,11 +1966,13 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
   //   qi   — current question index within the domain (0–7)
   //   allA — completed answers keyed by domain id: { com: {0:2, 1:0, ...}, fin: {...} }
   //   curA — answers for the current domain being audited: {0:2, 1:1, ...}
-  let ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{}};
+  //   lead — lead-gen form values captured after the audit: {nom, email, poste, boite}
+  //   err  — lead-gen form validation error message (empty string when valid)
+  let ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{},lead:{nom:'',email:'',poste:'',boite:''},err:''};
   const app=document.getElementById('app');
 
-  // Main render router — delegates to rHome(), rAudit(), or rResults() based on ST.sc.
-  function render(){if(ST.sc==='home')rHome();else if(ST.sc==='audit')rAudit();else rResults();}
+  // Main render router — delegates to rHome(), rAudit(), rCapture(), or rResults() based on ST.sc.
+  function render(){if(ST.sc==='home')rHome();else if(ST.sc==='audit')rAudit();else if(ST.sc==='capture')rCapture();else rResults();}
 
   /* ─── HOME ─── */
   // Renders the domain selection screen: grid of 9 toggleable domain buttons + start button.
@@ -1945,6 +2012,47 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     <div class="qfoot"><button class="btn-back" data-action="go-back">← Retour</button><span></span></div>
   </div>`;}
 
+  /* ─── CAPTURE ─── */
+  // Renders the lead-gen form shown after the audit completes (before the results).
+  // Collects name, professional email, role, and company/sector.
+  // Inputs use data-action="lead-field" (handled by the 'input' delegation listener);
+  // the CTA uses data-action="submit-capture" (handled by the click listener).
+  // Calls: updLead() on field input, submitCapture() on CTA click, goBack() on back.
+  function rCapture(){
+    const l=ST.lead;
+    app.innerHTML=`<div class="pad">
+    <div class="capture-head">
+      <div class="capture-icon">🎯</div>
+      <h2 class="capture-title">Ton diagnostic est prêt</h2>
+      <p class="capture-sub">Laisse-moi tes coordonnées pour accéder à tes résultats et à ta recommandation personnalisée.</p>
+    </div>
+    <div class="capture-form">
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label">Prénom & Nom *</label>
+          <input class="field-input" data-action="lead-field" data-key="nom" type="text" placeholder="Marie Dupont" value="${l.nom}">
+        </div>
+        <div class="field">
+          <label class="field-label">Email professionnel *</label>
+          <input class="field-input" data-action="lead-field" data-key="email" type="email" placeholder="marie@entreprise.com" value="${l.email}">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label">Ton poste / métier *</label>
+          <input class="field-input" data-action="lead-field" data-key="poste" type="text" placeholder="Dirigeante, Fondatrice..." value="${l.poste}">
+        </div>
+        <div class="field">
+          <label class="field-label">Ta boîte / secteur</label>
+          <input class="field-input" data-action="lead-field" data-key="boite" type="text" placeholder="Nom de l'entreprise ou secteur" value="${l.boite}">
+        </div>
+      </div>
+      ${ST.err?`<div class="capture-err">${ST.err}</div>`:''}
+      <button class="capture-cta" data-action="submit-capture">Voir mes résultats →</button>
+      <p class="capture-legal">Tes données ne sont pas partagées. Elles me permettent uniquement de personnaliser ton suivi.</p>
+    </div>
+  </div>`;}
+
   /* ─── RESULTS ─── */
   // Renders the full results page: hero stat, spider chart, recommendation, domain detail cards.
   // Calls calcD() for each domain, getVerdict() for sorting, getReco() for recommendation,
@@ -1962,7 +2070,9 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     const avgScores=CRIT.map((_,ci)=>Math.round(results.reduce((s,d)=>s+cscore(d.sc.cs[ci]),0)/results.length));
     const globalAvg=Math.round(avgScores.reduce((s,v)=>s+v,0)/5);
     const globalCol=globalAvg>=70?'#2A9D7C':globalAvg>=40?'#C8A96E':'#D85A30';
+    const prenom=ST.lead.nom.split(' ')[0]||'';
     app.innerHTML=`<div class="pad">
+    ${prenom?`<p style="font-size:13px;color:var(--mid);margin-bottom:1.25rem">Voici ton diagnostic, <strong>${prenom}</strong> 👋</p>`:''}
     <div class="res-hero">
       <div class="rl">Heures perdues chaque semaine</div>
       <div class="rv">${totalH}<span>h</span></div>
@@ -1971,13 +2081,12 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     <div class="sgrid">
       <div class="sc d"><div class="scl">Critères manquants</div><div class="scv">${totM}<span>/${results.length*5}</span></div><div class="scsub">process non délégables</div></div>
       <div class="sc"><div class="scl">Pôles critiques</div><div class="scv">${critN}<span>/${results.length}</span></div><div class="scsub">à traiter en priorité</div></div>
-      <div class="sc"><div class="scl">Score global</div><div class="scv" style="color:${globalCol}">${globalAvg}<span>%</span></div><div class="scsub"><button class="btn-rst" data-action="restart-audit">↺ Recommencer</button></div></div>
+      <div class="sc"><div class="scl">Score global</div><div class="scv" style="color:${globalCol}">${globalAvg}<span>%</span></div><div class="scsub">de structuration</div></div>
     </div>
     <span class="slabel">Niveau de structuration — par critère</span>
     <div class="spider-wrap">
-      <p class="spider-intro">100% = critère en place sur tous tes pôles · 0% = critère absent partout. La forme de la toile révèle tes angles morts.</p>
+      <p class="spider-intro">100% = critère en place sur tous tes pôles · 0% = critère absent partout.</p>
       <canvas id="sp" style="width:100%;height:auto;display:block"></canvas>
-      <div class="spider-scores" id="sptags"></div>
     </div>
     <span class="slabel">Ta recommandation personnalisée</span>
     <div class="reco">
@@ -2010,6 +2119,7 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
           ${sc.caL>0?`<div class="dc-ca">~${sc.caL.toLocaleString('fr-FR')} €/an impactés</div>`:''}
         </div>
       </div>`;}).join('')}
+    <div style="text-align:center;margin-top:1rem"><button class="btn-rst" data-action="restart-audit">↺ Recommencer</button></div>
   </div>`;
     drawSpider(results);
   }
@@ -2036,27 +2146,54 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
 
   // Advances to the next question. If within a domain (qi<7), increments qi.
   // If at the end of a domain, saves answers to allA and moves to next domain.
-  // If at the end of the last domain, transitions to 'results' screen.
-  // Called by pickAns() (auto-advance) and event delegation (manual next).
+  // If at the end of the last domain, transitions to the 'capture' screen.
+  // Called by pickAns() (auto-advance).
   function nextQ(){
     if(ST.curA[ST.qi]===undefined)return;
     if(ST.qi<7){ST.qi++;rAudit();return;}
     ST.allA={...ST.allA,[ST.sel[ST.di]]:{...ST.curA}};
     if(ST.di<ST.sel.length-1){ST.di++;ST.qi=0;ST.curA={};rAudit();}
-    else{ST.sc='results';render();}
+    else{ST.sc='capture';render();}
   }
   // Goes back one question. If within a domain (qi>0), decrements qi.
   // If at the start of a domain (qi=0), goes to the previous domain's last question.
   // If at the very start, returns to the home screen.
+  // If on the capture screen, returns to the last domain's last question (answers restored).
   // Called by event delegation on back button click.
   function goBack(){
+    if(ST.sc==='capture'){ST.sc='audit';ST.di=ST.sel.length-1;ST.qi=7;ST.curA={...ST.allA[ST.sel[ST.di]]||{}};rAudit();return;}
     if(ST.qi>0){ST.qi--;rAudit();return;}
     if(ST.di>0){const p=ST.sel[ST.di-1];ST.di--;ST.qi=7;ST.curA={...ST.allA[p]||{}};rAudit();}
     else{ST.sc='home';rHome();}
   }
-  // Full reset: clears all state back to initial values, returns to home screen.
+  // Updates a single lead-gen form field and clears any previous validation error.
+  // Called by the 'input' delegation listener on lead-field inputs.
+  function updLead(key,val){ST.lead={...ST.lead,[key]:val};ST.err='';}
+
+  // Validates the lead-gen form, reveals the results screen, then submits the
+  // lead to Brevo in the background via the Netlify subscribe function.
+  // Required: name, valid email (contains @), role/position. Boîte is optional.
+  // Validation errors are stored in ST.err and displayed by rCapture().
+  // The Brevo send is fire-and-forget: results show immediately, failures log
+  // a warning and never block the user.
+  // Called by event delegation on the capture CTA click.
+  async function submitCapture(){
+    const{nom,email,poste,boite}=ST.lead;
+    if(!nom.trim()){ST.err='Merci d\'indiquer ton prénom et nom.';rCapture();return;}
+    if(!email.trim()||!email.includes('@')){ST.err='Merci d\'indiquer un email valide.';rCapture();return;}
+    if(!poste.trim()){ST.err='Merci d\'indiquer ton poste ou métier.';rCapture();return;}
+    ST.sc='results';render();
+    try{
+      await fetch('/.netlify/functions/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({nom,email,poste,boite,poles:ST.sel.join(', ')})
+      });
+    }catch(e){console.warn('Brevo send failed:',e);}
+  }
+  // Full reset: clears all state back to initial values (including lead data), returns to home screen.
   // Called by event delegation on restart button click.
-  function restartAudit(){ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{}};rHome();document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});}
+  function restartAudit(){ST={sc:'home',sel:[],di:0,qi:0,allA:{},curA:{},lead:{nom:'',email:'',poste:'',boite:''},err:''};rHome();document.getElementById('audit').scrollIntoView({behavior:'smooth',block:'start'});}
 
   /* ─── INIT ─── */
   // Event delegation: single click listener on the app container.
@@ -2067,12 +2204,20 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     if (!el) return;
 
     switch (el.dataset.action) {
-      case 'toggle-dom':    toggleDom(el.dataset.id); break;
-      case 'start-audit':   startAudit(); break;
-      case 'pick-answer':   pickAns(Number(el.dataset.index)); break;
-      case 'go-back':       goBack(); break;
-      case 'restart-audit': restartAudit(); break;
+      case 'toggle-dom':     toggleDom(el.dataset.id); break;
+      case 'start-audit':    startAudit(); break;
+      case 'pick-answer':    pickAns(Number(el.dataset.index)); break;
+      case 'go-back':        goBack(); break;
+      case 'submit-capture': submitCapture(); break;
+      case 'restart-audit':  restartAudit(); break;
     }
+  });
+
+  // Input delegation: routes typing in lead-gen fields to updLead().
+  // Keeps inline oninput handlers out of the markup (CSP-compatible).
+  app.addEventListener('input', (e) => {
+    const el = e.target.closest('[data-action="lead-field"]');
+    if (el) updLead(el.dataset.key, el.value);
   });
 
   // Initial render on page load
