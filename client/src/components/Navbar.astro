@@ -43,15 +43,11 @@ const currentPath = Astro.url.pathname;
                                     <div class="sub-items">
                                         {link.submenu.map((sublink) => (
                                             <a href={sublink.url} class={`sub-link${currentPath === sublink.url ? " active" : ""}`}>
-                                                {sublink.icon && (
-                                                    <span class="sub-icon">
-                                                        <i class={sublink.icon}></i>
-                                                    </span>
-                                                )}
                                                 <span class="sub-body">
                                                     <span class="sub-name">{sublink.name}</span>
                                                     {sublink.desc && <span class="sub-desc">{sublink.desc}</span>}
                                                     {sublink.text && <span class="sub-text">{sublink.text}</span>}
+                                                    <span class="button cta sub-cta">Découvrir <span><i class="fa-solid fa-arrow-right"></i></span></span>
                                                 </span>
                                             </a>
                                         ))}
@@ -241,7 +237,7 @@ const currentPath = Astro.url.pathname;
     .sub-items {
         display: flex;
         flex-direction: column;
-        gap: var(--space-2xs);
+        gap: var(--space-xs);
         width: 100%;
         min-width: 0;
     }
@@ -252,11 +248,10 @@ const currentPath = Astro.url.pathname;
 
     .sub-link {
         display: flex;
-        align-items: flex-start;
-        gap: var(--space-xs);
+        flex-direction: column;
         width: 100%;
         box-sizing: border-box;
-        padding: var(--space-2xs) 0;
+        padding: var(--space-xs) 0;
         border-radius: 12px;
         text-decoration: none;
         text-transform: none;
@@ -264,54 +259,43 @@ const currentPath = Astro.url.pathname;
         transition: background-color 150ms ease;
     }
 
-    .sub-icon {
-        flex-shrink: 0;
-        width: 2.25rem;
-        height: 2.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        background: rgba(20, 112, 175, 0.1);
-        color: var(--bg-color);
-        font-size: 1rem;
-        transition: background-color 150ms ease, color 150ms ease;
-    }
-
     .sub-body {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 4px;
         min-width: 0;
     }
 
     .sub-name {
-        font-size: clamp(0.875rem, 0.84rem + 0.15vw, 1rem);
+        font-family: var(--font-instrument-serif);
+        font-size: clamp(1.125rem, 1.1rem + 0.2vw, 1.25rem);
         font-weight: 500;
         color: var(--bg-color-dark);
         transition: color 150ms ease;
     }
 
     .sub-desc {
+        font-family: var(--font-google-sans-flex);
         font-size: 0.8125rem;
         font-weight: 500;
         color: var(--bg-color);
     }
 
     .sub-text {
+        font-family: var(--font-google-sans-flex);
         font-size: 0.8125rem;
         line-height: 1.5;
         color: var(--mid);
     }
 
+    .sub-cta {
+        margin-top: var(--space-2xs);
+        align-self: flex-start;
+    }
+
     .sub-link:hover,
     .sub-link.active {
         background: rgba(20, 112, 175, 0.08);
-    }
-
-    .sub-link:hover .sub-icon {
-        background: var(--bg-color);
-        color: white;
     }
 
     .sub-link:hover .sub-name,
@@ -379,6 +363,31 @@ const currentPath = Astro.url.pathname;
         background-color: var(--primary);
     }
 
+    .sub-cta {
+        gap: var(--space-s);
+        padding: 0.15rem 0.15rem 0.15rem 0.75rem;
+        background-color: var(--primary-light);
+        color: var(--primary);
+        border-color: transparent;
+    }
+
+    .sub-cta:hover {
+        background-color: var(--primary);
+        color: var(--neutral);
+        border-color: var(--primary);
+    }
+
+    .sub-cta i {
+        width: 1.5rem;
+        background-color: var(--primary-xtra-light);
+        color: var(--primary);
+    }
+
+    .sub-cta:hover i {
+        background-color: #647f24;
+        color: var(--neutral);
+    }
+
     @media (min-width: 1000px) {
         nav {
             visibility: visible;
@@ -413,10 +422,10 @@ const currentPath = Astro.url.pathname;
             transform: translateX(-50%);
             flex-direction: row;
             align-items: stretch;
-            width: 580px;
+            width: 765px;
             height: fit-content;
-            gap: 6px;
-            padding: 6px;
+            gap: 12px;
+            padding: 10px;
             background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 16px;
@@ -456,13 +465,13 @@ const currentPath = Astro.url.pathname;
         }
 
         .sub-link {
-            padding: var(--space-2xs) var(--space-xs);
+            padding: var(--space-xs);
         }
 
         .sub-items {
-            flex: 1;
+            flex: none;
+            width: 493px;
             min-width: 0;
-            width: auto;
         }
 
         .sub-photo {
