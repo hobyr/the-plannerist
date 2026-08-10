@@ -1910,7 +1910,7 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     const avgDep=results.reduce((s,d)=>s+d.sc.dep,0)/results.length;
     const isCo=(highCA>=2||totalCA>=6000)&&avgDep>=2.5;
     if(isCo)return{icon:'🧭',tag:'COO externalisé · 6 mois · 3 900 €/mois',title:'Tu as besoin d\'un co-pilote, pas juste d\'un process.',pitch:'Ton diagnostic révèle un manque de structure ET du CA laissé sur la table.',reasons:[`~${totalH}h perdues/semaine — ${Math.round(totalH*48)}h/an.`,`~${totalCA.toLocaleString('fr-FR')} €/an de CA ou marge impactés.`,'COO à temps partiel qui structure ET pilote ta marge sur 6 mois.','WBR hebdo, tréso, tableau de bord — décisions chiffrées.']};
-    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Les bases ne sont pas encore en place pour déléguer efficacement.',reasons:[`${totM} critère${totM>1?'s':''} manquants sur ${results.length*5} — process non délégables.`,`${totalH}h/semaine récupérables avec les bons outils en place.`,'En 3 mois : Asana structuré, process documentés, automatisations.','Ton équipe travaille sans te solliciter à chaque étape.']};
+    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois · 2 500 €/mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Les bases ne sont pas encore en place pour déléguer efficacement.',reasons:[`${totM} critère${totM>1?'s':''} manquants sur ${results.length*5} — process non délégables.`,`${totalH}h/semaine récupérables avec les bons outils en place.`,'En 3 mois : Asana structuré, process documentés, automatisations.','Ton équipe travaille sans te solliciter à chaque étape.']};
   }
 
   /* ─── SPIDER ─── */
@@ -2170,16 +2170,26 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
   // Called by the 'input' delegation listener on lead-field inputs.
   function updLead(key,val){ST.lead={...ST.lead,[key]:val};ST.err='';}
 
-  // Validates the lead-gen form, then reveals the results screen on success.
+  // Validates the lead-gen form, reveals the results screen, then submits the
+  // lead to Brevo in the background via the Netlify subscribe function.
   // Required: name, valid email (contains @), role/position. Boîte is optional.
   // Validation errors are stored in ST.err and displayed by rCapture().
+  // The Brevo send is fire-and-forget: results show immediately, failures log
+  // a warning and never block the user.
   // Called by event delegation on the capture CTA click.
-  function submitCapture(){
-    const{nom,email,poste}=ST.lead;
+  async function submitCapture(){
+    const{nom,email,poste,boite}=ST.lead;
     if(!nom.trim()){ST.err='Merci d\'indiquer ton prénom et nom.';rCapture();return;}
     if(!email.trim()||!email.includes('@')){ST.err='Merci d\'indiquer un email valide.';rCapture();return;}
     if(!poste.trim()){ST.err='Merci d\'indiquer ton poste ou métier.';rCapture();return;}
     ST.sc='results';render();
+    try{
+      await fetch('/.netlify/functions/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({nom,email,poste,boite,poles:ST.sel.join(', ')})
+      });
+    }catch(e){console.warn('Brevo send failed:',e);}
   }
   // Full reset: clears all state back to initial values (including lead data), returns to home screen.
   // Called by event delegation on restart button click.
