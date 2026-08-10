@@ -1910,7 +1910,7 @@ import review_florie from "../../assets/images/PHOTOS/Avis/The_Plannerist_-_revi
     const avgDep=results.reduce((s,d)=>s+d.sc.dep,0)/results.length;
     const isCo=(highCA>=2||totalCA>=6000)&&avgDep>=2.5;
     if(isCo)return{icon:'🧭',tag:'COO externalisé · 6 mois · 3 900 €/mois',title:'Tu as besoin d\'un co-pilote, pas juste d\'un process.',pitch:'Ton diagnostic révèle un manque de structure ET du CA laissé sur la table.',reasons:[`~${totalH}h perdues/semaine — ${Math.round(totalH*48)}h/an.`,`~${totalCA.toLocaleString('fr-FR')} €/an de CA ou marge impactés.`,'COO à temps partiel qui structure ET pilote ta marge sur 6 mois.','WBR hebdo, tréso, tableau de bord — décisions chiffrées.']};
-    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois · 2 500 €/mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Les bases ne sont pas encore en place pour déléguer efficacement.',reasons:[`${totM} critère${totM>1?'s':''} manquants sur ${results.length*5} — process non délégables.`,`${totalH}h/semaine récupérables avec les bons outils en place.`,'En 3 mois : Asana structuré, process documentés, automatisations.','Ton équipe travaille sans te solliciter à chaque étape.']};
+    return{icon:'🗂',tag:'Organisation opérationnelle · 3 mois',title:'La priorité : sortir du quotidien en 90 jours.',pitch:'Les bases ne sont pas encore en place pour déléguer efficacement.',reasons:[`${totM} critère${totM>1?'s':''} manquants sur ${results.length*5} — process non délégables.`,`${totalH}h/semaine récupérables avec les bons outils en place.`,'En 3 mois : Asana structuré, process documentés, automatisations.','Ton équipe travaille sans te solliciter à chaque étape.']};
   }
 
   /* ─── SPIDER ─── */
