@@ -3,7 +3,7 @@ import "../styles/global.css";
 import { links } from "./links.js";
 import { Image } from "astro:assets";
 import logo from "../assets/logos/logo-dark.png";
-import submenuPhoto from "../assets/images/PHOTOS/The Plannerist - COO explique à un dirigeant.webp";
+import submenuPhoto from "../assets/images/PHOTOS/The Plannerist - COO explique à un dirigeant.webp?url";
 const currentPath = Astro.url.pathname;
 ---
 
@@ -52,11 +52,9 @@ const currentPath = Astro.url.pathname;
                                             </a>
                                         ))}
                                     </div>
-                                    <Image
+                                    <img
                                         src={submenuPhoto}
                                         alt=""
-                                        width={240}
-                                        height={320}
                                         class="sub-photo"
                                     />
                                 </nav>
