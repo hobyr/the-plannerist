@@ -138,7 +138,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
           <div class="card">
             <div class="section-heading">Productivité</div>
             <Image src={why1.src} alt="" class="card-cover" />
-            <h3 class="card-title">Fluidifer une organisation qui a grandi</h3>
+            <h3 class="card-title">Fluidifier une organisation qui a grandi</h3>
             <article>
               Quand l'équipe s'agrandit, les façons de travailler doivent évoluer. Je t'aide à clarifier les rôles, structurer les process et fluidifer la circulation de l'information pour que l'entreprise fonctionne plus simplement au quotidien.
             </article>
@@ -349,70 +349,6 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
             >Voir l’étude de cas <i class="fa-solid fa-eye"></i></a
           >
         </div>
-        <!-- <div class="success-card">
-          <Image src="" alt="" />
-          <p>
-            Florie de MyBlueprintVF a débloqué sa croissance en <b
-              >structurant son activité</b
-            >, <b>en déléguant efficacement</b> et en mettant en place des <b
-              >process clairs</b
-            >.
-          </p>
-          <div class="metric">
-            <header>+20% YTD</header>
-            <main>Marge (2025 vs. 2026)</main>
-          </div>
-          <div class="metric">
-            <header>Année 1</header>
-            <main>Atteinte de la rentabilité</main>
-          </div>
-          <div class="review">
-            <blockquote>
-              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
-              bras droit. Très perspicace et vive d'esprit dans son travail,
-              elle a apporté de l'efficacité dans nos process et de la clarté
-              dans les chiffres. Ses expéreriences précédentes et sa fibre
-              marketing sont un plus dans les stratégies commerciales. C'est une
-              leader en qui on peut avoir confiance à 1000% et qui donne le
-              meilleur d'elle même. Elle est for sure un point fort dans une
-              équipe.
-            </blockquote>
-            <p>Hoby Ratefy, fondateur de The Rising Court</p>
-          </div>
-          <a href="">Voir l’étude de cas</a>
-        </div>
-        <div class="success-card">
-          <Image src="" alt="" />
-          <p>
-            Florie de MyBlueprintVF a débloqué sa croissance en <b
-              >structurant son activité</b
-            >, <b>en déléguant efficacement</b> et en mettant en place des <b
-              >process clairs</b
-            >.
-          </p>
-          <div class="metric">
-            <header>+20% YTD</header>
-            <main>Marge (2025 vs. 2026)</main>
-          </div>
-          <div class="metric">
-            <header>Année 1</header>
-            <main>Atteinte de la rentabilité</main>
-          </div>
-          <div class="review">
-            <blockquote>
-              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
-              bras droit. Très perspicace et vive d'esprit dans son travail,
-              elle a apporté de l'efficacité dans nos process et de la clarté
-              dans les chiffres. Ses expéreriences précédentes et sa fibre
-              marketing sont un plus dans les stratégies commerciales. C'est une
-              leader en qui on peut avoir confiance à 1000% et qui donne le
-              meilleur d'elle même. Elle est for sure un point fort dans une
-              équipe.
-            </blockquote>
-            <p>Hoby Ratefy, fondateur de The Rising Court</p>
-          </div>
-          <a href="">Voir l’étude de cas</a>
-        </div> -->
       </div>
     </section>
 
@@ -603,45 +539,45 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
 </html>
 
 <script>
-      // Reviews interactive code
-      const leftClicker = document.querySelector(
-        ".index-reviews .left-scroller",
-      );
-      const rightClicker = document.querySelector(
-        ".index-reviews .right-scroller",
-      );
-      const reviewCarousel = document.querySelector(".index-reviews .carousel");
-      const reviewCard = reviewCarousel?.querySelector(".review");
+  // Reviews interactive code
+  const leftClicker = document.querySelector(
+    ".index-reviews .left-scroller",
+  );
+  const rightClicker = document.querySelector(
+    ".index-reviews .right-scroller",
+  );
+  const reviewCarousel = document.querySelector(".index-reviews .carousel");
+  const reviewCard = reviewCarousel?.querySelector(".review");
 
-      leftClicker.addEventListener("click", () => {
-        reviewCarousel.scrollLeft -= reviewCard.scrollWidth;
-      });
+  leftClicker.addEventListener("click", () => {
+    reviewCarousel.scrollLeft -= reviewCard.scrollWidth;
+  });
 
-      rightClicker.addEventListener("click", () => {
-        reviewCarousel.scrollLeft += reviewCard.scrollWidth;
-      });
+  rightClicker.addEventListener("click", () => {
+    reviewCarousel.scrollLeft += reviewCard.scrollWidth;
+  });
 
-      // FAQ interactive code
-      const items = document.querySelectorAll(".steps .item");
+  // FAQ interactive code
+  const items = document.querySelectorAll(".steps .item");
 
-      items.forEach((item) => {
-        item.addEventListener("mouseover", () => {
-          item.querySelector(".explainer").style.opacity = "1";
-          item.querySelector(".explainer").style.visibility = "visible";
-        });
+  items.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      item.querySelector(".explainer").style.opacity = "1";
+      item.querySelector(".explainer").style.visibility = "visible";
+    });
 
-        item.addEventListener("mouseleave", () => {
-          item.querySelector(".explainer").style.opacity = "0";
-          item.querySelector(".explainer").style.visibility = "hidden";
-        });
-      });
-    </script>
+    item.addEventListener("mouseleave", () => {
+      item.querySelector(".explainer").style.opacity = "0";
+      item.querySelector(".explainer").style.visibility = "hidden";
+    });
+  });
+</script>
+
 <style>
   .page-heading {
     font-size: var(--step-8);
     font-family: var(--font-instrument-serif);
     font-weight: 300;
-    text-align: center;
   }
 
   .card-title {
@@ -676,8 +612,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
     .container {
       display: flex;
       flex-direction: row;
-      gap: var(--space-m);
-      overflow: hidden;
+      gap: var(--space-l);
 
       .top-image {
         flex-grow: 1;
@@ -695,7 +630,7 @@ import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_
         flex-basis: auto;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         padding-block: var(--space-l);
       }
     }

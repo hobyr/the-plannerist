@@ -3,6 +3,7 @@ import Head from "../components/Head.astro";
 import Layout from "../layouts/Layout.astro";
 import OSIcon from "../assets/organization.svg";
 import Faq from "../components/faq.astro";
+import { Image } from "astro:assets";
 
 const faqContent = [
   {
@@ -49,6 +50,26 @@ const faqContent = [
     main: "**Oui.** Même avec un chiffre d’affaires élevé, une organisation floue limite ta marge, surcharge ton temps et réduit la satisfaction client. Structurer ton entreprise te permet de rendre ton chiffre d’affaires plus rentable et ton business plus scalable.",
   },
 ];
+
+import feedbackPhoto from "../assets/images/PHOTOS/The Plannerist - COO a temps feedback a un client travail.webp";
+import why1 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_6.webp";
+import why2 from "../assets/images/PHOTOS/Questionnaire/The_Plannerist_-_Pain_Point_Carte_4.webp";
+import why3 from "../assets/images/PHOTOS/THE PLANNERIST-why3_copilotage.jpg";
+import collaborationPhoto from "../assets/images/PHOTOS/The_Plannerist_-_Seheno-WORKSHOP-JUDITH.webp";
+import collaborationPhoto2 from "../assets/images/PHOTOS/The Plannerist - Chief Operating Officer travaille en binome dirigeant.webp";
+import florie_portrait from "../assets/images/florie.jpg";
+
+// images reviews
+import google_reviews from "../assets/Google_reviews.png";
+import google_logo from "../assets/google_g_icon_download.png";
+import linkedin_logo from "../assets/LI-In-Bug.png";
+import review_muller from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Gilles_Muller.jpeg";
+import review_tardio from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Raphael_Tardio.jpeg";
+import review_gwenola from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Gwenola_Le_Ray.jpg";
+import review_irma from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Irma_Eyoum.jpeg";
+import review_rising_court from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_The_Rising_Court.webp";
+import review_nancy from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Nancy_Ntubu.jpeg";
+import review_florie from "../assets/images/PHOTOS/Avis/The_Plannerist_-_review_Florie_Gatet.jpeg";
 ---
 
 <!doctype html>
@@ -58,246 +79,378 @@ const faqContent = [
     description="Solopreneur ou dirigeant B2C ? Profite d’un Chief Operating Officer externalisé pour clarifier ta vision, optimiser ton organisation et accélérer ta croissance."
   />
   <Layout>
+    
     <section class="hero">
       <div class="container">
-        <div class="section-heading">Atteindre l'excellence opérationnelle</div>
-        <h1 class="page-heading">
-          Arrêter de se noyer dans l’opérationnel avec un COO à temps partagé
-        </h1>
-        <article>
-          <p>
-            Tu génères déjà plus de 500 000 € de chiffre d’affaires, mais en
-            interne, tout n’est pas clair : les priorités se mélangent, les
-            process sont incomplets et on te sollicite pour tout.
-          </p>
-          <p>
-            Résultat ? Tu passes ton temps à éteindre des incendies, ta marge se
-            réduit et l’expérience client en pâtit. Il est temps de sortir de
-            cette routine, de structurer ton organisation et de reprendre le
-            contrôle de ton entreprise pour gagner en efficacité, en sérénité…
-            et en rentabilité.
-          </p>
-        </article>
-        <a
-          class="button cta"
-          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-          >Réserver un appel découverte</a
-        >
+        <Image src={feedbackPhoto.src} alt="The Plannerist - COO feedback à un client" class="top-image"/>
+        <div class="content">
+          <div class="section-heading">Structurer pour scaler</div>
+          <h1 class="page-heading">Arrêter de se noyer dans l'opérationnel avec une COO à temps partagé</h1>
+          <article>
+            <p>Ton entreprise a grandi et ton organisation doit maintenant suivre. Nouveaux outils, nouveaux process, nouvelles responsabilités : le changement est nécessaire, mais le véritable enjeu est de faire adopter un nouveau fonctionnement par toute l'équipe.</p>
+            <p>Avec The Plannerist OS, j'interviens comme COO à temps partagé pendant 90 jours pour repenser ton organisation, mattre en place un système de gestion de projet adapté et accompagner ton équipe dans son adoption.</p>
+            <p>L'objectif n'est pas simplement de déployer un outil. C'est de construire un nouveau système opérationnel réellement utilisé au quotidien, qui permet à chacun de mieux travailler et à l'entreprise de gagner en fluidité.</p>
+          </article>
+          <a
+            class="button cta"
+            href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+            >Réserver un appel découverte</a
+          >
+        </div>
       </div>
     </section>
 
     <section class="why">
       <div class="container">
+        <div class="section-heading">3 raisons de structurer ses opérations</div>
         <h2 class="section-subheading">
-          Les bénéfices à travailler avec <em>un COO à temps partagé</em>
+          Les bénéfices à travailler avec une COO à temps partagé quand on est dirigeant.e d'une marque de produits
         </h2>
         <article>
-          <p>
-            Ton organisation n’est pas un détail, c’est le moteur invisible de
-            ton business. Quand les process sont flous, les priorités mal
-            définies et les responsabilités dispersées, tout devient compliqué :
-            tu passes plus de temps à gérer des urgences qu’à piloter, tes
-            équipes perdent en efficacité et les clients ressentent le manque de
-            fluidité. Chaque tâche répétitive ou chaque oubli coûte de l’argent,
-            même si le chiffre d’affaires continue de rentrer.
-          </p>
-          <p>
-            En réalité, ton entreprise pourrait générer plus de marge avec moins
-            d’effort si tout était clair et structuré. Comprendre cette
-            dynamique est le premier pas vers un business plus rentable et une
-            expérience client cohérente. En structurant tes projets, en
-            priorisant intelligemment et en déléguant efficacement, tu ne gagnes
-            pas seulement du temps : tu transformes ton organisation en un
-            levier concret de croissance, de rentabilité et de fidélisation
-            client.
-          </p>
+          <p>Ton entreprise a grandi. Tu as maintenant une équipe, davantage de clients, plus de projets et de nouvelles ambitions. Mais ce qui fonctionnait hier commence à montrer ses limites : les informations circulent moins bien, certains décisions reposent encore sur toi et les opérations deviennent plus complexes.</p>
+          <p>C'est souvent à ce moment-là qu'une COO externalisée devient utile : pour fluidifier l'organisation, amélioration la performance et construire un fonctionnement capable de soutenir la croissance.</p>
         </article>
+        <div class="card-wrapper">
+          <div class="card">
+            <div class="section-heading">Organisation</div>
+            <Image src={why1.src} alt="" class="card-cover" />
+            <h3 class="card-title">Structurer une organisation qui tient la route</h3>
+            <article>Quand l'activité grandit, les méthodes qui fonctionnaient hier atteignent leur limites. On remet à plat ton organisation, les rôles, les outils et les process pour construire un fonctoinnement plus clair et plus fluide.</article>
+          </div>
+          <div class="card">
+            <div class="section-heading">Performance</div>
+            <Image src={why2.src} alt="" class="card-cover" />
+            <h3 class="card-title">Optimiser ton fonctionnement au quotidient</h3>
+            <article>Trop de tâches manuelles, des informations dispersées, des process qui reposent encore sur quelques personnes ? J'identifie les frictions et les inefficacités pour simplifier les workflows, automatiser ce qui peut l'être et faire gagner en autonomie ton équipe.</article>
+          </div>
+          <div class="card">
+            <div class="section-heading">Scalabilité</div>
+            <Image src={why3.src} alt="" class="card-cover" />
+            <h3 class="card-title">Préparer ton entreprise à la prochaine étape</h3>
+            <article>Une organisation bien structurée doit pouvoir évoluer avec l'entreprise. On construit un système opérationnel capable d'absorber plus de volume, de projets et de complexité, sans que chaque nouvelle étape repose sur davantage d'efforts.</article>
+          </div>
+        </div>
+        <a
+          class="button cta"
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+          >Se renseigner sur les services de COO externalisé</a
+        >
       </div>
     </section>
 
-    <section id="offers">
-      <div class="content">
-        <article>
-          <h2 class="section-subheading">
-            Reprendre le contrôle et sécuriser ton business
-          </h2>
-          <p>
-            Structurer ton entreprise ne consiste pas seulement à mettre de
-            l’ordre dans tes dossiers ou à créer des to-do lists. Il s’agit de
-            définir clairement tes priorités, d’organiser tes projets avec des
-            process fiables, et de centraliser toutes les informations
-            essentielles pour que chaque décision soit rapide et efficace.
-          </p>
-          <p>
-            Avec des outils comme <strong>Asana</strong> ou des systèmes de gestion
-            de projet adaptés, tu peux <strong>
-              standardiser tes workflows, automatiser les tâches répétitives et
-              réduire drastiquement les erreurs
-            </strong>.
-          </p>
-          <p>
-            Que tu choisisses un audit rapide pour identifier les points de
-            friction ou un accompagnement complet avec The Plannerist OS pour
-            mettre en place un système opérationnel complet, chaque démarche
-            vise à optimiser ta marge, améliorer la productivité de tes équipes
-            et garantir une expérience client constante et satisfaisante.
-          </p>
-          <p class="priority-text">
-            Structurer son entreprise devient ainsi un levier direct de
-            croissance et de rentabilité, et pas seulement un “plus”
-            organisationnel.
-          </p>
-        </article>
-
-        <div class="card">
-          <header>
-            <div class="header-icon">
-              <OSIcon />
-              <h3 class="card-title">The Plannerist OS</h3>
-            </div>
-            <div class="card-tagline">
-              3 mois pour remettre de l'ordre dans ton activité.
-            </div>
-            <a
-              href="https://calendly.com/seheno-theplannerist/appel-decouverte"
-              target="_blank"
-              rel="noopener noreferrer"
+    <section class="merit">
+      <div class="container">
+        <Image src={collaborationPhoto.src} alt="The Plannerist in a workshop with a company CEO" class="top-image" />
+        <div>
+          <div class="section-heading">Quand l'entreprise change d'échelle</div>
+          <h2 class="section-subheading">Ton entreprise évolue. Ton organisation doit aussi évoluer.</h2>
+          <article>
+            <p>À mesure que ta marque se développe, les équipes se structurent, les projets se multiplient et les flux deviennent plus nombreux. Ce qui pouvait être géré simplement au départ demande désormais davantage de coordination. Les outils s'accumulent, les informations circulent de plusieurs façons et certains tâches reposent encore sur quelques personnes clés. Sans cadre commun, la croissance finit par créer plus de complexité qu'elle ne devrait.</p>
+            <p>Une organisation adaptée à ton niveau de développement te permet de :</p>
+            <ul class="fa-ul">
+              <li>
+                <span class="fa-li"
+                      ><i class="fa-regular fa-circle-check"></i></span
+                    ><strong>Donner plus d'autonomie à ton équipe</strong> avec des rôles et responsabilités clairement définis ;
+              </li>
+              <li>
+                <span class="fa-li"
+                      ><i class="fa-regular fa-circle-check"></i></span
+                    ><strong>Fluidifier les workflows</strong> pour que les projets avancent sans blocages ni relances constantes ;
+              </li>
+              <li>
+                <span class="fa-li"
+                      ><i class="fa-regular fa-circle-check"></i></span
+                    ><strong>Centraliser l'information</strong> pour que chacun retrouve rapidement ce dont il a besoin ;
+              </li>
+              <li>
+                <span class="fa-li"
+                      ><i class="fa-regular fa-circle-check"></i></span
+                    ><strong>Sécuriser les process clés</strong> avec des méthodes claires, documentées et reproductibles ;
+              </li>
+              <li>
+                <span class="fa-li"
+                      ><i class="fa-regular fa-circle-check"></i></span
+                    ><strong>Simplifier sans rigidifier</strong> en structurant juste ce qu'il faut pour accompagner ta croissance.
+              </li>
+            </ul>
+          </article>
+          <a
               class="button cta"
-              >Mettre en place mon OS <span
-                ><i class="fa-solid fa-arrow-right"></i></span
-              ></a
+              href="https://calendly.com/seheno-theplannerist/appel-decouverte"
+              >Je ne veux plus choisir</a
             >
-            <div class="modality">Paiement en 3 fois possible.</div>
-          </header>
-          <p>L'indispensable pour la gestion de projet :</p>
-          <h4>Structuration de votre organisation</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Workspace Asana organisé par pôles (Finance, Marketing, Produit,
-              etc.)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Roadmap Asana avec objectifs clairs et priorités définies
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Répartition des responsabilités et deadlines
-            </li>
-          </ul>
-          <h4>Standardisation &amp; optimisation opérationnelle</h4>
-          <ul class="fa-ul">
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Process clés templarisés sur Asana
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Checklists pour réduire erreurs et pertes de temps
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Automatisations (logistique, reporting, post-achat, leads, etc.)
-            </li>
-            <li>
-              <span class="fa-li"
-                ><i class="fa-regular fa-circle-check"></i></span
-              >Mise à jour et enrichissement de la Knowledge Base<div
-                class="macaron"
-              >
-                OFFERT
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
 
-    <section class="who">
+
+    <section class="process">
       <div class="container">
-        <h2 class="section-subheading">
-          Hello, je suis Seheno, ta COO à temps partagé attitrée
-        </h2>
-        <p>
-          Tu <strong
-            >fais déjà tourner ton activité, les clients sont là, le chiffre
-            aussi</strong
-          >. Mais tu sens que tu tires trop sur la corde pour y arriver. Les
-          journées s’allongent, les pauses s’effacent, et malgré tes efforts, tu
-          avances sans savoir si <strong
-            >ce que tu construis peut tenir la route sur le long terme</strong
-          >.
-        </p>
-        <p>
-          Tu n’as pas besoin d’un déclic de plus, ni de conseils génériques. Tu
-          as besoin de clarté. D’un temps pour <strong
-            >faire le point, poser les bons jalons, reconnecter ton savoir-faire
-            à ta performance</strong
-          >, et remettre ton énergie au service d’une <strong
-            >vraie dynamique de croissance</strong
-          >.
-        </p>
-        <p>
-          Mon rôle, en tant que directrice des opérations à temps partagé, est
-          de <strong>croiser les axes clés de ton business</strong> (marketing, commercial,
-          organisation) pour <strong
-            >t’aider à retrouver une cohérence globale au service de tes
-            objectifs de développement</strong
-          >.
-        </p>
-        <a
-          class="button cta"
-          href="https://theplannerist.com/a-propos-coo-pour-tpe-et-solopreneurs"
-          rel="noopener noreferrer"
-          target="_blank">En savoir plus sur moi</a
-        >
+        <div class="section-heading">Un bras droit à tes côtés</div>
+        <div class="content">
+          <Image src={collaborationPhoto2.src} height={1000} alt="The Plannerist - travail en binôme" class="top-image" />
+          <div class="card">
+            <header>
+              <h2>The Plannerist OS</h2>
+              <div>3 mois pour remettre de l'ordre dans ton activité.</div>
+              <a href="https://calendly.com/seheno-theplannerist/appel-decouverte" class="button cta" rel="noopener noreferrer" target="_blank">Mettre en place mon OS</a>
+              <div class="availability">Paiement en 3 fois possible.</div>
+            </header>
+            <section>
+              <p class="tagline">L'indispensable pour la gestion de projet :</p>
+              <h3>Structuration de votre organisation</h3>
+              <ul class="fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Workspace Asana organisé par pôles (Finance, Marketing, Produit, etc.)
+                </li>
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Roadmap Asana avec objectifs clairs et priorités définies
+                </li>
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Répartition des responsabilités et deadlines
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h3>Standardisation & optimisation opérationnelle</h3>
+              <ul class="fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Process clés templarisés sur Asana
+                </li>
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Checklists pour réduire erreurs et pertes de temps
+                </li>
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Automatisation (logistique, reporting, post-achat, leads, etc.)
+                </li>
+                <li>
+                  <span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>                
+                  Mise à jour enrichissement de la Knowledge Base
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="where">
-      <div class="container">
-        <h2 class="section-subheading">
-          Faire appel à un COO Externalisé où que tu sois
-        </h2>
-        <p>
-          Mon lieu de travail est à Boulogne-Billancourt, mais j<strong
-            >e peux également me déplacer sur Paris et dans le 92 (Nanterre,
-            Issy-Les-Moulineaux, Sèvres, Neuilly-sur-Seine,Courbevoie)</strong
-          >. Toutefois, la majorité des accompagnements se fait en distanciel.
-          Je m’adapte à tes besoins pour que mon accompagnement soit le plus
-          efficace.
-        </p>
+    <section class="index-successes">
+      <h2 class="section-heading">ils nous ont fait confiance</h2>
+      <h3 class="section-subheading">
+        Ils ont transformé leur entreprise avec The Plannerist
+      </h3>
+      <div class="carousel">
+        <div class="success-card">
+          <Image src={florie_portrait.src} alt="" class="story-portrait item" />
+          <p class="description item">
+            [ Entreprise MyBlueprintVF ]
+          </p>
+          <div class="metrics item">
+            <div class="metric">
+              <header>+130%</header>
+              <main>Chiffre d'affaires</main>
+            </div>
+            <div class="metric">
+              <header>8 mois</header>
+              <main>Atteinte de la rentabilité</main>
+            </div>
+          </div>
+          <div class="review item">
+            <blockquote>
+              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+              bras droit. Très perspicace et vive d'esprit dans son travail,
+              elle a apporté de l'efficacité dans nos process et de la clarté
+              dans les chiffres. Ses expéreriences précédentes et sa fibre
+              marketing sont un plus dans les stratégies commerciales. C'est une
+              leader en qui on peut avoir confiance à 1000% et qui donne le
+              meilleur d'elle même. Elle est for sure un point fort dans une
+              équipe.
+            </blockquote>
+            <p>Florie Gatet, fondatrice MyBlueprintVF</p>
+          </div>
+          <a
+            href="business-cases-conseil-en-pilotage-dentreprise/my-blueprintvf"
+            class="button cta item"
+            >Voir l’étude de cas <i class="fa-solid fa-eye"></i></a
+          >
+        </div>
       </div>
     </section>
-
-    <section class="success">
-      <div class="container">
-        <h2 class="section-subheading">
-          Hoby a fluidifié ses opérations avec The Plannerist
-        </h2>
-        <p>
-          Hoby, fondateur de The Rising Court, voulait transformer sa passion
-          pour le tennis en activité professionnelle et créer une communauté
-          pour les anglophones vivant au Japon. Ingénieur de formation mais
-          novice en marketing, il se retrouvait bloqué pour attirer ses premiers
-          clients et donner de la visibilité à son offre de coaching. Grâce à un
-          accompagnement structuré, il a pu clarifier sa stratégie, organiser
-          ses actions et lancer son activité avec confiance.
-        </p>
-        <a
-          href="https://theplannerist.com/business-cases-conseil-en-pilotage-dentreprise/business-case-the-rising-court/"
-          class="button cta"
+    
+    <section class="index-reviews">
+      <h2 class="section-heading">ils en parlent le mieux</h2>
+      <h3 class="section-subheading">
+        Ils ont optimisé leurs opérations pour scaler
+      </h3>
+      <div class="review-wrapper">
+        <div class="left-scroller"><i class="fa-solid fa-arrow-left"></i></div>
+        <div class="carousel">
+          <div class="review">
+            <header>
+              <Image src={review_muller.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Gilles Charles Muller</span>
+                <span class="date"
+                      >Directeur Général Associé Groupe Giraphes</span
+                    >
+              </div>
+                  <Image src={linkedin_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              J'ai grandement apprécié travailler avec Seheno. En effet, au
+              cours de nos collaborations (Embrace Planner puis MyBluePrintVF),
+              Seheno s'est avérée être une interlocutrice très constructive.
+              Pragmatique, elle sait faire la part des choses et se concentre
+              sur les bons sujets. Je la recommande vivement pour des postes
+              relatifs à de la gestion de projet.
+            </main>
+          </div>
+          <div class="review">
+            <header>
+              <Image src={review_tardio.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Raphaël Tardio</span>
+                <span class="date"
+                      >Entrepreneur & Co-fondateur Groupe Giraphes | CTO</span
+                    >
+              </div>
+                  <Image src={linkedin_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              Seheno est une cheffe de projet remarquable, sérieuse et
+              professionnelle. Elle est sensibles aux enjeux business de par ses
+              expériences en entrepreneuriat et sait également entrer dans des
+              détails lorsque cela est nécessaire.
+            </main>
+          </div>
+          <div class="review">
+            <header>
+              <Image src={review_nancy.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Nancy Shulunugu</span>
+                <span class="date">Fondatrice Legal Team Management</span>
+              </div>
+              <Image src={linkedin_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              Cela fait maintenant 1 année que je travaille avec Seheno dans le
+              cadre de nos activités respectives. Elle est professionnelle,
+              investie dans son travail et très à l'écoute des aspirations et
+              attentes de ses clients. Elle est continuellement dans une
+              démarche de bien faire les choses. C'est un plaisir de collaborer
+              avec elle. Je la recommande sans aucune hésitation !
+            </main>
+          </div>
+          <div class="review">
+            <header>
+              <Image src={review_florie.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Florie Gatet</span>
+                <span class="date">Fondatrice & CEO MyBluePrintVF</span>
+              </div>
+              <Image src={linkedin_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              Seheno a été bien plus qu'une simple collaboratrice, elle a été un
+              bras droit. Très perspicace et vive d'esprit dans son travail,
+              elle a apporté de l'efficacité dans nos process et de la clarté
+              dans les chiffres. Ses expéreriences précédentes et sa fibre
+              marketing sont un plus dans les stratégies commerciales. C'est une
+              leader en qui on peut avoir confiance à 1000% et qui donne le
+              meilleur d'elle même. Elle est for sure un point fort dans une
+              équipe.
+            </main>
+          </div>
+          <div class="review">
+            <header>
+              <Image src={review_irma.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Irma Eyoum</span>
+                <span class="date">Fondatrice MARLENE JO.EY PHOTOGRAPHY</span>
+              </div>
+              <Image src={google_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              <p>
+              Je suis extrêmement reconnaissante d'avoir choisi the
+              Plannerist. Travailler avec Seheno a été une vraie révélation
+              pour mon activité photo. Tout au long de l’accompagnement, j’ai
+              été guidée avec clarté, précision et beaucoup de bienveillance.
+              Nous avons construit ensemble un prévisionnel solide, clarifié
+              mes objectifs, défini mes offres et posé les bases de ma
+              stratégie d’entreprise pour bien débuter mon activité.
+              </p>
+              <p>
+              La séance m’a apporté de la structure, de la motivation et une
+              vision beaucoup plus sereine de mon projet.
+              </p>
+              <p>
+              Je recommande vivement son accompagnement à toute personne qui
+              veut développer son activité de manière alignée et
+              professionnelle !
+              </p>
+            </main>
+          </div>
+          <div class="review">
+            <header>
+              <Image src={review_gwenola.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Gwenola Le Ray</span>
+                <span class="date"
+                      >Directrice Commerciale Externalisée Félicité Consulting</span
+                    >
+              </div>
+                  <Image src={google_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              Seheno vous aide à structurer l'activité votre entreprise : mise
+              en place des process, méthodes de pilotage et cadrage projets.
+              Elle est votre experte pour faire passer votre boite à l'étape
+              supérieure en terme de business, rentabilité et efficacité !
+            </main>
+          </div>
+          <div class="review">
+            <header>
+              <Image src={review_rising_court.src} alt="" class="profile-img" />
+              <div>
+                <span class="name">Hoby Ratefy</span>
+                <span class="date">Fondateur & CEO The Rising Court</span>
+              </div>
+              <Image src={google_logo.src} alt="" class="review-logo" />
+            </header>
+            <main>
+              <p>
+              Seheno m'a grandement aidé à faire naître et grandir mon
+              entreprise de coaching tennis pour anglophones au Japon, The
+              Rising Court. Malgré mes difficultés à identifier ma clientèle
+              cible et définir mes offres, elle m'a guidé dans la réflexion,
+              et on a avancé sur la planification financière très détaillée.
+              En tant que stratégiste, elle m'a bien guidé sur les bonnes
+              actions (meilleur ROI) à faire, qui ne m'étaient pas forcément
+              évidentes.
+              </p>
+              <p>Je recommande fortement!</p>
+            </main>
+          </div>
+        </div>
+        <div class="right-scroller">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+      <a
+          href="https://calendly.com/seheno-theplannerist/appel-decouverte"
           target="_blank"
-          rel="noopener noreferrer">Voir la success story de Hoby</a
+          rel="noopener noreferrer"
+          class="button cta"
+          >Prendre RDV <span><i class="fa-solid fa-arrow-right"></i></span></a
         >
-      </div>
     </section>
 
     <section class="faq">
@@ -321,13 +474,46 @@ const faqContent = [
   </Layout>
 </html>
 
+<script>
+  // Reviews interactive code
+  const leftClicker = document.querySelector(
+    ".index-reviews .left-scroller",
+  );
+  const rightClicker = document.querySelector(
+    ".index-reviews .right-scroller",
+  );
+  const reviewCarousel = document.querySelector(".index-reviews .carousel");
+  const reviewCard = reviewCarousel?.querySelector(".review");
+
+  leftClicker.addEventListener("click", () => {
+    reviewCarousel.scrollLeft -= reviewCard.scrollWidth;
+  });
+
+  rightClicker.addEventListener("click", () => {
+    reviewCarousel.scrollLeft += reviewCard.scrollWidth;
+  });
+
+  // FAQ interactive code
+  const items = document.querySelectorAll(".steps .item");
+
+  items.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      item.querySelector(".explainer").style.opacity = "1";
+      item.querySelector(".explainer").style.visibility = "visible";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.querySelector(".explainer").style.opacity = "0";
+      item.querySelector(".explainer").style.visibility = "hidden";
+    });
+  });
+</script>
+
 <style>
   .page-heading {
     font-size: var(--step-8);
     font-family: var(--font-instrument-serif);
     font-weight: 300;
-    text-align: center;
-    margin-inline: 15vw;
   }
 
   .section-heading {
@@ -343,7 +529,10 @@ const faqContent = [
     font-family: var(--font-instrument-serif);
   }
 
-  section .container {
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -351,9 +540,145 @@ const faqContent = [
   }
 
   section.hero {
-    .page-title {
+    .container {
+      flex-direction: row;
+      gap: var(--space-l);
+
+      .top-image {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 45%;
+        aspect-ratio: 1 / 1;
+        height: stretch;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .content {
+        flex-grow: 2;
+        flex-shrink: 1;
+        flex-basis: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-block: var(--space-l);
+      }
+    }
+  }
+
+  section.why {
+    .section-subheading {
+      text-align: center;
+    }
+
+    .tagline {
+      text-align: center;
+      margin-bottom: var(--space-l);
       text-wrap: balance;
-      max-width: 35ch;
+    }
+
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      column-gap: var(--space-l);
+      margin-bottom: var(--space-l);
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border: 1px solid var(--border-color);
+      padding: var(--space-m);
+      border-radius: 8px;
+      gap: var(--space-s);
+      /* box-shadow: 0px 0px 8px 0px #dadada; */
+
+      .card-title {
+        font-family: var(--font-instrument-serif);
+      }
+
+      & * {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  section.merit {
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-m);
+
+      .section-subheading {
+        margin-inline: unset;
+      }
+
+      .top-image {
+        width: 40%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        height: stretch;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  section.process {
+    .content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-s);
+      margin-top: var(--space-xl);
+
+      .top-image {
+        object-fit: cover;
+        height: stretch;
+        width: 100%;
+        border-radius: 24px;
+      }
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: var(--space-l);
+    }
+
+    .card header {
+      h2 {
+        margin: 0;
+        font-family: var(--font-instrument-serif);
+      }
+
+      .availability {
+        color: #808080;
+      }
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+      margin: var(--space-s);
+      margin-bottom: 0;
+      padding-bottom: var(--space-m);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .card section {
+      padding-block: var(--space-xs);
+
+      h3 {
+        text-transform: uppercase;
+        font-size: var(--step-0);
+        font-weight: 500;
+      }
+
+      .tagline {
+        color: #808080;
+        font-style: italic;
+        font-weight: 500;
+      }
     }
   }
 
@@ -506,5 +831,254 @@ const faqContent = [
     border-radius: var(--space-m);
     margin-bottom: var(--space-l);
     background-color: white;
+  }
+
+  .index-reviews {
+    .section-subheading,
+    .section-heading {
+      text-align: center;
+    }
+
+    .review-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-s);
+      padding-inline: var(--space-2xl);
+      margin-bottom: var(--space-m);
+    }
+
+    .button.cta {
+      margin-inline: auto;
+    }
+
+    .left-scroller,
+    .right-scroller {
+      --length: 4rem;
+      width: var(--length);
+      aspect-ratio: 1/1;
+      border: 2px solid var(--border-color);
+      color: var(--border-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--step-2);
+      border-radius: 999px;
+
+      transition-property: color, border-color;
+      transition-duration: 150ms;
+      transition-timing-function: ease-in-out;
+    }
+
+    .left-scroller:hover,
+    .right-scroller:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .carousel {
+      display: flex;
+      justify-content: flex-start;
+      gap: var(--space-m);
+      width: 100%;
+      padding-inline: 15vw;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 0) 100%
+          );
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .review {
+            border: 1px solid var(--border-color);
+            padding: var(--space-m);
+            min-width: max(370px, calc(100vw / 5.5));
+            border-radius: 16px;
+
+            header {
+              display: flex;
+              margin-bottom: var(--space-s);
+            }
+
+            .profile-img {
+              border: 1px solid var(--border-color);
+              aspect-ratio: 1/1;
+              width: 48px;
+              height: 48px;
+              border-radius: 48px;
+              margin-right: var(--space-s);
+            }
+
+            div span {
+              display: block;
+              margin-right: var(--space-m);
+
+              &.date {
+                font-size: var(--step--1);
+                color: #808080;
+                font-weight: 200;
+              }
+            }
+
+            .review-logo {
+              max-width: 32px;
+              max-height: 32px;
+              object-fit: contain;
+              margin-left: auto;
+            }
+          }
+    }
+  }
+
+  .index-successes {
+    .section-subheading,
+    .section-heading {
+      text-align: center;
+    }
+
+    .carousel {
+      display: flex;
+    }
+
+    .buttons {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-s);
+    }
+
+    .success-card {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        "portrait portrait portrait portrait metric metric metric metric"
+      "portrait portrait portrait portrait metric metric metric metric"
+      "portrait portrait portrait portrait review review review review"
+      "description description description description review review review review"
+      "cta cta cta cta review review review review";
+      gap: var(--space-m);
+      width: 100%;
+      max-width: 1000px;
+      margin-inline: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 36px;
+      padding: var(--space-l);
+
+      .item:nth-child(1) {
+        grid-area: portrait;
+      }
+
+      .item:nth-child(2) {
+        grid-area: description;
+      }
+
+      .item:nth-child(3) {
+        grid-area: metric;
+      }
+
+      .item:nth-child(4) {
+        grid-area: review;
+      }
+
+      .item:nth-child(5) {
+        grid-area: cta;
+      }
+    }
+
+    blockquote {
+      margin: 0;
+    }
+
+    .story-portrait {
+      object-fit: cover;
+      grid-area: portrait;
+      width: 100%;
+    }
+
+    .description {
+      font-size: var(--step-1);
+      font-weight: 500;
+      text-align: left;
+      margin: 0;
+      color: var(--border-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .metrics {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-m);
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl) var(--space-m);
+      margin-bottom: var(--space-m);
+      height: 100%;
+      width: 100%;
+
+      &:nth-of-type(1) {
+        background-color: var(--primary-light);
+        color: var(--primary);
+      }
+
+      &:nth-of-type(2) {
+        background-color: var(--bg-color-light);
+        color: var(--text);
+      }
+    }
+
+    .metric header {
+      font-size: var(--step-4);
+      font-weight: 600;
+    }
+
+    .metric main {
+      font-size: var(--step-0);
+      font-weight: 400;
+      line-height: 95%;
+      margin-top: 0.5rem;
+    }
+
+    .review {
+      position: relative;
+      border: 1px solid var(--border-color);
+      padding: var(--space-m);
+    }
+
+    .review svg {
+      position: absolute;
+      top: var(--space-xs);
+      left: var(--space-xs);
+      width: 6rem;
+      height: 6rem;
+      color: var(--text);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .metric,
+    .review,
+    .story-portrait,
+    .description {
+      border-radius: 12px;
+    }
+
+    .cta {
+      margin-top: 0;
+      margin-left: 0;
+    }
   }
 </style>
