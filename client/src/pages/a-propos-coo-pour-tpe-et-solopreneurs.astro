@@ -55,8 +55,8 @@ const linkedInReviews = [
     <section id="welcome-about">
       <div class="container about-intro">
         <article>
-          <div class="title-header">Faisons connaissance</div>
-          <h1 class="page-title">Hello! Moi c'est Seheno Ratefimandimby, <span>ta COO pour PME et TPE</span></h1>
+          <div class="section-heading">Faisons connaissance</div>
+          <h1 class="page-heading">Hello! Moi c'est Seheno Maitre, <span>ta COO pour PME et TPE</span></h1>
           <p>Ce qui m'anime depuis toujours, c'est la curiosité : comprendre comment les choses fonctionnent, pourquoi elles coincent parfois, et comment les faire évoluer.</p>
           <p>C'est cette logique qui m'a menée, au fil des expériences, à devenir COO (Chief Operating Officer) pour PME et TPE : un rôle où je peux allier recul stratégique et mise en ordre concrète.</p>
           <p>Structuration, organisation, pilotage &ndash; je mets mon expérience de bras droit stratégique au service de ton développement.</p>
@@ -70,8 +70,8 @@ const linkedInReviews = [
       <div class="content-card">
         <Image src={SehenoPortrait2} height={1000} alt="" class="portrait-journey" />
         <article>
-          <div class="title-header">La curiosité comme fil conducteur</div>
-          <h2 class="section-title">
+          <div class="section-heading">La curiosité comme fil conducteur</div>
+          <h2 class="section-subheading">
             Mon parcours de COO pour PME et TPE
           </h2>
           <p>
@@ -115,7 +115,7 @@ const linkedInReviews = [
 
     <section id="solution">
       <div class="container about-solution">
-          <h2 class="section-title">Basée à Boulogne-Billancourt, j'accompagne les dirigeants de PME/TPE partout en France.</h2>
+          <h2 class="section-subheading">Basée à Boulogne-Billancourt, j'accompagne les dirigeants de PME/TPE partout en France.</h2>
           <p>Je suis installée à Boulogne-Billancourt, aux portes de Paris, et je me déplace ponctuellement dans la capitale ainsi que dans tout le 92.</p>
           <p>La majorité de mes accompagnements se fait toutefois à distance. Que tu sois à Lyon, Marseille, Bordeaux ou ailleurs, on travaille en visio, avec la même exigence de clarté, d'efficacité et de résultats.</p>
           <p>Que ce soit pour une structuration d'équipe, une organisation des flux opérationnels ou un besoin de pilotage d'activité, mon approche s'adapte à ton rythme, à ton environnement et à la réalité de ton quotidien d'entrepreneur.</p>
@@ -131,8 +131,8 @@ const linkedInReviews = [
           <Image src={Asana} alt="The Plannerist - Working woman with laptop sitting at desk" height={800} class="image-layer layer-3"/>
         </div>
         <article>
-          <div class="title-header">Le workflow The Plannerist</div>
-          <h2 class="section-title">Ma façon de travailler, en tant que <span>COO externalisée</span></h2>
+          <div class="section-heading">Le workflow The Plannerist</div>
+          <h2 class="section-subheading">Ma façon de travailler, en tant que <span>COO externalisée</span></h2>
           <p>Mon approche s'appuie avant tout sur l'expérience terrain : des années passées à accompagner des entrepreneurs aux profils, aux ambitions et aux secteurs d'activité très différents. J'ai travaillé avec des indépendants qui lançaient leur premier service, des TPE en pleine croissance, et des entreprises déjà structurées qui voulaient retrouver plus de fluidité.</p>
           <p>Ce parcours m'a appris une chose essentielle : il n'existe pas de méthode unique qui marche pour tout le monde. Chaque projet, chaque dirigeant·e arrive avec sa réalité : un rythme, des contraintes, une vision, parfois même des façons de travailler qui leur sont propres depuis des années.</p>
           <p>C'est pour ça que je refuse les modèles figés. Chaque accompagnement est cousu main, adapté à ton stade d'avancement, à ta personnalité et à ce que tu veux construire.</p>
@@ -262,6 +262,12 @@ const linkedInReviews = [
     font-style: italic;
   }
 
+  .page-heading {
+    font-size: var(--step-8);
+    font-family: var(--font-instrument-serif);
+    font-weight: 300;
+  }
+
   .section-heading {
     font-size: var(--step--1);
     font-family: var(--font-google-sans-flex);
@@ -345,6 +351,10 @@ const linkedInReviews = [
     flex-direction: column;
     align-items: center;
     gap: var(--space-m);
+
+    .section-subheading {
+      text-align: center;
+    }
   }
 
   .about-solution * {
@@ -409,6 +419,7 @@ const linkedInReviews = [
     border: 1px solid var(--primary-light);
     border-radius: 24px;
     box-shadow: 0px 0px 18px 0px hsl(0deg, 0%, 70%, 30%);
+    max-width: 800px;
   }
 
   #workflow article p {
@@ -531,17 +542,17 @@ const linkedInReviews = [
   /********************************************************/
   /******************** REVIEWS ***************************/
   /********************************************************/
-  .about-reviews {
+  #reviews {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
 
-  .about-reviews .reviews-grid {
-    display: grid;
-    gap: var(--space-l);
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    margin-bottom: var(--space-l);
+    .reviews-grid {
+      display: grid;
+      gap: var(--space-m);
+      grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+      margin-bottom: var(--space-l);
+    }
   }
 
   .review-card {
